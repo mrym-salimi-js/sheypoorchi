@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="./public/advertising-icon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>آگهی نما</title>
+</head>
+
+<style>
+  #root {
+    flex: 1 0 calc(25% - 20px)
+  }
+
+  body {
+    display: flex;
+    align-items: start !important;
+  }
+
+  @font-face {
+    font-family: Rastin;
+
+
+    src: url(/src/assets/fonts/Digi\ Rastin\ Plus\ Circle.ttf) format('truetype');
+  }
+
+  * {
+    font-family: Rastin;
+  }
+
+  .leaflet-bottom {
+    display: none;
+  }
+
+  .leaflet-touch .leaflet-control-layers,
+  .leaflet-touch .leaflet-bar {
+    border: none !important;
+    border-radius: 30px;
+  }
+
+  .leaflet-touch .leaflet-bar a:first-child {
+    border-top-left-radius: 5px !important;
+    border-top-right-radius: 5px !important;
+
+  }
+
+  .leaflet-touch .leaflet-bar a:last-child {
+    border-bottom-right-radius: 5px !important;
+    border-bottom-left-radius: 5px !important;
+  }
+
+  .leaflet-container.leaflet-touch-drag {
+    border-radius: 15px;
+  }
+
+  ::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #e4aac5;
+    border-radius: 50px;
+  }
+
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+
+  .ul-box {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .ul-box::-webkit-scrollbar {
+    display: none;
+  }
+</style>
+
+<body dir="rtl">
+  <div id="root" class="w-full h-full flex flex-col items-center"></div>
+  <script type="module" src="/src/main.jsx"></script>
+</body>
+
+</html>
