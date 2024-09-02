@@ -152,7 +152,7 @@ export function NewAdForm() {
               setNewAdStorageValue={setNewAdStorageValue}
               newAdStorageValue={newAdStorageValue}
             />
-
+            {/* New Ad Btn */}
             <span
               onClick={handleFormSubmite}
               className='w-full h-14 fixed right-0 bottom-0 z-[1000] lg:relative  flex justify-center items-center bg-[#84105C] text-white cursor-pointer rounded-lg hover:opacity-[0.7] '
