@@ -4,7 +4,7 @@ import Category from '../components/Category';
 import { AdsList } from '../components/advertisements/adComponents/AdsList';
 import { useCookies } from 'react-cookie';
 import { useEffect } from 'react';
-import AdFilters from '../components/adFilters/AdFilters';
+import AdFiltersBox from '../components/adFilters/AdFiltersBox';
 import SelectedLoc from '../components/breadCrumbs/SelectedLocs';
 import { useParams } from 'react-router-dom';
 import { useLocation, useNavigate } from 'react-router-dom';
@@ -47,7 +47,7 @@ export default function Home() {
   return (
     <>
       <SearchBar />
-      {category !== undefined && <AdFilters />}
+      {category !== undefined && <AdFiltersBox />}
       <div className='w-[80%] h-full relative flex flex-col gap-6 items-center mb-14  p-2'>
         <Category />
         <SelectedLoc />

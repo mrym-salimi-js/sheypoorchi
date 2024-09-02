@@ -8,7 +8,7 @@ import { selectedLocations } from '../../locations/selectedLocations';
 import { useNavigate, useParams } from 'react-router-dom';
 import AttrsFields from './AttrsFields';
 
-export default function Fields() {
+export function Fields() {
   const [cookie, setCookie] = useCookies();
   const navigateTo = useNavigate();
   const params = useParams();
