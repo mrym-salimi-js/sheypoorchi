@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import SingleSelected from '../../formFileds/singleSelected/SingleSelected';
 import ToggleSwich from '../../formFileds/ToggleSwich';
 import TextComponent from '../../formFileds/TextComponent';
@@ -9,7 +9,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import AttrsFields from './AttrsFields';
 
 export function Fields() {
-  const [cookie, setCookie] = useCookies();
+  const [cookie] = useCookies();
   const navigateTo = useNavigate();
   const params = useParams();
 
@@ -25,7 +25,7 @@ export function Fields() {
   const [defaultSortid, setDefaultSortid] = useState(1);
   const [openLocation, setOpenLocation] = useState(false);
 
-  // Selected Location Names Setting
+  // Selected Location Setting
   useEffect(() => {
     selectedLocations(
       cookie,
@@ -43,13 +43,14 @@ export function Fields() {
   }, []);
 
   // Find Selected Category For Filter Form
-  useEffect(() => {
+  useMemo(() => {
     if (adsCategoriesList !== undefined && category) {
       adsCategoriesList?.find((item) => {
         // Get Parent Cat Attrs
         if (item.slug === category && item.type != 0) {
           setParentCatAttr([]);
           setParentCatAttr(item.attributes);
+          setChildCatAttr([]);
           setSelectedCat(item);
           item.defaultSortid && setDefaultSortid(item.defaultSortid);
           item.sortOptions.length > 0 && setSortOptions(item.sortOptions);
@@ -89,7 +90,6 @@ export function Fields() {
           allList={adsCategoriesList}
           type={'filter'}
           defaultItem={selectedCat.name}
-          setCookie={setCookie}
           cookie={cookie}
           navigateTo={navigateTo}
         />
@@ -101,6 +101,7 @@ export function Fields() {
         adLable={'استان و شهر'}
         itemTitle={selectedLoc}
       />
+
       {openLocation && <LocationBox setOpenLocation={setOpenLocation} />}
 
       {/* Category Parent Attributes */}
@@ -113,7 +114,7 @@ export function Fields() {
       {/* Category Child Attributes */}
       {childCatAttr.length > 0 && (
         <AttrsFields
-          catAttrs={parentCatAttr}
+          catAttrs={childCatAttr}
           setOpenLocation={setOpenLocation}
         />
       )}
