@@ -1,4 +1,6 @@
-import { useState } from 'react';
+import { useLocation } from 'react-router-dom';
+import { filterSearch } from '../adFilters/filterSearch';
+import { deleteFilterSearch } from '../adFilters/deleteFilterSearch';
 
 export default function ToggleSwich({
   lable,
@@ -6,16 +8,40 @@ export default function ToggleSwich({
   storagePram,
   setNewAdStorageValue,
   newAdStorageValue,
+  type,
+  queryKey,
+  navigateTo,
 }) {
-  const [checked, setChecked] = useState(false);
+  const locationUrl = useLocation();
+  const searchItems = new URLSearchParams(locationUrl.search);
+
   const handleInput = (e) => {
-    setChecked(!checked);
-    newAdStorageValue &&
+    // Insert And Update Filter Items Into Url
+    if (type === 'filter') {
+      filterSearch(
+        queryKey,
+        e.target.checked,
+        searchItems,
+        locationUrl,
+        navigateTo
+      );
+    }
+
+    // Insert And Update Filter Items Into Url
+    if (e.target.checked === false) {
+      deleteFilterSearch(searchItems, queryKey, navigateTo, locationUrl);
+    }
+
+    // Insert And Update LocalStorage Checked (in newAd form)
+    if (newAdStorageValue) {
       setNewAdStorageValue({
         ...newAdStorageValue,
         [`${storagePram}`]: e.target.checked,
       });
+    }
   };
+
+  const filterChecked = searchItems.get(queryKey) === 'true' ? true : false;
   return (
     <div className='w-full  flex flex-col gap-4'>
       <div className='w-full flex justify-between items-center pb-2 ]'>
@@ -26,8 +52,9 @@ export default function ToggleSwich({
             type='checkbox'
             className='sr-only peer'
             checked={
-              checked
-              //   newAdStorageValue !== undefined && newAdStorageValue[storagePram]
+              newAdStorageValue !== undefined
+                ? newAdStorageValue[storagePram]
+                : filterChecked
             }
             readOnly
           />

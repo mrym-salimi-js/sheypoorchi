@@ -25,10 +25,10 @@ export default function Home() {
   );
 
   const category = params.category;
-  console.log(category);
 
   useEffect(() => {
     const queryParams = new URLSearchParams(locationUrl.search);
+
     if (cookie['cities'] !== undefined && cookie['cities'].length > 0) {
       queryParams.set('cities', cookieCitiesInUrl);
       navigateTo({

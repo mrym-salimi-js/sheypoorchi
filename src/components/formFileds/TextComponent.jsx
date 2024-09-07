@@ -67,7 +67,8 @@ export default function TextComponent({
       adVal
     );
 
-    setNewAdStorageValue({ ...newAdStorageValue, [`${storagePram}`]: adVal });
+    setNewAdStorageValue !== undefined &&
+      setNewAdStorageValue({ ...newAdStorageValue, [`${storagePram}`]: adVal });
   };
 
   return (
@@ -84,7 +85,7 @@ export default function TextComponent({
           <p
             className={`w-full text-md transition-all absolute bottom-3 ${
               ((inputShow !== undefined && inputShow === adLable) ||
-                itemTitle ||
+                itemTitle !== undefined ||
                 (newAdStorageValue &&
                   (newAdStorageValue[storagePram]?.lable ||
                     (typeof newAdStorageValue[storagePram] !== 'object' &&

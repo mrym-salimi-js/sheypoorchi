@@ -5,8 +5,10 @@ import TextComponent from '../../formFileds/TextComponent';
 import LocationBox from '../../locations/LocationBox';
 import { useCookies } from 'react-cookie';
 import { selectedLocations } from '../../locations/selectedLocations';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import AttrsFields from './AttrsFields';
+import { allCatSortOptions } from '../categorySortOptionTyps';
+import { deleteFilterSearch } from '../deleteFilterSearch';
 
 export function Fields() {
   const [cookie] = useCookies();
@@ -24,6 +26,7 @@ export function Fields() {
   const [sortOptions, setSortOptions] = useState([]);
   const [defaultSortid, setDefaultSortid] = useState(1);
   const [openLocation, setOpenLocation] = useState(false);
+  const locationUrl = useLocation();
 
   // Selected Location Setting
   useEffect(() => {
@@ -69,6 +72,18 @@ export function Fields() {
     }
   }, [category, adsCategoriesList]);
 
+  // Get Url Search
+  const searchItems = new URLSearchParams(locationUrl.search);
+  // Find Selected Sort Opton In Url
+  const [selctedSo, setSelectedSo] = useState();
+  useEffect(() => {
+    deleteFilterSearch(searchItems, 'o', navigateTo, locationUrl);
+    const selctedSos = allCatSortOptions.find((soItem) => {
+      return soItem.slug === searchItems.get('o');
+    });
+    setSelectedSo(selctedSos);
+  }, [category]);
+
   return (
     <div className='w-full h-auto p-6 flex flex-col gap-8 pb-[5.25rem]'>
       {/* SortOptions */}
@@ -76,12 +91,23 @@ export function Fields() {
         <SingleSelected
           lable={'مرتب سازی'}
           allList={sortOptions}
-          defaultItem={sortOptions.find((o) => o.id === defaultSortid).title}
+          defaultItem={
+            selctedSo !== undefined
+              ? selctedSo?.name
+              : sortOptions.find((o) => o.id === defaultSortid).title
+          }
           type={'filter'}
+          navigateTo={navigateTo}
         />
       )}
 
-      <ToggleSwich lable='فقط آگهی های عکس دار' />
+      {/* By Photo Ad Switch */}
+      <ToggleSwich
+        lable='فقط آگهی های عکس دار'
+        type={'filter'}
+        queryKey={'wp'}
+        navigateTo={navigateTo}
+      />
 
       {/* Categories */}
       {selectedCat && (
@@ -90,7 +116,7 @@ export function Fields() {
           allList={adsCategoriesList}
           type={'filter'}
           defaultItem={selectedCat.name}
-          cookie={cookie}
+          cookie={cookie['cities']}
           navigateTo={navigateTo}
         />
       )}
@@ -109,6 +135,7 @@ export function Fields() {
         <AttrsFields
           catAttrs={parentCatAttr}
           setOpenLocation={setOpenLocation}
+          navigateTo={navigateTo}
         />
       )}
       {/* Category Child Attributes */}
@@ -116,6 +143,7 @@ export function Fields() {
         <AttrsFields
           catAttrs={childCatAttr}
           setOpenLocation={setOpenLocation}
+          navigateTo={navigateTo}
         />
       )}
     </div>

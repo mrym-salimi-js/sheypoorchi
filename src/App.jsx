@@ -28,6 +28,23 @@ function App() {
   }, []);
 
   // useEffect(() => {
+  //   const allSO = [];
+  //   adsCategoriesList.find((item) => {
+  //     item.sortOptions?.map((so) => {
+  //       allSO.push(so.title);
+  //     });
+
+  //     item.children?.map((itemCh) => {
+  //       itemCh.sortOptions?.map((soCh) => {
+  //         allSO.push(soCh.title);
+  //       });
+  //     });
+  //   });
+  //   const uniqueArray = new Set(allSO);
+  //   console.log(uniqueArray);
+  // }, [adsCategoriesList]);
+
+  // useEffect(() => {
   //   const cats = JSON.parse(localStorage.getItem('ads_categories_list'));
   //   const locs = JSON.parse(localStorage.getItem('ads_locations_list'));
 

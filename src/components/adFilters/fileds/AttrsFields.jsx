@@ -2,7 +2,7 @@ import SingleSelected from '../../formFileds/singleSelected/SingleSelected';
 import TextComponent from '../../formFileds/TextComponent';
 import ToggleSwich from '../../formFileds/ToggleSwich';
 
-export default function AttrsFields({ catAttrs, setOpenLocation }) {
+export default function AttrsFields({ catAttrs, setOpenLocation, navigateTo }) {
   return catAttrs?.map((item, index) => {
     if (item.order == 0) {
       if (item.type == 1 || item.type == 6 || item.type == 0) {
@@ -45,10 +45,19 @@ export default function AttrsFields({ catAttrs, setOpenLocation }) {
             key={index}
             lable={item.name || item.title}
             allList={item.options}
+            type={'filter'}
           />
         );
       } else if (item.type == 7) {
-        return <ToggleSwich lable={item.name || item.title} key={index} />;
+        return (
+          <ToggleSwich
+            lable={item.name || item.title}
+            key={index}
+            type={'filter'}
+            queryKey={item.queryKey}
+            navigateTo={navigateTo}
+          />
+        );
       }
     }
   });

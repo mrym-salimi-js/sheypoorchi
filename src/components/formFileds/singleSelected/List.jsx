@@ -66,6 +66,7 @@ export function List({
               setFilterListTitle={setFilterListTitle}
               cookie={cookie}
               navigateTo={navigateTo}
+              lable={lable}
             />
           </ul>
         </div>

@@ -3,6 +3,8 @@ import { setSingleSelectedStorage } from '../../newAd/formFunctions/setSingleSel
 import { setSingleSelectedAttrsStorage } from '../../newAd/formFunctions/setSingleSelectedAttrsStorage';
 import { ChevronLeft } from '../../globals/Icons';
 import { navigateAfterFilter } from '../../adFilters/navigateAfterFilter';
+import { filterSearch } from '../../adFilters/filterSearch';
+import { allCatSortOptions } from '../../adFilters/categorySortOptionTyps';
 
 export function ListItems({
   list,
@@ -19,19 +21,45 @@ export function ListItems({
   setFilterListTitle,
   cookie,
   navigateTo,
+  lable,
 }) {
   // Get Current Url For Filter Type
-  const queryParams = new URLSearchParams(useLocation().search);
+  const locationUrl = useLocation();
+  const queryParams = new URLSearchParams(locationUrl.search);
 
+  // const filterSearch = (key, value) => {
+  //   queryParams.set(key, value);
+  //   navigateTo({
+  //     pathname: locationUrl.pathname,
+  //     search: queryParams.toString(),
+  //   });
+  // };
   const handleItems = (item) => {
     // Filter Form Settings
     if (type === 'filter') {
-      navigateAfterFilter(cookie['cities'], queryParams, item, navigateTo);
+      cookie !== undefined &&
+        navigateAfterFilter(cookie, queryParams, item, navigateTo);
       setItemTitle(item.title ? item.title : item.name);
       setFilterListTitle({
         name: item.title ? item.title : item.name,
         slug: item.slug,
       });
+
+      // Add Filter Into Url
+      if (lable === 'مرتب سازی') {
+        const selctedSo = allCatSortOptions.find((soItem) => {
+          return soItem.name === item.title;
+        });
+        const searchKey = 'o';
+        const searchValue = selctedSo.slug;
+        filterSearch(
+          searchKey,
+          searchValue,
+          queryParams,
+          locationUrl,
+          navigateTo
+        );
+      }
     }
 
     // List Of Items
