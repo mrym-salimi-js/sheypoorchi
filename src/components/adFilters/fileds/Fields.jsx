@@ -26,8 +26,10 @@ export function Fields() {
   const [sortOptions, setSortOptions] = useState([]);
   const [defaultSortid, setDefaultSortid] = useState(1);
   const [openLocation, setOpenLocation] = useState(false);
+  const [selctedSo, setSelectedSo] = useState();
   const locationUrl = useLocation();
-
+  // Get Url Search
+  const searchItems = new URLSearchParams(locationUrl.search);
   // Selected Location Setting
   useEffect(() => {
     selectedLocations(
@@ -64,7 +66,7 @@ export function Fields() {
             setChildCatAttr(itemCh.attributes);
             setParentCatAttr(item.attributes);
             setSelectedCat(itemCh);
-            itemCh.defaultSortid && setDefaultSortid(itemCh.defaultSortid);
+            itemCh.defaultSortid && setSortOptions(itemCh.sortOptions);
             itemCh.sortOptions.length > 0 && setSortOptions(itemCh.sortOptions);
           }
         });
@@ -72,30 +74,31 @@ export function Fields() {
     }
   }, [category, adsCategoriesList]);
 
-  // Get Url Search
-  const searchItems = new URLSearchParams(locationUrl.search);
   // Find Selected Sort Opton In Url
-  const [selctedSo, setSelectedSo] = useState();
   useEffect(() => {
-    deleteFilterSearch(searchItems, 'o', navigateTo, locationUrl);
     const selctedSos = allCatSortOptions.find((soItem) => {
       return soItem.slug === searchItems.get('o');
     });
-    setSelectedSo(selctedSos);
+    if (sortOptions.length > 0) {
+      selctedSos !== undefined
+        ? setSelectedSo(selctedSos.name)
+        : setSelectedSo(sortOptions.find((o) => o.id === defaultSortid).title);
+    }
+  });
+
+  // Delete SorrtOption From Url
+  useMemo(() => {
+    deleteFilterSearch(searchItems, 'o', navigateTo, locationUrl);
   }, [category]);
 
   return (
     <div className='w-full h-auto p-6 flex flex-col gap-8 pb-[5.25rem]'>
       {/* SortOptions */}
-      {sortOptions.length > 0 && (
+      {sortOptions.length > 0 && selctedSo !== undefined && (
         <SingleSelected
           lable={'مرتب سازی'}
           allList={sortOptions}
-          defaultItem={
-            selctedSo !== undefined
-              ? selctedSo?.name
-              : sortOptions.find((o) => o.id === defaultSortid).title
-          }
+          defaultItem={selctedSo}
           type={'filter'}
           navigateTo={navigateTo}
         />
@@ -126,6 +129,7 @@ export function Fields() {
         setOpenList={setOpenLocation}
         adLable={'استان و شهر'}
         itemTitle={selectedLoc}
+        type={'filter'}
       />
 
       {openLocation && <LocationBox setOpenLocation={setOpenLocation} />}
@@ -136,6 +140,7 @@ export function Fields() {
           catAttrs={parentCatAttr}
           setOpenLocation={setOpenLocation}
           navigateTo={navigateTo}
+          searchItems={searchItems}
         />
       )}
       {/* Category Child Attributes */}
@@ -144,6 +149,7 @@ export function Fields() {
           catAttrs={childCatAttr}
           setOpenLocation={setOpenLocation}
           navigateTo={navigateTo}
+          searchItems={searchItems}
         />
       )}
     </div>

@@ -1,9 +1,12 @@
-import { useRef, useState } from 'react';
+import { useMemo, useRef, useState } from 'react';
 import {
   adFormValidation,
   adTextLengthValidation,
 } from '../validation/adFormValidation';
 import { ChevronLeft } from '../globals/Icons';
+import { filterSearch } from '../adFilters/filterSearch';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { deleteFilterSearch } from '../adFilters/deleteFilterSearch';
 
 export default function TextComponent({
   adLable,
@@ -17,18 +20,39 @@ export default function TextComponent({
   setValidation,
   validation,
   itemTitle,
+  valueType,
+  type,
+  queryKey,
+  searchItem,
 }) {
   const inputRef = useRef();
   const [inputShow, setInputShow] = useState();
+  const locationUrl = useLocation();
+  const queryParams = new URLSearchParams(locationUrl.search);
+  const navigateTo = useNavigate();
+  const [filterValue, setFilterValue] = useState();
 
+  // Input Focus Settings
   const handleInputShow = (txt) => {
     filedType === 'text'
       ? (txt.children[0].children[1].focus(), setInputShow(adLable))
       : setOpenList(true);
   };
 
+  // Set Filter Writing Filed Values (min/max)
+  useMemo(() => {
+    type === 'filter' && searchItem && setFilterValue(searchItem);
+  }, [searchItem]);
+
+  // Input Blur Setttings
   const handleInputBlur = (inputTag) => {
     const inputVal = inputTag.value;
+
+    if (type === 'filter') {
+      inputVal
+        ? filterSearch(queryKey, inputVal, queryParams, locationUrl, navigateTo)
+        : deleteFilterSearch(queryParams, queryKey, navigateTo, locationUrl);
+    }
 
     newAdStorageValue &&
       !newAdStorageValue[storagePram] &&
@@ -55,20 +79,28 @@ export default function TextComponent({
     setInputShow('');
   };
 
+  // Input Change Value settings
   const handleStorage = (inputTag) => {
     const adVal = inputTag.value;
 
-    adFormValidation(
-      (stateVal) => {
-        setValidation(stateVal);
-      },
-      adLable,
-      validation,
-      adVal
-    );
-
-    setNewAdStorageValue !== undefined &&
-      setNewAdStorageValue({ ...newAdStorageValue, [`${storagePram}`]: adVal });
+    if (type === 'filter') {
+      setFilterValue(adVal);
+    }
+    if (type === 'newAd') {
+      adFormValidation(
+        (stateVal) => {
+          setValidation(stateVal);
+        },
+        adLable,
+        validation,
+        adVal
+      );
+      setNewAdStorageValue !== undefined &&
+        setNewAdStorageValue({
+          ...newAdStorageValue,
+          [`${storagePram}`]: adVal,
+        });
+    }
   };
 
   return (
@@ -85,7 +117,8 @@ export default function TextComponent({
           <p
             className={`w-full text-md transition-all absolute bottom-3 ${
               ((inputShow !== undefined && inputShow === adLable) ||
-                itemTitle !== undefined ||
+                filterValue ||
+                itemTitle ||
                 (newAdStorageValue &&
                   (newAdStorageValue[storagePram]?.lable ||
                     (typeof newAdStorageValue[storagePram] !== 'object' &&
@@ -97,12 +130,13 @@ export default function TextComponent({
           </p>
 
           <input
+            type={valueType}
             ref={inputRef}
             name={storagePram}
             onChange={(event) =>
               filedType === 'text' && handleStorage(event.currentTarget)
             }
-            className={`w-full outline-none text-sm text-[#5e5e5e] h-12 ${
+            className={`w-full outline-none text-sm text-gray-500 h-12 ${
               filedType !== 'text' && `cursor-pointer`
             }`}
             onBlur={(event) =>
@@ -113,7 +147,9 @@ export default function TextComponent({
                 ? typeof newAdStorageValue[storagePram] === 'object'
                   ? newAdStorageValue[storagePram]?.lable
                   : newAdStorageValue[storagePram]
-                : itemTitle
+                : itemTitle !== undefined
+                ? itemTitle
+                : filterValue
             }
           />
         </div>

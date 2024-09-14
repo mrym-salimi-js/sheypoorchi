@@ -172,6 +172,7 @@ export function NewAdForm() {
               setValidation={setValidation}
               validation={validation}
               basicNewAdStorage={basicNewAdStorage}
+              type={'newAd'}
             />
 
             {/*Categories Attributes*/}
@@ -226,6 +227,7 @@ export function NewAdForm() {
               textLength={'short'}
               subFiled={placeHolder ? placeHolder.title : adTitleSubTitle}
               filedType={'text'}
+              type={'newAd'}
             />
 
             {/* Ad Description*/}
@@ -242,6 +244,7 @@ export function NewAdForm() {
                   placeHolder ? placeHolder.description : adDescSubTitle
                 }
                 filedType={'text'}
+                type={'newAd'}
               />
             }
             {/* Location*/}
@@ -254,6 +257,7 @@ export function NewAdForm() {
               setValidation={setValidation}
               validation={validation}
               basicNewAdStorage={basicNewAdStorage}
+              type={'newAd'}
             />
             {/* Map*/}
             <Map

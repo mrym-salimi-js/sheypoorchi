@@ -1,7 +1,7 @@
 import TextComponent from '../TextComponent';
 import { setParamsAfterDependencies } from '../../newAd/formFunctions/setParamsAfterDependencies';
 import { singleSelectedErrorHandling } from '../../newAd/formFunctions/singleSelectedErrorHandling';
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { List } from './List';
 
 export default function SingleSelected({
@@ -13,6 +13,7 @@ export default function SingleSelected({
   setValidation,
   validation,
   basicNewAdStorage,
+
   defaultItem,
   type,
   cookie,
@@ -20,12 +21,19 @@ export default function SingleSelected({
 }) {
   const [openList, setOpenList] = useState();
   const [listItems, setListItems] = useState();
-  const [itemTitle, setItemTitle] = useState(defaultItem);
+  const [itemTitle, setItemTitle] = useState();
+
   const [filterListTitle, setFilterListTitle] = useState({
     name: 'همه گروه ها',
     slug: '',
   });
 
+  // Set DefaultItem Of Filter Filed By Every Updating
+  useMemo(() => {
+    defaultItem && setItemTitle(defaultItem);
+  }, [defaultItem]);
+
+  // Set List Title Of Filter And ListItems
   useEffect(() => {
     setFilterListTitle({ name: 'همه گروه ها', slug: '' });
 

@@ -27,18 +27,10 @@ export function ListItems({
   const locationUrl = useLocation();
   const queryParams = new URLSearchParams(locationUrl.search);
 
-  // const filterSearch = (key, value) => {
-  //   queryParams.set(key, value);
-  //   navigateTo({
-  //     pathname: locationUrl.pathname,
-  //     search: queryParams.toString(),
-  //   });
-  // };
   const handleItems = (item) => {
     // Filter Form Settings
     if (type === 'filter') {
-      cookie !== undefined &&
-        navigateAfterFilter(cookie, queryParams, item, navigateTo);
+      navigateAfterFilter(cookie, queryParams, item, navigateTo);
       setItemTitle(item.title ? item.title : item.name);
       setFilterListTitle({
         name: item.title ? item.title : item.name,
