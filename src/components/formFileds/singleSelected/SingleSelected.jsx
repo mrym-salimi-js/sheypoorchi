@@ -13,7 +13,7 @@ export default function SingleSelected({
   setValidation,
   validation,
   basicNewAdStorage,
-
+  queryKey,
   defaultItem,
   type,
   cookie,
@@ -91,6 +91,7 @@ export default function SingleSelected({
           filterListTitle={filterListTitle}
           cookie={cookie}
           navigateTo={navigateTo}
+          queryKey={queryKey}
         />
       )}
     </>

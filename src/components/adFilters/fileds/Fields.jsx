@@ -101,6 +101,7 @@ export function Fields() {
           defaultItem={selctedSo}
           type={'filter'}
           navigateTo={navigateTo}
+          queryKey={'o'}
         />
       )}
 
@@ -121,6 +122,7 @@ export function Fields() {
           defaultItem={selectedCat.name}
           cookie={cookie['cities']}
           navigateTo={navigateTo}
+          queryKey={'c'}
         />
       )}
 

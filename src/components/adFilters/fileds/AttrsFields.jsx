@@ -8,7 +8,6 @@ export default function AttrsFields({
   navigateTo,
   searchItems,
 }) {
-  // useEffect(() => {});
   return catAttrs?.map((item, index) => {
     if (item.order == 0) {
       return (
@@ -74,6 +73,8 @@ export function AttrsItems({ item, setOpenLocation, navigateTo, searchItems }) {
         lable={item.name || item.title}
         allList={item.options}
         type={'filter'}
+        navigateTo={navigateTo}
+        queryKey={item.queryKey}
       />
     );
   } else if (item.type == 7) {

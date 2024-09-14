@@ -16,6 +16,7 @@ export default function LocationBox({ setOpenLocation }) {
   const [prvName, setPrvName] = useState();
   const [searchRes, setSearchRes] = useState([]);
   const [deleteAllBtnClicked, setDeleteAllBtnClicked] = useState(false);
+  const [removedAllLocs, setRemovedAllLocs] = useState(false);
 
   const cities = citiesList();
 
@@ -54,7 +55,7 @@ export default function LocationBox({ setOpenLocation }) {
                 setFilterdCities={setAllCheckedBoxes}
                 setCheck={setCheck}
                 setDeleteAllBtnClicked={setDeleteAllBtnClicked}
-                removeCookie={removeCookie}
+                setRemovedAllLocs={setRemovedAllLocs}
               />
             )}
           </div>
@@ -120,6 +121,8 @@ export default function LocationBox({ setOpenLocation }) {
           cookie={cookie}
           check={check}
           deleteAllBtnClicked={deleteAllBtnClicked}
+          removeCookie={removeCookie}
+          removedAllLocs={removedAllLocs}
         />
       </div>
     </div>
@@ -173,14 +176,13 @@ export function DeleteAllFilterdCitiesBtn({
   setFilterdCities,
   setCheck,
   setDeleteAllBtnClicked,
-  removeCookie,
+  setRemovedAllLocs,
 }) {
   const handleHideFilteredCities = () => {
     setDeleteAllBtnClicked(true);
     setCheck([]);
     setFilterdCities([]);
-    removeCookie('provinces');
-    removeCookie('cities');
+    setRemovedAllLocs(true);
   };
 
   return (
@@ -300,6 +302,8 @@ export function EntryChangesBtn({
   setCookie,
   check,
   deleteAllBtnClicked,
+  removeCookie,
+  removedAllLocs,
 }) {
   const cookieItems = [];
   filterdCities?.forEach((item) => {
@@ -309,7 +313,10 @@ export function EntryChangesBtn({
   const handleLocationCookie = () => {
     check && setCookie('provinces', check);
     filterdCities && setCookie('cities', cookieItems);
-
+    if (removedAllLocs != false) {
+      removeCookie('provinces');
+      removeCookie('cities');
+    }
     setOpenLocation(false);
   };
 

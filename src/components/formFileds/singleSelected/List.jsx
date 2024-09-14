@@ -17,6 +17,7 @@ export function List({
   filterListTitle,
   navigateTo,
   cookie,
+  queryKey,
 }) {
   const [listType, setListType] = useState('main');
   const [setListId] = useState();
@@ -67,6 +68,7 @@ export function List({
               cookie={cookie}
               navigateTo={navigateTo}
               lable={lable}
+              queryKey={queryKey}
             />
           </ul>
         </div>

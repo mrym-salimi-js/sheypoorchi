@@ -13,8 +13,9 @@ export function navigateAfterFilter(cookie, queryParams, item, navigateTo) {
   }
 
   if (item.name !== 'همه گروه ها') {
+    console.log(item);
     navigateTo({
-      pathname: '/s/iran/' + item.slug,
+      pathname: '/s/iran/' + item.id,
       search: queryParams.toString(),
     });
   } else {

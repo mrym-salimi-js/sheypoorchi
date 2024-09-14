@@ -35,14 +35,15 @@ export default function Home() {
         pathname: locationUrl.pathname,
         search: queryParams.toString(),
       });
+    } else {
+      queryParams.delete('cities');
+      navigateTo({
+        pathname: !locationUrl.pathname.includes('/s/iran')
+          ? 's/iran'
+          : locationUrl.pathname,
+        search: queryParams.toString(),
+      });
     }
-    // else {
-    //   navigateTo({
-    //     pathname: !locationUrl.pathname.includes('/s/iran')
-    //       ? 's/iran'
-    //       : locationUrl.pathname,
-    //   });
-    // }
   }, [cookieCitiesInUrl]);
 
   return (

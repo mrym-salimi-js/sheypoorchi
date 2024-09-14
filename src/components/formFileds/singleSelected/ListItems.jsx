@@ -22,6 +22,7 @@ export function ListItems({
   cookie,
   navigateTo,
   lable,
+  queryKey,
 }) {
   // Get Current Url For Filter Type
   const locationUrl = useLocation();
@@ -42,8 +43,17 @@ export function ListItems({
         const selctedSo = allCatSortOptions.find((soItem) => {
           return soItem.name === item.title;
         });
-        const searchKey = 'o';
         const searchValue = selctedSo.slug;
+        filterSearch(
+          queryKey,
+          searchValue,
+          queryParams,
+          locationUrl,
+          navigateTo
+        );
+      } else if (lable === 'دسته بندی') {
+        const searchKey = 'c';
+        const searchValue = item.id;
         filterSearch(
           searchKey,
           searchValue,
@@ -51,6 +61,9 @@ export function ListItems({
           locationUrl,
           navigateTo
         );
+      } else {
+        const queryVal = item.id;
+        filterSearch(queryKey, queryVal, queryParams, locationUrl, navigateTo);
       }
     }
 
