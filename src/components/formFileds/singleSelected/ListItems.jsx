@@ -3,8 +3,6 @@ import { setSingleSelectedStorage } from '../../newAd/formFunctions/setSingleSel
 import { setSingleSelectedAttrsStorage } from '../../newAd/formFunctions/setSingleSelectedAttrsStorage';
 import { ChevronLeft } from '../../globals/Icons';
 import { navigateAfterFilter } from '../../adFilters/navigateAfterFilter';
-import { filterSearch } from '../../adFilters/filterSearch';
-import { allCatSortOptions } from '../../adFilters/categorySortOptionTyps';
 
 export function ListItems({
   list,
@@ -31,40 +29,20 @@ export function ListItems({
   const handleItems = (item) => {
     // Filter Form Settings
     if (type === 'filter') {
-      navigateAfterFilter(cookie, queryParams, item, navigateTo);
+      navigateAfterFilter(
+        cookie,
+        queryParams,
+        item,
+        navigateTo,
+        lable,
+        queryKey,
+        locationUrl
+      );
       setItemTitle(item.title ? item.title : item.name);
       setFilterListTitle({
         name: item.title ? item.title : item.name,
         slug: item.slug,
       });
-
-      // Add Filter Into Url
-      if (lable === 'مرتب سازی') {
-        const selctedSo = allCatSortOptions.find((soItem) => {
-          return soItem.name === item.title;
-        });
-        const searchValue = selctedSo.slug;
-        filterSearch(
-          queryKey,
-          searchValue,
-          queryParams,
-          locationUrl,
-          navigateTo
-        );
-      } else if (lable === 'دسته بندی') {
-        const searchKey = 'c';
-        const searchValue = item.id;
-        filterSearch(
-          searchKey,
-          searchValue,
-          queryParams,
-          locationUrl,
-          navigateTo
-        );
-      } else {
-        const queryVal = item.id;
-        filterSearch(queryKey, queryVal, queryParams, locationUrl, navigateTo);
-      }
     }
 
     // List Of Items
