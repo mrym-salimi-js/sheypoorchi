@@ -2,7 +2,6 @@ import { allCatSortOptions } from './categorySortOptionTyps';
 import { filterSearch } from './filterSearch';
 
 export function navigateAfterFilter(
-  cookie,
   queryParams,
   item,
   navigateTo,
@@ -10,11 +9,11 @@ export function navigateAfterFilter(
   queryKey,
   locationUrl
 ) {
-  if (cookie) {
-    const cookieCitiesInUrl = encodeURIComponent(JSON.stringify(cookie));
+  // if (cookie) {
+  //   const cookieCitiesInUrl = encodeURIComponent(JSON.stringify(cookie));
 
-    queryParams.set('cities', cookieCitiesInUrl);
-  }
+  //   queryParams.set('cities', cookieCitiesInUrl);
+  // }
 
   if (item.name !== 'همه گروه ها') {
     navigateTo({

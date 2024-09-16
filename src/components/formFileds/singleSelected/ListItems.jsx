@@ -17,7 +17,6 @@ export function ListItems({
   setItemTitle,
   type,
   setFilterListTitle,
-  cookie,
   navigateTo,
   lable,
   queryKey,
@@ -30,7 +29,6 @@ export function ListItems({
     // Filter Form Settings
     if (type === 'filter') {
       navigateAfterFilter(
-        cookie,
         queryParams,
         item,
         navigateTo,

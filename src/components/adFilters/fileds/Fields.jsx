@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 import SingleSelected from '../../formFileds/singleSelected/SingleSelected';
 import ToggleSwich from '../../formFileds/ToggleSwich';
 import TextComponent from '../../formFileds/TextComponent';
@@ -48,7 +48,7 @@ export function Fields() {
   }, []);
 
   // Find Selected Category For Filter Form
-  useMemo(() => {
+  useEffect(() => {
     if (adsCategoriesList !== undefined && category) {
       adsCategoriesList?.find((item) => {
         // Get Parent Cat Attrs
@@ -87,7 +87,7 @@ export function Fields() {
   });
 
   // Delete SorrtOption From Url
-  useMemo(() => {
+  useEffect(() => {
     deleteFilterSearch(searchItems, 'o', navigateTo, locationUrl);
   }, [category]);
 
@@ -120,7 +120,6 @@ export function Fields() {
           allList={adsCategoriesList}
           type={'filter'}
           defaultItem={selectedCat.name}
-          cookie={cookie['cities']}
           navigateTo={navigateTo}
           queryKey={'c'}
         />

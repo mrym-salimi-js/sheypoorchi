@@ -16,7 +16,6 @@ export function List({
   setFilterListTitle,
   filterListTitle,
   navigateTo,
-  cookie,
   queryKey,
 }) {
   const [listType, setListType] = useState('main');
@@ -65,7 +64,6 @@ export function List({
               setItemTitle={setItemTitle}
               type={type}
               setFilterListTitle={setFilterListTitle}
-              cookie={cookie}
               navigateTo={navigateTo}
               lable={lable}
               queryKey={queryKey}

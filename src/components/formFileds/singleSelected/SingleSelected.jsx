@@ -16,7 +16,6 @@ export default function SingleSelected({
   queryKey,
   defaultItem,
   type,
-  cookie,
   navigateTo,
 }) {
   const [openList, setOpenList] = useState();
@@ -89,7 +88,6 @@ export default function SingleSelected({
           type={type}
           setFilterListTitle={setFilterListTitle}
           filterListTitle={filterListTitle}
-          cookie={cookie}
           navigateTo={navigateTo}
           queryKey={queryKey}
         />
