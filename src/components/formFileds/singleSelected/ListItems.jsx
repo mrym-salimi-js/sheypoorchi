@@ -28,6 +28,7 @@ export function ListItems({
   const handleItems = (item) => {
     // Filter Form Settings
     if (type === 'filter') {
+      // Navigate After ad Filter Param in url
       navigateAfterFilter(
         queryParams,
         item,
@@ -36,10 +37,15 @@ export function ListItems({
         queryKey,
         locationUrl
       );
+
+      // Set Title (value or name) Of Selected Item For Showing In Filter Filed
       setItemTitle(item.title ? item.title : item.name);
+
+      // Set Title Of List Items (like titr)
       setFilterListTitle({
         name: item.title ? item.title : item.name,
         slug: item.slug,
+        id: item.id,
       });
     }
 
@@ -58,8 +64,8 @@ export function ListItems({
       }
     }
 
+    //Single Slection Storage Setting
     if (storagePram) {
-      //Single Slection Storage Setting
       setSingleSelectedStorage(
         (stateVal) => {
           setNewAdStorageValue(stateVal);

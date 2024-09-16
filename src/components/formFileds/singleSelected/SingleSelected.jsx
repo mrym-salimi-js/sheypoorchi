@@ -34,7 +34,7 @@ export default function SingleSelected({
 
   // Set List Title Of Filter And ListItems
   useEffect(() => {
-    setFilterListTitle({ name: 'همه گروه ها', slug: '' });
+    setFilterListTitle({ name: 'همه گروه ها', slug: '', id: '' });
 
     allList && setListItems(allList);
   }, [openList]);

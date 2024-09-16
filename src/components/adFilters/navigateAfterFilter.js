@@ -9,24 +9,6 @@ export function navigateAfterFilter(
   queryKey,
   locationUrl
 ) {
-  // if (cookie) {
-  //   const cookieCitiesInUrl = encodeURIComponent(JSON.stringify(cookie));
-
-  //   queryParams.set('cities', cookieCitiesInUrl);
-  // }
-
-  if (item.name !== 'همه گروه ها') {
-    navigateTo({
-      pathname: '/s/iran/' + item.id,
-      search: queryParams.toString(),
-    });
-  } else {
-    navigateTo({
-      pathname: '/s/iran',
-      search: queryParams.toString(),
-    });
-  }
-
   if (lable === 'مرتب سازی') {
     const selctedSo = allCatSortOptions.find((soItem) => {
       return soItem.name === item.title;
@@ -47,5 +29,16 @@ export function navigateAfterFilter(
   } else {
     const queryVal = item.id;
     filterSearch(queryKey, queryVal, queryParams, locationUrl, navigateTo);
+  }
+  // Nav To Home Page
+  if (item.name === 'همه گروه ها') {
+    const searchKeys = [...queryParams.keys()];
+    searchKeys.forEach((sk) => {
+      queryParams.delete(sk);
+    });
+    navigateTo({
+      pathname: '/s/iran/',
+      search: queryParams.toString(),
+    });
   }
 }
