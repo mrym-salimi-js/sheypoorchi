@@ -18,10 +18,6 @@ export const adsCategoriesList = [
         id: 3,
         title: 'گران‌ترین',
       },
-      {
-        id: 4,
-        title: 'نزدیک‌ترین',
-      },
     ],
     defaultSortid: 1,
     iconURL: 'https://www.sheypoor.com/img/category-icons/app/VEHICLES.png',
@@ -131,10 +127,7 @@ export const adsCategoriesList = [
             id: 3,
             title: 'گران‌ترین',
           },
-          {
-            id: 4,
-            title: 'نزدیک‌ترین',
-          },
+
           {
             id: 5,
             title: 'کم کارکردترین',
@@ -1258,10 +1251,7 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
+
               {
                 id: 5,
                 title: 'کم کارکردترین',
@@ -1391,10 +1381,7 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
+
               {
                 id: 5,
                 title: 'کم کارکردترین',
@@ -1497,10 +1484,7 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
+
               {
                 id: 5,
                 title: 'کم کارکردترین',
@@ -1554,10 +1538,7 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
+
               {
                 id: 5,
                 title: 'کم کارکردترین',
@@ -1669,10 +1650,7 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
+
               {
                 id: 5,
                 title: 'کم کارکردترین',
@@ -1766,10 +1744,7 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
+
               {
                 id: 5,
                 title: 'کم کارکردترین',
@@ -1908,10 +1883,7 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
+
               {
                 id: 5,
                 title: 'کم کارکردترین',
@@ -2005,10 +1977,7 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
+
               {
                 id: 5,
                 title: 'کم کارکردترین',
@@ -2111,10 +2080,7 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
+
               {
                 id: 5,
                 title: 'کم کارکردترین',
@@ -2262,10 +2228,7 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
+
               {
                 id: 5,
                 title: 'کم کارکردترین',
@@ -2634,10 +2597,7 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
+
               {
                 id: 5,
                 title: 'کم کارکردترین',
@@ -2740,10 +2700,7 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
+
               {
                 id: 5,
                 title: 'کم کارکردترین',
@@ -2828,10 +2785,7 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
+
               {
                 id: 5,
                 title: 'کم کارکردترین',
@@ -2925,10 +2879,7 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
+
               {
                 id: 5,
                 title: 'کم کارکردترین',
@@ -3040,10 +2991,7 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
+
               {
                 id: 5,
                 title: 'کم کارکردترین',
@@ -3191,10 +3139,7 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
+
               {
                 id: 5,
                 title: 'کم کارکردترین',
@@ -3297,10 +3242,7 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
+
               {
                 id: 5,
                 title: 'کم کارکردترین',
@@ -4188,10 +4130,7 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
+
               {
                 id: 5,
                 title: 'کم کارکردترین',
@@ -4276,10 +4215,7 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
+
               {
                 id: 5,
                 title: 'کم کارکردترین',
@@ -4986,10 +4922,7 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
+
               {
                 id: 5,
                 title: 'کم کارکردترین',
@@ -5092,10 +5025,7 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
+
               {
                 id: 5,
                 title: 'کم کارکردترین',
@@ -5189,10 +5119,7 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
+
               {
                 id: 5,
                 title: 'کم کارکردترین',
@@ -5304,10 +5231,7 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
+
               {
                 id: 5,
                 title: 'کم کارکردترین',
@@ -5504,10 +5428,7 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
+
               {
                 id: 5,
                 title: 'کم کارکردترین',
@@ -5610,10 +5531,7 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
+
               {
                 id: 5,
                 title: 'کم کارکردترین',
@@ -6141,10 +6059,7 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
+
               {
                 id: 5,
                 title: 'کم کارکردترین',
@@ -6405,10 +6320,7 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
+
               {
                 id: 5,
                 title: 'کم کارکردترین',
@@ -6520,10 +6432,7 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
+
               {
                 id: 5,
                 title: 'کم کارکردترین',
@@ -6622,10 +6531,7 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
+
               {
                 id: 5,
                 title: 'کم کارکردترین',
@@ -7194,10 +7100,7 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
+
               {
                 id: 5,
                 title: 'کم کارکردترین',
@@ -7318,10 +7221,7 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
+
               {
                 id: 5,
                 title: 'کم کارکردترین',
@@ -7406,10 +7306,7 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
+
               {
                 id: 5,
                 title: 'کم کارکردترین',
@@ -7494,10 +7391,7 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
+
               {
                 id: 5,
                 title: 'کم کارکردترین',
@@ -7685,10 +7579,7 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
+
               {
                 id: 5,
                 title: 'کم کارکردترین',
@@ -7773,10 +7664,7 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
+
               {
                 id: 5,
                 title: 'کم کارکردترین',
@@ -7888,10 +7776,7 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
+
               {
                 id: 5,
                 title: 'کم کارکردترین',
@@ -7994,10 +7879,7 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
+
               {
                 id: 5,
                 title: 'کم کارکردترین',
@@ -8091,10 +7973,7 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
+
               {
                 id: 5,
                 title: 'کم کارکردترین',
@@ -8338,10 +8217,7 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
+
               {
                 id: 5,
                 title: 'کم کارکردترین',
@@ -8426,10 +8302,7 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
+
               {
                 id: 5,
                 title: 'کم کارکردترین',
@@ -8527,10 +8400,7 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
+
               {
                 id: 5,
                 title: 'کم کارکردترین',
@@ -8624,10 +8494,7 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
+
               {
                 id: 5,
                 title: 'کم کارکردترین',
@@ -8712,10 +8579,7 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
+
               {
                 id: 5,
                 title: 'کم کارکردترین',
@@ -8814,10 +8678,7 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
+
               {
                 id: 5,
                 title: 'کم کارکردترین',
@@ -8929,10 +8790,7 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
+
               {
                 id: 5,
                 title: 'کم کارکردترین',
@@ -9053,10 +8911,7 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
+
               {
                 id: 5,
                 title: 'کم کارکردترین',
@@ -9150,10 +9005,7 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
+
               {
                 id: 5,
                 title: 'کم کارکردترین',
@@ -9256,10 +9108,7 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
+
               {
                 id: 5,
                 title: 'کم کارکردترین',
@@ -9353,10 +9202,7 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
+
               {
                 id: 5,
                 title: 'کم کارکردترین',
@@ -9731,10 +9577,7 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
+
               {
                 id: 5,
                 title: 'کم کارکردترین',
@@ -9819,10 +9662,7 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
+
               {
                 id: 5,
                 title: 'کم کارکردترین',
@@ -9907,10 +9747,7 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
+
               {
                 id: 5,
                 title: 'کم کارکردترین',
@@ -10049,10 +9886,7 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
+
               {
                 id: 5,
                 title: 'کم کارکردترین',
@@ -10146,10 +9980,7 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
+
               {
                 id: 5,
                 title: 'کم کارکردترین',
@@ -10339,10 +10170,7 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
+
               {
                 id: 5,
                 title: 'کم کارکردترین',
@@ -10427,10 +10255,7 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
+
               {
                 id: 5,
                 title: 'کم کارکردترین',
@@ -10515,10 +10340,7 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
+
               {
                 id: 5,
                 title: 'کم کارکردترین',
@@ -10746,10 +10568,7 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
+
               {
                 id: 5,
                 title: 'کم کارکردترین',
@@ -10834,10 +10653,7 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
+
               {
                 id: 5,
                 title: 'کم کارکردترین',
@@ -10958,10 +10774,7 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
+
               {
                 id: 5,
                 title: 'کم کارکردترین',
@@ -11064,10 +10877,7 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
+
               {
                 id: 5,
                 title: 'کم کارکردترین',
@@ -11202,10 +11012,7 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
+
               {
                 id: 5,
                 title: 'کم کارکردترین',
@@ -11259,10 +11066,7 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
+
               {
                 id: 5,
                 title: 'کم کارکردترین',
@@ -11347,10 +11151,7 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
+
               {
                 id: 5,
                 title: 'کم کارکردترین',
@@ -11439,10 +11240,7 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
+
               {
                 id: 5,
                 title: 'کم کارکردترین',
@@ -11536,10 +11334,7 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
+
               {
                 id: 5,
                 title: 'کم کارکردترین',
@@ -11660,10 +11455,7 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
+
               {
                 id: 5,
                 title: 'کم کارکردترین',
@@ -11766,10 +11558,7 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
+
               {
                 id: 5,
                 title: 'کم کارکردترین',
@@ -11854,10 +11643,7 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
+
               {
                 id: 5,
                 title: 'کم کارکردترین',
@@ -12027,10 +11813,7 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
+
               {
                 id: 5,
                 title: 'کم کارکردترین',
@@ -12160,10 +11943,7 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
+
               {
                 id: 5,
                 title: 'کم کارکردترین',
@@ -12257,10 +12037,7 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
+
               {
                 id: 5,
                 title: 'کم کارکردترین',
@@ -12354,10 +12131,7 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
+
               {
                 id: 5,
                 title: 'کم کارکردترین',
@@ -12460,10 +12234,7 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
+
               {
                 id: 5,
                 title: 'کم کارکردترین',
@@ -12557,10 +12328,7 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
+
               {
                 id: 5,
                 title: 'کم کارکردترین',
@@ -12690,10 +12458,7 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
+
               {
                 id: 5,
                 title: 'کم کارکردترین',
@@ -12796,10 +12561,7 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
+
               {
                 id: 5,
                 title: 'کم کارکردترین',
@@ -13115,10 +12877,7 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
+
               {
                 id: 5,
                 title: 'کم کارکردترین',
@@ -13255,10 +13014,7 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
+
               {
                 id: 5,
                 title: 'کم کارکردترین',
@@ -13352,10 +13108,7 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
+
               {
                 id: 5,
                 title: 'کم کارکردترین',
@@ -13440,10 +13193,7 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
+
               {
                 id: 5,
                 title: 'کم کارکردترین',
@@ -13712,10 +13462,7 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
+
               {
                 id: 5,
                 title: 'کم کارکردترین',
@@ -13800,10 +13547,7 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
+
               {
                 id: 5,
                 title: 'کم کارکردترین',
@@ -13915,10 +13659,7 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
+
               {
                 id: 5,
                 title: 'کم کارکردترین',
@@ -14003,10 +13744,7 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
+
               {
                 id: 5,
                 title: 'کم کارکردترین',
@@ -14060,10 +13798,7 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
+
               {
                 id: 5,
                 title: 'کم کارکردترین',
@@ -14211,10 +13946,7 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
+
               {
                 id: 5,
                 title: 'کم کارکردترین',
@@ -14355,10 +14087,7 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
+
               {
                 id: 5,
                 title: 'کم کارکردترین',
@@ -14542,10 +14271,7 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
+
               {
                 id: 5,
                 title: 'کم کارکردترین',
@@ -14639,10 +14365,7 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
+
               {
                 id: 5,
                 title: 'کم کارکردترین',
@@ -14849,10 +14572,7 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
+
               {
                 id: 5,
                 title: 'کم کارکردترین',
@@ -14955,10 +14675,7 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
+
               {
                 id: 5,
                 title: 'کم کارکردترین',
@@ -15226,10 +14943,7 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
+
               {
                 id: 5,
                 title: 'کم کارکردترین',
@@ -15400,10 +15114,7 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
+
               {
                 id: 5,
                 title: 'کم کارکردترین',
@@ -15497,10 +15208,7 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
+
               {
                 id: 5,
                 title: 'کم کارکردترین',
@@ -15585,10 +15293,7 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
+
               {
                 id: 5,
                 title: 'کم کارکردترین',
@@ -15682,10 +15387,7 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
+
               {
                 id: 5,
                 title: 'کم کارکردترین',
@@ -15779,10 +15481,7 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
+
               {
                 id: 5,
                 title: 'کم کارکردترین',
@@ -15894,10 +15593,7 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
+
               {
                 id: 5,
                 title: 'کم کارکردترین',
@@ -16051,10 +15747,7 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
+
               {
                 id: 5,
                 title: 'کم کارکردترین',
@@ -16148,10 +15841,7 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
+
               {
                 id: 5,
                 title: 'کم کارکردترین',
@@ -16313,10 +16003,7 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
+
               {
                 id: 5,
                 title: 'کم کارکردترین',
@@ -16401,10 +16088,7 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
+
               {
                 id: 5,
                 title: 'کم کارکردترین',
@@ -16789,10 +16473,7 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
+
               {
                 id: 5,
                 title: 'کم کارکردترین',
@@ -16886,10 +16567,7 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
+
               {
                 id: 5,
                 title: 'کم کارکردترین',
@@ -16945,10 +16623,6 @@ export const adsCategoriesList = [
           {
             id: 3,
             title: 'گران‌ترین',
-          },
-          {
-            id: 4,
-            title: 'نزدیک‌ترین',
           },
         ],
         defaultSortid: 1,
@@ -18053,10 +17727,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -18154,10 +17824,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -18244,10 +17910,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -18284,10 +17946,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -18372,10 +18030,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -18452,10 +18106,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -18555,10 +18205,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -18635,10 +18281,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -18725,10 +18367,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -18832,10 +18470,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -19055,10 +18689,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -19145,10 +18775,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -19216,10 +18842,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -19297,10 +18919,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -19384,10 +19002,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -19516,10 +19130,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -19597,10 +19207,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -19865,10 +19471,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -19931,10 +19533,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -20175,10 +19773,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -20257,10 +19851,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -20328,10 +19918,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -20427,10 +20013,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -20580,10 +20162,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -20656,10 +20234,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -21062,10 +20636,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -21174,10 +20744,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -21265,10 +20831,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -21345,10 +20907,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -21572,10 +21130,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -21672,10 +21226,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -21744,10 +21294,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -21815,10 +21361,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -21973,10 +21515,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -22044,10 +21582,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -22127,10 +21661,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -22209,10 +21739,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -22289,10 +21815,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -22479,10 +22001,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -22545,10 +22063,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -22628,10 +22142,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -22709,10 +22219,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -22780,10 +22286,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -22857,10 +22359,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -22939,10 +22437,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -23027,10 +22521,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -23067,10 +22557,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -23148,10 +22634,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -23239,10 +22721,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -23319,10 +22797,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -23507,10 +22981,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -23579,10 +23049,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -23645,10 +23111,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -23772,10 +23234,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -23852,10 +23310,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -23979,10 +23433,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -24051,10 +23501,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -24122,10 +23568,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -24288,10 +23730,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -24359,10 +23797,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -24460,10 +23894,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -24536,10 +23966,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -24647,10 +24073,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -24687,10 +24109,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -24759,10 +24177,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -24836,10 +24250,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -24917,10 +24327,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -25026,10 +24432,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -25108,10 +24510,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -25179,10 +24577,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -25302,10 +24696,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -25419,10 +24809,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -25500,10 +24886,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -25580,10 +24962,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -25671,10 +25049,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -25751,10 +25125,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -25869,10 +25239,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -25958,10 +25324,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -26128,10 +25490,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -26248,10 +25606,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -26320,10 +25674,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -26391,10 +25741,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -26519,10 +25865,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -26590,10 +25932,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -26690,10 +26028,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -26757,10 +26091,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -26797,10 +26127,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -26909,10 +26235,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -27000,10 +26322,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -27130,10 +26448,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -27210,10 +26524,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -27345,10 +26655,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -27421,10 +26727,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -27587,10 +26889,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -27684,10 +26982,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -27765,10 +27059,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -27836,10 +27126,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -27918,10 +27204,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -27998,10 +27280,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -28097,10 +27375,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -28216,10 +27490,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -28287,10 +27557,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -28375,10 +27641,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -28446,10 +27708,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -28669,10 +27927,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -28752,10 +28006,6 @@ export const adsCategoriesList = [
           {
             id: 3,
             title: 'گران‌ترین',
-          },
-          {
-            id: 4,
-            title: 'نزدیک‌ترین',
           },
         ],
         defaultSortid: 1,
@@ -29814,10 +29064,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -29901,10 +29147,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -29941,10 +29183,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -30029,10 +29267,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -30116,10 +29350,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -30156,10 +29386,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -30249,10 +29475,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -30331,10 +29553,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -30403,10 +29621,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -30443,10 +29657,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -30516,10 +29726,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -30556,10 +29762,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -30624,10 +29826,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -30664,10 +29862,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -30736,10 +29930,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -30874,10 +30064,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -30945,10 +30131,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -31118,10 +30300,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -31195,10 +30373,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -31262,10 +30436,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -31302,10 +30472,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -31385,10 +30551,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -31462,10 +30624,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -31533,10 +30691,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -31636,10 +30790,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -31702,10 +30852,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -31770,10 +30916,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -31810,10 +30952,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -31887,10 +31025,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -31985,10 +31119,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -32025,10 +31155,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -32092,10 +31218,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -32170,10 +31292,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -32246,10 +31364,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -32389,10 +31503,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -32429,10 +31539,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -32501,10 +31607,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -32578,10 +31680,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -32666,10 +31764,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -32732,10 +31826,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -32800,10 +31890,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -32840,10 +31926,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -32933,10 +32015,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -32973,10 +32051,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -33045,10 +32119,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -33128,10 +32198,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -33194,10 +32260,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -33262,10 +32324,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -33328,10 +32386,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -33436,10 +32490,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -33523,10 +32573,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -33604,10 +32650,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -33702,10 +32744,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -33799,10 +32837,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -33876,10 +32910,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -33942,10 +32972,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -34020,10 +33046,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -34086,10 +33108,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -34154,10 +33172,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -34220,10 +33234,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -34358,10 +33368,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -34425,10 +33431,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -34491,10 +33493,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -34584,10 +33582,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -34666,10 +33660,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -34706,10 +33696,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -34773,10 +33759,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -34861,10 +33843,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -34933,10 +33911,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -34999,10 +33973,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -35082,10 +34052,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -35148,10 +34114,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -35236,10 +34198,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -35276,10 +34234,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -35354,10 +34308,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -35420,10 +34370,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -35498,10 +34444,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -35565,10 +34507,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -35605,10 +34543,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -35672,10 +34606,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -35765,10 +34695,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -35832,10 +34758,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -35872,10 +34794,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -35965,10 +34883,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -36005,10 +34919,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -36093,10 +35003,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -36160,10 +35066,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -36200,10 +35102,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -36277,10 +35175,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -36635,10 +35529,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -36675,10 +35565,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -36767,10 +35653,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -36875,10 +35757,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -36916,10 +35794,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -36956,10 +35830,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -37038,10 +35908,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -37176,10 +36042,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -37293,10 +36155,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -37365,10 +36223,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -37431,10 +36285,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -37509,10 +36359,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -37586,10 +36432,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -37626,10 +36468,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -37694,10 +36532,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -37735,10 +36569,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -37775,10 +36605,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -37843,10 +36669,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -37909,10 +36731,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -38012,10 +36830,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -38099,10 +36913,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -38176,10 +36986,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -38243,10 +37049,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -38309,10 +37111,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -38387,10 +37185,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -38427,10 +37221,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -38570,10 +37360,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -38637,10 +37423,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -38677,10 +37459,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -38815,10 +37593,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -38887,10 +37661,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -38927,10 +37697,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -39000,10 +37766,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -39066,10 +37828,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -39139,10 +37897,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -39179,10 +37933,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -39246,10 +37996,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -39319,10 +38065,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -39390,10 +38132,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -39503,10 +38241,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -39543,10 +38277,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -39620,10 +38350,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -39703,10 +38429,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -39779,10 +38501,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -39882,10 +38600,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -39948,10 +38662,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -40276,10 +38986,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -40320,10 +39026,6 @@ export const adsCategoriesList = [
             id: 3,
             title: 'گران‌ترین',
           },
-          {
-            id: 4,
-            title: 'نزدیک‌ترین',
-          },
         ],
         defaultSortid: 1,
         iconURL: '',
@@ -40362,10 +39064,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -40402,10 +39100,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -40444,10 +39138,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -40484,10 +39174,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -40526,10 +39212,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -40566,10 +39248,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -40608,10 +39286,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -40648,10 +39322,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -40690,10 +39360,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -40730,10 +39396,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -40772,10 +39434,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -40812,10 +39470,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -40854,10 +39508,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -40894,10 +39544,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -40936,10 +39582,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -40976,10 +39618,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -41018,10 +39656,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -41058,10 +39692,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -41100,10 +39730,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -41140,10 +39766,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -41182,10 +39804,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -41223,10 +39841,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -41263,10 +39877,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -41308,10 +39918,6 @@ export const adsCategoriesList = [
             id: 3,
             title: 'گران‌ترین',
           },
-          {
-            id: 4,
-            title: 'نزدیک‌ترین',
-          },
         ],
         defaultSortid: 1,
         iconURL: '',
@@ -41350,10 +39956,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -41390,10 +39992,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -41432,10 +40030,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -41472,10 +40066,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -41514,10 +40104,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -41554,10 +40140,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -41596,10 +40178,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -41636,10 +40214,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -41678,10 +40252,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -41718,10 +40288,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -41760,10 +40326,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -41800,10 +40362,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -41842,10 +40400,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -41882,10 +40436,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -41924,10 +40474,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -41964,10 +40510,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -42006,10 +40548,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -42046,10 +40584,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -42088,10 +40622,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -42128,10 +40658,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -42170,10 +40696,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -42210,10 +40732,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -42252,10 +40770,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -42292,10 +40806,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -42334,10 +40844,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -42374,10 +40880,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -42416,10 +40918,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -42457,10 +40955,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -42497,10 +40991,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -42542,10 +41032,6 @@ export const adsCategoriesList = [
             id: 3,
             title: 'گران‌ترین',
           },
-          {
-            id: 4,
-            title: 'نزدیک‌ترین',
-          },
         ],
         defaultSortid: 1,
         iconURL: '',
@@ -42581,10 +41067,6 @@ export const adsCategoriesList = [
           {
             id: 3,
             title: 'گران‌ترین',
-          },
-          {
-            id: 4,
-            title: 'نزدیک‌ترین',
           },
         ],
         defaultSortid: 1,
@@ -42667,10 +41149,6 @@ export const adsCategoriesList = [
             id: 3,
             title: 'گران‌ترین',
           },
-          {
-            id: 4,
-            title: 'نزدیک‌ترین',
-          },
         ],
         defaultSortid: 1,
         iconURL: '',
@@ -42706,10 +41184,6 @@ export const adsCategoriesList = [
           {
             id: 3,
             title: 'گران‌ترین',
-          },
-          {
-            id: 4,
-            title: 'نزدیک‌ترین',
           },
         ],
         defaultSortid: 1,
@@ -42747,10 +41221,6 @@ export const adsCategoriesList = [
             id: 3,
             title: 'گران‌ترین',
           },
-          {
-            id: 4,
-            title: 'نزدیک‌ترین',
-          },
         ],
         defaultSortid: 1,
         iconURL: '',
@@ -42786,10 +41256,6 @@ export const adsCategoriesList = [
           {
             id: 3,
             title: 'گران‌ترین',
-          },
-          {
-            id: 4,
-            title: 'نزدیک‌ترین',
           },
         ],
         defaultSortid: 1,
@@ -42833,10 +41299,6 @@ export const adsCategoriesList = [
       {
         id: 3,
         title: 'گران‌ترین',
-      },
-      {
-        id: 4,
-        title: 'نزدیک‌ترین',
       },
     ],
     defaultSortid: 1,
@@ -43036,10 +41498,6 @@ export const adsCategoriesList = [
           {
             id: 3,
             title: 'گران‌ترین',
-          },
-          {
-            id: 4,
-            title: 'نزدیک‌ترین',
           },
         ],
         defaultSortid: 1,
@@ -43633,10 +42091,6 @@ export const adsCategoriesList = [
           {
             id: 1,
             title: 'جدیدترین',
-          },
-          {
-            id: 4,
-            title: 'نزدیک‌ترین',
           },
         ],
         defaultSortid: 1,
@@ -44382,10 +42836,6 @@ export const adsCategoriesList = [
             id: 3,
             title: 'گران‌ترین',
           },
-          {
-            id: 4,
-            title: 'نزدیک‌ترین',
-          },
         ],
         defaultSortid: 1,
         iconURL: '',
@@ -45013,10 +43463,6 @@ export const adsCategoriesList = [
             id: 1,
             title: 'جدیدترین',
           },
-          {
-            id: 4,
-            title: 'نزدیک‌ترین',
-          },
         ],
         defaultSortid: 1,
         iconURL: '',
@@ -45135,10 +43581,6 @@ export const adsCategoriesList = [
           {
             id: 1,
             title: 'جدیدترین',
-          },
-          {
-            id: 4,
-            title: 'نزدیک‌ترین',
           },
         ],
         defaultSortid: 1,
@@ -45359,10 +43801,6 @@ export const adsCategoriesList = [
             id: 3,
             title: 'گران‌ترین',
           },
-          {
-            id: 4,
-            title: 'نزدیک‌ترین',
-          },
         ],
         defaultSortid: 1,
         iconURL: '',
@@ -45468,10 +43906,6 @@ export const adsCategoriesList = [
             id: 3,
             title: 'گران‌ترین',
           },
-          {
-            id: 4,
-            title: 'نزدیک‌ترین',
-          },
         ],
         defaultSortid: 1,
         iconURL: '',
@@ -45572,10 +44006,6 @@ export const adsCategoriesList = [
           {
             id: 3,
             title: 'گران‌ترین',
-          },
-          {
-            id: 4,
-            title: 'نزدیک‌ترین',
           },
         ],
         defaultSortid: 1,
@@ -45779,10 +44209,6 @@ export const adsCategoriesList = [
             id: 3,
             title: 'گران‌ترین',
           },
-          {
-            id: 4,
-            title: 'نزدیک‌ترین',
-          },
         ],
         defaultSortid: 1,
         iconURL: '',
@@ -45819,10 +44245,6 @@ export const adsCategoriesList = [
       {
         id: 1,
         title: 'جدیدترین',
-      },
-      {
-        id: 4,
-        title: 'نزدیک‌ترین',
       },
     ],
     defaultSortid: 1,
@@ -46273,10 +44695,6 @@ export const adsCategoriesList = [
             id: 1,
             title: 'جدیدترین',
           },
-          {
-            id: 4,
-            title: 'نزدیک‌ترین',
-          },
         ],
         defaultSortid: 1,
         iconURL: '',
@@ -46304,10 +44722,6 @@ export const adsCategoriesList = [
           {
             id: 1,
             title: 'جدیدترین',
-          },
-          {
-            id: 4,
-            title: 'نزدیک‌ترین',
           },
         ],
         defaultSortid: 1,
@@ -46337,10 +44751,6 @@ export const adsCategoriesList = [
             id: 1,
             title: 'جدیدترین',
           },
-          {
-            id: 4,
-            title: 'نزدیک‌ترین',
-          },
         ],
         defaultSortid: 1,
         iconURL: '',
@@ -46368,10 +44778,6 @@ export const adsCategoriesList = [
           {
             id: 1,
             title: 'جدیدترین',
-          },
-          {
-            id: 4,
-            title: 'نزدیک‌ترین',
           },
         ],
         defaultSortid: 1,
@@ -46401,10 +44807,6 @@ export const adsCategoriesList = [
             id: 1,
             title: 'جدیدترین',
           },
-          {
-            id: 4,
-            title: 'نزدیک‌ترین',
-          },
         ],
         defaultSortid: 1,
         iconURL: '',
@@ -46432,10 +44834,6 @@ export const adsCategoriesList = [
           {
             id: 1,
             title: 'جدیدترین',
-          },
-          {
-            id: 4,
-            title: 'نزدیک‌ترین',
           },
         ],
         defaultSortid: 1,
@@ -46465,10 +44863,6 @@ export const adsCategoriesList = [
             id: 1,
             title: 'جدیدترین',
           },
-          {
-            id: 4,
-            title: 'نزدیک‌ترین',
-          },
         ],
         defaultSortid: 1,
         iconURL: '',
@@ -46496,10 +44890,6 @@ export const adsCategoriesList = [
           {
             id: 1,
             title: 'جدیدترین',
-          },
-          {
-            id: 4,
-            title: 'نزدیک‌ترین',
           },
         ],
         defaultSortid: 1,
@@ -46529,10 +44919,6 @@ export const adsCategoriesList = [
             id: 1,
             title: 'جدیدترین',
           },
-          {
-            id: 4,
-            title: 'نزدیک‌ترین',
-          },
         ],
         defaultSortid: 1,
         iconURL: '',
@@ -46560,10 +44946,6 @@ export const adsCategoriesList = [
           {
             id: 1,
             title: 'جدیدترین',
-          },
-          {
-            id: 4,
-            title: 'نزدیک‌ترین',
           },
         ],
         defaultSortid: 1,
@@ -46593,10 +44975,6 @@ export const adsCategoriesList = [
             id: 1,
             title: 'جدیدترین',
           },
-          {
-            id: 4,
-            title: 'نزدیک‌ترین',
-          },
         ],
         defaultSortid: 1,
         iconURL: '',
@@ -46624,10 +45002,6 @@ export const adsCategoriesList = [
           {
             id: 1,
             title: 'جدیدترین',
-          },
-          {
-            id: 4,
-            title: 'نزدیک‌ترین',
           },
         ],
         defaultSortid: 1,
@@ -46657,10 +45031,6 @@ export const adsCategoriesList = [
             id: 1,
             title: 'جدیدترین',
           },
-          {
-            id: 4,
-            title: 'نزدیک‌ترین',
-          },
         ],
         defaultSortid: 1,
         iconURL: '',
@@ -46688,10 +45058,6 @@ export const adsCategoriesList = [
           {
             id: 1,
             title: 'جدیدترین',
-          },
-          {
-            id: 4,
-            title: 'نزدیک‌ترین',
           },
         ],
         defaultSortid: 1,
@@ -46721,10 +45087,6 @@ export const adsCategoriesList = [
             id: 1,
             title: 'جدیدترین',
           },
-          {
-            id: 4,
-            title: 'نزدیک‌ترین',
-          },
         ],
         defaultSortid: 1,
         iconURL: '',
@@ -46752,10 +45114,6 @@ export const adsCategoriesList = [
           {
             id: 1,
             title: 'جدیدترین',
-          },
-          {
-            id: 4,
-            title: 'نزدیک‌ترین',
           },
         ],
         defaultSortid: 1,
@@ -46785,10 +45143,6 @@ export const adsCategoriesList = [
             id: 1,
             title: 'جدیدترین',
           },
-          {
-            id: 4,
-            title: 'نزدیک‌ترین',
-          },
         ],
         defaultSortid: 1,
         iconURL: '',
@@ -46816,10 +45170,6 @@ export const adsCategoriesList = [
           {
             id: 1,
             title: 'جدیدترین',
-          },
-          {
-            id: 4,
-            title: 'نزدیک‌ترین',
           },
         ],
         defaultSortid: 1,
@@ -46849,10 +45199,6 @@ export const adsCategoriesList = [
             id: 1,
             title: 'جدیدترین',
           },
-          {
-            id: 4,
-            title: 'نزدیک‌ترین',
-          },
         ],
         defaultSortid: 1,
         iconURL: '',
@@ -46880,10 +45226,6 @@ export const adsCategoriesList = [
           {
             id: 1,
             title: 'جدیدترین',
-          },
-          {
-            id: 4,
-            title: 'نزدیک‌ترین',
           },
         ],
         defaultSortid: 1,
@@ -46913,10 +45255,6 @@ export const adsCategoriesList = [
             id: 1,
             title: 'جدیدترین',
           },
-          {
-            id: 4,
-            title: 'نزدیک‌ترین',
-          },
         ],
         defaultSortid: 1,
         iconURL: '',
@@ -46944,10 +45282,6 @@ export const adsCategoriesList = [
           {
             id: 1,
             title: 'جدیدترین',
-          },
-          {
-            id: 4,
-            title: 'نزدیک‌ترین',
           },
         ],
         defaultSortid: 1,
@@ -46977,10 +45311,6 @@ export const adsCategoriesList = [
             id: 1,
             title: 'جدیدترین',
           },
-          {
-            id: 4,
-            title: 'نزدیک‌ترین',
-          },
         ],
         defaultSortid: 1,
         iconURL: '',
@@ -47008,10 +45338,6 @@ export const adsCategoriesList = [
           {
             id: 1,
             title: 'جدیدترین',
-          },
-          {
-            id: 4,
-            title: 'نزدیک‌ترین',
           },
         ],
         defaultSortid: 1,
@@ -47041,10 +45367,6 @@ export const adsCategoriesList = [
             id: 1,
             title: 'جدیدترین',
           },
-          {
-            id: 4,
-            title: 'نزدیک‌ترین',
-          },
         ],
         defaultSortid: 1,
         iconURL: '',
@@ -47072,10 +45394,6 @@ export const adsCategoriesList = [
           {
             id: 1,
             title: 'جدیدترین',
-          },
-          {
-            id: 4,
-            title: 'نزدیک‌ترین',
           },
         ],
         defaultSortid: 1,
@@ -47105,10 +45423,6 @@ export const adsCategoriesList = [
             id: 1,
             title: 'جدیدترین',
           },
-          {
-            id: 4,
-            title: 'نزدیک‌ترین',
-          },
         ],
         defaultSortid: 1,
         iconURL: '',
@@ -47136,10 +45450,6 @@ export const adsCategoriesList = [
           {
             id: 1,
             title: 'جدیدترین',
-          },
-          {
-            id: 4,
-            title: 'نزدیک‌ترین',
           },
         ],
         defaultSortid: 1,
@@ -47172,10 +45482,6 @@ export const adsCategoriesList = [
       {
         id: 1,
         title: 'جدیدترین',
-      },
-      {
-        id: 4,
-        title: 'نزدیک‌ترین',
       },
     ],
     defaultSortid: 1,
@@ -47222,10 +45528,6 @@ export const adsCategoriesList = [
             id: 1,
             title: 'جدیدترین',
           },
-          {
-            id: 4,
-            title: 'نزدیک‌ترین',
-          },
         ],
         defaultSortid: 1,
         iconURL: '',
@@ -47257,10 +45559,6 @@ export const adsCategoriesList = [
           {
             id: 1,
             title: 'جدیدترین',
-          },
-          {
-            id: 4,
-            title: 'نزدیک‌ترین',
           },
         ],
         defaultSortid: 1,
@@ -47301,10 +45599,6 @@ export const adsCategoriesList = [
           {
             id: 3,
             title: 'گران‌ترین',
-          },
-          {
-            id: 4,
-            title: 'نزدیک‌ترین',
           },
         ],
         defaultSortid: 1,
@@ -47393,10 +45687,6 @@ export const adsCategoriesList = [
             id: 1,
             title: 'جدیدترین',
           },
-          {
-            id: 4,
-            title: 'نزدیک‌ترین',
-          },
         ],
         defaultSortid: 1,
         iconURL: '',
@@ -47428,10 +45718,6 @@ export const adsCategoriesList = [
           {
             id: 1,
             title: 'جدیدترین',
-          },
-          {
-            id: 4,
-            title: 'نزدیک‌ترین',
           },
         ],
         defaultSortid: 1,
@@ -47469,10 +45755,6 @@ export const adsCategoriesList = [
           {
             id: 3,
             title: 'گران‌ترین',
-          },
-          {
-            id: 4,
-            title: 'نزدیک‌ترین',
           },
         ],
         defaultSortid: 1,
@@ -47561,10 +45843,6 @@ export const adsCategoriesList = [
             id: 1,
             title: 'جدیدترین',
           },
-          {
-            id: 4,
-            title: 'نزدیک‌ترین',
-          },
         ],
         defaultSortid: 1,
         iconURL: '',
@@ -47596,10 +45874,6 @@ export const adsCategoriesList = [
           {
             id: 1,
             title: 'جدیدترین',
-          },
-          {
-            id: 4,
-            title: 'نزدیک‌ترین',
           },
         ],
         defaultSortid: 1,
@@ -47633,10 +45907,6 @@ export const adsCategoriesList = [
             id: 1,
             title: 'جدیدترین',
           },
-          {
-            id: 4,
-            title: 'نزدیک‌ترین',
-          },
         ],
         defaultSortid: 1,
         iconURL: '',
@@ -47668,10 +45938,6 @@ export const adsCategoriesList = [
           {
             id: 1,
             title: 'جدیدترین',
-          },
-          {
-            id: 4,
-            title: 'نزدیک‌ترین',
           },
         ],
         defaultSortid: 1,
@@ -47712,10 +45978,6 @@ export const adsCategoriesList = [
           {
             id: 3,
             title: 'گران‌ترین',
-          },
-          {
-            id: 4,
-            title: 'نزدیک‌ترین',
           },
         ],
         defaultSortid: 1,
@@ -47812,10 +46074,6 @@ export const adsCategoriesList = [
             id: 3,
             title: 'گران‌ترین',
           },
-          {
-            id: 4,
-            title: 'نزدیک‌ترین',
-          },
         ],
         defaultSortid: 1,
         iconURL: '',
@@ -47903,10 +46161,6 @@ export const adsCategoriesList = [
             id: 1,
             title: 'جدیدترین',
           },
-          {
-            id: 4,
-            title: 'نزدیک‌ترین',
-          },
         ],
         defaultSortid: 1,
         iconURL: '',
@@ -47939,10 +46193,6 @@ export const adsCategoriesList = [
             id: 1,
             title: 'جدیدترین',
           },
-          {
-            id: 4,
-            title: 'نزدیک‌ترین',
-          },
         ],
         defaultSortid: 1,
         iconURL: '',
@@ -47972,10 +46222,6 @@ export const adsCategoriesList = [
             id: 1,
             title: 'جدیدترین',
           },
-          {
-            id: 4,
-            title: 'نزدیک‌ترین',
-          },
         ],
         defaultSortid: 1,
         iconURL: '',
@@ -48004,10 +46250,6 @@ export const adsCategoriesList = [
           {
             id: 1,
             title: 'جدیدترین',
-          },
-          {
-            id: 4,
-            title: 'نزدیک‌ترین',
           },
         ],
         defaultSortid: 1,
@@ -48048,10 +46290,6 @@ export const adsCategoriesList = [
           {
             id: 3,
             title: 'گران‌ترین',
-          },
-          {
-            id: 4,
-            title: 'نزدیک‌ترین',
           },
         ],
         defaultSortid: 1,
@@ -48148,10 +46386,6 @@ export const adsCategoriesList = [
             id: 3,
             title: 'گران‌ترین',
           },
-          {
-            id: 4,
-            title: 'نزدیک‌ترین',
-          },
         ],
         defaultSortid: 1,
         iconURL: '',
@@ -48239,10 +46473,6 @@ export const adsCategoriesList = [
             id: 1,
             title: 'جدیدترین',
           },
-          {
-            id: 4,
-            title: 'نزدیک‌ترین',
-          },
         ],
         defaultSortid: 1,
         iconURL: '',
@@ -48282,10 +46512,6 @@ export const adsCategoriesList = [
           {
             id: 3,
             title: 'گران‌ترین',
-          },
-          {
-            id: 4,
-            title: 'نزدیک‌ترین',
           },
         ],
         defaultSortid: 1,
@@ -48374,10 +46600,6 @@ export const adsCategoriesList = [
             id: 1,
             title: 'جدیدترین',
           },
-          {
-            id: 4,
-            title: 'نزدیک‌ترین',
-          },
         ],
         defaultSortid: 1,
         iconURL: '',
@@ -48421,10 +46643,6 @@ export const adsCategoriesList = [
       {
         id: 3,
         title: 'گران‌ترین',
-      },
-      {
-        id: 4,
-        title: 'نزدیک‌ترین',
       },
     ],
     defaultSortid: 1,
@@ -48565,10 +46783,6 @@ export const adsCategoriesList = [
             id: 3,
             title: 'گران‌ترین',
           },
-          {
-            id: 4,
-            title: 'نزدیک‌ترین',
-          },
         ],
         defaultSortid: 1,
         iconURL: '',
@@ -48609,10 +46823,6 @@ export const adsCategoriesList = [
             id: 3,
             title: 'گران‌ترین',
           },
-          {
-            id: 4,
-            title: 'نزدیک‌ترین',
-          },
         ],
         defaultSortid: 1,
         iconURL: '',
@@ -48647,10 +46857,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -48709,10 +46915,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -48749,10 +46951,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -48791,10 +46989,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -48831,10 +47025,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -48893,10 +47083,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -48953,10 +47139,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -49015,10 +47197,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -49055,10 +47233,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -49117,10 +47291,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -49160,10 +47330,6 @@ export const adsCategoriesList = [
           {
             id: 3,
             title: 'گران‌ترین',
-          },
-          {
-            id: 4,
-            title: 'نزدیک‌ترین',
           },
         ],
         defaultSortid: 1,
@@ -49205,10 +47371,6 @@ export const adsCategoriesList = [
             id: 3,
             title: 'گران‌ترین',
           },
-          {
-            id: 4,
-            title: 'نزدیک‌ترین',
-          },
         ],
         defaultSortid: 1,
         iconURL: '',
@@ -49246,10 +47408,6 @@ export const adsCategoriesList = [
             id: 3,
             title: 'گران‌ترین',
           },
-          {
-            id: 4,
-            title: 'نزدیک‌ترین',
-          },
         ],
         defaultSortid: 1,
         iconURL: '',
@@ -49286,10 +47444,6 @@ export const adsCategoriesList = [
           {
             id: 3,
             title: 'گران‌ترین',
-          },
-          {
-            id: 4,
-            title: 'نزدیک‌ترین',
           },
         ],
         defaultSortid: 1,
@@ -49331,10 +47485,6 @@ export const adsCategoriesList = [
             id: 3,
             title: 'گران‌ترین',
           },
-          {
-            id: 4,
-            title: 'نزدیک‌ترین',
-          },
         ],
         defaultSortid: 1,
         iconURL: '',
@@ -49369,10 +47519,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -49411,10 +47557,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -49452,10 +47594,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -49492,10 +47630,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -49554,10 +47688,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -49597,10 +47727,6 @@ export const adsCategoriesList = [
           {
             id: 3,
             title: 'گران‌ترین',
-          },
-          {
-            id: 4,
-            title: 'نزدیک‌ترین',
           },
         ],
         defaultSortid: 1,
@@ -49645,10 +47771,6 @@ export const adsCategoriesList = [
       {
         id: 3,
         title: 'گران‌ترین',
-      },
-      {
-        id: 4,
-        title: 'نزدیک‌ترین',
       },
     ],
     defaultSortid: 1,
@@ -49788,10 +47910,6 @@ export const adsCategoriesList = [
             id: 3,
             title: 'گران‌ترین',
           },
-          {
-            id: 4,
-            title: 'نزدیک‌ترین',
-          },
         ],
         defaultSortid: 1,
         iconURL: '',
@@ -49831,10 +47949,6 @@ export const adsCategoriesList = [
           {
             id: 3,
             title: 'گران‌ترین',
-          },
-          {
-            id: 4,
-            title: 'نزدیک‌ترین',
           },
         ],
         defaultSortid: 1,
@@ -49876,10 +47990,6 @@ export const adsCategoriesList = [
             id: 3,
             title: 'گران‌ترین',
           },
-          {
-            id: 4,
-            title: 'نزدیک‌ترین',
-          },
         ],
         defaultSortid: 1,
         iconURL: '',
@@ -49918,10 +48028,6 @@ export const adsCategoriesList = [
           {
             id: 3,
             title: 'گران‌ترین',
-          },
-          {
-            id: 4,
-            title: 'نزدیک‌ترین',
           },
         ],
         defaultSortid: 1,
@@ -49962,10 +48068,6 @@ export const adsCategoriesList = [
             id: 3,
             title: 'گران‌ترین',
           },
-          {
-            id: 4,
-            title: 'نزدیک‌ترین',
-          },
         ],
         defaultSortid: 1,
         iconURL: '',
@@ -50005,10 +48107,6 @@ export const adsCategoriesList = [
             id: 3,
             title: 'گران‌ترین',
           },
-          {
-            id: 4,
-            title: 'نزدیک‌ترین',
-          },
         ],
         defaultSortid: 1,
         iconURL: '',
@@ -50045,10 +48143,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -50087,10 +48181,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -50128,10 +48218,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -50164,10 +48250,6 @@ export const adsCategoriesList = [
               {
                 id: 1,
                 title: 'جدیدترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -50206,10 +48288,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -50246,10 +48324,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -50288,10 +48362,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -50328,10 +48398,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -50373,10 +48439,6 @@ export const adsCategoriesList = [
             id: 3,
             title: 'گران‌ترین',
           },
-          {
-            id: 4,
-            title: 'نزدیک‌ترین',
-          },
         ],
         defaultSortid: 1,
         iconURL: '',
@@ -50416,10 +48478,6 @@ export const adsCategoriesList = [
             id: 3,
             title: 'گران‌ترین',
           },
-          {
-            id: 4,
-            title: 'نزدیک‌ترین',
-          },
         ],
         defaultSortid: 1,
         iconURL: '',
@@ -50455,10 +48513,6 @@ export const adsCategoriesList = [
           {
             id: 3,
             title: 'گران‌ترین',
-          },
-          {
-            id: 4,
-            title: 'نزدیک‌ترین',
           },
         ],
         defaultSortid: 1,
@@ -50498,10 +48552,6 @@ export const adsCategoriesList = [
           {
             id: 3,
             title: 'گران‌ترین',
-          },
-          {
-            id: 4,
-            title: 'نزدیک‌ترین',
           },
         ],
         defaultSortid: 1,
@@ -50545,10 +48595,6 @@ export const adsCategoriesList = [
       {
         id: 3,
         title: 'گران‌ترین',
-      },
-      {
-        id: 4,
-        title: 'نزدیک‌ترین',
       },
     ],
     defaultSortid: 1,
@@ -50691,10 +48737,6 @@ export const adsCategoriesList = [
             id: 3,
             title: 'گران‌ترین',
           },
-          {
-            id: 4,
-            title: 'نزدیک‌ترین',
-          },
         ],
         defaultSortid: 1,
         iconURL: '',
@@ -50735,10 +48777,6 @@ export const adsCategoriesList = [
             id: 3,
             title: 'گران‌ترین',
           },
-          {
-            id: 4,
-            title: 'نزدیک‌ترین',
-          },
         ],
         defaultSortid: 1,
         iconURL: '',
@@ -50777,10 +48815,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -50817,10 +48851,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -50879,10 +48909,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -50920,10 +48946,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -50960,10 +48982,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -51005,10 +49023,6 @@ export const adsCategoriesList = [
             id: 3,
             title: 'گران‌ترین',
           },
-          {
-            id: 4,
-            title: 'نزدیک‌ترین',
-          },
         ],
         defaultSortid: 1,
         iconURL: '',
@@ -51048,10 +49062,6 @@ export const adsCategoriesList = [
           {
             id: 3,
             title: 'گران‌ترین',
-          },
-          {
-            id: 4,
-            title: 'نزدیک‌ترین',
           },
         ],
         defaultSortid: 1,
@@ -51093,10 +49103,6 @@ export const adsCategoriesList = [
             id: 3,
             title: 'گران‌ترین',
           },
-          {
-            id: 4,
-            title: 'نزدیک‌ترین',
-          },
         ],
         defaultSortid: 1,
         iconURL: '',
@@ -51137,10 +49143,6 @@ export const adsCategoriesList = [
             id: 3,
             title: 'گران‌ترین',
           },
-          {
-            id: 4,
-            title: 'نزدیک‌ترین',
-          },
         ],
         defaultSortid: 1,
         iconURL: '',
@@ -51178,10 +49180,6 @@ export const adsCategoriesList = [
             id: 3,
             title: 'گران‌ترین',
           },
-          {
-            id: 4,
-            title: 'نزدیک‌ترین',
-          },
         ],
         defaultSortid: 1,
         iconURL: '',
@@ -51217,10 +49215,6 @@ export const adsCategoriesList = [
       {
         id: 1,
         title: 'جدیدترین',
-      },
-      {
-        id: 4,
-        title: 'نزدیک‌ترین',
       },
     ],
     defaultSortid: 1,
@@ -51323,10 +49317,6 @@ export const adsCategoriesList = [
             id: 3,
             title: 'گران‌ترین',
           },
-          {
-            id: 4,
-            title: 'نزدیک‌ترین',
-          },
         ],
         defaultSortid: 1,
         iconURL: '',
@@ -51425,10 +49415,6 @@ export const adsCategoriesList = [
             id: 3,
             title: 'گران‌ترین',
           },
-          {
-            id: 4,
-            title: 'نزدیک‌ترین',
-          },
         ],
         defaultSortid: 1,
         iconURL: '',
@@ -51523,10 +49509,6 @@ export const adsCategoriesList = [
           {
             id: 3,
             title: 'گران‌ترین',
-          },
-          {
-            id: 4,
-            title: 'نزدیک‌ترین',
           },
         ],
         defaultSortid: 1,
@@ -51626,10 +49608,6 @@ export const adsCategoriesList = [
             id: 3,
             title: 'گران‌ترین',
           },
-          {
-            id: 4,
-            title: 'نزدیک‌ترین',
-          },
         ],
         defaultSortid: 1,
         iconURL: '',
@@ -51724,10 +49702,6 @@ export const adsCategoriesList = [
           {
             id: 3,
             title: 'گران‌ترین',
-          },
-          {
-            id: 4,
-            title: 'نزدیک‌ترین',
           },
         ],
         defaultSortid: 1,
@@ -51824,10 +49798,6 @@ export const adsCategoriesList = [
             id: 3,
             title: 'گران‌ترین',
           },
-          {
-            id: 4,
-            title: 'نزدیک‌ترین',
-          },
         ],
         defaultSortid: 1,
         iconURL: '',
@@ -51922,10 +49892,6 @@ export const adsCategoriesList = [
           {
             id: 3,
             title: 'گران‌ترین',
-          },
-          {
-            id: 4,
-            title: 'نزدیک‌ترین',
           },
         ],
         defaultSortid: 1,
@@ -52022,10 +49988,6 @@ export const adsCategoriesList = [
             id: 3,
             title: 'گران‌ترین',
           },
-          {
-            id: 4,
-            title: 'نزدیک‌ترین',
-          },
         ],
         defaultSortid: 1,
         iconURL: '',
@@ -52121,10 +50083,6 @@ export const adsCategoriesList = [
             id: 3,
             title: 'گران‌ترین',
           },
-          {
-            id: 4,
-            title: 'نزدیک‌ترین',
-          },
         ],
         defaultSortid: 1,
         iconURL: '',
@@ -52219,10 +50177,6 @@ export const adsCategoriesList = [
           {
             id: 3,
             title: 'گران‌ترین',
-          },
-          {
-            id: 4,
-            title: 'نزدیک‌ترین',
           },
         ],
         defaultSortid: 1,
@@ -52322,10 +50276,6 @@ export const adsCategoriesList = [
       {
         id: 3,
         title: 'گران‌ترین',
-      },
-      {
-        id: 4,
-        title: 'نزدیک‌ترین',
       },
     ],
     defaultSortid: 1,
@@ -52468,10 +50418,6 @@ export const adsCategoriesList = [
             id: 3,
             title: 'گران‌ترین',
           },
-          {
-            id: 4,
-            title: 'نزدیک‌ترین',
-          },
         ],
         defaultSortid: 1,
         iconURL: '',
@@ -52511,10 +50457,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -52551,10 +50493,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -52593,10 +50531,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -52633,10 +50567,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -52675,10 +50605,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -52715,10 +50641,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -52757,10 +50679,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -52797,10 +50715,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -52839,10 +50753,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -52879,10 +50789,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -52921,10 +50827,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -52961,10 +50863,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -53003,10 +50901,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -53044,10 +50938,6 @@ export const adsCategoriesList = [
                 id: 3,
                 title: 'گران‌ترین',
               },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
-              },
             ],
             defaultSortid: 1,
             iconURL: '',
@@ -53084,10 +50974,6 @@ export const adsCategoriesList = [
               {
                 id: 3,
                 title: 'گران‌ترین',
-              },
-              {
-                id: 4,
-                title: 'نزدیک‌ترین',
               },
             ],
             defaultSortid: 1,
@@ -53129,10 +51015,6 @@ export const adsCategoriesList = [
             id: 3,
             title: 'گران‌ترین',
           },
-          {
-            id: 4,
-            title: 'نزدیک‌ترین',
-          },
         ],
         defaultSortid: 1,
         iconURL: '',
@@ -53173,10 +51055,6 @@ export const adsCategoriesList = [
           {
             id: 3,
             title: 'گران‌ترین',
-          },
-          {
-            id: 4,
-            title: 'نزدیک‌ترین',
           },
         ],
         defaultSortid: 1,
@@ -53268,10 +51146,6 @@ export const adsCategoriesList = [
       {
         id: 3,
         title: 'گران‌ترین',
-      },
-      {
-        id: 4,
-        title: 'نزدیک‌ترین',
       },
     ],
     defaultSortid: 1,
@@ -53413,10 +51287,6 @@ export const adsCategoriesList = [
             id: 3,
             title: 'گران‌ترین',
           },
-          {
-            id: 4,
-            title: 'نزدیک‌ترین',
-          },
         ],
         defaultSortid: 1,
         iconURL: '',
@@ -53488,10 +51358,6 @@ export const adsCategoriesList = [
             id: 3,
             title: 'گران‌ترین',
           },
-          {
-            id: 4,
-            title: 'نزدیک‌ترین',
-          },
         ],
         defaultSortid: 1,
         iconURL: '',
@@ -53531,10 +51397,6 @@ export const adsCategoriesList = [
           {
             id: 3,
             title: 'گران‌ترین',
-          },
-          {
-            id: 4,
-            title: 'نزدیک‌ترین',
           },
         ],
         defaultSortid: 1,
@@ -53576,10 +51438,6 @@ export const adsCategoriesList = [
             id: 3,
             title: 'گران‌ترین',
           },
-          {
-            id: 4,
-            title: 'نزدیک‌ترین',
-          },
         ],
         defaultSortid: 1,
         iconURL: '',
@@ -53619,10 +51477,6 @@ export const adsCategoriesList = [
           {
             id: 3,
             title: 'گران‌ترین',
-          },
-          {
-            id: 4,
-            title: 'نزدیک‌ترین',
           },
         ],
         defaultSortid: 1,

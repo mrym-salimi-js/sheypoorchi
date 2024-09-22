@@ -7,7 +7,7 @@ import { navigateAfterFilter } from '../../adFilters/navigateAfterFilter';
 export function ListItems({
   list,
   setListItems,
-  setListId,
+  setLastList,
   setListType,
   setNewAdStorageValue,
   newAdStorageValue,
@@ -17,9 +17,11 @@ export function ListItems({
   setItemTitle,
   type,
   setFilterListTitle,
+
   navigateTo,
   lable,
   queryKey,
+  firstItemBold,
 }) {
   // Get Current Url For Filter Type
   const locationUrl = useLocation();
@@ -39,18 +41,23 @@ export function ListItems({
       );
 
       // Set Title (value or name) Of Selected Item For Showing In Filter Filed
+
       setItemTitle(item.title ? item.title : item.name);
 
       // Set Title Of List Items (like titr)
-      setFilterListTitle({
-        name: item.title ? item.title : item.name,
-        slug: item.slug,
-        id: item.id,
-      });
+      if (lable === 'دسته بندی') {
+        setFilterListTitle({
+          name: item.title ? item.title : item.name,
+          slug: item.slug,
+          id: item.id,
+        });
+      }
     }
 
     // List Of Items
-    item.children?.length > 0 && setListItems(item.children);
+    item.children?.length > 0 && setListItems(item.children),
+      setListType('sub'),
+      setLastList(list);
     item.districts?.length > 0 && setListItems(item.districts);
     item.brands?.length > 0 && type !== 'filter' && setListItems(item.brands);
 
@@ -73,10 +80,7 @@ export function ListItems({
         newAdStorageValue,
         item,
         storagePram,
-        basicNewAdStorage,
-        setListId,
-        setListType,
-        setOpenList
+        basicNewAdStorage
       );
 
       //Category Attributes Storage Setting
@@ -111,7 +115,7 @@ export function ListItems({
       >
         <p
           className={`text-sm  ${
-            type === 'filter' && index == 0 ? `text-black` : `text-gray-500`
+            firstItemBold && index == 0 ? `text-black` : `text-gray-500`
           }`}
         >
           {item.name ? item.name : item.title}

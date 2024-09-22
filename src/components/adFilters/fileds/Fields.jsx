@@ -102,6 +102,7 @@ export function Fields() {
           type={'filter'}
           navigateTo={navigateTo}
           queryKey={'o'}
+          firstItemBold={true}
         />
       )}
 
@@ -122,6 +123,7 @@ export function Fields() {
           defaultItem={selectedCat.name}
           navigateTo={navigateTo}
           queryKey={'c'}
+          firstItemBold={true}
         />
       )}
 

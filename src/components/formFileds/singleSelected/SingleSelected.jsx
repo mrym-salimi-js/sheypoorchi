@@ -17,15 +17,13 @@ export default function SingleSelected({
   defaultItem,
   type,
   navigateTo,
+  firstItemBold,
 }) {
   const [openList, setOpenList] = useState();
   const [listItems, setListItems] = useState();
   const [itemTitle, setItemTitle] = useState();
 
-  const [filterListTitle, setFilterListTitle] = useState({
-    name: 'همه گروه ها',
-    slug: '',
-  });
+  const [filterListTitle, setFilterListTitle] = useState();
 
   // Set DefaultItem Of Filter Filed By Every Updating
   useMemo(() => {
@@ -90,6 +88,7 @@ export default function SingleSelected({
           filterListTitle={filterListTitle}
           navigateTo={navigateTo}
           queryKey={queryKey}
+          firstItemBold={firstItemBold}
         />
       )}
     </>

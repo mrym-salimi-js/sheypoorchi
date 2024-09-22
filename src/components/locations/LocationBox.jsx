@@ -41,11 +41,7 @@ export default function LocationBox({ setOpenLocation }) {
           <div className='flex justify-between items-center border-r-4 border-pink-400 pr-2'>
             <div className='flex'>
               {locSituation === 'شهر' && (
-                <BackBtn
-                  setTitle={setLocSituation}
-                  title={'استان'}
-                  setPrvId={setPrvId}
-                />
+                <BackBtn setTitle={setLocSituation} title={'استان'} />
               )}
               <p className='w-auto text-md  p-2 '>انتخاب {locSituation}</p>
             </div>

@@ -17,18 +17,14 @@ export function List({
   filterListTitle,
   navigateTo,
   queryKey,
+  firstItemBold,
 }) {
   const [listType, setListType] = useState('main');
-  const [setListId] = useState();
+  const [lastList, setLastList] = useState();
 
   const handleClosing = () => {
     setOpenList(false);
   };
-
-  let newList;
-  if (type === 'filter') {
-    newList = [filterListTitle, ...allList];
-  }
 
   return (
     <div className='w-full h-full flex flex-col items-center justify-end lg:justify-center fixed top-0 right-0 bg-[#7e7e7ed1] z-[100000]'>
@@ -36,7 +32,13 @@ export function List({
         <div className='flex justify-between items-center pb-5 '>
           <div className='flex items-center gap-3 border-r-4 border-pink-400 pr-2'>
             {listType === 'sub' && (
-              <BackBtn setTitle={setListType} title={'main'} />
+              <BackBtn
+                setTitle={setListType}
+                title={'main'}
+                setListItems={setListItems}
+                lastList={lastList}
+                setFilterListTitle={setFilterListTitle}
+              />
             )}
             <p className='text-lg '>{lable}</p>
           </div>
@@ -51,9 +53,13 @@ export function List({
         <div className='h-[87%] p-1 mt-[20px] overflow-scroll '>
           <ul className='flex flex-col gap-2 p-1 '>
             <ListItems
-              list={newList ? newList : allList}
+              list={
+                type === 'filter' && lable === 'دسته بندی' && filterListTitle
+                  ? [filterListTitle, ...allList]
+                  : allList
+              }
               setListItems={setListItems}
-              setListId={setListId}
+              setLastList={setLastList}
               setListType={setListType}
               listType={'main'}
               setNewAdStorageValue={setNewAdStorageValue}
@@ -67,6 +73,7 @@ export function List({
               navigateTo={navigateTo}
               lable={lable}
               queryKey={queryKey}
+              firstItemBold={firstItemBold}
             />
           </ul>
         </div>
