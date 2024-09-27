@@ -29,11 +29,11 @@ export function AttrsItems({ item, setOpenLocation, navigateTo, searchItems }) {
     return (
       <>
         <div className='w-full h-auto flex flex-col gap-4'>
-          <div className='w-full p-2 flex items-center'>
+          <div className='w-full  flex items-center'>
             <p className='text-md'>{item.title || item.name}</p>
           </div>
 
-          <div className='w-full p-2 flex gap-4'>
+          <div className='w-full flex gap-4'>
             <div className='w-1/2 h-auto text-gray-500'>
               <TextComponent
                 setOpenList={setOpenLocation}

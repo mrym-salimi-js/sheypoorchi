@@ -27,22 +27,22 @@ function App() {
       );
   }, []);
 
-  // useEffect(() => {
-  //   const allSO = [];
-  //   adsCategoriesList.find((item) => {
-  //     item.sortOptions?.map((so) => {
-  //       allSO.push(so.title);
-  //     });
+  useEffect(() => {
+    const allQK = [];
+    adsCategoriesList.find((item) => {
+      item.attributes?.map((attr) => {
+        attr.queryKey !== undefined && allQK.push(attr.queryKey);
+      });
 
-  //     item.children?.map((itemCh) => {
-  //       itemCh.sortOptions?.map((soCh) => {
-  //         allSO.push(soCh.title);
-  //       });
-  //     });
-  //   });
-  //   const uniqueArray = new Set(allSO);
-  //   console.log(uniqueArray);
-  // }, [adsCategoriesList]);
+      item.children?.map((itemCh) => {
+        itemCh.attributes?.map((attrrch) => {
+          attrrch.queryKey !== undefined && allQK.push(attrrch.queryKey);
+        });
+      });
+    });
+    const uniqueArray = new Set(allQK);
+    console.log(uniqueArray);
+  }, [adsCategoriesList]);
 
   // useEffect(() => {
   //   const cats = JSON.parse(localStorage.getItem('ads_categories_list'));

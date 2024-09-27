@@ -1,4 +1,3 @@
-import SearchBar from '../components/SearchBar';
 import NavBar from '../components/NavBar';
 import Category from '../components/Category';
 import { AdsList } from '../components/advertisements/adComponents/AdsList';
@@ -8,6 +7,7 @@ import AdFiltersBox from '../components/adFilters/AdFiltersBox';
 import SelectedLoc from '../components/breadCrumbs/SelectedLocs';
 import { useParams } from 'react-router-dom';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { Header } from '../components/header/Header';
 
 export default function Home() {
   const navigateTo = useNavigate();
@@ -48,9 +48,9 @@ export default function Home() {
 
   return (
     <>
-      <SearchBar />
-      {category !== undefined && <AdFiltersBox />}
-      <div className='w-[80%] h-full relative flex flex-col gap-6 items-center mb-14  p-2'>
+      <div className='w-[85%] h-full relative flex flex-col gap-6 items-center mb-14  p-2'>
+        <Header />
+        {category !== undefined && <AdFiltersBox />}
         <Category />
         <SelectedLoc />
         <AdsList />

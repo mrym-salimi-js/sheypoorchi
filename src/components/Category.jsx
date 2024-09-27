@@ -67,7 +67,7 @@ export default function Category() {
     <div
       onClick={sliderActions}
       id='places-category-box'
-      className='w-[98%] h-[100px] py-1 px-4 rounded-xl z-[1000] bg-white  sticky top-[75px]'
+      className='w-[98%] h-[130px] py-1 px-4 rounded-xl z-[1000] bg-white  '
     >
       <div className='w-full h-full overflow-x-scroll ul-box'>
         <ul id='places-category-ul' className='w-auto py-3 px-1 flex gap-6 m-0'>
@@ -77,16 +77,18 @@ export default function Category() {
                 onClick={() => {
                   handleCatCookie(item.slug);
                 }}
-                className='min-w-[92px] bg-gray-50 rounded-3xl p-2'
+                className='min-w-[92px] flex flex-col items-center gap-2 p-2'
                 key={item.id}
               >
                 <a
                   href={`/s/iran/${item.slug}`}
-                  className='w-full h-full cursor-pointer flex flex-col gap-3 justify-center items-center'
+                  className='w-full p-2 bg-gray-50 rounded-3xl cursor-pointer flex flex-col gap-3 justify-center items-center'
                 >
                   <img className='w-14 h-14 ' src={item.iconURL}></img>
-                  {/* <p className="text-white text-[0.6rem] py-1 px-2 bg-pink-200 rounded-lg">{item.name}</p> */}
                 </a>
+                <p className='text-black text-[0.7rem] py-1 px-2 text-center'>
+                  {item.name}
+                </p>
               </li>
             );
           })}
