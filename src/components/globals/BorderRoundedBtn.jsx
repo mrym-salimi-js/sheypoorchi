@@ -1,9 +1,18 @@
-import React from 'react'
-
-export  function BorderRoundedBtn({ lable, handleAction }) {
-    return (
-        <span onClick={handleAction} className="p-3 text-sm bg-pink-50 text-[#84105C] rounded-full border border-[#84105C] cursor-pointer">
-            {lable}
-        </span>
-    )
+export function BorderRoundedBtn({
+  borderColor,
+  bgColor,
+  textColor,
+  lable,
+  handleAction,
+  icon,
+}) {
+  return (
+    <div
+      onClick={handleAction}
+      className={`flex gap-2 items-center py-3 px-5 text-sm ${bgColor}  rounded-full border ${borderColor} cursor-pointer`}
+    >
+      {icon}
+      <p className={`${textColor}`}>{lable}</p>
+    </div>
+  );
 }

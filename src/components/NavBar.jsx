@@ -12,7 +12,7 @@ export default function NavBar() {
   };
 
   return (
-    <nav className='w-full  h-16 xl:hidden  bg-white  border-t-[1px] border-[#f3f3f3] fixed bottom-0  m-auto left-0 right-0 z-[10000]'>
+    <nav className='w-full  h-16 xl:hidden  bg-white  border-t-[1px] border-[#f3f3f3] fixed bottom-0  m-auto left-0 right-0 z-[1000]'>
       <ul className='w-full h-full flex gap-2 justify-around items-center'>
         <li
           onClick={(event) => navIconSelected(event.currentTarget)}

@@ -54,7 +54,9 @@ export function List({
           <ul className='flex flex-col gap-2 p-1 '>
             <ListItems
               list={
-                type === 'filter' && lable === 'دسته بندی' && filterListTitle
+                (type === 'filter' || type === 'category_search') &&
+                lable === 'دسته بندی' &&
+                filterListTitle
                   ? [filterListTitle, ...allList]
                   : allList
               }

@@ -17,7 +17,6 @@ export function ListItems({
   setItemTitle,
   type,
   setFilterListTitle,
-
   navigateTo,
   lable,
   queryKey,
@@ -29,7 +28,7 @@ export function ListItems({
 
   const handleItems = (item) => {
     // Filter Form Settings
-    if (type === 'filter') {
+    if (type === 'filter' || type === 'category_search') {
       // Navigate After ad Filter Param in url
       navigateAfterFilter(
         queryParams,
@@ -41,8 +40,7 @@ export function ListItems({
       );
 
       // Set Title (value or name) Of Selected Item For Showing In Filter Filed
-
-      setItemTitle(item.title ? item.title : item.name);
+      type === 'filter' && setItemTitle(item.title ? item.title : item.name);
 
       // Set Title Of List Items (like titr)
       if (lable === 'دسته بندی') {
@@ -59,7 +57,10 @@ export function ListItems({
       setListType('sub'),
       setLastList(list);
     item.districts?.length > 0 && setListItems(item.districts);
-    item.brands?.length > 0 && type !== 'filter' && setListItems(item.brands);
+    item.brands?.length > 0 &&
+      type !== 'filter' &&
+      type !== 'category_search' &&
+      setListItems(item.brands);
 
     //Delete Excludedattributes Of Category
     if (newAdStorageValue) {
@@ -100,7 +101,8 @@ export function ListItems({
       (item.children?.length == 0 && item.brands?.length == 0) ||
       (item.children === undefined &&
         (item.districts === undefined || item.districts?.length == 0)) ||
-      (type === 'filter' && item.brands?.length > 0)
+      ((type === 'filter' || type === 'category_search') &&
+        item.brands?.length > 0)
     ) {
       setOpenList(false);
     }
@@ -125,7 +127,9 @@ export function ListItems({
           if (
             item.children?.length > 0 ||
             item.districts?.length > 0 ||
-            (item.brands?.length > 0 && type !== 'filter')
+            (item.brands?.length > 0 &&
+              type !== 'filter' &&
+              type !== 'category_search')
           ) {
             return (
               <ChevronLeft

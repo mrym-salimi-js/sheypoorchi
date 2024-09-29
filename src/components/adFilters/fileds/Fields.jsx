@@ -86,7 +86,7 @@ export function Fields() {
     }
   });
 
-  // Delete SorrtOption From Url
+  // Delete SortOption From Url
   useEffect(() => {
     deleteFilterSearch(searchItems, 'o', navigateTo, locationUrl);
   }, [category]);

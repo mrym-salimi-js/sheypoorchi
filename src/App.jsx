@@ -27,22 +27,22 @@ function App() {
       );
   }, []);
 
-  useEffect(() => {
-    const allQK = [];
-    adsCategoriesList.find((item) => {
-      item.attributes?.map((attr) => {
-        attr.queryKey !== undefined && allQK.push(attr.queryKey);
-      });
+  // useEffect(() => {
+  //   const allQK = [];
+  //   adsCategoriesList.find((item) => {
+  //     item.attributes?.map((attr) => {
+  //       attr.queryKey !== undefined && allQK.push(attr.queryKey);
+  //     });
 
-      item.children?.map((itemCh) => {
-        itemCh.attributes?.map((attrrch) => {
-          attrrch.queryKey !== undefined && allQK.push(attrrch.queryKey);
-        });
-      });
-    });
-    const uniqueArray = new Set(allQK);
-    console.log(uniqueArray);
-  }, [adsCategoriesList]);
+  //     item.children?.map((itemCh) => {
+  //       itemCh.attributes?.map((attrrch) => {
+  //         attrrch.queryKey !== undefined && allQK.push(attrrch.queryKey);
+  //       });
+  //     });
+  //   });
+  //   const uniqueArray = new Set(allQK);
+  //   console.log(uniqueArray);
+  // }, [adsCategoriesList]);
 
   // useEffect(() => {
   //   const cats = JSON.parse(localStorage.getItem('ads_categories_list'));
@@ -91,6 +91,8 @@ function App() {
             element={<Home />}
           />
           <Route path='/s/iran/:category' element={<Home />} />
+          <Route path='/s/iran/:category/:brands' element={<Home />} />
+          <Route path='/s/iran/:category/:brands/:model' element={<Home />} />
           <Route path='/newAd' element={<NewAd />} />
           <Route path='/:id/:title' element={<Single />} />
           {/* <Route path='*' element={<Home />} /> */}
