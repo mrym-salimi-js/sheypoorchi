@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { useCookies } from 'react-cookie';
-// import { Loading } from './Loading';
 
 export function FindMainCategories() {
   const [mainCategories, setMainCategories] = useState();
@@ -11,19 +10,18 @@ export function FindMainCategories() {
   }, []);
   return mainCategories;
 }
-export default function Category() {
+export default function Category({ queryParams, navigateTo }) {
   const [setCookie] = useCookies();
-
-  // const cookieCitiesInUrl = encodeURIComponent(
-  //   JSON.stringify(cookie['cities'])
-  // );
-  // let href
-  // (cookie['cities'] !== undefined && cookie['cities'].length > 0) ? href = `/${cookieCitiesInUrl}` : href = `/s/iran/`
 
   const mainCategories = FindMainCategories();
 
-  const handleCatCookie = (slug) => {
+  const handleCatCookie = (slug, event) => {
     setCookie('selectedCat', slug);
+    event.preventDefault();
+    navigateTo({
+      pathname: `/s/iran/${slug}`,
+      search: queryParams.toString(),
+    });
   };
 
   const sliderActions = () => {
@@ -74,13 +72,13 @@ export default function Category() {
           {mainCategories?.map((item) => {
             return (
               <li
-                onClick={() => {
-                  handleCatCookie(item.slug);
-                }}
                 className='min-w-[92px] flex flex-col items-center gap-2 p-2'
                 key={item.id}
               >
                 <a
+                  onClick={(event) => {
+                    handleCatCookie(item.slug, event);
+                  }}
                   href={`/s/iran/${item.slug}`}
                   className='w-full p-2 bg-gray-50 rounded-3xl cursor-pointer flex flex-col gap-3 justify-center items-center'
                 >

@@ -2,7 +2,8 @@ import { useEffect, useMemo, useState } from 'react';
 import { BorderRoundedBtn } from '../globals/BorderRoundedBtn';
 import { ChevronDown } from '../globals/Icons';
 import { List } from '../formFileds/singleSelected/List';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate, useSearchParams } from 'react-router-dom';
+import { deleteFilterSearch } from '../adFilters/deleteFilterSearch';
 
 export function CategoryListBtn({ category }) {
   const [catName, setCatName] = useState();
@@ -11,6 +12,7 @@ export function CategoryListBtn({ category }) {
   const [listItems, setListItems] = useState();
   const navigateTo = useNavigate();
   const [filterListTitle, setFilterListTitle] = useState();
+  const locationUrl = useLocation();
 
   useEffect(() => {
     if (mainCats !== undefined) {
@@ -34,6 +36,14 @@ export function CategoryListBtn({ category }) {
   const handleCategoryListDisplay = () => {
     setOpenList(!openList);
   };
+
+  // Delete Serach Item Of Url
+  const searchItems = new URLSearchParams(locationUrl.search);
+  const [allSearchItems] = useSearchParams();
+  const searchObject = Object.fromEntries(allSearchItems.entries());
+  useEffect(() => {
+    deleteFilterSearch(searchObject, searchItems, navigateTo, locationUrl);
+  }, [category]);
 
   return (
     <>

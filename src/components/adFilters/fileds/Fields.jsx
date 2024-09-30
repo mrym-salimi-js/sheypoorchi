@@ -5,7 +5,12 @@ import TextComponent from '../../formFileds/TextComponent';
 import LocationBox from '../../locations/LocationBox';
 import { useCookies } from 'react-cookie';
 import { selectedLocations } from '../../locations/selectedLocations';
-import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import {
+  useLocation,
+  useNavigate,
+  useParams,
+  useSearchParams,
+} from 'react-router-dom';
 import AttrsFields from './AttrsFields';
 import { allCatSortOptions } from '../categorySortOptionTyps';
 import { deleteFilterSearch } from '../deleteFilterSearch';
@@ -30,6 +35,7 @@ export function Fields() {
   const locationUrl = useLocation();
   // Get Url Search
   const searchItems = new URLSearchParams(locationUrl.search);
+
   // Selected Location Setting
   useEffect(() => {
     selectedLocations(
@@ -86,9 +92,11 @@ export function Fields() {
     }
   });
 
-  // Delete SortOption From Url
+  // Delete Serach Item Of Url
+  const [allSearchItems] = useSearchParams();
+  const searchObject = Object.fromEntries(allSearchItems.entries());
   useEffect(() => {
-    deleteFilterSearch(searchItems, 'o', navigateTo, locationUrl);
+    deleteFilterSearch(searchObject, searchItems, navigateTo, locationUrl);
   }, [category]);
 
   return (

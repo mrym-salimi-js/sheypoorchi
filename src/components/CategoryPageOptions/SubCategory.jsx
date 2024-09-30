@@ -3,7 +3,7 @@ import { FindMainCategories } from '../Category';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-export function SubCategory({ category, brands, locationUrl }) {
+export function SubCategory({ category, brands, locationUrl, queryParams }) {
   const sliderActions = () => {
     const sliderUl = document.querySelectorAll('.ul-box');
     let pressed = false;
@@ -54,11 +54,12 @@ export function SubCategory({ category, brands, locationUrl }) {
           chItem.slug === category && setCatList(chItem.brands);
 
           chItem.brands?.map((bItem) => {
-            bItem.slug === `${category}/${brands}` &&
-              bItem.attributes?.map((bAttrItem) => {
-                // console.log(bAttrItem.options);
-                setCatList(bAttrItem.options);
-              });
+            if (bItem.slug === `${category}/${brands}`)
+              bItem.attributes.length > 0
+                ? bItem.attributes?.map((bAttrItem) => {
+                    setCatList(bAttrItem.options);
+                  })
+                : setCatList([]);
           });
         });
       });
@@ -69,8 +70,14 @@ export function SubCategory({ category, brands, locationUrl }) {
     event.preventDefault();
 
     filterItem.slug !== undefined
-      ? navigateTo(`/s/iran/${filterItem.slug}`)
-      : navigateTo(`/s/iran/${category}/${brands}/${filterItem.name}`);
+      ? navigateTo({
+          pathname: `/s/iran/${filterItem.slug}`,
+          search: queryParams.toString(),
+        })
+      : navigateTo({
+          pathname: `/s/iran/${category}/${brands}/${filterItem.name}`,
+          search: queryParams.toString(),
+        });
   };
 
   return (

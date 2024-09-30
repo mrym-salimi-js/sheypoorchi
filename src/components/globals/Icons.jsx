@@ -119,9 +119,10 @@ export function Warning({ color }) {
     </svg>
   );
 }
-export function XCircle({ color, size }) {
+export function XCircle({ color, size, handleDisplaySlug }) {
   return (
     <svg
+      onClick={handleDisplaySlug}
       xmlns='http://www.w3.org/2000/svg'
       fill='none'
       viewBox='0 0 24 24'

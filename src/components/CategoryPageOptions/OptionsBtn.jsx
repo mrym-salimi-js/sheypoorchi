@@ -11,6 +11,7 @@ export function OptionsBtn({
   brands,
   model,
   locationUrl,
+  navigateTo,
 }) {
   const sliderActions = () => {
     const sliderUl = document.querySelectorAll('.ul-box');
@@ -52,8 +53,34 @@ export function OptionsBtn({
   const searchObject = Object.fromEntries(searchItems.entries());
   const mainCategories = FindMainCategories();
   const [filterItemsList, setFilterItemsList] = useState([]);
+  const [brandAndModel, setBrandAndModel] = useState();
 
   useEffect(() => {
+    // Get And Set Brand And Model
+    setBrandAndModel();
+    mainCategories?.map((item) => {
+      if (item.name === 'وسایل نقلیه') {
+        item.children?.map((chItem) => {
+          chItem.brands.map((bItem) => {
+            brands !== undefined &&
+              bItem.slug === `${category}/${brands}` &&
+              setBrandAndModel(
+                model !== undefined
+                  ? {
+                      id: bItem.id,
+                      title: `${bItem.name}   >   ${model}`,
+                      slug: `${bItem.slug}/${model}`,
+                    }
+                  : { id: bItem.id, title: bItem.name, slug: bItem.slug }
+              );
+          });
+        });
+      }
+    });
+
+    //Get And Set Search Param From Url
+    setFilterItemsList([]);
+
     for (let key in searchObject) {
       if (key !== 'c' && key !== 'cities' && key !== 'o') {
         const id = key.match(/\d+/g);
@@ -77,30 +104,13 @@ export function OptionsBtn({
           });
         });
       }
+      key.includes('p') &&
+        setFilterItemsList((prev) => [
+          ...prev,
+          { id: 0, title: 'قیمت', slug: key },
+        ]);
     }
-    mainCategories?.map((item) => {
-      if (item.name === 'وسایل نقلیه') {
-        item.children?.map((chItem) => {
-          chItem.brands.map((bItem) => {
-            brands !== undefined &&
-              bItem.slug === `${category}/${brands}` &&
-              setFilterItemsList((prev) => [
-                ...prev,
-                model !== undefined
-                  ? {
-                      id: bItem.id,
-                      title: `${bItem.name}   >   ${model}`,
-                      slug: bItem.slug,
-                    }
-                  : { id: bItem.id, title: bItem.name, slug: bItem.slug },
-              ]);
-          });
-        });
-      }
-    });
   }, [locationUrl]);
-
-  console.log(filterItemsList);
 
   return (
     <div
@@ -110,8 +120,25 @@ export function OptionsBtn({
       <ul id='places-category-ul' className='w-auto  px-1 flex gap-3 m-0'>
         <FilterBtn setFilterFormDisplay={setFilterFormDisplay} />
         <CategoryListBtn category={category} />
+        {brandAndModel !== undefined && (
+          <FilterItemBtn
+            key={brandAndModel?.id}
+            lable={brandAndModel?.title}
+            slug={brandAndModel?.slug}
+            locationUrl={locationUrl}
+            navigateTo={navigateTo}
+          />
+        )}
         {filterItemsList?.map((fI) => {
-          return <FilterItemBtn key={fI.id} lable={fI.title} />;
+          return (
+            <FilterItemBtn
+              key={fI.id}
+              lable={fI.title}
+              slug={fI.slug}
+              locationUrl={locationUrl}
+              navigateTo={navigateTo}
+            />
+          );
         })}
       </ul>
     </div>

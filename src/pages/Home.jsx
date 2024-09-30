@@ -32,10 +32,10 @@ export default function Home() {
   const category = params.category;
   const brands = params.brands;
   const model = params.model;
+  // Url Search
+  const queryParams = new URLSearchParams(locationUrl.search);
 
   useEffect(() => {
-    const queryParams = new URLSearchParams(locationUrl.search);
-
     if (cookie['cities'] !== undefined && cookie['cities'].length > 0) {
       queryParams.set('cities', cookieCitiesInUrl);
       navigateTo({
@@ -69,18 +69,20 @@ export default function Home() {
               brands={brands}
               model={model}
               locationUrl={locationUrl}
+              navigateTo={navigateTo}
             />
             <SubCategory
               category={category}
               brands={brands}
               locationUrl={locationUrl}
+              queryParams={queryParams}
             />
             <BreadCrumbs />
           </>
         )}
         {category === undefined && (
           <>
-            <Category />
+            <Category queryParams={queryParams} navigateTo={navigateTo} />
             <SelectedLoc />
           </>
         )}
