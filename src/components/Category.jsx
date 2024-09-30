@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useCookies } from 'react-cookie';
+// import { useCookies } from 'react-cookie';
 
 export function FindMainCategories() {
   const [mainCategories, setMainCategories] = useState();
@@ -11,12 +11,13 @@ export function FindMainCategories() {
   return mainCategories;
 }
 export default function Category({ queryParams, navigateTo }) {
-  const [setCookie] = useCookies();
+  // const [setCookie] = useCookies();
 
   const mainCategories = FindMainCategories();
 
   const handleCatCookie = (slug, event) => {
-    setCookie('selectedCat', slug);
+    // setCookie('selectedCat', slug);
+    // console.log(event);
     event.preventDefault();
     navigateTo({
       pathname: `/s/iran/${slug}`,
@@ -76,10 +77,10 @@ export default function Category({ queryParams, navigateTo }) {
                 key={item.id}
               >
                 <a
+                  href={`/s/iran/${item.slug}`}
                   onClick={(event) => {
                     handleCatCookie(item.slug, event);
                   }}
-                  href={`/s/iran/${item.slug}`}
                   className='w-full p-2 bg-gray-50 rounded-3xl cursor-pointer flex flex-col gap-3 justify-center items-center'
                 >
                   <img className='w-14 h-14 ' src={item.iconURL}></img>

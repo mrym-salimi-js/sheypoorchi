@@ -240,6 +240,8 @@ export function NewAdForm() {
                 }
                 page={'newAd'}
                 zoom={14}
+                setNewAdStorageValue={setNewAdStorageValue}
+                newAdStorageValue={newAdStorageValue}
               />
               {/* User Type*/}
               <UserType storagePram={'userType'} />
