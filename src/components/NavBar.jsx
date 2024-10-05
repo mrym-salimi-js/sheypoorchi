@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { CirclePlus, Speaker, User } from './globals/Icons';
+import { linkTo } from './globals/functions/linkTo';
 
 export default function NavBar() {
   const navigateTo = useNavigate();
@@ -12,8 +13,7 @@ export default function NavBar() {
 
     li.children[0].classList.add('text-[#84105C]');
 
-    event.preventDefault();
-    navigateTo({ pathname: href });
+    linkTo(event, navigateTo, href);
   };
 
   return (
@@ -21,9 +21,9 @@ export default function NavBar() {
       <ul className='w-full h-full flex gap-2 justify-around items-center'>
         <li className='nav-li h-full flex items-center cursor-pointer hover:border-t-4 border-pink-500 '>
           <a
-            href='/'
+            href='/s/iran'
             onClick={(event) =>
-              navIconSelected(event.currentTarget, event, '/')
+              navIconSelected(event.currentTarget, event, '/s/iran')
             }
             className='flex flex-col gap-2 items-center'
           >

@@ -231,12 +231,14 @@ export function NewAdForm() {
               <Map
                 width={'100%'}
                 lat={
-                  newAdStorageValue?.location.lat !== undefined &&
-                  newAdStorageValue?.location.lat
+                  newAdStorageValue?.location.lat !== undefined
+                    ? newAdStorageValue?.location.lat
+                    : 35.696111
                 }
                 lon={
-                  newAdStorageValue?.location.lon !== undefined &&
-                  newAdStorageValue?.location.lon
+                  newAdStorageValue?.location.lon !== undefined
+                    ? newAdStorageValue?.location.lon
+                    : 51.423056
                 }
                 page={'newAd'}
                 zoom={14}

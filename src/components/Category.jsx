@@ -1,5 +1,7 @@
 import { useContext, useEffect, useState } from 'react';
 import { HomeContext } from '../pages/Home';
+import { scrollSlider } from './globals/functions/scrollSlider';
+import { linkTo } from './globals/functions/linkTo';
 
 export function FindMainCategories() {
   const [mainCategories, setMainCategories] = useState();
@@ -15,58 +17,21 @@ export default function Category() {
 
   const mainCategories = FindMainCategories();
 
-  const handleCatCookie = (slug, event) => {
-    event.preventDefault();
-    navigateTo({
-      pathname: `/s/iran/${slug}`,
-      search: queryParams.toString(),
-    });
+  const handleNavTo = (slug, event) => {
+    linkTo(event, navigateTo, `/s/iran/${slug}`, queryParams.toString());
   };
 
-  const sliderActions = () => {
-    const sliderUl = document.querySelectorAll('.ul-box');
-    let pressed = false;
-    let startX = 0;
-    let scrollLeft;
-
-    sliderUl.forEach((ulElm) => {
-      ulElm.addEventListener('mousedown', (event) => {
-        pressed = true;
-        if (startX > 0) {
-          return;
-        }
-
-        startX = event.pageX - ulElm.offsetLeft;
-        scrollLeft = ulElm.scrollLeft;
-      });
-
-      ulElm.addEventListener('mouseleave', () => {
-        pressed = false;
-      });
-
-      window.addEventListener('mouseup', () => {
-        pressed = false;
-      });
-
-      ulElm.addEventListener('mousemove', (event) => {
-        if (!pressed) {
-          return;
-        }
-
-        const x = event.pageX - ulElm.offsetLeft;
-        const walk = x - startX;
-        ulElm.scrollLeft = scrollLeft - walk;
-      });
-    });
-  };
+  const handleScrollItems = () => [
+    scrollSlider(document.querySelectorAll('.cat-items-box')),
+  ];
 
   return (
     <div
-      onClick={sliderActions}
+      onClick={handleScrollItems}
       id='places-category-box'
       className='w-[98%] h-[130px] py-1 px-4 rounded-xl z-[1000] bg-white  '
     >
-      <div className='w-full h-full overflow-x-scroll ul-box'>
+      <div className=' cat-items-box w-full h-full overflow-x-scroll ul-box'>
         <ul id='places-category-ul' className='w-auto py-3 px-1 flex gap-6 m-0'>
           {mainCategories?.map((item) => {
             return (
@@ -77,7 +42,7 @@ export default function Category() {
                 <a
                   href={`/s/iran/${item.slug}`}
                   onClick={(event) => {
-                    handleCatCookie(item.slug, event);
+                    handleNavTo(item.slug, event);
                   }}
                   className='w-full p-2 bg-gray-50 rounded-3xl cursor-pointer flex flex-col gap-3 justify-center items-center'
                 >

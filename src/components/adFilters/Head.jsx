@@ -8,6 +8,9 @@ export default function Head() {
       <BorderRoundedBtn
         lable={'حذف فیلتر'}
         handleAction={handleClearingFilter}
+        borderColor={'border-[#84105C]'}
+        bgColor={'bg-pink-50'}
+        textColor={'text-[#84105C]'}
       />
     </div>
   );

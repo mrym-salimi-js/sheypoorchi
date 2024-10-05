@@ -1,10 +1,10 @@
-import { MapContainer, Marker, TileLayer } from 'react-leaflet';
+import { MapContainer, TileLayer } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import { MapCenterMarker } from './MapCenterMarker';
 import { MapCurrentLocation } from './MapCurrentLocation';
 import { MapAutomaticChanges } from './MapAutomaticChanges';
-import { Icon } from 'leaflet';
-import { mapMerker } from '../globals/Icons';
+// import { Icon } from 'leaflet';
+// import { mapMerker } from '../globals/Icons';
 import { useState } from 'react';
 
 export function Map({
@@ -21,11 +21,11 @@ export function Map({
 
   const [mapMoved, setMapMoved] = useState(false);
 
-  const customIcon = new Icon({
-    iconUrl: mapMerker,
-    iconSize: [35, 35],
-    iconAnchor: [lat, lon],
-  });
+  // const customIcon = new Icon({
+  //   iconUrl: mapMerker,
+  //   iconSize: [35, 35],
+  //   iconAnchor: [lat, lon],
+  // });
 
   return (
     <div className={`w-full lg:w-[${width}] `}>
@@ -39,7 +39,7 @@ export function Map({
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
         />
-        <Marker position={[lat, lon]} icon={customIcon} />
+        {/* <Marker position={[lat, lon]} icon={customIcon} /> */}
         {/* {
           page === 'single' &&
           
