@@ -1,12 +1,11 @@
+import { useContext } from 'react';
 import { BorderRoundedBtn } from '../globals/BorderRoundedBtn';
 import { XCircle } from '../globals/Icons';
+import { HomeContext } from '../../pages/Home';
 
-export default function FilterItemBtn({
-  lable,
-  slug,
-  locationUrl,
-  navigateTo,
-}) {
+export default function FilterItemBtn({ lable, slug }) {
+  const { locationUrl, navigateTo } = useContext(HomeContext);
+
   const split = slug.split('/');
 
   const handleDisplaySlug = () => {
@@ -25,6 +24,7 @@ export default function FilterItemBtn({
       });
     }
   };
+
   return (
     <BorderRoundedBtn
       borderColor={'border-[#84105C]'}

@@ -3,51 +3,15 @@ import { CategoryListBtn } from './CategoryListBtn';
 import { FilterBtn } from './FilterBtn';
 import FilterItemBtn from './FilterItemBtn';
 import { FindMainCategories } from '../Category';
-import { useEffect, useState } from 'react';
+import { useContext, useMemo, useState } from 'react';
+import { HomeContext } from '../../pages/Home';
+import { scrollSlider } from '../globals/functions/scrollSlider';
 
-export function OptionsBtn({
-  setFilterFormDisplay,
-  category,
-  brands,
-  model,
-  locationUrl,
-  navigateTo,
-}) {
-  const sliderActions = () => {
-    const sliderUl = document.querySelectorAll('.ul-box');
-    let pressed = false;
-    let startX = 0;
-    let scrollLeft;
+export function OptionsBtn() {
+  const { category, brands, model, locationUrl } = useContext(HomeContext);
 
-    sliderUl.forEach((ulElm) => {
-      ulElm.addEventListener('mousedown', (event) => {
-        pressed = true;
-        if (startX > 0) {
-          return;
-        }
-
-        startX = event.pageX - ulElm.offsetLeft;
-        scrollLeft = ulElm.scrollLeft;
-      });
-
-      ulElm.addEventListener('mouseleave', () => {
-        pressed = false;
-      });
-
-      window.addEventListener('mouseup', () => {
-        pressed = false;
-      });
-
-      ulElm.addEventListener('mousemove', (event) => {
-        if (!pressed) {
-          return;
-        }
-
-        const x = event.pageX - ulElm.offsetLeft;
-        const walk = x - startX;
-        ulElm.scrollLeft = scrollLeft - walk;
-      });
-    });
+  const handleScrollItem = () => {
+    scrollSlider(document.querySelectorAll('.filtered-item-box'));
   };
   const [searchItems] = useSearchParams();
   const searchObject = Object.fromEntries(searchItems.entries());
@@ -55,7 +19,7 @@ export function OptionsBtn({
   const [filterItemsList, setFilterItemsList] = useState([]);
   const [brandAndModel, setBrandAndModel] = useState();
 
-  useEffect(() => {
+  useMemo(() => {
     // Get And Set Brand And Model
     setBrandAndModel();
     mainCategories?.map((item) => {
@@ -114,31 +78,21 @@ export function OptionsBtn({
 
   return (
     <div
-      onClick={sliderActions}
-      className='w-full h-full overflow-x-scroll ul-box'
+      onClick={handleScrollItem}
+      className='w-full h-full overflow-x-scroll filtered-item-box ul-box'
     >
       <ul id='places-category-ul' className='w-auto  px-1 flex gap-3 m-0'>
-        <FilterBtn setFilterFormDisplay={setFilterFormDisplay} />
-        <CategoryListBtn category={category} />
+        <FilterBtn />
+        <CategoryListBtn />
         {brandAndModel !== undefined && (
           <FilterItemBtn
             key={brandAndModel?.id}
             lable={brandAndModel?.title}
             slug={brandAndModel?.slug}
-            locationUrl={locationUrl}
-            navigateTo={navigateTo}
           />
         )}
         {filterItemsList?.map((fI) => {
-          return (
-            <FilterItemBtn
-              key={fI.id}
-              lable={fI.title}
-              slug={fI.slug}
-              locationUrl={locationUrl}
-              navigateTo={navigateTo}
-            />
-          );
+          return <FilterItemBtn key={fI.id} lable={fI.title} slug={fI.slug} />;
         })}
       </ul>
     </div>

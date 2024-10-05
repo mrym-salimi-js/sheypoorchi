@@ -1,11 +1,13 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useContext, useEffect, useMemo, useState } from 'react';
 import { BorderRoundedBtn } from '../globals/BorderRoundedBtn';
 import { ChevronDown } from '../globals/Icons';
 import { List } from '../formFileds/singleSelected/List';
 import { useLocation, useNavigate, useSearchParams } from 'react-router-dom';
 import { deleteFilterSearch } from '../adFilters/deleteFilterSearch';
+import { HomeContext } from '../../pages/Home';
 
-export function CategoryListBtn({ category }) {
+export function CategoryListBtn() {
+  const { category } = useContext(HomeContext);
   const [catName, setCatName] = useState();
   const [openList, setOpenList] = useState(false);
   const mainCats = JSON.parse(localStorage.getItem('ads_categories_list'));

@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
-// import { useCookies } from 'react-cookie';
+import { useContext, useEffect, useState } from 'react';
+import { HomeContext } from '../pages/Home';
 
 export function FindMainCategories() {
   const [mainCategories, setMainCategories] = useState();
@@ -10,14 +10,12 @@ export function FindMainCategories() {
   }, []);
   return mainCategories;
 }
-export default function Category({ queryParams, navigateTo }) {
-  // const [setCookie] = useCookies();
+export default function Category() {
+  const { queryParams, navigateTo } = useContext(HomeContext);
 
   const mainCategories = FindMainCategories();
 
   const handleCatCookie = (slug, event) => {
-    // setCookie('selectedCat', slug);
-    // console.log(event);
     event.preventDefault();
     navigateTo({
       pathname: `/s/iran/${slug}`,

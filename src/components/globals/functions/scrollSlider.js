@@ -1,39 +1,35 @@
-
 export function scrollSlider(sliderUl) {
+  let pressed = false;
+  let startX = 0;
+  let scrollLeft;
 
-    // const sliderUl = parentTag.
+  sliderUl.forEach((ulElm) => {
+    ulElm.addEventListener('mousedown', (event) => {
+      pressed = true;
+      if (startX > 0) {
+        return;
+      }
 
-    console.log(sliderUl)
-    let pressed = false
-    let startX = 0
-    let scrollLeft;
+      startX = event.pageX - ulElm.offsetLeft;
+      scrollLeft = ulElm.scrollLeft;
+    });
 
-    sliderUl.forEach((ulElm) => {
+    ulElm.addEventListener('mouseleave', () => {
+      pressed = false;
+    });
 
-        ulElm.addEventListener('mousedown', (event) => {
-            pressed = true;
-            if (startX > 0) { return }
+    window.addEventListener('mouseup', () => {
+      pressed = false;
+    });
 
-            startX = event.pageX - ulElm.offsetLeft;
-            scrollLeft = ulElm.scrollLeft;
-        })
+    ulElm.addEventListener('mousemove', (event) => {
+      if (!pressed) {
+        return;
+      }
 
-        ulElm.addEventListener('mouseleave', () => {
-            pressed = false
-        })
-
-        window.addEventListener('mouseup', () => {
-            pressed = false
-        })
-
-        ulElm.addEventListener('mousemove', (event) => {
-            if (!pressed) { return }
-
-            const x = event.pageX - ulElm.offsetLeft;
-            const walk = x - startX;
-            ulElm.scrollLeft = scrollLeft - walk;
-        })
-    })
-
-
+      const x = event.pageX - ulElm.offsetLeft;
+      const walk = x - startX;
+      ulElm.scrollLeft = scrollLeft - walk;
+    });
+  });
 }

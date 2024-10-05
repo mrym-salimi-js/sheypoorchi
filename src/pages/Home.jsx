@@ -2,7 +2,7 @@ import NavBar from '../components/NavBar';
 import Category from '../components/Category';
 import { AdsList } from '../components/advertisements/adComponents/AdsList';
 import { useCookies } from 'react-cookie';
-import { useEffect, useState } from 'react';
+import { createContext, useEffect, useState } from 'react';
 import AdFiltersBox from '../components/adFilters/AdFiltersBox';
 import SelectedLoc from '../components/breadCrumbs/SelectedLocs';
 import { useParams } from 'react-router-dom';
@@ -12,6 +12,8 @@ import { SubCategory } from '../components/CategoryPageOptions/SubCategory';
 import { OptionsBtn } from '../components/CategoryPageOptions/OptionsBtn';
 import BreadCrumbs from '../components/breadCrumbs/BreadCrumbs';
 
+export const HomeContext = createContext();
+
 export default function Home() {
   const navigateTo = useNavigate();
   const params = useParams();
@@ -19,14 +21,11 @@ export default function Home() {
   const [cookie, setCookie] = useCookies();
   const [filterFormDisplay, setFilterFormDisplay] = useState('hidden');
 
+  // Set Selected Cat In Cookie
   const catItemInUrl = cookie['selectedCat'];
   useEffect(() => {
     setCookie('selectedCat', catItemInUrl ? catItemInUrl : '');
   }, []);
-
-  const cookieCitiesInUrl = encodeURIComponent(
-    JSON.stringify(cookie['cities'])
-  );
 
   // Url Params
   const category = params.category;
@@ -35,6 +34,10 @@ export default function Home() {
   // Url Search
   const queryParams = new URLSearchParams(locationUrl.search);
 
+  // Global Url Set In Home Page
+  const cookieCitiesInUrl = encodeURIComponent(
+    JSON.stringify(cookie['cities'])
+  );
   useEffect(() => {
     if (cookie['cities'] !== undefined && cookie['cities'].length > 0) {
       queryParams.set('cities', cookieCitiesInUrl);
@@ -54,35 +57,31 @@ export default function Home() {
   }, [cookieCitiesInUrl]);
 
   return (
-    <>
-      <div className='w-[85%] h-full relative flex flex-col gap-6 items-center mb-14  p-2'>
+    <HomeContext.Provider
+      value={{
+        filterFormDisplay,
+        setFilterFormDisplay,
+        category,
+        brands,
+        model,
+        locationUrl,
+        navigateTo,
+        queryParams,
+      }}
+    >
+      <div className='w-[98%] sm:w-[85%] h-full relative flex flex-col gap-6 items-center mb-14  p-2'>
         <Header />
         {category !== undefined && (
           <>
-            <AdFiltersBox
-              filterFormDisplay={filterFormDisplay}
-              setFilterFormDisplay={setFilterFormDisplay}
-            />
-            <OptionsBtn
-              setFilterFormDisplay={setFilterFormDisplay}
-              category={category}
-              brands={brands}
-              model={model}
-              locationUrl={locationUrl}
-              navigateTo={navigateTo}
-            />
-            <SubCategory
-              category={category}
-              brands={brands}
-              locationUrl={locationUrl}
-              queryParams={queryParams}
-            />
+            <AdFiltersBox />
+            <OptionsBtn />
+            <SubCategory />
             <BreadCrumbs />
           </>
         )}
         {category === undefined && (
           <>
-            <Category queryParams={queryParams} navigateTo={navigateTo} />
+            <Category />
             <SelectedLoc />
           </>
         )}
@@ -90,6 +89,6 @@ export default function Home() {
         <AdsList />
       </div>
       <NavBar />
-    </>
+    </HomeContext.Provider>
   );
 }

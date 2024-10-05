@@ -1,11 +1,11 @@
 import Head from './Head';
 import { Fields } from './fileds/Fields';
 import ApplyBtn from './ApplyBtn';
+import { useContext } from 'react';
+import { HomeContext } from '../../pages/Home';
 
-export default function AdFiltersBox({
-  filterFormDisplay,
-  setFilterFormDisplay,
-}) {
+export default function AdFiltersBox() {
+  const { filterFormDisplay } = useContext(HomeContext);
   return (
     <div
       className={`w-full h-full flex items-center justify-center fixed top-0 right-0 z-[10000] bg-[#2222228a] ${filterFormDisplay}`}
@@ -19,7 +19,7 @@ export default function AdFiltersBox({
           <Fields />
 
           {/* Add Filter Btn */}
-          <ApplyBtn setFilterFormDisplay={setFilterFormDisplay} />
+          <ApplyBtn />
         </div>
       </div>
     </div>

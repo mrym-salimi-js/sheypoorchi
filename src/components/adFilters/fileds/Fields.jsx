@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import SingleSelected from '../../formFileds/singleSelected/SingleSelected';
 import ToggleSwich from '../../formFileds/ToggleSwich';
 import TextComponent from '../../formFileds/TextComponent';
@@ -81,7 +81,7 @@ export function Fields() {
   }, [category, adsCategoriesList]);
 
   // Find Selected Sort Opton In Url
-  useEffect(() => {
+  useMemo(() => {
     const selctedSos = allCatSortOptions.find((soItem) => {
       return soItem.slug === searchItems.get('o');
     });
@@ -90,7 +90,7 @@ export function Fields() {
         ? setSelectedSo(selctedSos.name)
         : setSelectedSo(sortOptions.find((o) => o.id === defaultSortid).title);
     }
-  });
+  }, [locationUrl]);
 
   // Delete Serach Item Of Url
   const [allSearchItems] = useSearchParams();

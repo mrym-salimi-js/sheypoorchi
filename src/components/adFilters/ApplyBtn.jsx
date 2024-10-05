@@ -1,7 +1,13 @@
-export default function ApplyBtn({ setFilterFormDisplay }) {
+import { useContext } from 'react';
+import { HomeContext } from '../../pages/Home';
+
+export default function ApplyBtn() {
+  const { setFilterFormDisplay } = useContext(HomeContext);
+
   const handleFilterFormDisplay = () => {
-    setFilterFormDisplay('block');
+    setFilterFormDisplay('hidden');
   };
+
   return (
     <div
       onClick={handleFilterFormDisplay}

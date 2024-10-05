@@ -1,7 +1,11 @@
+import { useContext } from 'react';
 import { BorderRoundedBtn } from '../globals/BorderRoundedBtn';
 import { Filter } from '../globals/Icons';
+import { HomeContext } from '../../pages/Home';
 
-export function FilterBtn({ setFilterFormDisplay }) {
+export function FilterBtn() {
+  const { setFilterFormDisplay } = useContext(HomeContext);
+
   const handleFilterFormDisplay = () => {
     setFilterFormDisplay('block');
   };

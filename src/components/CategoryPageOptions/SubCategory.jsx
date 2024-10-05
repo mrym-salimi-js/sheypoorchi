@@ -1,49 +1,22 @@
-import { useEffect } from 'react';
+import { useContext, useEffect } from 'react';
 import { FindMainCategories } from '../Category';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { HomeContext } from '../../pages/Home';
+import { scrollSlider } from '../globals/functions/scrollSlider';
 
-export function SubCategory({ category, brands, locationUrl, queryParams }) {
-  const sliderActions = () => {
-    const sliderUl = document.querySelectorAll('.ul-box');
-    let pressed = false;
-    let startX = 0;
-    let scrollLeft;
-
-    sliderUl.forEach((ulElm) => {
-      ulElm.addEventListener('mousedown', (event) => {
-        pressed = true;
-        if (startX > 0) {
-          return;
-        }
-
-        startX = event.pageX - ulElm.offsetLeft;
-        scrollLeft = ulElm.scrollLeft;
-      });
-
-      ulElm.addEventListener('mouseleave', () => {
-        pressed = false;
-      });
-
-      window.addEventListener('mouseup', () => {
-        pressed = false;
-      });
-
-      ulElm.addEventListener('mousemove', (event) => {
-        if (!pressed) {
-          return;
-        }
-
-        const x = event.pageX - ulElm.offsetLeft;
-        const walk = x - startX;
-        ulElm.scrollLeft = scrollLeft - walk;
-      });
-    });
-  };
+export function SubCategory() {
+  const { category, brands, locationUrl, queryParams } =
+    useContext(HomeContext);
   const [catList, setCatList] = useState();
   const mainCategories = FindMainCategories();
   const navigateTo = useNavigate();
 
+  const handleScrollItems = () => [
+    scrollSlider(document.querySelectorAll('.sub-cat-items-box')),
+  ];
+
+  // Get Cat Items
   useEffect(() => {
     if (mainCategories !== undefined) {
       mainCategories.map((item) => {
@@ -82,8 +55,8 @@ export function SubCategory({ category, brands, locationUrl, queryParams }) {
 
   return (
     <div
-      onClick={sliderActions}
-      className='w-full h-auto bg-gray-50 overflow-x-scroll ul-box border-b-[1px] border-t-[1px]'
+      onClick={handleScrollItems}
+      className='sub-cat-items-box w-full h-auto bg-gray-50 overflow-x-scroll ul-box border-b-[1px] border-t-[1px]'
     >
       <ul className='w-auto  flex  m-0 py-1 '>
         {catList?.map((item) => {
