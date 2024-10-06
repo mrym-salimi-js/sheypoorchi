@@ -4,13 +4,13 @@ import { AdsList } from '../components/advertisements/adComponents/AdsList';
 import { useCookies } from 'react-cookie';
 import { createContext, useEffect, useState } from 'react';
 import AdFiltersBox from '../components/adFilters/AdFiltersBox';
-import SelectedLoc from '../components/breadCrumbs/SelectedLocs';
+import { SelectedLocBox } from '../components/breadCrumbs/SelectedLocs';
 import { useParams } from 'react-router-dom';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Header } from '../components/header/Header';
 import { SubCategory } from '../components/CategoryPageOptions/SubCategory';
 import { OptionsBtn } from '../components/CategoryPageOptions/OptionsBtn';
-import BreadCrumbs from '../components/breadCrumbs/BreadCrumbs';
+import BreadCrumbs from '../components/BreadCrumbs';
 
 export const HomeContext = createContext();
 
@@ -20,6 +20,8 @@ export default function Home() {
   const locationUrl = useLocation();
   const [cookie, setCookie] = useCookies();
   const [filterFormDisplay, setFilterFormDisplay] = useState('hidden');
+
+  const [brandAndModel, setBrandAndModel] = useState();
 
   // Set Selected Cat In Cookie
   const catItemInUrl = cookie['selectedCat'];
@@ -67,6 +69,8 @@ export default function Home() {
         locationUrl,
         navigateTo,
         queryParams,
+        brandAndModel,
+        setBrandAndModel,
       }}
     >
       <div className='w-[98%] sm:w-[85%] h-full relative flex flex-col gap-6 items-center mb-14  p-2'>
@@ -82,7 +86,7 @@ export default function Home() {
         {category === undefined && (
           <>
             <Category />
-            <SelectedLoc />
+            <SelectedLocBox />
           </>
         )}
 

@@ -8,7 +8,8 @@ import { HomeContext } from '../../pages/Home';
 
 export function CategoryListBtn() {
   const { category } = useContext(HomeContext);
-  const [catName, setCatName] = useState();
+
+  const [selectedCat, setSelectedCat] = useState();
   const [openList, setOpenList] = useState(false);
   const mainCats = JSON.parse(localStorage.getItem('ads_categories_list'));
   const [listItems, setListItems] = useState();
@@ -20,16 +21,21 @@ export function CategoryListBtn() {
     if (mainCats !== undefined) {
       mainCats.map((item) => {
         if (item.slug === category) {
-          setCatName(item.name);
+          setSelectedCat({ id: item.id, name: item.name, slug: item.slug });
         }
         item.children?.map((chItem) => {
-          chItem.slug === category && setCatName(chItem.name);
+          chItem.slug === category &&
+            setSelectedCat({
+              id: chItem.id,
+              name: chItem.name,
+              slug: chItem.slug,
+            });
         });
       });
     }
 
     setFilterListTitle({ name: 'همه گروه ها', slug: '', id: '' });
-  }, [openList]);
+  }, [locationUrl]);
 
   useMemo(() => {
     setListItems(mainCats);
@@ -53,7 +59,7 @@ export function CategoryListBtn() {
         borderColor={'border-[#84105C]'}
         bgColor={'bg-pink-50'}
         textColor={'text-[#84105C]'}
-        lable={catName}
+        lable={selectedCat?.name}
         handleAction={handleCategoryListDisplay}
         icon={
           <ChevronDown color={'#84105C'} size={'size-5'} strokeWidth={'2'} />

@@ -3,12 +3,19 @@ import { CategoryListBtn } from './CategoryListBtn';
 import { FilterBtn } from './FilterBtn';
 import FilterItemBtn from './FilterItemBtn';
 import { FindMainCategories } from '../Category';
-import { useContext, useMemo, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { HomeContext } from '../../pages/Home';
 import { scrollSlider } from '../globals/functions/scrollSlider';
 
 export function OptionsBtn() {
-  const { category, brands, model, locationUrl } = useContext(HomeContext);
+  const {
+    category,
+    brands,
+    model,
+    locationUrl,
+    brandAndModel,
+    setBrandAndModel,
+  } = useContext(HomeContext);
 
   const handleScrollItem = () => {
     scrollSlider(document.querySelectorAll('.filtered-item-box'));
@@ -17,9 +24,8 @@ export function OptionsBtn() {
   const searchObject = Object.fromEntries(searchItems.entries());
   const mainCategories = FindMainCategories();
   const [filterItemsList, setFilterItemsList] = useState([]);
-  const [brandAndModel, setBrandAndModel] = useState();
 
-  useMemo(() => {
+  useEffect(() => {
     // Get And Set Brand And Model
     setBrandAndModel();
     mainCategories?.map((item) => {
@@ -32,7 +38,7 @@ export function OptionsBtn() {
                 model !== undefined
                   ? {
                       id: bItem.id,
-                      title: `${bItem.name}   >   ${model}`,
+                      title: `${bItem.name}   /   ${model}`,
                       slug: `${bItem.slug}/${model}`,
                     }
                   : { id: bItem.id, title: bItem.name, slug: bItem.slug }

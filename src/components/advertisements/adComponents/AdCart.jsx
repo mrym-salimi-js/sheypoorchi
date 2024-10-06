@@ -21,7 +21,7 @@ export function AdCart({ adItem }) {
   }, []);
 
   const adTitle = JSON.parse(title.trim().replace(/\s+/g, '-'));
-  const href = `/${id}/${adTitle}`;
+  const href = `/v/${id}/${adTitle}`;
 
   return (
     <li className='max-w-[320px] w-[300px]  h-auto border border-gray-300 rounded-[2rem] px-5  relative'>

@@ -7,15 +7,16 @@ import { Gallery } from '../components/single/adDispalyInfo/gallery/Gallery';
 import { getAd } from '../services/getAd';
 import FullScreenGallery from '../components/single/adDispalyInfo/fullScreenGallery/FullScreenGallery';
 import { Header } from '../components/header/Header';
+import { useParams } from 'react-router-dom';
+import NavBar from '../components/NavBar';
 
 export default function Single() {
   const [singleAd, setSingleAd] = useState();
+  const params = useParams();
 
   useEffect(() => {
-    const adId = decodeURI(window.location.pathname).split('/')[1];
-
     const getSingleAd = async () => {
-      const response = await getAd(adId);
+      const response = await getAd(params.id);
       setSingleAd(response);
     };
 
@@ -108,6 +109,7 @@ export function SingleAdDetails({ singleAd }) {
         photoParantRef={photoParantRef}
         visibleThumbnailNumber={visibleThumbnailNumber}
       />
+      <NavBar />
     </>
   );
 }

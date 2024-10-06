@@ -94,7 +94,7 @@ function App() {
           <Route path='/s/iran/:category/:brands' element={<Home />} />
           <Route path='/s/iran/:category/:brands/:model' element={<Home />} />
           <Route path='/newAd' element={<NewAd />} />
-          <Route path='/:id/:title' element={<Single />} />
+          <Route path='/v/:id/:title' element={<Single />} />
           {/* <Route path='*' element={<Home />} /> */}
         </Routes>
       </BrowserRouter>

@@ -6,7 +6,7 @@ import { HomeContext } from '../../pages/Home';
 import { scrollSlider } from '../globals/functions/scrollSlider';
 
 export function SubCategory() {
-  const { category, brands, locationUrl, queryParams } =
+  const { category, brands, model, locationUrl, queryParams } =
     useContext(HomeContext);
   const [catList, setCatList] = useState();
   const mainCategories = FindMainCategories();
@@ -27,12 +27,19 @@ export function SubCategory() {
           chItem.slug === category && setCatList(chItem.brands);
 
           chItem.brands?.map((bItem) => {
-            if (bItem.slug === `${category}/${brands}`)
+            if (bItem.slug === `${category}/${brands}`) {
               bItem.attributes.length > 0
                 ? bItem.attributes?.map((bAttrItem) => {
                     setCatList(bAttrItem.options);
                   })
                 : setCatList([]);
+            }
+            if (
+              locationUrl.pathname ===
+              `/s/iran/${category}/${brands}/${encodeURI(model)}`
+            ) {
+              setCatList([]);
+            }
           });
         });
       });

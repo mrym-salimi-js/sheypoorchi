@@ -1,24 +1,32 @@
-import { useContext } from 'react';
 import { Logo } from './Logo';
 import { NewAdBtn } from './NewAdBtn';
 import SearchBar from './SearchBar';
 import { UserAccountBtn } from './UserAccountBtn';
-import { HomeContext } from '../../pages/Home';
 import { linkTo } from '../globals/functions/linkTo';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 
 export function Header() {
-  const { navigateTo } = useContext(HomeContext);
+  // use sepereted navigateTo and locationUrl from Home page, because of Header component that use in differ pages
+  const locationUrl = useLocation();
+  const navigateTo = useNavigate();
+  const params = useParams();
   const handleNavTo = (event, href) => {
     linkTo(event, navigateTo, href);
   };
+
   return (
-    <div className='w-full h-28 border-b-[1px] flex items-center justify-center gap-3 '>
-      <div className='hidden xl:block'>
-        <Logo handleNavTo={handleNavTo} />
+    <div className='w-full h-auto py-3  border-b-[1px] flex items-center justify-between'>
+      <Logo handleNavTo={handleNavTo} />
+
+      {locationUrl.pathname !== '/newAd' && params.id === undefined && (
+        <SearchBar />
+      )}
+      <div className='w-auto  flex gap-3 items-center'>
+        {locationUrl.pathname !== '/newAd' && (
+          <NewAdBtn handleNavTo={handleNavTo} />
+        )}
+        <UserAccountBtn handleNavTo={handleNavTo} />
       </div>
-      <SearchBar />
-      <NewAdBtn handleNavTo={handleNavTo} />
-      <UserAccountBtn handleNavTo={handleNavTo} />
     </div>
   );
 }
