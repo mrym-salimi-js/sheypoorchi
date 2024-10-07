@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from 'react';
 import { HomeContext } from '../pages/Home';
-import { scrollSlider } from './globals/functions/scrollSlider';
-import { linkTo } from './globals/functions/linkTo';
+import { scrollSlider } from '../functions/globals/scrollSlider';
+import { linkTo } from '../functions/globals/linkTo';
 
 export function FindMainCategories() {
   const [mainCategories, setMainCategories] = useState();

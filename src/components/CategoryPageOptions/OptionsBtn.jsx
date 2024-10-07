@@ -5,7 +5,7 @@ import FilterItemBtn from './FilterItemBtn';
 import { FindMainCategories } from '../Category';
 import { useContext, useEffect, useState } from 'react';
 import { HomeContext } from '../../pages/Home';
-import { scrollSlider } from '../globals/functions/scrollSlider';
+import { scrollSlider } from '../../functions/globals/scrollSlider';
 
 export function OptionsBtn() {
   const {

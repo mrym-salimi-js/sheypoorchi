@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import LocationBox from '../locations/LocationBox';
 import { useCookies } from 'react-cookie';
-import { citiesList } from '../localStorage/locations';
+import { citiesList } from '../../functions/localStorage/locations';
 import { mapMerker } from '../globals/Icons';
 
 export default function SearchBar() {

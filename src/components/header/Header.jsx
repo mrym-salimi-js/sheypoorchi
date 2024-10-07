@@ -2,7 +2,7 @@ import { Logo } from './Logo';
 import { NewAdBtn } from './NewAdBtn';
 import SearchBar from './SearchBar';
 import { UserAccountBtn } from './UserAccountBtn';
-import { linkTo } from '../globals/functions/linkTo';
+import { linkTo } from '../../functions/globals/linkTo';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 
 export function Header() {

@@ -1,5 +1,7 @@
 import { useContext } from 'react';
 import { LocationContext } from './LocationBox';
+import { BorderRoundedBtn } from '../globals/BorderRoundedBtn';
+import { CloseMark } from '../globals/Icons';
 
 export function FilteringCity() {
   const { setAllCheckedBoxes, allCheckedBoxes, setDeleteAllBtnClicked } =
@@ -17,30 +19,25 @@ export function FilteringCity() {
 
   return (
     <div className='w-full overflow-scroll'>
-      <ul className='flex gap-3 items-center justify-start'>
+      <ul className='flex gap-3 py-2 items-center justify-start'>
         {allCheckedBoxes?.map((city, index) => {
           return (
-            <li
-              className='w-auto h-auto p-3 flex items-center justify-between gap-3 rounded-full bottom-2  bg-pink-50'
+            <BorderRoundedBtn
               key={index}
-            >
-              <p className='text-[11px] text-[#84105C] '>{city.name}</p>
-              <svg
-                onClick={() => handleHideFilteredCitiy(city.name, city.id)}
-                xmlns='http://www.w3.org/2000/svg'
-                fill='none'
-                viewBox='0 0 24 24'
-                strokeWidth='1.5'
-                stroke='#501a3d'
-                className='size-4 cursor-pointer'
-              >
-                <path
-                  strokeLinecap='round'
-                  strokeLinejoin='round'
-                  d='M6 18 18 6M6 6l12 12'
+              borderColor={'border-[#84105C]'}
+              bgColor={'bg-pink-50'}
+              textColor={'text-[#84105C]'}
+              textSize={'text-[0.7rem]'}
+              lable={city.name}
+              handleAction={() => handleHideFilteredCitiy(city.name, city.id)}
+              icon={
+                <CloseMark
+                  color={'#84105C'}
+                  size={'size-5'}
+                  strokeWidth={'2'}
                 />
-              </svg>
-            </li>
+              }
+            />
           );
         })}
       </ul>

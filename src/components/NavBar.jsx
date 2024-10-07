@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { CirclePlus, Speaker, User } from './globals/Icons';
-import { linkTo } from './globals/functions/linkTo';
+import { linkTo } from '../functions/globals/linkTo';
 
 export default function NavBar() {
   const navigateTo = useNavigate();

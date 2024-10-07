@@ -1,5 +1,6 @@
 import { useContext } from 'react';
 import { LocationContext } from './LocationBox';
+import { BorderRoundedBtn } from '../globals/BorderRoundedBtn';
 
 export function DeleteAllFilterdCitiesBtn() {
   const {
@@ -16,13 +17,15 @@ export function DeleteAllFilterdCitiesBtn() {
   };
 
   return (
-    <div className='w-24 h-auto p-3  flex items-center justify-center gap-3 rounded-full bottom-2  bg-pink-50 cursor-pointer'>
-      <p
-        onClick={handleHideFilteredCities}
-        className='text-[12px] text-[#84105C] '
-      >
-        حذف همه
-      </p>
+    <div className='w-auto h-auto px-3'>
+      <BorderRoundedBtn
+        borderColor={'border-[#84105C]'}
+        bgColor={'bg-pink-50'}
+        textColor={'text-[#84105C]'}
+        textSize={'text-[0.7rem]'}
+        lable='حذف همه'
+        handleAction={handleHideFilteredCities}
+      />
     </div>
   );
 }

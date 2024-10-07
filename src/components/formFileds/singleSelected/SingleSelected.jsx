@@ -1,6 +1,6 @@
 import TextComponent from '../TextComponent';
-import { setParamsAfterDependencies } from '../../newAd/formFunctions/setParamsAfterDependencies';
-import { singleSelectedErrorHandling } from '../../newAd/formFunctions/singleSelectedErrorHandling';
+import { setParamsAfterDependencies } from '../../../functions/newAd/setParamsAfterDependencies';
+import { singleSelectedErrorHandling } from '../../../functions/newAd/singleSelectedErrorHandling';
 import { useEffect, useMemo, useState } from 'react';
 import { List } from './List';
 

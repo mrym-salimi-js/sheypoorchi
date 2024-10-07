@@ -2,6 +2,7 @@ export function BorderRoundedBtn({
   borderColor,
   bgColor,
   textColor,
+  textSize,
   lable,
   handleAction,
   icon,
@@ -9,7 +10,9 @@ export function BorderRoundedBtn({
   return (
     <div
       onClick={handleAction}
-      className={`w-auto min-w-max flex gap-2 items-center py-3 px-5 text-sm ${bgColor}  rounded-full border ${borderColor} cursor-pointer`}
+      className={`w-auto min-w-max flex gap-2 items-center py-3 px-5 ${
+        textSize ? textSize : `text-sm`
+      } ${bgColor}  rounded-full border ${borderColor} cursor-pointer`}
     >
       {icon}
       <p className={`${textColor}`}>{lable}</p>

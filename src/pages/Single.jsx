@@ -1,14 +1,17 @@
-import { useEffect, useRef, useState } from 'react';
-import BreadCrumbs from '../components/breadCrumbs/BreadCrumbs';
+import { createContext, useEffect, useRef, useState } from 'react';
+import SinglePageBreadCrumbs from '../components/breadCrumbs/SinglePageBreadCrumbs';
 import { Map } from '../components/map/Map';
-
 import AdInfo from '../components/single/adTextInfo/AdInfo';
-import { Gallery } from '../components/single/adDispalyInfo/gallery/Gallery';
+import { Gallery } from '../components/single/adGalleryInfo/Gallery';
 import { getAd } from '../services/getAd';
-import FullScreenGallery from '../components/single/adDispalyInfo/fullScreenGallery/FullScreenGallery';
+import FullScreenGallery from '../components/single/adGalleryInfo/FullScreenGallery';
 import { Header } from '../components/header/Header';
 import { useParams } from 'react-router-dom';
 import NavBar from '../components/NavBar';
+import { getCost } from '../functions/advertisements/getCost';
+import { getDifferDate } from '../functions/advertisements/getDifferDate';
+
+export const SingleContext = createContext();
 
 export default function Single() {
   const [singleAd, setSingleAd] = useState();
@@ -44,42 +47,57 @@ export function SingleAdDetails({ singleAd }) {
     category,
     created_at,
     description,
-    id,
     location,
     coordinate,
     photo,
     title,
-    userType,
   } = singleAd;
+  const adCategory = JSON.parse(category);
+  const adTitle = JSON.parse(title);
+  const adPhoto = JSON.parse(photo);
+
+  const adAttributes = JSON.parse(attributes);
+  const adDescription = JSON.parse(description);
+  const adLocation = JSON.parse(location);
+
+  const [date, setDate] = useState(0);
+  const [cost, setCost] = useState([]);
+
+  useEffect(() => {
+    getCost(adAttributes, (costVal) => {
+      setCost(costVal);
+    });
+    getDifferDate(created_at, (dateVal) => {
+      setDate(dateVal);
+    });
+  }, []);
 
   return (
-    <>
+    <SingleContext.Provider
+      value={{
+        adCategory,
+        adTitle,
+        adPhoto,
+        visibleThumbnailNumber,
+        photoFullScreen,
+        setPhotoFullScreen,
+        setCounter,
+        counter,
+        photoParantRef,
+        adAttributes,
+        adDescription,
+        adLocation,
+        date,
+        cost,
+      }}
+    >
       <div className='w-full p-6 lg:w-[80%]  flex flex-col justify-between '>
         <Header />
-        <BreadCrumbs
-          adCategory={JSON.parse(category)}
-          adTitle={JSON.parse(title)}
-        />
+        <SinglePageBreadCrumbs />
 
         <div className='w-full flex flex-col lg:flex-row justify-between items-start gap-14 lg:gap-0'>
           <div className='w-full  lg:w-[45%]  h-auto flex  flex-col gap-6 lg:items-start items-center'>
-            {photoFullScreen ? (
-              <Gallery
-                adPhoto={JSON.parse(photo)}
-                visibleThumbnailNumber={visibleThumbnailNumber}
-              />
-            ) : (
-              <Gallery
-                adPhoto={JSON.parse(photo)}
-                photoFullScreen={photoFullScreen}
-                setPhotoFullScreen={setPhotoFullScreen}
-                setCounter={setCounter}
-                counter={counter}
-                photoParantRef={photoParantRef}
-                const
-                visibleThumbnailNumber={visibleThumbnailNumber}
-              />
-            )}
+            <Gallery partScreen={true} />
             {coordinate && (
               <Map
                 width={'87%'}
@@ -91,25 +109,11 @@ export function SingleAdDetails({ singleAd }) {
             )}
           </div>
 
-          <AdInfo
-            title={JSON.parse(title)}
-            attributes={JSON.parse(attributes)}
-            description={JSON.parse(description)}
-            location={JSON.parse(location)}
-            created_at={created_at}
-          />
+          <AdInfo />
         </div>
       </div>
-      <FullScreenGallery
-        adPhoto={JSON.parse(photo)}
-        photoFullScreen={photoFullScreen}
-        setPhotoFullScreen={setPhotoFullScreen}
-        setCounter={setCounter}
-        counter={counter}
-        photoParantRef={photoParantRef}
-        visibleThumbnailNumber={visibleThumbnailNumber}
-      />
+      <FullScreenGallery />
       <NavBar />
-    </>
+    </SingleContext.Provider>
   );
 }

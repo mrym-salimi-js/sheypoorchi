@@ -1,8 +1,8 @@
 import { useLocation } from 'react-router-dom';
-import { setSingleSelectedStorage } from '../../newAd/formFunctions/setSingleSelectedStorage';
-import { setSingleSelectedAttrsStorage } from '../../newAd/formFunctions/setSingleSelectedAttrsStorage';
+import { setSingleSelectedStorage } from '../../../functions/newAd/setSingleSelectedStorage';
+import { setSingleSelectedAttrsStorage } from '../../../functions/newAd/setSingleSelectedAttrsStorage';
 import { ChevronLeft } from '../../globals/Icons';
-import { navigateAfterFilter } from '../../adFilters/navigateAfterFilter';
+import { navigateAfterFilter } from '../../../functions/adFilters/navigateAfterFilter';
 
 export function ListItems({
   list,

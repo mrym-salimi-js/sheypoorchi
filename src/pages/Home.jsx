@@ -1,16 +1,18 @@
 import NavBar from '../components/NavBar';
 import Category from '../components/Category';
-import { AdsList } from '../components/advertisements/adComponents/AdsList';
+import { AdsList } from '../components/advertisements/AdsList';
 import { useCookies } from 'react-cookie';
 import { createContext, useEffect, useState } from 'react';
 import AdFiltersBox from '../components/adFilters/AdFiltersBox';
-import { SelectedLocBox } from '../components/breadCrumbs/SelectedLocs';
 import { useParams } from 'react-router-dom';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Header } from '../components/header/Header';
 import { SubCategory } from '../components/CategoryPageOptions/SubCategory';
 import { OptionsBtn } from '../components/CategoryPageOptions/OptionsBtn';
-import BreadCrumbs from '../components/BreadCrumbs';
+import { Speaker } from '../components/globals/Icons';
+import CategoryPageBreadCrumbs from '../components/breadCrumbs/CategoryPageBreadCrumbs';
+import HomePageBreadCrumb from '../components/breadCrumbs/HomePageBreadCrumb';
+import { navTo } from '../functions/globals/navTo';
 
 export const HomeContext = createContext();
 
@@ -18,16 +20,16 @@ export default function Home() {
   const navigateTo = useNavigate();
   const params = useParams();
   const locationUrl = useLocation();
-  const [cookie, setCookie] = useCookies();
+  const [cookie] = useCookies();
   const [filterFormDisplay, setFilterFormDisplay] = useState('hidden');
 
   const [brandAndModel, setBrandAndModel] = useState();
 
   // Set Selected Cat In Cookie
-  const catItemInUrl = cookie['selectedCat'];
-  useEffect(() => {
-    setCookie('selectedCat', catItemInUrl ? catItemInUrl : '');
-  }, []);
+  // const catItemInUrl = cookie['selectedCat'];
+  // useEffect(() => {
+  //   setCookie('selectedCat', catItemInUrl ? catItemInUrl : '');
+  // }, []);
 
   // Url Params
   const category = params.category;
@@ -43,18 +45,13 @@ export default function Home() {
   useEffect(() => {
     if (cookie['cities'] !== undefined && cookie['cities'].length > 0) {
       queryParams.set('cities', cookieCitiesInUrl);
-      navigateTo({
-        pathname: locationUrl.pathname,
-        search: queryParams.toString(),
-      });
+      navTo(locationUrl.pathname, queryParams, navigateTo);
     } else {
       queryParams.delete('cities');
-      navigateTo({
-        pathname: !locationUrl.pathname.includes('/s/iran')
-          ? 's/iran'
-          : locationUrl.pathname,
-        search: queryParams.toString(),
-      });
+      const pathName = !locationUrl.pathname.includes('/s/iran')
+        ? 's/iran'
+        : locationUrl.pathname;
+      navTo(pathName, queryParams, navigateTo);
     }
   }, [cookieCitiesInUrl]);
 
@@ -80,13 +77,16 @@ export default function Home() {
             <AdFiltersBox />
             <OptionsBtn />
             <SubCategory />
-            <BreadCrumbs />
+            <CategoryPageBreadCrumbs />
           </>
         )}
         {category === undefined && (
           <>
             <Category />
-            <SelectedLocBox />
+            <div className='w-[98%] h-auto p-4 flex flex-row gap-3 justify-start items-center border-t-[1px] border-b-[1px]'>
+              <Speaker color={'#84105C'} size={'size-7'} />
+              <HomePageBreadCrumb />
+            </div>
           </>
         )}
 

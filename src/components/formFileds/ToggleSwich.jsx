@@ -1,6 +1,6 @@
 import { useLocation } from 'react-router-dom';
-import { filterSearch } from '../adFilters/filterSearch';
-import { deleteFilterSearch } from '../adFilters/deleteFilterSearch';
+import { deleteFilterSearch } from '../../functions/adFilters/deleteFilterSearch';
+import { navTo } from '../../functions/globals/navTo';
 
 export default function ToggleSwich({
   lable,
@@ -11,6 +11,7 @@ export default function ToggleSwich({
   type,
   queryKey,
   navigateTo,
+  queryParams,
 }) {
   const locationUrl = useLocation();
   const searchItems = new URLSearchParams(locationUrl.search);
@@ -18,13 +19,8 @@ export default function ToggleSwich({
   const handleInput = (e) => {
     // Insert And Update Filter Items Into Url
     if (type === 'filter') {
-      filterSearch(
-        queryKey,
-        e.target.checked,
-        searchItems,
-        locationUrl,
-        navigateTo
-      );
+      queryParams.set(queryKey, e.target.checked),
+        navTo(locationUrl.pathname, queryParams, navigateTo);
     }
 
     // Insert And Update Filter Items Into Url

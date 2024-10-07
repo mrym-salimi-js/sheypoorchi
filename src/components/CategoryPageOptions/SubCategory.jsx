@@ -3,7 +3,7 @@ import { FindMainCategories } from '../Category';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { HomeContext } from '../../pages/Home';
-import { scrollSlider } from '../globals/functions/scrollSlider';
+import { scrollSlider } from '../../functions/globals/scrollSlider';
 
 export function SubCategory() {
   const { category, brands, model, locationUrl, queryParams } =

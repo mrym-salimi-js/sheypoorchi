@@ -3,15 +3,16 @@ import { BorderRoundedBtn } from '../globals/BorderRoundedBtn';
 import { ChevronDown } from '../globals/Icons';
 import { List } from '../formFileds/singleSelected/List';
 import { useLocation, useNavigate, useSearchParams } from 'react-router-dom';
-import { deleteFilterSearch } from '../adFilters/deleteFilterSearch';
+import { deleteFilterSearch } from '../../functions/adFilters/deleteFilterSearch';
 import { HomeContext } from '../../pages/Home';
+import { FindMainCategories } from '../Category';
 
 export function CategoryListBtn() {
   const { category } = useContext(HomeContext);
 
   const [selectedCat, setSelectedCat] = useState();
   const [openList, setOpenList] = useState(false);
-  const mainCats = JSON.parse(localStorage.getItem('ads_categories_list'));
+  const mainCats = FindMainCategories();
   const [listItems, setListItems] = useState();
   const navigateTo = useNavigate();
   const [filterListTitle, setFilterListTitle] = useState();
@@ -33,11 +34,11 @@ export function CategoryListBtn() {
         });
       });
     }
-
-    setFilterListTitle({ name: 'همه گروه ها', slug: '', id: '' });
   }, [locationUrl]);
 
   useMemo(() => {
+    setFilterListTitle({ name: 'همه گروه ها', slug: '', id: '' });
+
     setListItems(mainCats);
   }, [openList]);
 

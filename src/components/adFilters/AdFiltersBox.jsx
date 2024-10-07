@@ -1,5 +1,5 @@
 import Head from './Head';
-import { Fields } from './fileds/Fields';
+import { MainFields } from './MainFields';
 import ApplyBtn from './ApplyBtn';
 import { useContext } from 'react';
 import { HomeContext } from '../../pages/Home';
@@ -16,7 +16,7 @@ export default function AdFiltersBox() {
           <Head />
 
           {/* Filter Fields */}
-          <Fields />
+          <MainFields />
 
           {/* Add Filter Btn */}
           <ApplyBtn />

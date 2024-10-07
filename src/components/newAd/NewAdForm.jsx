@@ -1,16 +1,16 @@
 import { createContext, useEffect } from 'react';
 import { useState } from 'react';
-import { PhotoComponent } from './formComponents/PhotoComponent';
+import { PhotoComponent } from './PhotoComponent';
 import TextComponent from '../formFileds/TextComponent';
 import SingleSelected from '../formFileds/singleSelected/SingleSelected';
-import UserType from './formComponents/UserType';
+import UserType from './UserType';
 import ToggleSwich from '../formFileds/ToggleSwich';
 import SeccessfulToast from '../globals/SuccessfulToast';
-import { getCategoriyAttr } from './formFunctions/getCategoryAttr';
-import { sendNewAd } from './formFunctions/createNewAd';
+import { getCategoriyAttr } from '../../functions/newAd/getCategoryAttr';
+import { sendNewAd } from '../../functions/newAd/sendNewAd';
 import { Map } from '../map/Map';
-import { FormHeader } from './formComponents/FormHeader';
-import { SubmiteFormBtn } from './formComponents/SubmiteFormBtn';
+import { FormHeader } from './FormHeader';
+import { SubmiteFormBtn } from './SubmiteFormBtn';
 
 export const NewAdFormProvider = createContext();
 export function NewAdForm() {

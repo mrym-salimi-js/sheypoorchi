@@ -2,11 +2,11 @@ import { useMemo, useRef, useState } from 'react';
 import {
   adFormValidation,
   adTextLengthValidation,
-} from '../validation/adFormValidation';
+} from '../../functions/validation/adFormValidation';
 import { ChevronLeft } from '../globals/Icons';
-import { filterSearch } from '../adFilters/filterSearch';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { deleteFilterSearch } from '../adFilters/deleteFilterSearch';
+import { deleteFilterSearch } from '../../functions/adFilters/deleteFilterSearch';
+import { navTo } from '../../functions/globals/navTo';
 
 export default function TextComponent({
   adLable,
@@ -50,7 +50,8 @@ export default function TextComponent({
 
     if (type === 'filter') {
       inputVal
-        ? filterSearch(queryKey, inputVal, queryParams, locationUrl, navigateTo)
+        ? (queryParams.set(queryKey, inputVal),
+          navTo(locationUrl.pathname, queryParams, navigateTo))
         : deleteFilterSearch(queryParams, queryKey, navigateTo, locationUrl);
     }
 

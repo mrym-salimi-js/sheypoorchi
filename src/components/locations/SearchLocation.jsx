@@ -1,6 +1,6 @@
 import { useContext, useState } from 'react';
 import { LocationContext } from './LocationBox';
-import { provincesList } from '../localStorage/locations';
+import { provincesList } from '../../functions/localStorage/locations';
 
 export function SearchLocation() {
   const { prvId, locSituation, prvName, setSearchRes } =

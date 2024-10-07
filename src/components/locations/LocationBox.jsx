@@ -2,7 +2,7 @@ import { useCookies } from 'react-cookie';
 import { createContext, useEffect, useState } from 'react';
 import { ProvincesList } from './provinces/ProvincesList';
 import { BackBtn } from '../globals/BackBtn';
-import { citiesList } from '../localStorage/locations';
+import { citiesList } from '../../functions/localStorage/locations';
 import { DeleteAllFilterdCitiesBtn } from './DeleteAllFilterdCitiesBtn';
 import { FilteringCity } from './FilteringCity';
 import { SearchLocation } from './SearchLocation';

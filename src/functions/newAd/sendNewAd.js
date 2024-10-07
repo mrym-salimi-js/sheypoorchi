@@ -1,0 +1,46 @@
+import { insertNewAd } from '../../services/insertNewAd';
+
+export async function sendNewAd(
+  setSendingFormCallback,
+  newAdStorageValue,
+  attrs
+) {
+  const photo = newAdStorageValue.photo && newAdStorageValue.photo;
+  const category =
+    newAdStorageValue.category?.dependencies?.length > 0 &&
+    JSON.stringify(newAdStorageValue.category.dependencies);
+  const attributes = attrs.length > 0 && JSON.stringify(attrs);
+  const adTitle =
+    newAdStorageValue.title && JSON.stringify(newAdStorageValue.title);
+  const adDesc =
+    newAdStorageValue.description &&
+    JSON.stringify(newAdStorageValue.description);
+  const location =
+    newAdStorageValue.location?.dependencies?.length > 0 &&
+    JSON.stringify(newAdStorageValue.location.dependencies);
+  const coordinate =
+    newAdStorageValue.location?.lat &&
+    newAdStorageValue.location?.lon &&
+    JSON.stringify({
+      lat: newAdStorageValue.location.lat,
+      lon: newAdStorageValue.location.lon,
+    });
+  const userType = JSON.stringify(newAdStorageValue.userType);
+  const phone = newAdStorageValue.phone;
+  const chat = newAdStorageValue.chat;
+
+  await insertNewAd(
+    photo,
+    category,
+    attributes,
+    adTitle,
+    adDesc,
+    location,
+    coordinate,
+    userType,
+    phone,
+    chat
+  ).then((res) => {
+    res && setSendingFormCallback(true);
+  });
+}
