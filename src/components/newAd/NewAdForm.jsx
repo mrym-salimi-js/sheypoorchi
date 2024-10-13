@@ -71,7 +71,7 @@ export function NewAdForm() {
   const [sendingForm, setSendingForm] = useState(false);
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [attrs, setAttrs] = useState([]);
-
+  console.log(attrs);
   //Send Form
   useEffect(() => {
     if (

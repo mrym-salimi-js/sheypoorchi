@@ -16,7 +16,12 @@ export function SubmiteFormBtn() {
     //Get Storage Category Attributes
     const attrRes = catAttr?.map((item) => {
       return item.value.options
-        ? { id: item.id, name: item.name, lable: item.value.lable }
+        ? {
+            id: item.id,
+            name: item.name,
+            lable: item.value.lable,
+            lableId: item.value.id,
+          }
         : { id: item.id, name: item.name, lable: item.value };
     });
 

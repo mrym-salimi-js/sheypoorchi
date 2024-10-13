@@ -32,7 +32,7 @@ export function setSingleSelectedStorage(
                   ...basicNewAdStorage[`${storagePram}`],
 
                   dependencies: [
-                    ...basicNewAdStorage[`${storagePram}`]?.dependencies,
+                    ...basicNewAdStorage[`${storagePram}`].dependencies,
                     {
                       id: item.id,
                       name: item.name,

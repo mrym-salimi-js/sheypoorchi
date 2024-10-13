@@ -1,9 +1,10 @@
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { CirclePlus, Speaker, User } from './globals/Icons';
 import { linkTo } from '../functions/globals/linkTo';
 
 export default function NavBar() {
   const navigateTo = useNavigate();
+  const locationUrl = useLocation();
   const navIconSelected = (li, event, href) => {
     const navLis = document.querySelectorAll('.nav-li');
 
@@ -12,6 +13,10 @@ export default function NavBar() {
     });
 
     li.children[0].classList.add('text-[#84105C]');
+
+    // Set Last Url In LocalStorage Before Change Url
+    localStorage.setItem('last-url-pathname', locationUrl.pathname);
+    localStorage.setItem('last-url-search', locationUrl.search);
 
     linkTo(event, navigateTo, href);
   };

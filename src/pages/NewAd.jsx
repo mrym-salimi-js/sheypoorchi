@@ -1,4 +1,3 @@
-import NavBar from '../components/NavBar';
 import { Header } from '../components/header/Header';
 import { NewAdForm } from '../components/newAd/NewAdForm';
 
@@ -9,7 +8,6 @@ export default function NewAd() {
         <Header />
         <NewAdForm />
       </div>
-      <NavBar />
     </>
   );
 }

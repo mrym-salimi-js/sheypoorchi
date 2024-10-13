@@ -11,6 +11,8 @@ export function Header() {
   const navigateTo = useNavigate();
   const params = useParams();
   const handleNavTo = (event, href) => {
+    localStorage.setItem('last-url-pathname', locationUrl.pathname);
+    localStorage.setItem('last-url-search', locationUrl.search);
     linkTo(event, navigateTo, href);
   };
 

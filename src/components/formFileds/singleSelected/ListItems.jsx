@@ -73,26 +73,27 @@ export function ListItems({
     }
 
     //Single Slection Storage Setting
-    if (storagePram) {
-      setSingleSelectedStorage(
-        (stateVal) => {
-          setNewAdStorageValue(stateVal);
-        },
-        newAdStorageValue,
-        item,
-        storagePram,
-        basicNewAdStorage
-      );
 
-      //Category Attributes Storage Setting
+    setSingleSelectedStorage(
+      (stateVal) => {
+        setNewAdStorageValue(stateVal);
+      },
+      newAdStorageValue,
+      item,
+      storagePram,
+      basicNewAdStorage
+    );
 
+    //Category Attributes Storage Setting
+    if (storagePram !== 'location') {
       setSingleSelectedAttrsStorage(
         (stateVal) => {
           setNewAdStorageValue(stateVal);
         },
         item,
         storagePram,
-        setOpenList
+        setOpenList,
+        newAdStorageValue
       );
     }
 
