@@ -30,7 +30,7 @@ export function getCategoriyAttr(adsCategoriesList, newAdStorageValue) {
       JSON.stringify(+key).length != 4 &&
         catAttr.push({
           name: catAttrTitle,
-          id: key,
+          id: +key,
           type: catAttrType,
           value: newAdStorageValue[key],
         });

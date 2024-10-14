@@ -17,12 +17,12 @@ export function SubmiteFormBtn() {
     const attrRes = catAttr?.map((item) => {
       return item.value.options
         ? {
-            id: item.id,
+            id: +item.id,
             name: item.name,
             lable: item.value.lable,
             lableId: item.value.id,
           }
-        : { id: item.id, name: item.name, lable: item.value };
+        : { id: +item.id, name: item.name, lable: item.value };
     });
 
     attrRes && setAttrs(attrRes);

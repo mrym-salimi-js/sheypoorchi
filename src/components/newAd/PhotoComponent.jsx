@@ -32,7 +32,7 @@ export function PhotoComponent() {
     newAdStorageValue?.photo
       ? setAllPhoto(newAdStorageValue.photo)
       : setAllPhoto([]);
-  }, [newAdStorageValue]);
+  }, [newAdStorageValue?.photo]);
 
   const handleDeletePhoto = (e) => {
     const photoId = e.target.closest('.bin-box').nextElementSibling.id;

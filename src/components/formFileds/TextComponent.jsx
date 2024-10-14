@@ -82,6 +82,7 @@ export default function TextComponent({
 
   // Input Change Value settings
   const handleStorage = (inputTag) => {
+    console.log(type);
     const adVal = inputTag.value;
 
     if (type === 'filter') {

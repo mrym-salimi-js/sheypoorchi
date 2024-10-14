@@ -24,7 +24,7 @@ export function NewAdForm() {
     location: { dependencies: [], lable: '', id: '' },
     description: '',
     title: '',
-    photo: '',
+    photo: [],
     userType: 'فرد',
     phone: false,
     chat: false,
@@ -71,7 +71,7 @@ export function NewAdForm() {
   const [sendingForm, setSendingForm] = useState(false);
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [attrs, setAttrs] = useState([]);
-  console.log(attrs);
+
   //Send Form
   useEffect(() => {
     if (
@@ -151,6 +151,7 @@ export function NewAdForm() {
                       adLable={item.name}
                       storagePram={item.id}
                       filedType={'text'}
+                      type={'newAd'}
                       setNewAdStorageValue={setNewAdStorageValue}
                       newAdStorageValue={newAdStorageValue}
                       setValidation={setValidation}
@@ -231,14 +232,14 @@ export function NewAdForm() {
               <Map
                 width={'100%'}
                 lat={
-                  newAdStorageValue?.location.lat !== undefined
+                  newAdStorageValue?.location.lat
                     ? newAdStorageValue?.location.lat
-                    : 35.696111
+                    : ''
                 }
                 lon={
-                  newAdStorageValue?.location.lon !== undefined
+                  newAdStorageValue?.location.lon
                     ? newAdStorageValue?.location.lon
-                    : 51.423056
+                    : ''
                 }
                 page={'newAd'}
                 zoom={14}
