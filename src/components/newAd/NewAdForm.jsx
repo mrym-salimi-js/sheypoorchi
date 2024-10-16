@@ -15,6 +15,7 @@ import { SubmiteFormBtn } from './SubmiteFormBtn';
 export const NewAdFormProvider = createContext();
 export function NewAdForm() {
   //Form Local Storage Setting
+  const formData = new FormData();
   const [adsCategoriesList, setAdsCategoriesList] = useState();
   const [adsLocationList, setAdsLocationsList] = useState();
   const [validation, setValidation] = useState();
@@ -85,7 +86,8 @@ export function NewAdForm() {
           setSendingForm(sendingFormStatus);
         },
         newAdStorageValue,
-        attrs
+        attrs,
+        formData
       );
     }
   }, [formSubmitted]);
@@ -116,6 +118,7 @@ export function NewAdForm() {
             setAttrs,
             attrs,
             setFormSubmitted,
+            formData,
           }}
         >
           {/* Form Header*/}

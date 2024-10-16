@@ -9,7 +9,7 @@ export function PhotoComponent() {
 
   let reader;
 
-  const handlePhotoShow = (inputTag) => {
+  const handlePhotoShow = async (inputTag) => {
     const files = inputTag.files;
 
     Object.keys(inputTag.files).forEach((item, index) => {
@@ -20,7 +20,16 @@ export function PhotoComponent() {
         newAdStorageValue &&
           setNewAdStorageValue((prev) => ({
             ...prev,
-            photo: [...prev.photo, { id: index, src: event.target.result }],
+            photo: [
+              ...prev.photo,
+              {
+                id: index,
+                src: event.target.result,
+                name: file.name,
+                type: file.type,
+                size: file.size,
+              },
+            ],
           }));
       };
 
@@ -35,7 +44,7 @@ export function PhotoComponent() {
   }, [newAdStorageValue?.photo]);
 
   const handleDeletePhoto = (e) => {
-    const photoId = e.target.closest('.bin-box').nextElementSibling.id;
+    const photoId = e.target.closest('.bin-box').getAttribute('data-id');
 
     const filterdPhoto = newAdStorageValue.photo.filter((item) => {
       return item.id != photoId;
@@ -95,6 +104,7 @@ export function PhotoComponent() {
               >
                 <div
                   onClick={handleDeletePhoto}
+                  data-id={item?.id}
                   className='bin-box w-8 h-8 p-1  rounded-full bg-[#0000006d] cursor-pointer flex items-center justify-center absolute top-3 left-3 z-50 hover:opacity-[0.9]'
                 >
                   <RecycleBin />
