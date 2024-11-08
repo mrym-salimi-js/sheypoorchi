@@ -1,5 +1,3 @@
-// import { useEffect } from 'react';
-// import { insertNewAd } from '../../services/insertNewAd';
 import axios from 'axios';
 import { _ } from 'lodash';
 import { omit } from 'lodash';
@@ -27,7 +25,6 @@ export async function sendNewAd(
     return p !== undefined && blob
       ? new File([blob], p.name, {
           type: p.type,
-          id: p.id,
         })
       : [];
   });

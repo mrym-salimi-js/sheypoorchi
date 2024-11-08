@@ -2,6 +2,7 @@ import { useMemo, useRef, useState } from 'react';
 import {
   adFormValidation,
   adTextLengthValidation,
+  loginValidation,
 } from '../../functions/validation/adFormValidation';
 import { ChevronLeft } from '../globals/Icons';
 import { useLocation, useNavigate } from 'react-router-dom';
@@ -45,8 +46,29 @@ export default function TextComponent({
   }, [searchItem]);
 
   // Input Blur Setttings
+
   const handleInputBlur = (inputTag) => {
     const inputVal = inputTag.value;
+
+    if (type === 'password') {
+      localStorage.setItem('user-pass', inputVal);
+    }
+
+    if (
+      type === 'email' ||
+      type === 'password' ||
+      type === 'confirm-password'
+    ) {
+      loginValidation(
+        (stateVal) => {
+          setValidation(stateVal);
+        },
+        adLable,
+        inputVal,
+        validation,
+        type
+      );
+    }
 
     if (type === 'filter') {
       inputVal
@@ -79,14 +101,16 @@ export default function TextComponent({
 
     setInputShow('');
   };
+  const [inputVal, setInputVal] = useState();
 
   // Input Change Value settings
   const handleStorage = (inputTag) => {
-    console.log(type);
-    const adVal = inputTag.value;
+    const formInputVal = inputTag.value;
+
+    inputTag.value !== undefined && setInputVal(inputTag.value);
 
     if (type === 'filter') {
-      setFilterValue(adVal);
+      setFilterValue(formInputVal);
     }
     if (type === 'newAd') {
       adFormValidation(
@@ -95,12 +119,12 @@ export default function TextComponent({
         },
         adLable,
         validation,
-        adVal
+        formInputVal
       );
       setNewAdStorageValue !== undefined &&
         setNewAdStorageValue({
           ...newAdStorageValue,
-          [`${storagePram}`]: adVal,
+          [`${storagePram}`]: formInputVal,
         });
     }
   };
@@ -121,10 +145,8 @@ export default function TextComponent({
               ((inputShow !== undefined && inputShow === adLable) ||
                 filterValue ||
                 itemTitle ||
-                (newAdStorageValue &&
-                  (newAdStorageValue[storagePram]?.lable ||
-                    (typeof newAdStorageValue[storagePram] !== 'object' &&
-                      newAdStorageValue[storagePram])))) &&
+                inputVal ||
+                (newAdStorageValue && newAdStorageValue[storagePram]?.lable)) &&
               `mb-8 text-sm`
             }  ${inputShow === adLable && ` text-[#e4aac5]`} `}
           >
