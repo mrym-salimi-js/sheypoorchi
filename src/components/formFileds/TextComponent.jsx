@@ -1,8 +1,8 @@
-import { useMemo, useRef, useState } from 'react';
+import { useMemo, useState } from 'react';
 import {
   adFormValidation,
   adTextLengthValidation,
-  loginValidation,
+  authenticateValidation,
 } from '../../functions/validation/adFormValidation';
 import { ChevronLeft } from '../globals/Icons';
 import { useLocation, useNavigate } from 'react-router-dom';
@@ -10,6 +10,8 @@ import { deleteFilterSearch } from '../../functions/adFilters/deleteFilterSearch
 import { navTo } from '../../functions/globals/navTo';
 
 export default function TextComponent({
+  inputRefs,
+  index,
   adLable,
   setNewAdStorageValue,
   newAdStorageValue,
@@ -26,7 +28,6 @@ export default function TextComponent({
   queryKey,
   searchItem,
 }) {
-  const inputRef = useRef();
   const [inputShow, setInputShow] = useState();
   const locationUrl = useLocation();
   const queryParams = new URLSearchParams(locationUrl.search);
@@ -57,9 +58,10 @@ export default function TextComponent({
     if (
       type === 'email' ||
       type === 'password' ||
-      type === 'confirm-password'
+      type === 'confirm-password' ||
+      type === 'name'
     ) {
-      loginValidation(
+      authenticateValidation(
         (stateVal) => {
           setValidation(stateVal);
         },
@@ -154,8 +156,11 @@ export default function TextComponent({
           </p>
 
           <input
+            data-lable={adLable}
             type={valueType}
-            ref={inputRef}
+            ref={(el) => {
+              inputRefs && (inputRefs.current[index] = el);
+            }}
             name={storagePram}
             onChange={(event) =>
               filedType === 'text' && handleStorage(event.currentTarget)

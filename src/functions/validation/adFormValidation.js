@@ -1,6 +1,6 @@
 export function adFormValidation(callback, errorItem, validation, inputValue) {
   const epmtyFiledError = 'لطفا این قسمت را تکمیل کنید';
-  console.log(inputValue);
+
   !inputValue
     ? callback((prev) => ({ ...prev, [errorItem]: { error: epmtyFiledError } }))
     : validation &&
@@ -27,7 +27,13 @@ export function adTextLengthValidation(
       callback({ ...validation, [errorItem]: { error: shortTextError } });
 }
 
-export function loginValidation(callback, errorItem, value, validation, type) {
+export function authenticateValidation(
+  callback,
+  errorItem,
+  value,
+  validation,
+  type
+) {
   const epmtyFiledError = 'لطفا این قسمت را تکمیل کنید';
 
   const emailError = 'لطفا ایمیل صحیح وارد کنید';
@@ -39,7 +45,7 @@ export function loginValidation(callback, errorItem, value, validation, type) {
   const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/;
 
   if (!value) {
-    callback({ ...validation, [errorItem]: { error: epmtyFiledError } });
+    callback((prev) => ({ ...prev, [errorItem]: { error: epmtyFiledError } }));
   }
 
   if (value && type === 'email' && !emailRegex.test(value)) {
@@ -66,27 +72,3 @@ export function loginValidation(callback, errorItem, value, validation, type) {
       delete validation[`${errorItem}`];
   }
 }
-// export function confirmPassValidation(
-//   callback,
-//   errorItem,
-//   value,
-//   validation,
-//   pass
-// ) {
-//   const epmtyFiledError = 'لطفا این قسمت را تکمیل کنید';
-//   if (!value) {
-//     callback({ ...validation, [errorItem]: { error: epmtyFiledError } });
-//   }
-
-//   if (value) {
-//     console.log(value, pass);
-//     value !== pass
-//       ? callback({
-//           ...validation,
-//           [errorItem]: { error: 'تکرار رمز عبور صحیح نمی باشد' },
-//         })
-//       : validation &&
-//         validation[`${errorItem}`] &&
-//         delete validation[`${errorItem}`];
-//   }
-// }

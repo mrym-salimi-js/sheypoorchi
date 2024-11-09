@@ -1,15 +1,27 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import TextComponent from '../components/formFileds/TextComponent';
 import { useNavigate } from 'react-router-dom';
 import { linkTo } from '../functions/globals/linkTo';
+import { authenticateValidation } from '../functions/validation/adFormValidation';
 
 export default function Register() {
+  const inputRefs = useRef([]);
   const [validation, setValidation] = useState();
   const navigateTo = useNavigate();
   const handleRegister = () => {
-    if (validation !== undefined && validation === '') {
-      console.log(validation);
-    }
+    inputRefs?.current?.map((item) => {
+      if (item.value === '') {
+        authenticateValidation(
+          (stateVal) => {
+            setValidation(stateVal);
+          },
+          item.getAttribute('data-lable'),
+          item.value,
+          validation,
+          item.type
+        );
+      }
+    });
   };
   const handleNavTo = (event) => {
     linkTo(event, navigateTo, `/login`);
@@ -21,30 +33,32 @@ export default function Register() {
           ثبت نام کاربر
         </p>
         <div className='w-[98%]  relative right-[2%] mt-5 p-4 flex flex-col gap-6 justify-between'>
-          <TextComponent
-            adLable={'ایمیل'}
-            filedType={'text'}
-            valueType={'tel'}
-            type={'email'}
-            validation={validation}
-            setValidation={setValidation}
-          />
-          <TextComponent
-            adLable={'رمز عبور'}
-            filedType={'text'}
-            valueType={'tel'}
-            type={'password'}
-            validation={validation}
-            setValidation={setValidation}
-          />
-          <TextComponent
-            adLable={'تکرار رمز عبور'}
-            filedType={'text'}
-            valueType={'tel'}
-            type={'confirm-password'}
-            validation={validation}
-            setValidation={setValidation}
-          />
+          {[
+            { lable: 'نام', type: 'name', valueType: 'text' },
+            { lable: 'ایمیل', type: 'email', valueType: 'email' },
+            { lable: 'رمز عبور', type: 'password', valueType: 'password' },
+            {
+              lable: 'تکرار رمز عبور',
+              type: 'password',
+              valueType: 'password',
+            },
+          ].map((item, index) => {
+            return (
+              <>
+                <TextComponent
+                  key={index}
+                  index={index}
+                  inputRefs={inputRefs}
+                  adLable={item.lable}
+                  filedType={'text'}
+                  valueType={item.valueType}
+                  type={item.type}
+                  validation={validation}
+                  setValidation={setValidation}
+                />
+              </>
+            );
+          })}
         </div>
         <div className='w-full p-2 mt-2 flex  justify-between items-center'>
           <a href='/login' onClick={handleNavTo}>
