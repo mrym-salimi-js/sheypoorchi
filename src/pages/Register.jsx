@@ -3,12 +3,17 @@ import TextComponent from '../components/formFileds/TextComponent';
 import { useNavigate } from 'react-router-dom';
 import { linkTo } from '../functions/globals/linkTo';
 import { authenticateValidation } from '../functions/validation/adFormValidation';
+import axios from 'axios';
+import { navTo } from '../functions/globals/navTo';
+import { useCookies } from 'react-cookie';
 
 export default function Register() {
   const inputRefs = useRef([]);
   const [validation, setValidation] = useState();
   const navigateTo = useNavigate();
-  const handleRegister = () => {
+  const [cookie, setCookie] = useCookies();
+  const handleRegister = async () => {
+    // Check field form value after click on register btn
     inputRefs?.current?.map((item) => {
       if (item.value === '') {
         authenticateValidation(
@@ -22,6 +27,29 @@ export default function Register() {
         );
       }
     });
+
+    // send form data
+    if (!validation || Object?.keys(validation)?.length == 0) {
+      try {
+        const sendForm = await axios.post(
+          'http://127.0.0.1:5137/api/users/register',
+          {
+            name: inputRefs?.current[0].value,
+            email: inputRefs?.current[1].value,
+            password: inputRefs?.current[2].value,
+            passwordConfirm: inputRefs?.current[3].value,
+          }
+        );
+
+        if (sendForm !== undefined) {
+          sendForm.data.status === 'success' &&
+            setCookie('user-Token', sendForm.data.token),
+            navTo('/myAccount', '', navigateTo);
+        }
+      } catch (error) {
+        console.log(error.response);
+      }
+    }
   };
   const handleNavTo = (event) => {
     linkTo(event, navigateTo, `/login`);

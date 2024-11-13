@@ -8,6 +8,8 @@ import { adsCategoriesList } from './services/adsCategoriesList';
 import { useEffect } from 'react';
 import { adsLocationsList } from './services/adsLocationsList';
 import Single from './pages/Single';
+import ForgetPassword from './pages/ForgetPassword';
+import ResetPassword from './pages/ResetPassword';
 // import axios from 'axios';
 
 function App() {
@@ -94,6 +96,8 @@ function App() {
           <Route path='/s/iran' element={<Home />} />
           <Route path='/register' element={<Register />} />
           <Route path='/login' element={<Login />} />
+          <Route path='/forgetPassword' element={<ForgetPassword />} />
+          <Route path='/resetPassword/:token' element={<ResetPassword />} />
           <Route path='/s/iran?cities=:location' element={<Home />} />
           <Route
             path='/s/iran/:category?cities=:locations'
