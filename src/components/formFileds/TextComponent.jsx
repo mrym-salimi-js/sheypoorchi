@@ -8,6 +8,7 @@ import { ChevronLeft } from '../globals/Icons';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { deleteFilterSearch } from '../../functions/adFilters/deleteFilterSearch';
 import { navTo } from '../../functions/globals/navTo';
+import cookies from 'js-cookie';
 
 export default function TextComponent({
   inputRefs,
@@ -52,13 +53,14 @@ export default function TextComponent({
     const inputVal = inputTag.value;
 
     if (type === 'password') {
-      localStorage.setItem('user-pass', inputVal);
+      cookies.get('user-pass') && cookies.remove('user-pass');
+      cookies.set('user-pass', inputVal);
     }
 
     if (
       type === 'email' ||
       type === 'password' ||
-      type === 'confirm-password' ||
+      type === 'password-confirm' ||
       type === 'name'
     ) {
       authenticateValidation(

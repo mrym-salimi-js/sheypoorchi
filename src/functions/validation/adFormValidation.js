@@ -1,3 +1,5 @@
+import Cookies from 'js-cookie';
+
 export function adFormValidation(callback, errorItem, validation, inputValue) {
   const epmtyFiledError = 'لطفا این قسمت را تکمیل کنید';
 
@@ -63,8 +65,8 @@ export function authenticateValidation(
       validation[`${errorItem}`] &&
       delete validation[`${errorItem}`];
   }
-  if (value && type === 'confirm-password') {
-    value !== localStorage.getItem('user-pass') &&
+  if (value && type === 'password-confirm') {
+    value !== Cookies.get('user-pass') &&
       callback({ ...validation, [errorItem]: { error: confirmPass } });
   } else {
     validation &&

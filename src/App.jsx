@@ -10,6 +10,8 @@ import { adsLocationsList } from './services/adsLocationsList';
 import Single from './pages/Single';
 import ForgetPassword from './pages/ForgetPassword';
 import ResetPassword from './pages/ResetPassword';
+import MyAccount from './pages/user/MyAccount';
+import Messages from './pages/user/Messages';
 // import axios from 'axios';
 
 function App() {
@@ -108,6 +110,8 @@ function App() {
           <Route path='/s/iran/:category/:brands/:model' element={<Home />} />
           <Route path='/newAd' element={<NewAd />} />
           <Route path='/v/:id/:title' element={<Single />} />
+          <Route path='/myAccount' element={<MyAccount />} />
+          <Route path='/myAccount/messages' element={<Messages />} />
           {/* <Route path='*' element={<Home />} /> */}
         </Routes>
       </BrowserRouter>

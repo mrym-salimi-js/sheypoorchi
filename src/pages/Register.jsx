@@ -5,13 +5,13 @@ import { linkTo } from '../functions/globals/linkTo';
 import { authenticateValidation } from '../functions/validation/adFormValidation';
 import axios from 'axios';
 import { navTo } from '../functions/globals/navTo';
-import { useCookies } from 'react-cookie';
+import Cookies from 'js-cookie';
 
 export default function Register() {
   const inputRefs = useRef([]);
   const [validation, setValidation] = useState();
   const navigateTo = useNavigate();
-  const [cookie, setCookie] = useCookies();
+
   const handleRegister = async () => {
     // Check field form value after click on register btn
     inputRefs?.current?.map((item) => {
@@ -42,8 +42,8 @@ export default function Register() {
         );
 
         if (sendForm !== undefined) {
-          sendForm.data.status === 'success' &&
-            setCookie('user-Token', sendForm.data.token),
+          sendForm.data.status === 'success' && Cookies.remove('user-pass'),
+            Cookies.set('user-Token', sendForm.data.token),
             navTo('/myAccount', '', navigateTo);
         }
       } catch (error) {
@@ -67,7 +67,7 @@ export default function Register() {
             { lable: 'رمز عبور', type: 'password', valueType: 'password' },
             {
               lable: 'تکرار رمز عبور',
-              type: 'password',
+              type: 'password-confirm',
               valueType: 'password',
             },
           ].map((item, index) => {

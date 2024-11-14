@@ -5,13 +5,13 @@ import { useNavigate } from 'react-router-dom';
 import { authenticateValidation } from '../functions/validation/adFormValidation';
 import axios from 'axios';
 import { navTo } from '../functions/globals/navTo';
-import { useCookies } from 'react-cookie';
+import Cookies from 'js-cookie';
 
 export default function Login() {
   const inputRefs = useRef([]);
   const [validation, setValidation] = useState();
   const navigateTo = useNavigate();
-  const [cookie, setCookie] = useCookies();
+
   const handleLogin = async () => {
     // Check field form value after click on register btn
     inputRefs?.current?.map((item) => {
@@ -40,18 +40,20 @@ export default function Login() {
         );
 
         if (sendForm !== undefined) {
-          sendForm.data.status === 'success' &&
-            setCookie('user-Token', sendForm.data.token),
-            navTo('/myAccount', '', navigateTo);
+          sendForm.data.status === 'success' && Cookies.remove('user-pass'),
+            Cookies.set('user-Token', sendForm.data.token);
+          navTo('/myAccount', '', navigateTo);
         }
       } catch (error) {
         console.log(error.response);
       }
     }
   };
+
   const handleNavTo = (event, currentTarget) => {
     linkTo(event, navigateTo, currentTarget.getAttribute('href'));
   };
+
   return (
     <div className='w-full h-full absolute flex justify-center items-center'>
       <div className='w-[90%]  md:w-[52%] lg:w-[58%] xl:w-[40%]  p-8 border border-gray-200 rounded-[2rem] bg-white '>

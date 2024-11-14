@@ -5,13 +5,12 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { authenticateValidation } from '../functions/validation/adFormValidation';
 import axios from 'axios';
 import { navTo } from '../functions/globals/navTo';
-import { useCookies } from 'react-cookie';
+import Cookies from 'js-cookie';
 
 export default function ResetPassword() {
   const inputRefs = useRef([]);
   const [validation, setValidation] = useState();
   const navigateTo = useNavigate();
-  const [cookie, setCookie] = useCookies();
   const params = useParams();
 
   const handleResetPassword = async () => {
@@ -43,7 +42,8 @@ export default function ResetPassword() {
         );
 
         if (sendForm !== undefined) {
-          sendForm.data.status === 'success' && navTo('/login', '', navigateTo);
+          sendForm.data.status === 'success' && Cookies.remove('user-pass'),
+            navTo('/login', '', navigateTo);
         }
       } catch (error) {
         console.log(error.response);
@@ -91,7 +91,7 @@ export default function ResetPassword() {
               href='/forgetPassword'
               onClick={(event) => handleNavTo(event, event.currentTarget)}
             >
-              <p className='text-gray-300 text-sm mr-4'>فرلموشی رمز عبور!</p>
+              <p className='text-gray-300 text-sm mr-4'>فراموشی رمز عبور!</p>
             </a>
           </div>
           <button

@@ -20,9 +20,10 @@ export function Header() {
     <div className='w-full h-auto py-3  border-b-[1px] flex items-center justify-between'>
       <Logo handleNavTo={handleNavTo} />
 
-      {locationUrl.pathname !== '/newAd' && params.id === undefined && (
-        <SearchBar />
-      )}
+      {locationUrl.pathname !== '/newAd' &&
+        !locationUrl.pathname.startsWith('/myAccount') &&
+        params.id === undefined && <SearchBar />}
+
       <div className='w-auto  flex gap-3 items-center'>
         {locationUrl.pathname !== '/newAd' && (
           <NewAdBtn handleNavTo={handleNavTo} />
