@@ -11,7 +11,7 @@ import Single from './pages/Single';
 import ForgetPassword from './pages/ForgetPassword';
 import ResetPassword from './pages/ResetPassword';
 import MyAccount from './pages/user/MyAccount';
-import Messages from './pages/user/Messages';
+import Messages from './pages/user/message/Messages';
 // import axios from 'axios';
 
 function App() {

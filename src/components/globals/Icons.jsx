@@ -210,15 +210,15 @@ export function ChevronLeft({ color, size, strokeWidth }) {
     </svg>
   );
 }
-export function ChevronRight() {
+export function ChevronRight({ color, size, strokeWidth }) {
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'
       fill='none'
       viewBox='0 0 24 24'
-      strokeWidth='1.5'
-      stroke='#000000'
-      className='size-6'
+      strokeWidth={strokeWidth}
+      stroke={color}
+      className={size}
     >
       <path
         strokeLinecap='round'
