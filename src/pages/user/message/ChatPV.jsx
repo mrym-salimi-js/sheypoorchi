@@ -17,6 +17,7 @@ export default function ChatPV({ userToken, pvShow, setPvShow }) {
   const decodedJwt = userToken && jwtDecode(userToken);
   const [messages, setMessages] = useState([]);
   const msgInput = useRef();
+  const fileInput = useRef();
   const adId = '672f47376ada6bea18209546';
 
   const [selectedAd, setSelectedAd] = useState();
@@ -65,10 +66,11 @@ export default function ChatPV({ userToken, pvShow, setPvShow }) {
   // Send Message
   const handleSendingMsg = () => {
     // const chatId = 12;
+    const file = fileInput.current?.value;
     const senderId = decodedJwt?.id;
     const message = msgInput.current?.value;
     const reciverId = '67366069f2ee5825d3a4828b';
-    socket.emit('sendMessage', { adId, senderId, reciverId, message });
+    socket.emit('sendMessage', { adId, senderId, reciverId, message, file });
     msgInput.current.value = '';
   };
 
@@ -160,18 +162,26 @@ export default function ChatPV({ userToken, pvShow, setPvShow }) {
             </ul>
           </div>
           {/*Message Sender Box */}
-          <div className='w-full h-14 flex justify-start bg-white items-center gap-4 p-3  border-t'>
-            <div className='cursor-pointer'>
+          <div className='w-full h-14 flex  bg-white items-center gap-4 p-3  border-t'>
+            <div className='cursor-pointer '>
               <LinkFile size={'size-6'} color={'gray'} />
+              <input
+                ref={fileInput}
+                multiple
+                type='file'
+                className='opacity-0 z-[1] relative bottom-6 w-6 cursor-pointer'
+              />
             </div>
-            <input
-              ref={msgInput}
-              type='text'
-              placeholder='پیام'
-              className=' w-[90%] text-sm text-gray-400 outline-none'
-            />
-            <div className='cursor-pointer' onClick={handleSendingMsg}>
-              <Send size={'size-6'} color={'orange'} />
+            <div className='w-[90%] h-full flex justify-between items-center left-0'>
+              <input
+                ref={msgInput}
+                type='text'
+                placeholder='پیام'
+                className=' w-[90%] text-sm text-gray-400 outline-none'
+              />
+              <div className='cursor-pointer' onClick={handleSendingMsg}>
+                <Send size={'size-6'} color={'orange'} />
+              </div>
             </div>
           </div>
         </>

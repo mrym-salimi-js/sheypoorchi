@@ -30,7 +30,7 @@ export async function sendNewAd(
   });
 
   allPhoto.length > 0 &&
-    allPhoto.forEach((photo) => {
+    allPhoto.map((photo) => {
       formData?.append('photoFile', photo);
     });
 
@@ -63,33 +63,21 @@ export async function sendNewAd(
   formData?.append('phone', newAdStorageValue.phone);
   formData?.append('chat', newAdStorageValue.chat);
 
+  // for (let pair of formData.entries()) {
+  //   console.log(`${pair[0]}: ${pair[1]}`);
+  // }
+
   try {
     const response = await axios.post(
       'http://127.0.0.1:5137/api/ads/',
       formData,
       {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
+        headers: { 'Content-Type': 'multipart:form-data' },
+        // body: JSON.stringify({ key: 'value' }),
       }
     );
     console.log(response);
   } catch (error) {
     console.log(error);
   }
-
-  // await insertNewAd(
-  //   photo,
-  //   category,
-  //   attributes,
-  //   adTitle,
-  //   adDesc,
-  //   location,
-  //   coordinate,
-  //   userType,
-  //   phone,
-  //   chat
-  // ).then((res) => {
-  //   res && setSendingFormCallback(true);
-  // });
 }

@@ -150,7 +150,9 @@ export default function TextComponent({
                 filterValue ||
                 itemTitle ||
                 inputVal ||
-                (newAdStorageValue && newAdStorageValue[storagePram]?.lable)) &&
+                (newAdStorageValue &&
+                  (newAdStorageValue[storagePram]?.lable ||
+                    newAdStorageValue[storagePram]))) &&
               `mb-8 text-sm`
             }  ${inputShow === adLable && ` text-[#e4aac5]`} `}
           >
