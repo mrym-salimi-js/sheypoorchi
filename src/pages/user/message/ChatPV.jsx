@@ -1,12 +1,15 @@
 import { useEffect, useRef, useState } from 'react';
 import {
+  ArrowDown,
   Block,
   ChevronRight,
+  Document,
   LinkFile,
   More,
   RecycleBin,
   Send,
 } from '../../../components/globals/Icons';
+// import { SpinnerLoading } from '../../../components/globals/SpinnerLoading';
 import { jwtDecode } from 'jwt-decode';
 import axios from 'axios';
 import { io } from 'socket.io-client';
@@ -18,9 +21,12 @@ export default function ChatPV({ userToken, pvShow, setPvShow }) {
   const [messages, setMessages] = useState([]);
   const msgInput = useRef();
   const fileInput = useRef();
-  const adId = '672f47376ada6bea18209546';
+  const adId = '673f1b335272fd24e7ce46d4';
 
   const [selectedAd, setSelectedAd] = useState();
+
+  // Just foe rerender page and change download Icon
+  const [fileDlStatus, setFileDlStatus] = useState();
 
   // Backend url
   const socket = io('http://127.0.0.1:5137');
@@ -35,11 +41,29 @@ export default function ChatPV({ userToken, pvShow, setPvShow }) {
           senderId,
           reciverId,
           message,
+          type: 'text',
         },
       ]);
     });
 
     return () => socket.off('message');
+  }, []);
+
+  useEffect(() => {
+    socket.on('file', ({ senderId, reciverId, fileInfo }) => {
+      setMessages((prevMsg) => [
+        ...prevMsg,
+        {
+          id: uuidv4(),
+          senderId,
+          reciverId,
+          message: fileInfo.fileName,
+          type: 'file',
+        },
+      ]);
+    });
+
+    return () => socket.off('file');
   }, []);
 
   // Get All Message Of Chat
@@ -66,12 +90,34 @@ export default function ChatPV({ userToken, pvShow, setPvShow }) {
   // Send Message
   const handleSendingMsg = () => {
     // const chatId = 12;
-    const file = fileInput.current?.value;
+    const files = fileInput.current?.files;
+
     const senderId = decodedJwt?.id;
     const message = msgInput.current?.value;
     const reciverId = '67366069f2ee5825d3a4828b';
-    socket.emit('sendMessage', { adId, senderId, reciverId, message, file });
+
+    if (files.length > 0) {
+      Object.keys(files).forEach((item) => {
+        const file = files[item];
+        const fileInfo = {
+          file: file,
+          fileName: file.name.replace(/ /g, '-'),
+          size: file.size,
+        };
+        socket.emit('uploadFile', { adId, senderId, reciverId, fileInfo });
+        const downloadeds = localStorage.getItem('downloadedFiles');
+        localStorage.setItem(
+          'downloadedFiles',
+          downloadeds ? [...[downloadeds], [file.name]] : [file.name]
+        );
+        setFileDlStatus(file.name);
+      });
+    }
+
+    message &&
+      socket.emit('sendMessage', { adId, senderId, reciverId, message });
     msgInput.current.value = '';
+    fileInput.current.value = '';
   };
 
   // Handle More Btn
@@ -83,6 +129,28 @@ export default function ChatPV({ userToken, pvShow, setPvShow }) {
   const handleExitChat = () => {
     setPvShow('');
   };
+
+  const handleDownloadFile = async (event) => {
+    // event.preventDefault();
+
+    try {
+      const href = decodeURI(event.target.closest('a').href);
+      const hrefBreacks = href.split('/');
+      const fileName = decodeURI(hrefBreacks[hrefBreacks.length - 1]);
+      const donlodedFile = localStorage.getItem('downloadedFiles');
+      if (donlodedFile?.includes(fileName)) return;
+      // await fetch(href);
+
+      localStorage.setItem(
+        'downloadedFiles',
+        donlodedFile ? [...[donlodedFile], [fileName]] : [fileName]
+      );
+      setFileDlStatus(fileName);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  // console.log(fileDlStatus);
 
   return (
     <div
@@ -142,7 +210,73 @@ export default function ChatPV({ userToken, pvShow, setPvShow }) {
               )}
               {messages?.length > 0 &&
                 messages.map((item) => {
-                  return (
+                  return item.type === 'file' ? (
+                    <>
+                      <li
+                        className={`${
+                          decodedJwt?.id === item.senderId
+                            ? `self-start`
+                            : `self-end`
+                        } max-w-[80%] h-16 p-2 rounded-2xl flex flex-row-reverse gap-3 bg-white shadow-sm `}
+                      >
+                        <a
+                          onClick={(event) => handleDownloadFile(event)}
+                          className=' h-full w-12 rounded-2xl bg-gray-200 flex items-center justify-center'
+                          href={`http://127.0.0.1:5137/chat/${item.senderId}-${
+                            item.reciverId
+                          }-${item.adId}/${decodeURI(item.message).replace(
+                            / /g,
+                            '-'
+                          )}`}
+                          download={item.message}
+                        >
+                          {!localStorage
+                            .getItem('downloadedFiles')
+                            ?.includes(item.message) && (
+                            <ArrowDown
+                              size={'size-6'}
+                              color={'#ffffff'}
+                              stroke={2}
+                            />
+                          )}
+
+                          {/* {fileDlStatus === 'loading' && <SpinnerLoading />} */}
+
+                          {localStorage
+                            .getItem('downloadedFiles')
+                            ?.includes(item.message) && (
+                            <Document
+                              size={'size-6'}
+                              color={'#ffffff'}
+                              stroke={2}
+                            />
+                          )}
+                        </a>
+                        <div className='flex flex-col gap-1 '>
+                          <p className='text-[0.7rem]'>{item.message}</p>
+                          <div className='flex gap-2 flex-row-reverse'>
+                            <p className='text-gray-500 text-[0.6rem]'>
+                              {item.size?.toString()?.split('').map(Number)
+                                .length > 6
+                                ? `${(item.size / (1024 * 1024)).toFixed(
+                                    2
+                                  )`mb`}`
+                                : `${(item.size / 1024).toFixed(2)} kb`}
+                            </p>
+                            <p className='text-gray-500 text-[0.6rem]'>
+                              {item.message
+                                .split('.')
+                                .slice(-1)[0]
+                                .toUpperCase()}
+                            </p>
+                          </div>
+                          <p className='text-[0.6rem] text-gray-300 self-end'>
+                            03:65 بعد از ظهر
+                          </p>
+                        </div>
+                      </li>
+                    </>
+                  ) : (
                     <>
                       <li
                         className={`${
@@ -162,17 +296,17 @@ export default function ChatPV({ userToken, pvShow, setPvShow }) {
             </ul>
           </div>
           {/*Message Sender Box */}
-          <div className='w-full h-14 flex  bg-white items-center gap-4 p-3  border-t'>
-            <div className='cursor-pointer '>
+          <div className='w-full h-14 flex relative bg-white items-center gap-4 p-3  border-t'>
+            <div className='cursor-pointer absolute h-4 top-4  self-center'>
               <LinkFile size={'size-6'} color={'gray'} />
               <input
                 ref={fileInput}
                 multiple
                 type='file'
-                className='opacity-0 z-[1] relative bottom-6 w-6 cursor-pointer'
+                className='opacity-0 z-[10000] w-6 relative bottom-6 cursor-pointer'
               />
             </div>
-            <div className='w-[90%] h-full flex justify-between items-center left-0'>
+            <div className='w-[90%] h-full relative right-[8%] flex justify-between items-center left-0'>
               <input
                 ref={msgInput}
                 type='text'
