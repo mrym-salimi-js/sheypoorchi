@@ -6,7 +6,7 @@ export function AdCartTextContent({ title, cost, href }) {
         <li className='flex justify-start items-center gap-3'>
           <Speaker color={'#cccccc'} size={'size-6'} />
           <a href={href} className='cursor-pointer'>
-            <p className='text-[0.9rem] text-black'>{JSON.parse(title)}</p>
+            <p className='text-[0.9rem] text-black'>{title}</p>
           </a>
         </li>
         <li className='w-full flex flex-col gap-2 '>

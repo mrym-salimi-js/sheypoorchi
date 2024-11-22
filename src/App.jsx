@@ -34,7 +34,7 @@ function App() {
     const getMessages = async () => {
       const response = await fetch(`http://127.0.0.1:5137/api/ads/`);
       const messages = await response.json();
-      console.log(messages);
+      // console.log(messages);
       return messages;
     };
     getMessages();

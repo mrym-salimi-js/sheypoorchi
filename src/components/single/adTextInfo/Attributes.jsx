@@ -2,11 +2,11 @@ import { useContext } from 'react';
 import { SingleContext } from '../../../pages/Single';
 
 export default function Attributes() {
-  const { adAttributes } = useContext(SingleContext);
+  const { attribute } = useContext(SingleContext);
   return (
     <div className='w-full flex flex-col gap-5 items-center '>
       <ul className='w-full flex flex-col items-center'>
-        {adAttributes.map((attrItem, index) => {
+        {attribute.map((attrItem, index) => {
           if (
             attrItem.name !== 'قیمت (تومان)' &&
             attrItem.name !== 'رهن (تومان)' &&

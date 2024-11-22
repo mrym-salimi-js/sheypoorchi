@@ -5,7 +5,7 @@ import { PhotoList } from './PhotoList';
 import { SingleContext } from '../../../pages/Single';
 
 export function GalleryPhotos({ photoGrandParentRef, partScreen }) {
-  const { adPhoto, counter, setCounter } = useContext(SingleContext);
+  const { photo, counter, setCounter } = useContext(SingleContext);
   const [phothoWidth, setPhotoWidth] = useState(0);
   const [prevBtn, setPrevBtn] = useState(false);
   const [nextBtn, setNextBtn] = useState(false);
@@ -16,7 +16,7 @@ export function GalleryPhotos({ photoGrandParentRef, partScreen }) {
   }, 100);
 
   useEffect(() => {
-    adPhoto.length == 1 || counter == adPhoto.length - 1
+    photo.length == 1 || counter == photo.length - 1
       ? setNextBtn(false)
       : setNextBtn(true);
     counter != 0 ? setPrevBtn(true) : setPrevBtn(false);

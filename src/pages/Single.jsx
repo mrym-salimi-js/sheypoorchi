@@ -9,7 +9,6 @@ import { Header } from '../components/header/Header';
 import { useNavigate, useParams } from 'react-router-dom';
 import NavBar from '../components/NavBar';
 import { getCost } from '../functions/advertisements/getCost';
-import { getDifferDate } from '../functions/advertisements/getDifferDate';
 import { navTo } from '../functions/globals/navTo';
 
 export const SingleContext = createContext();
@@ -21,17 +20,20 @@ export default function Single() {
   useEffect(() => {
     const getSingleAd = async () => {
       const response = await getAd(params.id);
-      setSingleAd(response);
+      response.status === 'success' && setSingleAd(response.data);
     };
 
     getSingleAd();
   }, []);
-
+  // console.log(typeof singleAd);
   return (
     <>
       {singleAd &&
-        singleAd.map((item) => {
-          return <SingleAdDetails singleAd={item} key={item.id} />;
+        [singleAd].map((item) => {
+          return (
+            console.log(item),
+            (<SingleAdDetails singleAd={item} key={item._id} />)
+          );
         })}
     </>
   );
@@ -42,34 +44,23 @@ export function SingleAdDetails({ singleAd }) {
   const visibleThumbnailNumber = 4;
 
   const [photoFullScreen, setPhotoFullScreen] = useState(false);
-
+  const [cost, setCost] = useState([]);
   const {
-    attributes,
+    attribute,
     category,
-    created_at,
+    createAd,
     description,
     location,
     coordinate,
     photo,
     title,
+    _id,
   } = singleAd;
-  const adCategory = JSON.parse(category);
-  const adTitle = JSON.parse(title);
-  const adPhoto = JSON.parse(photo);
-
-  const adAttributes = JSON.parse(attributes);
-  const adDescription = JSON.parse(description);
-  const adLocation = JSON.parse(location);
-
-  const [date, setDate] = useState(0);
-  const [cost, setCost] = useState([]);
+  console.log(singleAd);
 
   useEffect(() => {
-    getCost(adAttributes, (costVal) => {
+    getCost(attribute, (costVal) => {
       setCost(costVal);
-    });
-    getDifferDate(created_at, (dateVal) => {
-      setDate(dateVal);
     });
   }, []);
   const navigateTo = useNavigate();
@@ -83,20 +74,21 @@ export function SingleAdDetails({ singleAd }) {
   return (
     <SingleContext.Provider
       value={{
-        adCategory,
-        adTitle,
-        adPhoto,
+        category,
+        title,
+        photo,
         visibleThumbnailNumber,
         photoFullScreen,
         setPhotoFullScreen,
         setCounter,
         counter,
         photoParantRef,
-        adAttributes,
-        adDescription,
-        adLocation,
-        date,
+        attribute,
+        description,
+        location,
+        createAd,
         cost,
+        _id,
       }}
     >
       <div className='w-full p-6 lg:w-[80%]  flex flex-col justify-between '>

@@ -1,17 +1,19 @@
+import { useContext } from 'react';
 import { ChevronLeft } from '../globals/Icons';
+import { SingleContext } from '../../pages/Single';
 
-export default function SinglePageBreadCrumbs({ adCategory, adTitle }) {
+export default function SinglePageBreadCrumbs() {
+  const { category, title } = useContext(SingleContext);
+
   return (
     <div className='w-auto h-auto flex gap-2 pt-6 pb-6 absolute top-[442px] right-[45px] lg:static '>
       <ul className='w-auto flex gap-2 items-center justify-start'>
-        {adCategory !== undefined &&
-          adCategory.map((item) => {
+        {category !== undefined &&
+          category.map((item) => {
             return <BreadCrumbItem breadItem={item} key={item.id} />;
           })}
       </ul>
-      {adTitle !== undefined && (
-        <p className='text-sm text-gray-400'>{adTitle}</p>
-      )}
+      {title !== undefined && <p className='text-sm text-gray-400'>{title}</p>}
     </div>
   );
 }

@@ -8,7 +8,8 @@ export function AdsList() {
   useEffect(() => {
     const getAdsList = async () => {
       const response = await getAds();
-      setAdsList(response);
+
+      response.result > 0 && setAdsList(response.data);
     };
     getAdsList();
   }, []);
@@ -19,7 +20,7 @@ export function AdsList() {
         <ul className='w-full h-auto flex flex-wrap gap-y-10 gap-x-1 justify-center'>
           {adsList &&
             adsList.map((item) => {
-              return <AdCart adItem={item} key={item.id} />;
+              return <AdCart adItem={item} key={item._id} />;
             })}
         </ul>
       </div>

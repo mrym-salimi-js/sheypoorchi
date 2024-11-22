@@ -2,8 +2,14 @@ import { useContext } from 'react';
 import { SingleContext } from '../../../pages/Single';
 
 export function PhotoList({ phothoWidth, partScreen }) {
-  const { setCounter, setPhotoFullScreen, photoParantRef, adPhoto, counter } =
-    useContext(SingleContext);
+  const {
+    setCounter,
+    setPhotoFullScreen,
+    photoParantRef,
+    photo,
+    _id,
+    counter,
+  } = useContext(SingleContext);
   const handlePhotoFullScreen = (index) => {
     setCounter(index);
     setPhotoFullScreen(true);
@@ -15,8 +21,8 @@ export function PhotoList({ phothoWidth, partScreen }) {
         !partScreen ? `h-[480px]` : `h-[350px]`
       } flex  transition-all`}
     >
-      {adPhoto !== undefined &&
-        adPhoto.map((item, index) => {
+      {photo !== undefined &&
+        photo.map((item, index) => {
           return (
             <li
               id='1'
@@ -37,7 +43,7 @@ export function PhotoList({ phothoWidth, partScreen }) {
                 className={`${
                   !partScreen ? `sm:w-auto w-full` : `w-full`
                 } h-full object-cover`}
-                src={item.src}
+                src={`http://127.0.0.1:5137/img/${_id}/${item.name}`}
                 alt=''
               />
             </li>

@@ -1,13 +1,11 @@
-import supabase from "./supabase";
+import axios from 'axios';
 
 export async function getAd(id) {
+  try {
+    const getAd = await axios.get(`http://127.0.0.1:5137/api/ads/${id}`);
 
-    let { data, error } = await supabase
-        .from('ads_list')
-        .select('attributes, category, created_at, description, id, location,coordinate, photo, title, userType')
-        .eq('id', id)
-    if (error) {
-        throw new Error('خطا در دریافت اطلاعات')
-    }
-    return data
+    return getAd.data;
+  } catch (error) {
+    console.log(error);
+  }
 }
