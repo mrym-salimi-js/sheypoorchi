@@ -85,7 +85,7 @@ export function OptionsBtn() {
   return (
     <div
       onClick={handleScrollItem}
-      className='w-full h-full overflow-x-scroll filtered-item-box ul-box'
+      className='w-full  overflow-x-scroll filtered-item-box ul-box'
     >
       <ul id='places-category-ul' className='w-auto  px-1 flex gap-3 m-0'>
         <FilterBtn />

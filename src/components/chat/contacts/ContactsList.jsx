@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { useEffect, useRef, useState } from 'react';
+import { ContactItem } from './ContactItem';
 
 export default function ContactsList({ userToken, pvShow, setPvShow }) {
   const [contacts, setContacts] = useState([]);
@@ -37,7 +38,7 @@ export default function ContactsList({ userToken, pvShow, setPvShow }) {
   return (
     <div
       onClick={handleOpenChat}
-      className={` lg:border-l  ${
+      className={`p-2 border rounded-3xl ${
         pvShow
           ? `hidden lg:w-[30%] lg:flex lg:flex-col`
           : `w-full lg:w-[30%] lg:flex lg:flex-col`
@@ -47,21 +48,12 @@ export default function ContactsList({ userToken, pvShow, setPvShow }) {
         {contacts.length > 0 &&
           contacts?.map((contact, index) => {
             return (
-              <>
-                <div key={index} className='w-full border-b p-1 cursor-pointer'>
-                  <div className='w-full  p-2 flex flex-col hover:bg-gray-50'>
-                    <div className=' flex items-center gap-3'>
-                      <img className='w-10 h-10 rounded-full bg-gray-100 '></img>
-                      <p ref={contactName} className='text-[0.7rem] '>
-                        {contact.adName}
-                      </p>
-                    </div>
-                    <p className='text-[0.7rem] text-gray-200 self-end'>
-                      یک هفته قبل
-                    </p>
-                  </div>
-                </div>
-              </>
+              <ContactItem
+                key={index}
+                index={index}
+                contactName={contactName}
+                contact={contact}
+              />
             );
           })}
       </div>

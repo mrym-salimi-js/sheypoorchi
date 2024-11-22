@@ -132,7 +132,7 @@ export function Plus({ color, size }) {
     </svg>
   );
 }
-export function Camera({ color }) {
+export function Camera({ color, size }) {
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'
@@ -140,7 +140,7 @@ export function Camera({ color }) {
       viewBox='0 0 24 24'
       strokeWidth='1.5'
       stroke={color}
-      className='size-10'
+      className={size}
     >
       <path
         strokeLinecap='round'
@@ -295,6 +295,7 @@ export function Send({ size, color }) {
     </svg>
   );
 }
+
 export function RecycleBin({ size, color }) {
   return (
     <svg
