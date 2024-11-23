@@ -112,6 +112,7 @@ function App() {
           <Route path='/v/:id/:title' element={<Single />} />
           <Route path='/myAccount' element={<MyAccount />} />
           <Route path='/myAccount/messages' element={<Messages />} />
+          <Route path='/myAccount/messages/:adId' element={<Messages />} />
           {/* <Route path='*' element={<Home />} /> */}
         </Routes>
       </BrowserRouter>

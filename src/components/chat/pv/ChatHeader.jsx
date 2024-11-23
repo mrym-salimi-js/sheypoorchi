@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
 import { Block, ChevronRight, More, RecycleBin } from '../../globals/Icons';
+import { navTo } from '../../../functions/globals/navTo';
+import { useNavigate } from 'react-router-dom';
 
-export function ChatHeader({ setPvShow, pvShow }) {
+export function ChatHeader({ contact }) {
   const [chatSettingStatus, setChatSettingStatus] = useState(false);
-
+  const navigateTo = useNavigate();
   // Handle More Btn
   const handleChatSetting = () => {
     setChatSettingStatus(!chatSettingStatus);
@@ -11,7 +13,8 @@ export function ChatHeader({ setPvShow, pvShow }) {
 
   // Close Chat
   const handleExitChat = () => {
-    setPvShow('');
+    navTo('/myAccount/messages/', '', navigateTo);
+    // setPvShow('');
   };
 
   useEffect(() => {
@@ -29,7 +32,7 @@ export function ChatHeader({ setPvShow, pvShow }) {
         </div>
         <img className='w-8 h-8 rounded-full bg-gray-100 '></img>
         <div className='flex flex-col gap-3'>
-          <p className='text-[0.8rem] '>{pvShow.user}</p>
+          <p className='text-[0.8rem] '>{contact && contact[0]?.title}</p>
           {/* <p className='text-[0.6rem] '></p> */}
         </div>
       </div>

@@ -1,13 +1,17 @@
 import axios from 'axios';
 import { _ } from 'lodash';
 import { omit } from 'lodash';
-
+import Cookies from 'js-cookie';
+import { jwtDecode } from 'jwt-decode';
 export async function sendNewAd(
   setSendingFormCallback,
   newAdStorageValue,
   attrs,
   formData
 ) {
+  const userToken = Cookies.get('user-Token');
+  const userId = userToken && jwtDecode(userToken);
+
   // Function to convert Base64 to Blob
   const base64ToBlob = (base64, contentType) => {
     const byteCharacters = atob(base64.split(',')[1]);
@@ -59,6 +63,8 @@ export async function sendNewAd(
       lon: newAdStorageValue.location.lon,
     })
   );
+
+  formData?.append('userId', userId);
   formData?.append('userType', newAdStorageValue.userType);
   formData?.append('phone', newAdStorageValue.phone);
   formData?.append('chat', newAdStorageValue.chat);

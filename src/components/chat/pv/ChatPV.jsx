@@ -7,16 +7,18 @@ import { SendFileProtalChildren } from '../protals/SendFileProtalChildren';
 import { ChatHeader } from './ChatHeader';
 import { ChatContent } from './ChatContent';
 import ChatSender from './ChatSender';
+import { useParams } from 'react-router-dom';
 
-export default function ChatPV({ userToken, pvShow, setPvShow }) {
+export default function ChatPV({ userToken, pvShow }) {
   const decodedJwt = userToken && jwtDecode(userToken);
   const [messages, setMessages] = useState([]);
   const msgInput = useRef();
   const fileInput = useRef();
-
-  const adId = '673f1b335272fd24e7ce46d4';
+  const params = useParams();
+  const adId = params.adId;
   const [selectedAd, setSelectedAd] = useState();
   const [selectedFiles, setSelectedFiles] = useState();
+  const [contact, setContact] = useState();
 
   // Just foe rerender page and change download Icon
   const [fileDlStatus, setFileDlStatus] = useState();
@@ -62,6 +64,8 @@ export default function ChatPV({ userToken, pvShow, setPvShow }) {
 
   // Get All Message Of Chat
   useEffect(() => {
+    setMessages([]);
+    setContact('');
     const messages = async () => {
       const msgList = await axios.get(
         `http://127.0.0.1:5137/api/chat/chatMessages/${adId}`,
@@ -71,15 +75,15 @@ export default function ChatPV({ userToken, pvShow, setPvShow }) {
           },
         }
       );
-      msgList && setMessages([]),
-        msgList.data.data.message.map((item) => {
-          setMessages((prevMessages) => [...prevMessages, item]);
-        }),
+
+      msgList && setMessages([]), setContact(msgList.data.data.contact);
+      msgList.data.data.message.map((item) => {
+        setMessages((prevMessages) => [...prevMessages, item]);
+      }),
         msgList.data.data.ad && setSelectedAd(msgList.data.data.ad);
     };
-
-    messages();
-  }, []);
+    adId && messages();
+  }, [params]);
 
   // Send Message
   const handleSendingMsg = () => {
@@ -133,7 +137,7 @@ export default function ChatPV({ userToken, pvShow, setPvShow }) {
       {pvShow && (
         <>
           {/*Chat Header */}
-          <ChatHeader setPvShow={setPvShow} pvShow={pvShow} />
+          <ChatHeader contact={contact} />
           {/*Chat Content */}
           <ChatContent
             selectedAd={selectedAd}

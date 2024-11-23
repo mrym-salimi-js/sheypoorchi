@@ -3,11 +3,17 @@ import NavBar from '../../../components/NavBar';
 import Cookies from 'js-cookie';
 import ChatPV from '../../../components/chat/pv/ChatPV';
 import ContactsList from '../../../components/chat/contacts/ContactsList';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 
 export default function MyAccount() {
   const userToken = Cookies.get('user-Token');
-  const [pvShow, setPvShow] = useState();
+  const [pvShow, setPvShow] = useState(false);
+  const params = useParams();
+
+  useEffect(() => {
+    params && params.adId ? setPvShow(true) : setPvShow(false);
+  }, [params]);
 
   return (
     <div className='w-[98%] sm:w-[85%] h-full relative flex flex-col gap-6 items-center mb-14 p-2'>

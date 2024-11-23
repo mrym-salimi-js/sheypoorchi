@@ -1,10 +1,14 @@
 import axios from 'axios';
 import { useEffect, useRef, useState } from 'react';
 import { ContactItem } from './ContactItem';
+import { getAd } from '../../../services/getAd';
+import { useParams } from 'react-router-dom';
 
 export default function ContactsList({ userToken, pvShow, setPvShow }) {
   const [contacts, setContacts] = useState([]);
   const contactName = useRef();
+  const params = useParams();
+  const [newContact, setNewContact] = useState([]);
 
   // Get Contacts List
   useEffect(() => {
@@ -18,9 +22,9 @@ export default function ContactsList({ userToken, pvShow, setPvShow }) {
             },
           }
         );
-
+        // console.log(contectList.data);
         if (contectList.data.status === 'success') {
-          setContacts([contectList.data.data]);
+          setContacts([...contacts, contectList.data.data]);
         }
       } catch (error) {
         console.log(error);
@@ -29,34 +33,53 @@ export default function ContactsList({ userToken, pvShow, setPvShow }) {
     getContacts();
   }, []);
 
-  // Open Chat PV
-  const handleOpenChat = () => {
-    // console.log(contactName);
-    setPvShow({ user: contactName?.current?.innerText });
-  };
+  // Set New Contact For Starting New Chat
+  useEffect(() => {
+    const getAdById = async () => {
+      const res = await getAd(params.adId);
+
+      setNewContact([
+        {
+          adId: res.data._id,
+          adName: res.data.title,
+          createAd: res.data.createAd,
+          photo: res.data.photo,
+        },
+      ]);
+    };
+
+    params?.adId && getAdById();
+  }, []);
+
+  // Set Final List
+  useEffect(() => {
+    if (contacts.length > 0) {
+      contacts.map((con) => {
+        con?.adId === newContact[0]?.adId && setContacts(con);
+      });
+    }
+  });
 
   return (
     <div
-      onClick={handleOpenChat}
-      className={`p-2 border rounded-3xl ${
+      className={`p-2 h-[445px] gap-2 overflow-scroll border rounded-3xl ${
         pvShow
-          ? `hidden lg:w-[30%] lg:flex lg:flex-col`
-          : `w-full lg:w-[30%] lg:flex lg:flex-col`
+          ? `hidden lg:w-[30%] lg:flex lg:flex-col `
+          : `w-full lg:w-[30%] flex flex-col `
       }`}
     >
-      <div className='h-[445px]'>
-        {contacts.length > 0 &&
-          contacts?.map((contact, index) => {
-            return (
-              <ContactItem
-                key={index}
-                index={index}
-                contactName={contactName}
-                contact={contact}
-              />
-            );
-          })}
-      </div>
+      {contacts.length > 0 &&
+        contacts[0]?.map((contact, index) => {
+          return (
+            <ContactItem
+              key={index}
+              index={index}
+              contactName={contactName}
+              contact={contact}
+              setPvShow={setPvShow}
+            />
+          );
+        })}
     </div>
   );
 }
