@@ -14,17 +14,13 @@ export default function NavBar() {
 
     li.children[0].classList.add('text-[#84105C]');
 
-    // Set Last Url In LocalStorage Before Change Url
-    localStorage.setItem('last-url-pathname', locationUrl.pathname);
-    localStorage.setItem('last-url-search', locationUrl.search);
-
-    linkTo(event, navigateTo, href);
+    linkTo(locationUrl, event, navigateTo, href);
   };
 
   return (
-    <nav className='w-full  h-16 xl:hidden  bg-white  border-t-[1px] border-[#f3f3f3] fixed bottom-0  m-auto left-0 right-0 z-[1000]'>
+    <nav className='w-[97%] border  h-16 xl:hidden rounded-2xl mb-3 shadow-lg bg-white border-[#f3f3f3] fixed bottom-0  m-auto left-0 right-0 z-[1000] py-3'>
       <ul className='w-full h-full flex gap-2 justify-around items-center'>
-        <li className='nav-li h-full flex items-center cursor-pointer hover:border-t-4 border-pink-500 '>
+        <li className='nav-li h-full flex items-center cursor-pointer  '>
           <a
             href='/s/iran'
             onClick={(event) =>
@@ -37,19 +33,21 @@ export default function NavBar() {
           </a>
         </li>
 
-        <li className='nav-li h-full flex items-center cursor-pointer hover:border-t-4 border-pink-500'>
+        <li className='nav-li h-full flex items-center cursor-pointer'>
           <a
             href='/newad'
             onClick={(event) =>
               navIconSelected(event.currentTarget, event, '/newAd')
             }
-            className='flex flex-col gap-2 items-center'
+            className='flex flex-col  items-center'
           >
-            <CirclePlus color={'#84105C'} size={'size-6'} />
-            <p className='text-sm text-gray-500'>آگهی جدید</p>
+            <CirclePlus color={'#84105C '} size={'size-10 relative bottom-5'} />
+            <p className='text-sm text-gray-500 relative bottom-2'>
+              ثبت آگهی جدید
+            </p>
           </a>
         </li>
-        <li className='nav-li h-full flex items-center cursor-pointer hover:border-t-4 border-pink-500'>
+        <li className='nav-li h-full flex items-center  cursor-pointer '>
           <a
             href='/myAccount'
             onClick={(event) =>

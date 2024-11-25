@@ -1,10 +1,21 @@
 import { useEffect, useState } from 'react';
 import { Block, ChevronRight, More, RecycleBin } from '../../globals/Icons';
 import { navTo } from '../../../functions/globals/navTo';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
-export function ChatHeader({ contact }) {
+export function ChatHeader({ contactList }) {
   const [chatSettingStatus, setChatSettingStatus] = useState(false);
+  const [contact, setContact] = useState();
+  const params = useParams();
+  useEffect(() => {
+    contactList.map((con) => {
+      if (con.adId === params.adId) {
+        setContact(con);
+      }
+    });
+  });
+  // console.log(contactList);
+
   const navigateTo = useNavigate();
   // Handle More Btn
   const handleChatSetting = () => {
@@ -14,7 +25,6 @@ export function ChatHeader({ contact }) {
   // Close Chat
   const handleExitChat = () => {
     navTo('/myAccount/messages/', '', navigateTo);
-    // setPvShow('');
   };
 
   useEffect(() => {
@@ -32,7 +42,7 @@ export function ChatHeader({ contact }) {
         </div>
         <img className='w-8 h-8 rounded-full bg-gray-100 '></img>
         <div className='flex flex-col gap-3'>
-          <p className='text-[0.8rem] '>{contact && contact[0]?.title}</p>
+          <p className='text-[0.8rem] '>{contact && contact?.adName}</p>
           {/* <p className='text-[0.6rem] '></p> */}
         </div>
       </div>

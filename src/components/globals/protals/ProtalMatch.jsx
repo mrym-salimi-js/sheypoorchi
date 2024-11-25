@@ -1,6 +1,6 @@
 import { createPortal } from 'react-dom';
 
-export function SendFile({ children }) {
+export function ProtalMatch({ children }) {
   const protalRoot = document.getElementById('protal-root');
   //   console.log(children);
   return createPortal(children, protalRoot);

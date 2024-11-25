@@ -17,7 +17,7 @@ export function AdsList() {
   return (
     <div className='w-full h-auto p-2 mt-5'>
       <div className='w-full h-auto p-2 '>
-        <ul className='w-full h-auto flex flex-wrap gap-y-10 gap-x-1 justify-center'>
+        <ul className='w-full h-auto flex flex-wrap gap-y-16 gap-x-1 justify-center'>
           {adsList &&
             adsList.map((item) => {
               return <AdCart adItem={item} key={item._id} />;

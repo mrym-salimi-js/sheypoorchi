@@ -9,7 +9,7 @@ import { ChatContent } from './ChatContent';
 import ChatSender from './ChatSender';
 import { useParams } from 'react-router-dom';
 
-export default function ChatPV({ userToken, pvShow }) {
+export default function ChatPV({ userToken, pvShow, contactList }) {
   const decodedJwt = userToken && jwtDecode(userToken);
   const [messages, setMessages] = useState([]);
   const msgInput = useRef();
@@ -18,7 +18,6 @@ export default function ChatPV({ userToken, pvShow }) {
   const adId = params.adId;
   const [selectedAd, setSelectedAd] = useState();
   const [selectedFiles, setSelectedFiles] = useState();
-  const [contact, setContact] = useState();
 
   // Just foe rerender page and change download Icon
   const [fileDlStatus, setFileDlStatus] = useState();
@@ -65,7 +64,7 @@ export default function ChatPV({ userToken, pvShow }) {
   // Get All Message Of Chat
   useEffect(() => {
     setMessages([]);
-    setContact('');
+
     const messages = async () => {
       const msgList = await axios.get(
         `http://127.0.0.1:5137/api/chat/chatMessages/${adId}`,
@@ -76,10 +75,10 @@ export default function ChatPV({ userToken, pvShow }) {
         }
       );
 
-      msgList && setMessages([]), setContact(msgList.data.data.contact);
-      msgList.data.data.message.map((item) => {
-        setMessages((prevMessages) => [...prevMessages, item]);
-      }),
+      msgList && setMessages([]),
+        msgList.data.data.message.map((item) => {
+          setMessages((prevMessages) => [...prevMessages, item]);
+        }),
         msgList.data.data.ad && setSelectedAd(msgList.data.data.ad);
     };
     adId && messages();
@@ -137,7 +136,7 @@ export default function ChatPV({ userToken, pvShow }) {
       {pvShow && (
         <>
           {/*Chat Header */}
-          <ChatHeader contact={contact} />
+          <ChatHeader contactList={contactList} />
           {/*Chat Content */}
           <ChatContent
             selectedAd={selectedAd}

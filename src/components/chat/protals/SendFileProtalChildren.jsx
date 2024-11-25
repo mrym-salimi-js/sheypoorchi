@@ -1,5 +1,5 @@
 import { CloseMark, Document } from '../../globals/Icons';
-import { SendFile } from '../../globals/protals/sendFile';
+import { ProtalMatch } from '../../globals/protals/ProtalMatch';
 
 export function SendFileProtalChildren({
   selectedFiles,
@@ -11,7 +11,7 @@ export function SendFileProtalChildren({
     setSelectedFiles('');
   };
   return (
-    <SendFile>
+    <ProtalMatch>
       <div className='w-[90%] md:w-[40%]  rounded-2xl shadow-sm bg-white flex flex-col  p-4 z-10'>
         {/*Protal Header */}
         <div className='w-full flex items-center justify-between mb-3'>
@@ -46,6 +46,6 @@ export function SendFileProtalChildren({
           );
         })}
       </div>
-    </SendFile>
+    </ProtalMatch>
   );
 }

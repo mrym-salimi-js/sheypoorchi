@@ -1,10 +1,10 @@
 import { Camera } from '../globals/Icons';
-export function AdCartPhoto({ photo, href, id }) {
-  console.log(photo);
+export function AdCartPhoto({ handleLinkTo, photo, href, id }) {
   return (
     <>
       {photo ? (
         <a
+          onClick={handleLinkTo}
           href={href}
           className='w-[90%] h-[150px] bg-white relative rounded-[2rem] overflow-hidden cursor-pointer shadow-md'
         >

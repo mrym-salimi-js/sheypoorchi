@@ -5,7 +5,7 @@ export function Logo({ handleNavTo }) {
     <a
       href='/s/iran'
       onClick={(event) => handleNavTo(event, '/s/iran')}
-      className='hidden xl:flex'
+      className='flex'
     >
       <div className='flex gap-3 items-center'>
         <Speaker color={'#84105C'} size={'size-8'} />

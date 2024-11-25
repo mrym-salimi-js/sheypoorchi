@@ -3,7 +3,8 @@ import { SingleContext } from '../../../pages/Single';
 
 export function ThumbnailList({ thumbnailParentRef, partScreen }) {
   const {
-    adPhoto,
+    _id,
+    photo,
     photoParantRef,
     setCounter,
     setPhotoFullScreen,
@@ -32,10 +33,10 @@ export function ThumbnailList({ thumbnailParentRef, partScreen }) {
       ref={thumbnailParentRef}
       className={`${
         partScreen ? `hidden h-16` : `flex h-full`
-      } lg:flex w-auto   gap-1  ${!partScreen && `justify-center`}`}
+      } lg:flex w-auto   gap-2  ${!partScreen && `justify-center`}`}
     >
-      {adPhoto !== undefined &&
-        adPhoto.map((item, index) => {
+      {photo !== undefined &&
+        photo.map((item, index) => {
           if (index > visibleThumbnailNumber && partScreen) {
             return;
           }
@@ -47,17 +48,17 @@ export function ThumbnailList({ thumbnailParentRef, partScreen }) {
                 handleShowPhoto(e, index);
               }}
               className={`thumbnail-li ${
-                !partScreen ? `min-w-[130px]` : `w-28`
+                !partScreen ? `min-w-[130px]` : `w-20`
               } h-full rounded-xl overflow-hidden relative flex items-center justify-center`}
             >
               <img
                 className={`w-full h-full cursor-pointer object-cover brightness-0 transition-all`}
-                src={item.src}
+                src={`http://127.0.0.1:5137/img/${_id}/${item.name}`}
                 alt=''
               />
               {partScreen && index == visibleThumbnailNumber && (
                 <p className='text-white text-xl z-50 absolute cursor-pointer'>
-                  {adPhoto.length - visibleThumbnailNumber}+
+                  {photo.length - visibleThumbnailNumber}+
                 </p>
               )}
             </li>

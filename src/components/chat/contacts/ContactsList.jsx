@@ -4,7 +4,13 @@ import { ContactItem } from './ContactItem';
 import { getAd } from '../../../services/getAd';
 import { useParams } from 'react-router-dom';
 
-export default function ContactsList({ userToken, pvShow, setPvShow }) {
+export default function ContactsList({
+  userToken,
+  pvShow,
+  setPvShow,
+  setContactList,
+  contactList,
+}) {
   const [contacts, setContacts] = useState([]);
   const contactName = useRef();
   const params = useParams();
@@ -24,7 +30,7 @@ export default function ContactsList({ userToken, pvShow, setPvShow }) {
         );
         // console.log(contectList.data);
         if (contectList.data.status === 'success') {
-          setContacts([...contacts, contectList.data.data]);
+          setContacts(contectList.data.data);
         }
       } catch (error) {
         console.log(error);
@@ -51,14 +57,10 @@ export default function ContactsList({ userToken, pvShow, setPvShow }) {
     params?.adId && getAdById();
   }, []);
 
-  // Set Final List
   useEffect(() => {
-    if (contacts.length > 0) {
-      contacts.map((con) => {
-        con?.adId === newContact[0]?.adId && setContacts(con);
-      });
-    }
-  });
+    const conList = contacts.concat(newContact);
+    setContactList(conList);
+  }, [contacts, newContact]);
 
   return (
     <div
@@ -68,8 +70,8 @@ export default function ContactsList({ userToken, pvShow, setPvShow }) {
           : `w-full lg:w-[30%] flex flex-col `
       }`}
     >
-      {contacts.length > 0 &&
-        contacts[0]?.map((contact, index) => {
+      {contactList &&
+        contactList?.map((contact, index) => {
           return (
             <ContactItem
               key={index}
@@ -80,6 +82,18 @@ export default function ContactsList({ userToken, pvShow, setPvShow }) {
             />
           );
         })}
+      {/* {newContact.length > 0 &&
+        newContact.map((newCon, index) => {
+          return (
+            <ContactItem
+              key={index}
+              index={index}
+              contactName={contactName}
+              contact={newCon}
+              setPvShow={setPvShow}
+            />
+          );
+        })} */}
     </div>
   );
 }

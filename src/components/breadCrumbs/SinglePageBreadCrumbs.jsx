@@ -6,7 +6,7 @@ export default function SinglePageBreadCrumbs() {
   const { category, title } = useContext(SingleContext);
 
   return (
-    <div className='w-auto h-auto flex gap-2 pt-6 pb-6 absolute top-[442px] right-[45px] lg:static '>
+    <div className='w-auto h-auto flex gap-2 pt-6 pb-6 absolute  right-[45px] lg:static '>
       <ul className='w-auto flex gap-2 items-center justify-start'>
         {category !== undefined &&
           category.map((item) => {

@@ -9,7 +9,10 @@ import { useParams } from 'react-router-dom';
 export default function MyAccount() {
   const userToken = Cookies.get('user-Token');
   const [pvShow, setPvShow] = useState(false);
+  const [contactList, setContactList] = useState();
   const params = useParams();
+
+  // contactList && console.log(contactList);
 
   useEffect(() => {
     params && params.adId ? setPvShow(true) : setPvShow(false);
@@ -23,12 +26,19 @@ export default function MyAccount() {
       <div className='w-full flex lg:w-[80%] relative gap-3 overflow-hidden mt-5'>
         {/*Contacts List */}
         <ContactsList
+          setContactList={setContactList}
+          contactList={contactList}
           userToken={userToken}
           pvShow={pvShow}
           setPvShow={setPvShow}
         />
         {/*Chat PV*/}
-        <ChatPV userToken={userToken} pvShow={pvShow} setPvShow={setPvShow} />
+        <ChatPV
+          userToken={userToken}
+          pvShow={pvShow}
+          setPvShow={setPvShow}
+          contactList={contactList}
+        />
       </div>
       <NavBar />
     </div>

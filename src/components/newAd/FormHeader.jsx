@@ -16,7 +16,7 @@ export function FormHeader() {
       <div className='w-auto h-auto flex gap-5 items-center'>
         <button
           onClick={handleBackBtn}
-          className='flex xl:hidden p-2 bg-[#efeaea57] rounded-md  items-center justify-center outline-none'
+          className='flex  p-2 bg-[#efeaea57] rounded-md  items-center justify-center outline-none'
         >
           <svg
             xmlns='http://www.w3.org/2000/svg'

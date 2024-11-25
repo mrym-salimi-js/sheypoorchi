@@ -1,11 +1,11 @@
 import { Speaker } from '../globals/Icons';
-export function AdCartTextContent({ title, cost, href }) {
+export function AdCartTextContent({ handleLinkTo, title, cost, href }) {
   return (
     <>
       <ul className='w-full p-4 flex flex-col gap-5 justify-between items-start mb-5 '>
         <li className='flex justify-start items-center gap-3'>
           <Speaker color={'#cccccc'} size={'size-6'} />
-          <a href={href} className='cursor-pointer'>
+          <a href={href} onClick={handleLinkTo} className='cursor-pointer'>
             <p className='text-[0.9rem] text-black'>{title}</p>
           </a>
         </li>

@@ -1,8 +1,9 @@
 import { useContext } from 'react';
 import { formLocalErrorHandling } from '../../functions/newAd/formLocalErrorHandling';
 import { NewAdFormProvider } from './NewAdForm';
+import { SpinnerLoading } from '../globals/SpinnerLoading';
 
-export function SubmiteFormBtn() {
+export function SubmiteFormBtn({ sendLoading }) {
   const {
     catAttr,
     newAdStorageValue,
@@ -50,11 +51,20 @@ export function SubmiteFormBtn() {
     }
   };
   return (
-    <span
-      onClick={handleFormSubmite}
-      className='w-full h-14 fixed right-0 bottom-0 z-[1000] lg:relative  flex justify-center items-center bg-[#84105C] text-white cursor-pointer rounded-lg hover:opacity-[0.7] '
-    >
-      ثبت آگهی
-    </span>
+    <>
+      {sendLoading ? (
+        <span className='w-full h-14 fixed right-0 bottom-0 z-[1000] lg:relative  flex gap-3 justify-center  items-center bg-[#84105ba7]  cursor-grabbing rounded-lg '>
+          <p className='text-white'> در حال ارسال فرم</p>
+          <SpinnerLoading />
+        </span>
+      ) : (
+        <span
+          onClick={handleFormSubmite}
+          className='w-full h-14 fixed right-0 bottom-0 z-[1000] lg:relative  flex justify-center items-center bg-[#84105C] text-white cursor-pointer rounded-lg hover:opacity-[0.7] '
+        >
+          ثبت آگهی
+        </span>
+      )}
+    </>
   );
 }

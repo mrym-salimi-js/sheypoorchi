@@ -84,34 +84,26 @@ export function PhotoComponent() {
         {allPhoto.length > 0 &&
           allPhoto.map((item, index) => {
             return (
-              <>
-                <PhotosItem
-                  index={index}
-                  item={item}
-                  handleDeletePhoto={handleDeletePhoto}
-                />
-              </>
+              <PhotosItem
+                key={index}
+                item={item}
+                handleDeletePhoto={handleDeletePhoto}
+              />
             );
           })}
         {[0, 1, 2].map((item) => {
           return (
-            <>
-              <PhotoLogo
-                key={item}
-                opacity={allPhoto?.length > 0 && `hidden`}
-              />
-            </>
+            <PhotoLogo key={item} opacity={allPhoto?.length > 0 && `hidden`} />
           );
         })}{' '}
       </div>
     </div>
   );
 }
-export function PhotosItem({ index, handleDeletePhoto, item }) {
+export function PhotosItem({ handleDeletePhoto, item }) {
   return (
     <div
       className={`w-[20%] flex grow shrink basis-[20%] relative justify-center items-center border-2 border-[#ccccc] border-dashed rounded-xl overflow-hidden `}
-      key={index}
     >
       <div
         onClick={handleDeletePhoto}

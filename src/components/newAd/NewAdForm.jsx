@@ -11,6 +11,7 @@ import { sendNewAd } from '../../functions/newAd/sendNewAd';
 import { Map } from '../map/Map';
 import { FormHeader } from './FormHeader';
 import { SubmiteFormBtn } from './SubmiteFormBtn';
+import { useNavigate } from 'react-router-dom';
 
 export const NewAdFormProvider = createContext();
 export function NewAdForm() {
@@ -69,43 +70,40 @@ export function NewAdForm() {
   const placeHolder = getCatAttrs?.placeholder;
 
   //Form Submit
-  const [sendingForm, setSendingForm] = useState(false);
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [attrs, setAttrs] = useState([]);
 
+  const navigateTo = useNavigate();
+  const [successToast, setSuccessToast] = useState(false);
+  const [sendLoading, setSendLoading] = useState(false);
   //Send Form
   useEffect(() => {
+    const sendingForm = async () => {
+      const res = await sendNewAd(
+        newAdStorageValue,
+        attrs,
+        formData,
+        navigateTo
+      );
+
+      res.data.status === 'success' && setSuccessToast(true),
+        setSendLoading(false);
+    };
+
     if (
       newAdStorageValue &&
       formSubmitted &&
       ((validation && Object?.keys(validation)?.length == 0) ||
         validation === undefined)
     ) {
-      sendNewAd(
-        (sendingFormStatus) => {
-          setSendingForm(sendingFormStatus);
-        },
-        newAdStorageValue,
-        attrs,
-        formData
-      );
+      setSendLoading(true);
+      sendingForm();
     }
   }, [formSubmitted]);
 
-  //Show toast Msg After Submitting Form
-  useEffect(() => {
-    if (sendingForm) {
-      setNewAdStorageValue(basicNewAdStorage);
-      setValidation(undefined);
-
-      setTimeout(() => {
-        setSendingForm(false);
-      }, 3000);
-    }
-  }, [sendingForm]);
-
   return (
     <>
+      {successToast && <SeccessfulToast setSuccessToast={setSuccessToast} />}
       <div className='w-[97%] lg:w-[90%] p-3 flex flex-col  gap-8 bg-white'>
         <NewAdFormProvider.Provider
           value={{
@@ -128,7 +126,7 @@ export function NewAdForm() {
               {/* Select Photo*/}
               <PhotoComponent />
               {/* New Ad Btn */}
-              <SubmiteFormBtn />
+              <SubmiteFormBtn sendLoading={sendLoading} />
             </div>
 
             <div className='lg:w-[47%] p-3 flex flex-col gap-12 '>
@@ -237,12 +235,12 @@ export function NewAdForm() {
                 lat={
                   newAdStorageValue?.location.lat
                     ? newAdStorageValue?.location.lat
-                    : ''
+                    : 35.696111
                 }
                 lon={
                   newAdStorageValue?.location.lon
                     ? newAdStorageValue?.location.lon
-                    : ''
+                    : 51.423056
                 }
                 page={'newAd'}
                 zoom={14}
@@ -271,8 +269,6 @@ export function NewAdForm() {
           </form>
         </NewAdFormProvider.Provider>
       </div>
-
-      {sendingForm && <SeccessfulToast />}
     </>
   );
 }

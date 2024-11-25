@@ -41513,338 +41513,338 @@ export const adsCategoriesList = [
         slug: 'villa-for-sale',
         isSecurePurchase: false,
         attributes: [
-          {
-            type: 2,
-            id: '96010',
-            title: 'سال ساخت بنا',
-            order: 0,
-            index: 69188,
-            isRequired: true,
-            badge: null,
-            analyticsKey: 'yearOfConstruction',
-            options: [
-              {
-                id: 460693,
-                name: '۱۴۰۳',
-                optionSources: null,
-              },
-              {
-                id: 459400,
-                name: '۱۴۰۲',
-                optionSources: null,
-              },
-              {
-                id: 458100,
-                name: '۱۴۰۱',
-                optionSources: null,
-              },
-              {
-                id: 455200,
-                name: '۱۴۰۰',
-                optionSources: null,
-              },
-              {
-                id: 455201,
-                name: '۱۳۹۹',
-                optionSources: null,
-              },
-              {
-                id: 455202,
-                name: '۱۳۹۸',
-                optionSources: null,
-              },
-              {
-                id: 455203,
-                name: '۱۳۹۷',
-                optionSources: null,
-              },
-              {
-                id: 455204,
-                name: '۱۳۹۶',
-                optionSources: null,
-              },
-              {
-                id: 455205,
-                name: '۱۳۹۵',
-                optionSources: null,
-              },
-              {
-                id: 455206,
-                name: '۱۳۹۴',
-                optionSources: null,
-              },
-              {
-                id: 455207,
-                name: '۱۳۹۳',
-                optionSources: null,
-              },
-              {
-                id: 455208,
-                name: '۱۳۹۲',
-                optionSources: null,
-              },
-              {
-                id: 455209,
-                name: '۱۳۹۱',
-                optionSources: null,
-              },
-              {
-                id: 455210,
-                name: '۱۳۹۰',
-                optionSources: null,
-              },
-              {
-                id: 455211,
-                name: '۱۳۸۹',
-                optionSources: null,
-              },
-              {
-                id: 455212,
-                name: '۱۳۸۸',
-                optionSources: null,
-              },
-              {
-                id: 455213,
-                name: '۱۳۸۷',
-                optionSources: null,
-              },
-              {
-                id: 455214,
-                name: '۱۳۸۶',
-                optionSources: null,
-              },
-              {
-                id: 455215,
-                name: '۱۳۸۵',
-                optionSources: null,
-              },
-              {
-                id: 455216,
-                name: '۱۳۸۴',
-                optionSources: null,
-              },
-              {
-                id: 455217,
-                name: '۱۳۸۳',
-                optionSources: null,
-              },
-              {
-                id: 455218,
-                name: '۱۳۸۲',
-                optionSources: null,
-              },
-              {
-                id: 455219,
-                name: '۱۳۸۱',
-                optionSources: null,
-              },
-              {
-                id: 455220,
-                name: '۱۳۸۰',
-                optionSources: null,
-              },
-              {
-                id: 455221,
-                name: '۱۳۷۹',
-                optionSources: null,
-              },
-              {
-                id: 455222,
-                name: '۱۳۷۸',
-                optionSources: null,
-              },
-              {
-                id: 455223,
-                name: '۱۳۷۷',
-                optionSources: null,
-              },
-              {
-                id: 455224,
-                name: '۱۳۷۶',
-                optionSources: null,
-              },
-              {
-                id: 455225,
-                name: '۱۳۷۵',
-                optionSources: null,
-              },
-              {
-                id: 455226,
-                name: '۱۳۷۴',
-                optionSources: null,
-              },
-              {
-                id: 455227,
-                name: '۱۳۷۳',
-                optionSources: null,
-              },
-              {
-                id: 455228,
-                name: '۱۳۷۲',
-                optionSources: null,
-              },
-              {
-                id: 455229,
-                name: '۱۳۷۱',
-                optionSources: null,
-              },
-              {
-                id: 455230,
-                name: '۱۳۷۰',
-                optionSources: null,
-              },
-              {
-                id: 455250,
-                name: 'قبل از ۱۳۷۰',
-                optionSources: null,
-              },
-            ],
-            virtualAttributes: [],
-            groupName: 'DEFAULT',
-            dependency: [
-              [
-                '%459400|!|eq|#0|!96011|eq|?^0|or|and',
-                '%445355|@96011|selectOpt',
-              ],
-              [
-                '%458100|!|eq|#0|!96011|eq|?^0|or|and',
-                '%445355|@96011|selectOpt',
-              ],
-              [
-                '%455200|!|eq|#0|!96011|eq|?^0|or|and',
-                '%445359|@96011|selectOpt',
-              ],
-              [
-                '%455201|!|eq|#0|!96011|eq|?^0|or|and',
-                '%445359|@96011|selectOpt',
-              ],
-              [
-                '%455202|!|eq|#0|!96011|eq|?^0|or|and',
-                '%445359|@96011|selectOpt',
-              ],
-              [
-                '%455203|!|eq|#0|!96011|eq|?^0|or|and',
-                '%445359|@96011|selectOpt',
-              ],
-              [
-                '%455204|!|eq|#0|!96011|eq|?^0|or|and',
-                '%445363|@96011|selectOpt',
-              ],
-              [
-                '%455205|!|eq|#0|!96011|eq|?^0|or|and',
-                '%445363|@96011|selectOpt',
-              ],
-              [
-                '%455206|!|eq|#0|!96011|eq|?^0|or|and',
-                '%445363|@96011|selectOpt',
-              ],
-              [
-                '%455207|!|eq|#0|!96011|eq|?^0|or|and',
-                '%445363|@96011|selectOpt',
-              ],
-              [
-                '%455208|!|eq|#0|!96011|eq|?^0|or|and',
-                '%445363|@96011|selectOpt',
-              ],
-              [
-                '%455209|!|eq|#0|!96011|eq|?^0|or|and',
-                '%445367|@96011|selectOpt',
-              ],
-              [
-                '%455210|!|eq|#0|!96011|eq|?^0|or|and',
-                '%445367|@96011|selectOpt',
-              ],
-              [
-                '%455211|!|eq|#0|!96011|eq|?^0|or|and',
-                '%445367|@96011|selectOpt',
-              ],
-              [
-                '%455212|!|eq|#0|!96011|eq|?^0|or|and',
-                '%445367|@96011|selectOpt',
-              ],
-              [
-                '%455213|!|eq|#0|!96011|eq|?^0|or|and',
-                '%445367|@96011|selectOpt',
-              ],
-              [
-                '%455214|!|eq|#0|!96011|eq|?^0|or|and',
-                '%445371|@96011|selectOpt',
-              ],
-              [
-                '%455215|!|eq|#0|!96011|eq|?^0|or|and',
-                '%445371|@96011|selectOpt',
-              ],
-              [
-                '%455216|!|eq|#0|!96011|eq|?^0|or|and',
-                '%445371|@96011|selectOpt',
-              ],
-              [
-                '%455217|!|eq|#0|!96011|eq|?^0|or|and',
-                '%445371|@96011|selectOpt',
-              ],
-              [
-                '%455218|!|eq|#0|!96011|eq|?^0|or|and',
-                '%445371|@96011|selectOpt',
-              ],
-              [
-                '%455219|!|eq|#0|!96011|eq|?^0|or|and',
-                '%445375|@96011|selectOpt',
-              ],
-              [
-                '%455220|!|eq|#0|!96011|eq|?^0|or|and',
-                '%445375|@96011|selectOpt',
-              ],
-              [
-                '%455221|!|eq|#0|!96011|eq|?^0|or|and',
-                '%445375|@96011|selectOpt',
-              ],
-              [
-                '%455222|!|eq|#0|!96011|eq|?^0|or|and',
-                '%445375|@96011|selectOpt',
-              ],
-              [
-                '%455223|!|eq|#0|!96011|eq|?^0|or|and',
-                '%445375|@96011|selectOpt',
-              ],
-              [
-                '%455224|!|eq|#0|!96011|eq|?^0|or|and',
-                '%445375|@96011|selectOpt',
-              ],
-              [
-                '%455225|!|eq|#0|!96011|eq|?^0|or|and',
-                '%445375|@96011|selectOpt',
-              ],
-              [
-                '%455226|!|eq|#0|!96011|eq|?^0|or|and',
-                '%445375|@96011|selectOpt',
-              ],
-              [
-                '%455227|!|eq|#0|!96011|eq|?^0|or|and',
-                '%445375|@96011|selectOpt',
-              ],
-              [
-                '%455228|!|eq|#0|!96011|eq|?^0|or|and',
-                '%445375|@96011|selectOpt',
-              ],
-              [
-                '%455229|!|eq|#0|!96011|eq|?^0|or|and',
-                '%445375|@96011|selectOpt',
-              ],
-              [
-                '%455230|!|eq|#0|!96011|eq|?^0|or|and',
-                '%445375|@96011|selectOpt',
-              ],
-              [
-                '%455250|!|eq|#0|!96011|eq|?^0|or|and',
-                '%445375|@96011|selectOpt',
-              ],
-            ],
-            isSeparated: false,
-            isLast: false,
-            viewComponent: 5,
-            viewPlace: '01000',
-            queryKey: 'a96010',
-          },
+          // {
+          //   type: 2,
+          //   id: '96010',
+          //   title: 'سال ساخت بنا',
+          //   order: 0,
+          //   index: 69188,
+          //   isRequired: true,
+          //   badge: null,
+          //   analyticsKey: 'yearOfConstruction',
+          //   options: [
+          //     {
+          //       id: 460693,
+          //       name: '۱۴۰۳',
+          //       optionSources: null,
+          //     },
+          //     {
+          //       id: 459400,
+          //       name: '۱۴۰۲',
+          //       optionSources: null,
+          //     },
+          //     {
+          //       id: 458100,
+          //       name: '۱۴۰۱',
+          //       optionSources: null,
+          //     },
+          //     {
+          //       id: 455200,
+          //       name: '۱۴۰۰',
+          //       optionSources: null,
+          //     },
+          //     {
+          //       id: 455201,
+          //       name: '۱۳۹۹',
+          //       optionSources: null,
+          //     },
+          //     {
+          //       id: 455202,
+          //       name: '۱۳۹۸',
+          //       optionSources: null,
+          //     },
+          //     {
+          //       id: 455203,
+          //       name: '۱۳۹۷',
+          //       optionSources: null,
+          //     },
+          //     {
+          //       id: 455204,
+          //       name: '۱۳۹۶',
+          //       optionSources: null,
+          //     },
+          //     {
+          //       id: 455205,
+          //       name: '۱۳۹۵',
+          //       optionSources: null,
+          //     },
+          //     {
+          //       id: 455206,
+          //       name: '۱۳۹۴',
+          //       optionSources: null,
+          //     },
+          //     {
+          //       id: 455207,
+          //       name: '۱۳۹۳',
+          //       optionSources: null,
+          //     },
+          //     {
+          //       id: 455208,
+          //       name: '۱۳۹۲',
+          //       optionSources: null,
+          //     },
+          //     {
+          //       id: 455209,
+          //       name: '۱۳۹۱',
+          //       optionSources: null,
+          //     },
+          //     {
+          //       id: 455210,
+          //       name: '۱۳۹۰',
+          //       optionSources: null,
+          //     },
+          //     {
+          //       id: 455211,
+          //       name: '۱۳۸۹',
+          //       optionSources: null,
+          //     },
+          //     {
+          //       id: 455212,
+          //       name: '۱۳۸۸',
+          //       optionSources: null,
+          //     },
+          //     {
+          //       id: 455213,
+          //       name: '۱۳۸۷',
+          //       optionSources: null,
+          //     },
+          //     {
+          //       id: 455214,
+          //       name: '۱۳۸۶',
+          //       optionSources: null,
+          //     },
+          //     {
+          //       id: 455215,
+          //       name: '۱۳۸۵',
+          //       optionSources: null,
+          //     },
+          //     {
+          //       id: 455216,
+          //       name: '۱۳۸۴',
+          //       optionSources: null,
+          //     },
+          //     {
+          //       id: 455217,
+          //       name: '۱۳۸۳',
+          //       optionSources: null,
+          //     },
+          //     {
+          //       id: 455218,
+          //       name: '۱۳۸۲',
+          //       optionSources: null,
+          //     },
+          //     {
+          //       id: 455219,
+          //       name: '۱۳۸۱',
+          //       optionSources: null,
+          //     },
+          //     {
+          //       id: 455220,
+          //       name: '۱۳۸۰',
+          //       optionSources: null,
+          //     },
+          //     {
+          //       id: 455221,
+          //       name: '۱۳۷۹',
+          //       optionSources: null,
+          //     },
+          //     {
+          //       id: 455222,
+          //       name: '۱۳۷۸',
+          //       optionSources: null,
+          //     },
+          //     {
+          //       id: 455223,
+          //       name: '۱۳۷۷',
+          //       optionSources: null,
+          //     },
+          //     {
+          //       id: 455224,
+          //       name: '۱۳۷۶',
+          //       optionSources: null,
+          //     },
+          //     {
+          //       id: 455225,
+          //       name: '۱۳۷۵',
+          //       optionSources: null,
+          //     },
+          //     {
+          //       id: 455226,
+          //       name: '۱۳۷۴',
+          //       optionSources: null,
+          //     },
+          //     {
+          //       id: 455227,
+          //       name: '۱۳۷۳',
+          //       optionSources: null,
+          //     },
+          //     {
+          //       id: 455228,
+          //       name: '۱۳۷۲',
+          //       optionSources: null,
+          //     },
+          //     {
+          //       id: 455229,
+          //       name: '۱۳۷۱',
+          //       optionSources: null,
+          //     },
+          //     {
+          //       id: 455230,
+          //       name: '۱۳۷۰',
+          //       optionSources: null,
+          //     },
+          //     {
+          //       id: 455250,
+          //       name: 'قبل از ۱۳۷۰',
+          //       optionSources: null,
+          //     },
+          //   ],
+          //   virtualAttributes: [],
+          //   groupName: 'DEFAULT',
+          //   dependency: [
+          //     [
+          //       '%459400|!|eq|#0|!96011|eq|?^0|or|and',
+          //       '%445355|@96011|selectOpt',
+          //     ],
+          //     [
+          //       '%458100|!|eq|#0|!96011|eq|?^0|or|and',
+          //       '%445355|@96011|selectOpt',
+          //     ],
+          //     [
+          //       '%455200|!|eq|#0|!96011|eq|?^0|or|and',
+          //       '%445359|@96011|selectOpt',
+          //     ],
+          //     [
+          //       '%455201|!|eq|#0|!96011|eq|?^0|or|and',
+          //       '%445359|@96011|selectOpt',
+          //     ],
+          //     [
+          //       '%455202|!|eq|#0|!96011|eq|?^0|or|and',
+          //       '%445359|@96011|selectOpt',
+          //     ],
+          //     [
+          //       '%455203|!|eq|#0|!96011|eq|?^0|or|and',
+          //       '%445359|@96011|selectOpt',
+          //     ],
+          //     [
+          //       '%455204|!|eq|#0|!96011|eq|?^0|or|and',
+          //       '%445363|@96011|selectOpt',
+          //     ],
+          //     [
+          //       '%455205|!|eq|#0|!96011|eq|?^0|or|and',
+          //       '%445363|@96011|selectOpt',
+          //     ],
+          //     [
+          //       '%455206|!|eq|#0|!96011|eq|?^0|or|and',
+          //       '%445363|@96011|selectOpt',
+          //     ],
+          //     [
+          //       '%455207|!|eq|#0|!96011|eq|?^0|or|and',
+          //       '%445363|@96011|selectOpt',
+          //     ],
+          //     [
+          //       '%455208|!|eq|#0|!96011|eq|?^0|or|and',
+          //       '%445363|@96011|selectOpt',
+          //     ],
+          //     [
+          //       '%455209|!|eq|#0|!96011|eq|?^0|or|and',
+          //       '%445367|@96011|selectOpt',
+          //     ],
+          //     [
+          //       '%455210|!|eq|#0|!96011|eq|?^0|or|and',
+          //       '%445367|@96011|selectOpt',
+          //     ],
+          //     [
+          //       '%455211|!|eq|#0|!96011|eq|?^0|or|and',
+          //       '%445367|@96011|selectOpt',
+          //     ],
+          //     [
+          //       '%455212|!|eq|#0|!96011|eq|?^0|or|and',
+          //       '%445367|@96011|selectOpt',
+          //     ],
+          //     [
+          //       '%455213|!|eq|#0|!96011|eq|?^0|or|and',
+          //       '%445367|@96011|selectOpt',
+          //     ],
+          //     [
+          //       '%455214|!|eq|#0|!96011|eq|?^0|or|and',
+          //       '%445371|@96011|selectOpt',
+          //     ],
+          //     [
+          //       '%455215|!|eq|#0|!96011|eq|?^0|or|and',
+          //       '%445371|@96011|selectOpt',
+          //     ],
+          //     [
+          //       '%455216|!|eq|#0|!96011|eq|?^0|or|and',
+          //       '%445371|@96011|selectOpt',
+          //     ],
+          //     [
+          //       '%455217|!|eq|#0|!96011|eq|?^0|or|and',
+          //       '%445371|@96011|selectOpt',
+          //     ],
+          //     [
+          //       '%455218|!|eq|#0|!96011|eq|?^0|or|and',
+          //       '%445371|@96011|selectOpt',
+          //     ],
+          //     [
+          //       '%455219|!|eq|#0|!96011|eq|?^0|or|and',
+          //       '%445375|@96011|selectOpt',
+          //     ],
+          //     [
+          //       '%455220|!|eq|#0|!96011|eq|?^0|or|and',
+          //       '%445375|@96011|selectOpt',
+          //     ],
+          //     [
+          //       '%455221|!|eq|#0|!96011|eq|?^0|or|and',
+          //       '%445375|@96011|selectOpt',
+          //     ],
+          //     [
+          //       '%455222|!|eq|#0|!96011|eq|?^0|or|and',
+          //       '%445375|@96011|selectOpt',
+          //     ],
+          //     [
+          //       '%455223|!|eq|#0|!96011|eq|?^0|or|and',
+          //       '%445375|@96011|selectOpt',
+          //     ],
+          //     [
+          //       '%455224|!|eq|#0|!96011|eq|?^0|or|and',
+          //       '%445375|@96011|selectOpt',
+          //     ],
+          //     [
+          //       '%455225|!|eq|#0|!96011|eq|?^0|or|and',
+          //       '%445375|@96011|selectOpt',
+          //     ],
+          //     [
+          //       '%455226|!|eq|#0|!96011|eq|?^0|or|and',
+          //       '%445375|@96011|selectOpt',
+          //     ],
+          //     [
+          //       '%455227|!|eq|#0|!96011|eq|?^0|or|and',
+          //       '%445375|@96011|selectOpt',
+          //     ],
+          //     [
+          //       '%455228|!|eq|#0|!96011|eq|?^0|or|and',
+          //       '%445375|@96011|selectOpt',
+          //     ],
+          //     [
+          //       '%455229|!|eq|#0|!96011|eq|?^0|or|and',
+          //       '%445375|@96011|selectOpt',
+          //     ],
+          //     [
+          //       '%455230|!|eq|#0|!96011|eq|?^0|or|and',
+          //       '%445375|@96011|selectOpt',
+          //     ],
+          //     [
+          //       '%455250|!|eq|#0|!96011|eq|?^0|or|and',
+          //       '%445375|@96011|selectOpt',
+          //     ],
+          //   ],
+          //   isSeparated: false,
+          //   isLast: false,
+          //   viewComponent: 5,
+          //   viewPlace: '01000',
+          //   queryKey: 'a96010',
+          // },
           {
             type: 2,
             id: '96011',
@@ -42278,338 +42278,338 @@ export const adsCategoriesList = [
             viewPlace: '11110',
             queryKey: 'a68096',
           },
-          {
-            type: 2,
-            id: '92367',
-            title: 'سال ساخت بنا',
-            order: 0,
-            index: 69188,
-            isRequired: true,
-            badge: null,
-            analyticsKey: 'yearOfConstruction',
-            options: [
-              {
-                id: 460693,
-                name: '۱۴۰۳',
-                optionSources: null,
-              },
-              {
-                id: 459400,
-                name: '۱۴۰۲',
-                optionSources: null,
-              },
-              {
-                id: 458100,
-                name: '۱۴۰۱',
-                optionSources: null,
-              },
-              {
-                id: 455200,
-                name: '۱۴۰۰',
-                optionSources: null,
-              },
-              {
-                id: 455201,
-                name: '۱۳۹۹',
-                optionSources: null,
-              },
-              {
-                id: 455202,
-                name: '۱۳۹۸',
-                optionSources: null,
-              },
-              {
-                id: 455203,
-                name: '۱۳۹۷',
-                optionSources: null,
-              },
-              {
-                id: 455204,
-                name: '۱۳۹۶',
-                optionSources: null,
-              },
-              {
-                id: 455205,
-                name: '۱۳۹۵',
-                optionSources: null,
-              },
-              {
-                id: 455206,
-                name: '۱۳۹۴',
-                optionSources: null,
-              },
-              {
-                id: 455207,
-                name: '۱۳۹۳',
-                optionSources: null,
-              },
-              {
-                id: 455208,
-                name: '۱۳۹۲',
-                optionSources: null,
-              },
-              {
-                id: 455209,
-                name: '۱۳۹۱',
-                optionSources: null,
-              },
-              {
-                id: 455210,
-                name: '۱۳۹۰',
-                optionSources: null,
-              },
-              {
-                id: 455211,
-                name: '۱۳۸۹',
-                optionSources: null,
-              },
-              {
-                id: 455212,
-                name: '۱۳۸۸',
-                optionSources: null,
-              },
-              {
-                id: 455213,
-                name: '۱۳۸۷',
-                optionSources: null,
-              },
-              {
-                id: 455214,
-                name: '۱۳۸۶',
-                optionSources: null,
-              },
-              {
-                id: 455215,
-                name: '۱۳۸۵',
-                optionSources: null,
-              },
-              {
-                id: 455216,
-                name: '۱۳۸۴',
-                optionSources: null,
-              },
-              {
-                id: 455217,
-                name: '۱۳۸۳',
-                optionSources: null,
-              },
-              {
-                id: 455218,
-                name: '۱۳۸۲',
-                optionSources: null,
-              },
-              {
-                id: 455219,
-                name: '۱۳۸۱',
-                optionSources: null,
-              },
-              {
-                id: 455220,
-                name: '۱۳۸۰',
-                optionSources: null,
-              },
-              {
-                id: 455221,
-                name: '۱۳۷۹',
-                optionSources: null,
-              },
-              {
-                id: 455222,
-                name: '۱۳۷۸',
-                optionSources: null,
-              },
-              {
-                id: 455223,
-                name: '۱۳۷۷',
-                optionSources: null,
-              },
-              {
-                id: 455224,
-                name: '۱۳۷۶',
-                optionSources: null,
-              },
-              {
-                id: 455225,
-                name: '۱۳۷۵',
-                optionSources: null,
-              },
-              {
-                id: 455226,
-                name: '۱۳۷۴',
-                optionSources: null,
-              },
-              {
-                id: 455227,
-                name: '۱۳۷۳',
-                optionSources: null,
-              },
-              {
-                id: 455228,
-                name: '۱۳۷۲',
-                optionSources: null,
-              },
-              {
-                id: 455229,
-                name: '۱۳۷۱',
-                optionSources: null,
-              },
-              {
-                id: 455230,
-                name: '۱۳۷۰',
-                optionSources: null,
-              },
-              {
-                id: 455250,
-                name: 'قبل از ۱۳۷۰',
-                optionSources: null,
-              },
-            ],
-            virtualAttributes: [],
-            groupName: 'DEFAULT',
-            dependency: [
-              [
-                '%455200|!|eq|#0|!69189|eq|?^0|or|and',
-                '%445359|@69189|selectOpt',
-              ],
-              [
-                '%455201|!|eq|#0|!69189|eq|?^0|or|and',
-                '%445359|@69189|selectOpt',
-              ],
-              [
-                '%455202|!|eq|#0|!69189|eq|?^0|or|and',
-                '%445359|@69189|selectOpt',
-              ],
-              [
-                '%455203|!|eq|#0|!69189|eq|?^0|or|and',
-                '%445359|@69189|selectOpt',
-              ],
-              [
-                '%455204|!|eq|#0|!69189|eq|?^0|or|and',
-                '%445363|@69189|selectOpt',
-              ],
-              [
-                '%455205|!|eq|#0|!69189|eq|?^0|or|and',
-                '%445363|@69189|selectOpt',
-              ],
-              [
-                '%455206|!|eq|#0|!69189|eq|?^0|or|and',
-                '%445363|@69189|selectOpt',
-              ],
-              [
-                '%455207|!|eq|#0|!69189|eq|?^0|or|and',
-                '%445363|@69189|selectOpt',
-              ],
-              [
-                '%455208|!|eq|#0|!69189|eq|?^0|or|and',
-                '%445363|@69189|selectOpt',
-              ],
-              [
-                '%455209|!|eq|#0|!69189|eq|?^0|or|and',
-                '%445367|@69189|selectOpt',
-              ],
-              [
-                '%455210|!|eq|#0|!69189|eq|?^0|or|and',
-                '%445367|@69189|selectOpt',
-              ],
-              [
-                '%455211|!|eq|#0|!69189|eq|?^0|or|and',
-                '%445367|@69189|selectOpt',
-              ],
-              [
-                '%455212|!|eq|#0|!69189|eq|?^0|or|and',
-                '%445367|@69189|selectOpt',
-              ],
-              [
-                '%455213|!|eq|#0|!69189|eq|?^0|or|and',
-                '%445367|@69189|selectOpt',
-              ],
-              [
-                '%455214|!|eq|#0|!69189|eq|?^0|or|and',
-                '%445371|@69189|selectOpt',
-              ],
-              [
-                '%455215|!|eq|#0|!69189|eq|?^0|or|and',
-                '%445371|@69189|selectOpt',
-              ],
-              [
-                '%455216|!|eq|#0|!69189|eq|?^0|or|and',
-                '%445371|@69189|selectOpt',
-              ],
-              [
-                '%455217|!|eq|#0|!69189|eq|?^0|or|and',
-                '%445371|@69189|selectOpt',
-              ],
-              [
-                '%455218|!|eq|#0|!69189|eq|?^0|or|and',
-                '%445371|@69189|selectOpt',
-              ],
-              [
-                '%455219|!|eq|#0|!69189|eq|?^0|or|and',
-                '%445375|@69189|selectOpt',
-              ],
-              [
-                '%455220|!|eq|#0|!69189|eq|?^0|or|and',
-                '%445375|@69189|selectOpt',
-              ],
-              [
-                '%455221|!|eq|#0|!69189|eq|?^0|or|and',
-                '%445375|@69189|selectOpt',
-              ],
-              [
-                '%455222|!|eq|#0|!69189|eq|?^0|or|and',
-                '%445375|@69189|selectOpt',
-              ],
-              [
-                '%455223|!|eq|#0|!69189|eq|?^0|or|and',
-                '%445375|@69189|selectOpt',
-              ],
-              [
-                '%455224|!|eq|#0|!69189|eq|?^0|or|and',
-                '%445375|@69189|selectOpt',
-              ],
-              [
-                '%455225|!|eq|#0|!69189|eq|?^0|or|and',
-                '%445375|@69189|selectOpt',
-              ],
-              [
-                '%455226|!|eq|#0|!69189|eq|?^0|or|and',
-                '%445375|@69189|selectOpt',
-              ],
-              [
-                '%455227|!|eq|#0|!69189|eq|?^0|or|and',
-                '%445375|@69189|selectOpt',
-              ],
-              [
-                '%455228|!|eq|#0|!69189|eq|?^0|or|and',
-                '%445375|@69189|selectOpt',
-              ],
-              [
-                '%455229|!|eq|#0|!69189|eq|?^0|or|and',
-                '%445375|@69189|selectOpt',
-              ],
-              [
-                '%455230|!|eq|#0|!69189|eq|?^0|or|and',
-                '%445375|@69189|selectOpt',
-              ],
-              [
-                '%455250|!|eq|#0|!69189|eq|?^0|or|and',
-                '%445375|@69189|selectOpt',
-              ],
-              [
-                '%458100|!|eq|#0|!69189|eq|?^0|or|and',
-                '%445355|@69189|selectOpt',
-              ],
-              [
-                '%459400|!|eq|#0|!69189|eq|?^0|or|and',
-                '%445355|@69189|selectOpt',
-              ],
-            ],
-            isSeparated: false,
-            isLast: false,
-            viewComponent: 5,
-            viewPlace: '01000',
-            queryKey: 'a92367',
-          },
+          // {
+          //   type: 2,
+          //   id: '92367',
+          //   title: 'سال ساخت بنا',
+          //   order: 0,
+          //   index: 69188,
+          //   isRequired: true,
+          //   badge: null,
+          //   analyticsKey: 'yearOfConstruction',
+          //   options: [
+          //     {
+          //       id: 460693,
+          //       name: '۱۴۰۳',
+          //       optionSources: null,
+          //     },
+          //     {
+          //       id: 459400,
+          //       name: '۱۴۰۲',
+          //       optionSources: null,
+          //     },
+          //     {
+          //       id: 458100,
+          //       name: '۱۴۰۱',
+          //       optionSources: null,
+          //     },
+          //     {
+          //       id: 455200,
+          //       name: '۱۴۰۰',
+          //       optionSources: null,
+          //     },
+          //     {
+          //       id: 455201,
+          //       name: '۱۳۹۹',
+          //       optionSources: null,
+          //     },
+          //     {
+          //       id: 455202,
+          //       name: '۱۳۹۸',
+          //       optionSources: null,
+          //     },
+          //     {
+          //       id: 455203,
+          //       name: '۱۳۹۷',
+          //       optionSources: null,
+          //     },
+          //     {
+          //       id: 455204,
+          //       name: '۱۳۹۶',
+          //       optionSources: null,
+          //     },
+          //     {
+          //       id: 455205,
+          //       name: '۱۳۹۵',
+          //       optionSources: null,
+          //     },
+          //     {
+          //       id: 455206,
+          //       name: '۱۳۹۴',
+          //       optionSources: null,
+          //     },
+          //     {
+          //       id: 455207,
+          //       name: '۱۳۹۳',
+          //       optionSources: null,
+          //     },
+          //     {
+          //       id: 455208,
+          //       name: '۱۳۹۲',
+          //       optionSources: null,
+          //     },
+          //     {
+          //       id: 455209,
+          //       name: '۱۳۹۱',
+          //       optionSources: null,
+          //     },
+          //     {
+          //       id: 455210,
+          //       name: '۱۳۹۰',
+          //       optionSources: null,
+          //     },
+          //     {
+          //       id: 455211,
+          //       name: '۱۳۸۹',
+          //       optionSources: null,
+          //     },
+          //     {
+          //       id: 455212,
+          //       name: '۱۳۸۸',
+          //       optionSources: null,
+          //     },
+          //     {
+          //       id: 455213,
+          //       name: '۱۳۸۷',
+          //       optionSources: null,
+          //     },
+          //     {
+          //       id: 455214,
+          //       name: '۱۳۸۶',
+          //       optionSources: null,
+          //     },
+          //     {
+          //       id: 455215,
+          //       name: '۱۳۸۵',
+          //       optionSources: null,
+          //     },
+          //     {
+          //       id: 455216,
+          //       name: '۱۳۸۴',
+          //       optionSources: null,
+          //     },
+          //     {
+          //       id: 455217,
+          //       name: '۱۳۸۳',
+          //       optionSources: null,
+          //     },
+          //     {
+          //       id: 455218,
+          //       name: '۱۳۸۲',
+          //       optionSources: null,
+          //     },
+          //     {
+          //       id: 455219,
+          //       name: '۱۳۸۱',
+          //       optionSources: null,
+          //     },
+          //     {
+          //       id: 455220,
+          //       name: '۱۳۸۰',
+          //       optionSources: null,
+          //     },
+          //     {
+          //       id: 455221,
+          //       name: '۱۳۷۹',
+          //       optionSources: null,
+          //     },
+          //     {
+          //       id: 455222,
+          //       name: '۱۳۷۸',
+          //       optionSources: null,
+          //     },
+          //     {
+          //       id: 455223,
+          //       name: '۱۳۷۷',
+          //       optionSources: null,
+          //     },
+          //     {
+          //       id: 455224,
+          //       name: '۱۳۷۶',
+          //       optionSources: null,
+          //     },
+          //     {
+          //       id: 455225,
+          //       name: '۱۳۷۵',
+          //       optionSources: null,
+          //     },
+          //     {
+          //       id: 455226,
+          //       name: '۱۳۷۴',
+          //       optionSources: null,
+          //     },
+          //     {
+          //       id: 455227,
+          //       name: '۱۳۷۳',
+          //       optionSources: null,
+          //     },
+          //     {
+          //       id: 455228,
+          //       name: '۱۳۷۲',
+          //       optionSources: null,
+          //     },
+          //     {
+          //       id: 455229,
+          //       name: '۱۳۷۱',
+          //       optionSources: null,
+          //     },
+          //     {
+          //       id: 455230,
+          //       name: '۱۳۷۰',
+          //       optionSources: null,
+          //     },
+          //     {
+          //       id: 455250,
+          //       name: 'قبل از ۱۳۷۰',
+          //       optionSources: null,
+          //     },
+          //   ],
+          //   virtualAttributes: [],
+          //   groupName: 'DEFAULT',
+          //   dependency: [
+          //     [
+          //       '%455200|!|eq|#0|!69189|eq|?^0|or|and',
+          //       '%445359|@69189|selectOpt',
+          //     ],
+          //     [
+          //       '%455201|!|eq|#0|!69189|eq|?^0|or|and',
+          //       '%445359|@69189|selectOpt',
+          //     ],
+          //     [
+          //       '%455202|!|eq|#0|!69189|eq|?^0|or|and',
+          //       '%445359|@69189|selectOpt',
+          //     ],
+          //     [
+          //       '%455203|!|eq|#0|!69189|eq|?^0|or|and',
+          //       '%445359|@69189|selectOpt',
+          //     ],
+          //     [
+          //       '%455204|!|eq|#0|!69189|eq|?^0|or|and',
+          //       '%445363|@69189|selectOpt',
+          //     ],
+          //     [
+          //       '%455205|!|eq|#0|!69189|eq|?^0|or|and',
+          //       '%445363|@69189|selectOpt',
+          //     ],
+          //     [
+          //       '%455206|!|eq|#0|!69189|eq|?^0|or|and',
+          //       '%445363|@69189|selectOpt',
+          //     ],
+          //     [
+          //       '%455207|!|eq|#0|!69189|eq|?^0|or|and',
+          //       '%445363|@69189|selectOpt',
+          //     ],
+          //     [
+          //       '%455208|!|eq|#0|!69189|eq|?^0|or|and',
+          //       '%445363|@69189|selectOpt',
+          //     ],
+          //     [
+          //       '%455209|!|eq|#0|!69189|eq|?^0|or|and',
+          //       '%445367|@69189|selectOpt',
+          //     ],
+          //     [
+          //       '%455210|!|eq|#0|!69189|eq|?^0|or|and',
+          //       '%445367|@69189|selectOpt',
+          //     ],
+          //     [
+          //       '%455211|!|eq|#0|!69189|eq|?^0|or|and',
+          //       '%445367|@69189|selectOpt',
+          //     ],
+          //     [
+          //       '%455212|!|eq|#0|!69189|eq|?^0|or|and',
+          //       '%445367|@69189|selectOpt',
+          //     ],
+          //     [
+          //       '%455213|!|eq|#0|!69189|eq|?^0|or|and',
+          //       '%445367|@69189|selectOpt',
+          //     ],
+          //     [
+          //       '%455214|!|eq|#0|!69189|eq|?^0|or|and',
+          //       '%445371|@69189|selectOpt',
+          //     ],
+          //     [
+          //       '%455215|!|eq|#0|!69189|eq|?^0|or|and',
+          //       '%445371|@69189|selectOpt',
+          //     ],
+          //     [
+          //       '%455216|!|eq|#0|!69189|eq|?^0|or|and',
+          //       '%445371|@69189|selectOpt',
+          //     ],
+          //     [
+          //       '%455217|!|eq|#0|!69189|eq|?^0|or|and',
+          //       '%445371|@69189|selectOpt',
+          //     ],
+          //     [
+          //       '%455218|!|eq|#0|!69189|eq|?^0|or|and',
+          //       '%445371|@69189|selectOpt',
+          //     ],
+          //     [
+          //       '%455219|!|eq|#0|!69189|eq|?^0|or|and',
+          //       '%445375|@69189|selectOpt',
+          //     ],
+          //     [
+          //       '%455220|!|eq|#0|!69189|eq|?^0|or|and',
+          //       '%445375|@69189|selectOpt',
+          //     ],
+          //     [
+          //       '%455221|!|eq|#0|!69189|eq|?^0|or|and',
+          //       '%445375|@69189|selectOpt',
+          //     ],
+          //     [
+          //       '%455222|!|eq|#0|!69189|eq|?^0|or|and',
+          //       '%445375|@69189|selectOpt',
+          //     ],
+          //     [
+          //       '%455223|!|eq|#0|!69189|eq|?^0|or|and',
+          //       '%445375|@69189|selectOpt',
+          //     ],
+          //     [
+          //       '%455224|!|eq|#0|!69189|eq|?^0|or|and',
+          //       '%445375|@69189|selectOpt',
+          //     ],
+          //     [
+          //       '%455225|!|eq|#0|!69189|eq|?^0|or|and',
+          //       '%445375|@69189|selectOpt',
+          //     ],
+          //     [
+          //       '%455226|!|eq|#0|!69189|eq|?^0|or|and',
+          //       '%445375|@69189|selectOpt',
+          //     ],
+          //     [
+          //       '%455227|!|eq|#0|!69189|eq|?^0|or|and',
+          //       '%445375|@69189|selectOpt',
+          //     ],
+          //     [
+          //       '%455228|!|eq|#0|!69189|eq|?^0|or|and',
+          //       '%445375|@69189|selectOpt',
+          //     ],
+          //     [
+          //       '%455229|!|eq|#0|!69189|eq|?^0|or|and',
+          //       '%445375|@69189|selectOpt',
+          //     ],
+          //     [
+          //       '%455230|!|eq|#0|!69189|eq|?^0|or|and',
+          //       '%445375|@69189|selectOpt',
+          //     ],
+          //     [
+          //       '%455250|!|eq|#0|!69189|eq|?^0|or|and',
+          //       '%445375|@69189|selectOpt',
+          //     ],
+          //     [
+          //       '%458100|!|eq|#0|!69189|eq|?^0|or|and',
+          //       '%445355|@69189|selectOpt',
+          //     ],
+          //     [
+          //       '%459400|!|eq|#0|!69189|eq|?^0|or|and',
+          //       '%445355|@69189|selectOpt',
+          //     ],
+          //   ],
+          //   isSeparated: false,
+          //   isLast: false,
+          //   viewComponent: 5,
+          //   viewPlace: '01000',
+          //   queryKey: 'a92367',
+          // },
           {
             type: 2,
             id: '69189',
@@ -42958,338 +42958,338 @@ export const adsCategoriesList = [
             viewPlace: '10000',
             queryKey: 'mx69188',
           },
-          {
-            type: 2,
-            id: '92368',
-            title: 'سال ساخت بنا',
-            order: 0,
-            index: 69188,
-            isRequired: true,
-            badge: null,
-            analyticsKey: 'yearOfConstruction',
-            options: [
-              {
-                id: 460693,
-                name: '۱۴۰۳',
-                optionSources: null,
-              },
-              {
-                id: 459400,
-                name: '۱۴۰۲',
-                optionSources: null,
-              },
-              {
-                id: 458100,
-                name: '۱۴۰۱',
-                optionSources: null,
-              },
-              {
-                id: 455200,
-                name: '۱۴۰۰',
-                optionSources: null,
-              },
-              {
-                id: 455201,
-                name: '۱۳۹۹',
-                optionSources: null,
-              },
-              {
-                id: 455202,
-                name: '۱۳۹۸',
-                optionSources: null,
-              },
-              {
-                id: 455203,
-                name: '۱۳۹۷',
-                optionSources: null,
-              },
-              {
-                id: 455204,
-                name: '۱۳۹۶',
-                optionSources: null,
-              },
-              {
-                id: 455205,
-                name: '۱۳۹۵',
-                optionSources: null,
-              },
-              {
-                id: 455206,
-                name: '۱۳۹۴',
-                optionSources: null,
-              },
-              {
-                id: 455207,
-                name: '۱۳۹۳',
-                optionSources: null,
-              },
-              {
-                id: 455208,
-                name: '۱۳۹۲',
-                optionSources: null,
-              },
-              {
-                id: 455209,
-                name: '۱۳۹۱',
-                optionSources: null,
-              },
-              {
-                id: 455210,
-                name: '۱۳۹۰',
-                optionSources: null,
-              },
-              {
-                id: 455211,
-                name: '۱۳۸۹',
-                optionSources: null,
-              },
-              {
-                id: 455212,
-                name: '۱۳۸۸',
-                optionSources: null,
-              },
-              {
-                id: 455213,
-                name: '۱۳۸۷',
-                optionSources: null,
-              },
-              {
-                id: 455214,
-                name: '۱۳۸۶',
-                optionSources: null,
-              },
-              {
-                id: 455215,
-                name: '۱۳۸۵',
-                optionSources: null,
-              },
-              {
-                id: 455216,
-                name: '۱۳۸۴',
-                optionSources: null,
-              },
-              {
-                id: 455217,
-                name: '۱۳۸۳',
-                optionSources: null,
-              },
-              {
-                id: 455218,
-                name: '۱۳۸۲',
-                optionSources: null,
-              },
-              {
-                id: 455219,
-                name: '۱۳۸۱',
-                optionSources: null,
-              },
-              {
-                id: 455220,
-                name: '۱۳۸۰',
-                optionSources: null,
-              },
-              {
-                id: 455221,
-                name: '۱۳۷۹',
-                optionSources: null,
-              },
-              {
-                id: 455222,
-                name: '۱۳۷۸',
-                optionSources: null,
-              },
-              {
-                id: 455223,
-                name: '۱۳۷۷',
-                optionSources: null,
-              },
-              {
-                id: 455224,
-                name: '۱۳۷۶',
-                optionSources: null,
-              },
-              {
-                id: 455225,
-                name: '۱۳۷۵',
-                optionSources: null,
-              },
-              {
-                id: 455226,
-                name: '۱۳۷۴',
-                optionSources: null,
-              },
-              {
-                id: 455227,
-                name: '۱۳۷۳',
-                optionSources: null,
-              },
-              {
-                id: 455228,
-                name: '۱۳۷۲',
-                optionSources: null,
-              },
-              {
-                id: 455229,
-                name: '۱۳۷۱',
-                optionSources: null,
-              },
-              {
-                id: 455230,
-                name: '۱۳۷۰',
-                optionSources: null,
-              },
-              {
-                id: 455250,
-                name: 'قبل از ۱۳۷۰',
-                optionSources: null,
-              },
-            ],
-            virtualAttributes: [],
-            groupName: 'DEFAULT',
-            dependency: [
-              [
-                '%455200|!|eq|#0|!69188|eq|?^0|or|and',
-                '%445359|@69188|selectOpt',
-              ],
-              [
-                '%455201|!|eq|#0|!69188|eq|?^0|or|and',
-                '%445359|@69188|selectOpt',
-              ],
-              [
-                '%455202|!|eq|#0|!69188|eq|?^0|or|and',
-                '%445359|@69188|selectOpt',
-              ],
-              [
-                '%455203|!|eq|#0|!69188|eq|?^0|or|and',
-                '%445359|@69188|selectOpt',
-              ],
-              [
-                '%455204|!|eq|#0|!69188|eq|?^0|or|and',
-                '%445363|@69188|selectOpt',
-              ],
-              [
-                '%455205|!|eq|#0|!69188|eq|?^0|or|and',
-                '%445363|@69188|selectOpt',
-              ],
-              [
-                '%455206|!|eq|#0|!69188|eq|?^0|or|and',
-                '%445363|@69188|selectOpt',
-              ],
-              [
-                '%455207|!|eq|#0|!69188|eq|?^0|or|and',
-                '%445363|@69188|selectOpt',
-              ],
-              [
-                '%455208|!|eq|#0|!69188|eq|?^0|or|and',
-                '%445363|@69188|selectOpt',
-              ],
-              [
-                '%455209|!|eq|#0|!69188|eq|?^0|or|and',
-                '%445367|@69188|selectOpt',
-              ],
-              [
-                '%455210|!|eq|#0|!69188|eq|?^0|or|and',
-                '%445367|@69188|selectOpt',
-              ],
-              [
-                '%455211|!|eq|#0|!69188|eq|?^0|or|and',
-                '%445367|@69188|selectOpt',
-              ],
-              [
-                '%455212|!|eq|#0|!69188|eq|?^0|or|and',
-                '%445367|@69188|selectOpt',
-              ],
-              [
-                '%455213|!|eq|#0|!69188|eq|?^0|or|and',
-                '%445367|@69188|selectOpt',
-              ],
-              [
-                '%455214|!|eq|#0|!69188|eq|?^0|or|and',
-                '%445371|@69188|selectOpt',
-              ],
-              [
-                '%455215|!|eq|#0|!69188|eq|?^0|or|and',
-                '%445371|@69188|selectOpt',
-              ],
-              [
-                '%455216|!|eq|#0|!69188|eq|?^0|or|and',
-                '%445371|@69188|selectOpt',
-              ],
-              [
-                '%455217|!|eq|#0|!69188|eq|?^0|or|and',
-                '%445371|@69188|selectOpt',
-              ],
-              [
-                '%455218|!|eq|#0|!69188|eq|?^0|or|and',
-                '%445371|@69188|selectOpt',
-              ],
-              [
-                '%455219|!|eq|#0|!69188|eq|?^0|or|and',
-                '%445375|@69188|selectOpt',
-              ],
-              [
-                '%455220|!|eq|#0|!69188|eq|?^0|or|and',
-                '%445375|@69188|selectOpt',
-              ],
-              [
-                '%455221|!|eq|#0|!69188|eq|?^0|or|and',
-                '%445375|@69188|selectOpt',
-              ],
-              [
-                '%455222|!|eq|#0|!69188|eq|?^0|or|and',
-                '%445375|@69188|selectOpt',
-              ],
-              [
-                '%455223|!|eq|#0|!69188|eq|?^0|or|and',
-                '%445375|@69188|selectOpt',
-              ],
-              [
-                '%455224|!|eq|#0|!69188|eq|?^0|or|and',
-                '%445375|@69188|selectOpt',
-              ],
-              [
-                '%455225|!|eq|#0|!69188|eq|?^0|or|and',
-                '%445375|@69188|selectOpt',
-              ],
-              [
-                '%455226|!|eq|#0|!69188|eq|?^0|or|and',
-                '%445375|@69188|selectOpt',
-              ],
-              [
-                '%455227|!|eq|#0|!69188|eq|?^0|or|and',
-                '%445375|@69188|selectOpt',
-              ],
-              [
-                '%455228|!|eq|#0|!69188|eq|?^0|or|and',
-                '%445375|@69188|selectOpt',
-              ],
-              [
-                '%455229|!|eq|#0|!69188|eq|?^0|or|and',
-                '%445375|@69188|selectOpt',
-              ],
-              [
-                '%455230|!|eq|#0|!69188|eq|?^0|or|and',
-                '%445375|@69188|selectOpt',
-              ],
-              [
-                '%455250|!|eq|#0|!69188|eq|?^0|or|and',
-                '%445375|@69188|selectOpt',
-              ],
-              [
-                '%458100|!|eq|#0|!69188|eq|?^0|or|and',
-                '%445355|@69188|selectOpt',
-              ],
-              [
-                '%459400|!|eq|#0|!69188|eq|?^0|or|and',
-                '%445355|@69188|selectOpt',
-              ],
-            ],
-            isSeparated: false,
-            isLast: false,
-            viewComponent: 5,
-            viewPlace: '01000',
-            queryKey: 'a92368',
-          },
+          // {
+          //   type: 2,
+          //   id: '92368',
+          //   title: 'سال ساخت بنا',
+          //   order: 0,
+          //   index: 69188,
+          //   isRequired: true,
+          //   badge: null,
+          //   analyticsKey: 'yearOfConstruction',
+          //   options: [
+          //     {
+          //       id: 460693,
+          //       name: '۱۴۰۳',
+          //       optionSources: null,
+          //     },
+          //     {
+          //       id: 459400,
+          //       name: '۱۴۰۲',
+          //       optionSources: null,
+          //     },
+          //     {
+          //       id: 458100,
+          //       name: '۱۴۰۱',
+          //       optionSources: null,
+          //     },
+          //     {
+          //       id: 455200,
+          //       name: '۱۴۰۰',
+          //       optionSources: null,
+          //     },
+          //     {
+          //       id: 455201,
+          //       name: '۱۳۹۹',
+          //       optionSources: null,
+          //     },
+          //     {
+          //       id: 455202,
+          //       name: '۱۳۹۸',
+          //       optionSources: null,
+          //     },
+          //     {
+          //       id: 455203,
+          //       name: '۱۳۹۷',
+          //       optionSources: null,
+          //     },
+          //     {
+          //       id: 455204,
+          //       name: '۱۳۹۶',
+          //       optionSources: null,
+          //     },
+          //     {
+          //       id: 455205,
+          //       name: '۱۳۹۵',
+          //       optionSources: null,
+          //     },
+          //     {
+          //       id: 455206,
+          //       name: '۱۳۹۴',
+          //       optionSources: null,
+          //     },
+          //     {
+          //       id: 455207,
+          //       name: '۱۳۹۳',
+          //       optionSources: null,
+          //     },
+          //     {
+          //       id: 455208,
+          //       name: '۱۳۹۲',
+          //       optionSources: null,
+          //     },
+          //     {
+          //       id: 455209,
+          //       name: '۱۳۹۱',
+          //       optionSources: null,
+          //     },
+          //     {
+          //       id: 455210,
+          //       name: '۱۳۹۰',
+          //       optionSources: null,
+          //     },
+          //     {
+          //       id: 455211,
+          //       name: '۱۳۸۹',
+          //       optionSources: null,
+          //     },
+          //     {
+          //       id: 455212,
+          //       name: '۱۳۸۸',
+          //       optionSources: null,
+          //     },
+          //     {
+          //       id: 455213,
+          //       name: '۱۳۸۷',
+          //       optionSources: null,
+          //     },
+          //     {
+          //       id: 455214,
+          //       name: '۱۳۸۶',
+          //       optionSources: null,
+          //     },
+          //     {
+          //       id: 455215,
+          //       name: '۱۳۸۵',
+          //       optionSources: null,
+          //     },
+          //     {
+          //       id: 455216,
+          //       name: '۱۳۸۴',
+          //       optionSources: null,
+          //     },
+          //     {
+          //       id: 455217,
+          //       name: '۱۳۸۳',
+          //       optionSources: null,
+          //     },
+          //     {
+          //       id: 455218,
+          //       name: '۱۳۸۲',
+          //       optionSources: null,
+          //     },
+          //     {
+          //       id: 455219,
+          //       name: '۱۳۸۱',
+          //       optionSources: null,
+          //     },
+          //     {
+          //       id: 455220,
+          //       name: '۱۳۸۰',
+          //       optionSources: null,
+          //     },
+          //     {
+          //       id: 455221,
+          //       name: '۱۳۷۹',
+          //       optionSources: null,
+          //     },
+          //     {
+          //       id: 455222,
+          //       name: '۱۳۷۸',
+          //       optionSources: null,
+          //     },
+          //     {
+          //       id: 455223,
+          //       name: '۱۳۷۷',
+          //       optionSources: null,
+          //     },
+          //     {
+          //       id: 455224,
+          //       name: '۱۳۷۶',
+          //       optionSources: null,
+          //     },
+          //     {
+          //       id: 455225,
+          //       name: '۱۳۷۵',
+          //       optionSources: null,
+          //     },
+          //     {
+          //       id: 455226,
+          //       name: '۱۳۷۴',
+          //       optionSources: null,
+          //     },
+          //     {
+          //       id: 455227,
+          //       name: '۱۳۷۳',
+          //       optionSources: null,
+          //     },
+          //     {
+          //       id: 455228,
+          //       name: '۱۳۷۲',
+          //       optionSources: null,
+          //     },
+          //     {
+          //       id: 455229,
+          //       name: '۱۳۷۱',
+          //       optionSources: null,
+          //     },
+          //     {
+          //       id: 455230,
+          //       name: '۱۳۷۰',
+          //       optionSources: null,
+          //     },
+          //     {
+          //       id: 455250,
+          //       name: 'قبل از ۱۳۷۰',
+          //       optionSources: null,
+          //     },
+          //   ],
+          //   virtualAttributes: [],
+          //   groupName: 'DEFAULT',
+          //   dependency: [
+          //     [
+          //       '%455200|!|eq|#0|!69188|eq|?^0|or|and',
+          //       '%445359|@69188|selectOpt',
+          //     ],
+          //     [
+          //       '%455201|!|eq|#0|!69188|eq|?^0|or|and',
+          //       '%445359|@69188|selectOpt',
+          //     ],
+          //     [
+          //       '%455202|!|eq|#0|!69188|eq|?^0|or|and',
+          //       '%445359|@69188|selectOpt',
+          //     ],
+          //     [
+          //       '%455203|!|eq|#0|!69188|eq|?^0|or|and',
+          //       '%445359|@69188|selectOpt',
+          //     ],
+          //     [
+          //       '%455204|!|eq|#0|!69188|eq|?^0|or|and',
+          //       '%445363|@69188|selectOpt',
+          //     ],
+          //     [
+          //       '%455205|!|eq|#0|!69188|eq|?^0|or|and',
+          //       '%445363|@69188|selectOpt',
+          //     ],
+          //     [
+          //       '%455206|!|eq|#0|!69188|eq|?^0|or|and',
+          //       '%445363|@69188|selectOpt',
+          //     ],
+          //     [
+          //       '%455207|!|eq|#0|!69188|eq|?^0|or|and',
+          //       '%445363|@69188|selectOpt',
+          //     ],
+          //     [
+          //       '%455208|!|eq|#0|!69188|eq|?^0|or|and',
+          //       '%445363|@69188|selectOpt',
+          //     ],
+          //     [
+          //       '%455209|!|eq|#0|!69188|eq|?^0|or|and',
+          //       '%445367|@69188|selectOpt',
+          //     ],
+          //     [
+          //       '%455210|!|eq|#0|!69188|eq|?^0|or|and',
+          //       '%445367|@69188|selectOpt',
+          //     ],
+          //     [
+          //       '%455211|!|eq|#0|!69188|eq|?^0|or|and',
+          //       '%445367|@69188|selectOpt',
+          //     ],
+          //     [
+          //       '%455212|!|eq|#0|!69188|eq|?^0|or|and',
+          //       '%445367|@69188|selectOpt',
+          //     ],
+          //     [
+          //       '%455213|!|eq|#0|!69188|eq|?^0|or|and',
+          //       '%445367|@69188|selectOpt',
+          //     ],
+          //     [
+          //       '%455214|!|eq|#0|!69188|eq|?^0|or|and',
+          //       '%445371|@69188|selectOpt',
+          //     ],
+          //     [
+          //       '%455215|!|eq|#0|!69188|eq|?^0|or|and',
+          //       '%445371|@69188|selectOpt',
+          //     ],
+          //     [
+          //       '%455216|!|eq|#0|!69188|eq|?^0|or|and',
+          //       '%445371|@69188|selectOpt',
+          //     ],
+          //     [
+          //       '%455217|!|eq|#0|!69188|eq|?^0|or|and',
+          //       '%445371|@69188|selectOpt',
+          //     ],
+          //     [
+          //       '%455218|!|eq|#0|!69188|eq|?^0|or|and',
+          //       '%445371|@69188|selectOpt',
+          //     ],
+          //     [
+          //       '%455219|!|eq|#0|!69188|eq|?^0|or|and',
+          //       '%445375|@69188|selectOpt',
+          //     ],
+          //     [
+          //       '%455220|!|eq|#0|!69188|eq|?^0|or|and',
+          //       '%445375|@69188|selectOpt',
+          //     ],
+          //     [
+          //       '%455221|!|eq|#0|!69188|eq|?^0|or|and',
+          //       '%445375|@69188|selectOpt',
+          //     ],
+          //     [
+          //       '%455222|!|eq|#0|!69188|eq|?^0|or|and',
+          //       '%445375|@69188|selectOpt',
+          //     ],
+          //     [
+          //       '%455223|!|eq|#0|!69188|eq|?^0|or|and',
+          //       '%445375|@69188|selectOpt',
+          //     ],
+          //     [
+          //       '%455224|!|eq|#0|!69188|eq|?^0|or|and',
+          //       '%445375|@69188|selectOpt',
+          //     ],
+          //     [
+          //       '%455225|!|eq|#0|!69188|eq|?^0|or|and',
+          //       '%445375|@69188|selectOpt',
+          //     ],
+          //     [
+          //       '%455226|!|eq|#0|!69188|eq|?^0|or|and',
+          //       '%445375|@69188|selectOpt',
+          //     ],
+          //     [
+          //       '%455227|!|eq|#0|!69188|eq|?^0|or|and',
+          //       '%445375|@69188|selectOpt',
+          //     ],
+          //     [
+          //       '%455228|!|eq|#0|!69188|eq|?^0|or|and',
+          //       '%445375|@69188|selectOpt',
+          //     ],
+          //     [
+          //       '%455229|!|eq|#0|!69188|eq|?^0|or|and',
+          //       '%445375|@69188|selectOpt',
+          //     ],
+          //     [
+          //       '%455230|!|eq|#0|!69188|eq|?^0|or|and',
+          //       '%445375|@69188|selectOpt',
+          //     ],
+          //     [
+          //       '%455250|!|eq|#0|!69188|eq|?^0|or|and',
+          //       '%445375|@69188|selectOpt',
+          //     ],
+          //     [
+          //       '%458100|!|eq|#0|!69188|eq|?^0|or|and',
+          //       '%445355|@69188|selectOpt',
+          //     ],
+          //     [
+          //       '%459400|!|eq|#0|!69188|eq|?^0|or|and',
+          //       '%445355|@69188|selectOpt',
+          //     ],
+          //   ],
+          //   isSeparated: false,
+          //   isLast: false,
+          //   viewComponent: 5,
+          //   viewPlace: '01000',
+          //   queryKey: 'a92368',
+          // },
           {
             type: 2,
             id: '69190',

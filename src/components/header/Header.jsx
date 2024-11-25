@@ -24,7 +24,7 @@ export function Header() {
         !locationUrl.pathname.startsWith('/myAccount') &&
         params.id === undefined && <SearchBar />}
 
-      <div className='w-auto  flex gap-3 items-center'>
+      <div className='hidden xl:flex w-auto  gap-3 items-center'>
         {locationUrl.pathname !== '/newAd' && (
           <NewAdBtn handleNavTo={handleNavTo} />
         )}
