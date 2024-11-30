@@ -9,6 +9,7 @@ export function navigateAfterFilter(
   queryKey,
   locationUrl
 ) {
+  if (!item) return;
   if (lable === 'مرتب سازی') {
     const selctedSo = allCatSortOptions.find((soItem) => {
       return soItem.name === item.title;

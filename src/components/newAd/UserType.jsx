@@ -1,9 +1,8 @@
 import { useContext, useEffect, useRef, useState } from 'react';
-import { NewAdFormProvider } from './NewAdForm';
+import { NewAdContext } from './NewAdForm';
 
 export default function UserType({ storagePram }) {
-  const { setNewAdStorageValue, newAdStorageValue } =
-    useContext(NewAdFormProvider);
+  const { setNewAdStorageValue, newAdStorageValue } = useContext(NewAdContext);
   const [userType, setUserType] = useState('فرد');
   const userTypeRef = useRef();
 

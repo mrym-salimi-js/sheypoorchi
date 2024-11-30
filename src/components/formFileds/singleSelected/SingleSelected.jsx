@@ -1,12 +1,8 @@
 import TextComponent from '../TextComponent';
-import { setParamsAfterDependencies } from '../../../functions/newAd/setParamsAfterDependencies';
-import { singleSelectedErrorHandling } from '../../../functions/newAd/singleSelectedErrorHandling';
-import { useEffect, useMemo, useState } from 'react';
 import { List } from './List';
 
 export default function SingleSelected({
   lable,
-  allList,
   setNewAdStorageValue,
   newAdStorageValue,
   storagePram,
@@ -14,49 +10,17 @@ export default function SingleSelected({
   validation,
   basicNewAdStorage,
   queryKey,
-  defaultItem,
   type,
   navigateTo,
   firstItemBold,
+  setOpenList,
+  openList,
+  itemTitle,
+  listItems,
+  setListItems,
+  setSelectedItem,
 }) {
-  const [openList, setOpenList] = useState();
-  const [listItems, setListItems] = useState();
-  const [itemTitle, setItemTitle] = useState();
-
-  const [filterListTitle, setFilterListTitle] = useState();
-
-  // Set DefaultItem Of Filter Filed By Every Updating
-  useMemo(() => {
-    defaultItem && setItemTitle(defaultItem);
-  }, [defaultItem]);
-
-  // Set List Title Of Filter And ListItems
-  useEffect(() => {
-    setFilterListTitle({ name: 'همه گروه ها', slug: '', id: '' });
-
-    allList && setListItems(allList);
-  }, [openList]);
-
-  setParamsAfterDependencies(
-    (storageVal) => {
-      setNewAdStorageValue(storageVal);
-    },
-    openList,
-    newAdStorageValue,
-    storagePram
-  );
-
-  singleSelectedErrorHandling(
-    (stateVal) => {
-      setValidation(stateVal);
-    },
-    openList,
-    newAdStorageValue,
-    storagePram,
-    lable,
-    validation
-  );
-
+  // console.log(openList);
   return (
     <>
       <TextComponent
@@ -82,13 +46,13 @@ export default function SingleSelected({
           newAdStorageValue={newAdStorageValue}
           storagePram={storagePram}
           basicNewAdStorage={basicNewAdStorage}
-          setItemTitle={setItemTitle}
           type={type}
-          setFilterListTitle={setFilterListTitle}
-          filterListTitle={filterListTitle}
+          // setFilterListTitle={setFilterListTitle}
+          // filterListTitle={filterListTitle}
           navigateTo={navigateTo}
           queryKey={queryKey}
           firstItemBold={firstItemBold}
+          setSelectedItem={setSelectedItem}
         />
       )}
     </>

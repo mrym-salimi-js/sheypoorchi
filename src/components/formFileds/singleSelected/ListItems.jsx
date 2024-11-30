@@ -1,8 +1,8 @@
-import { useLocation } from 'react-router-dom';
-import { setSingleSelectedStorage } from '../../../functions/newAd/setSingleSelectedStorage';
+// import { useLocation } from 'react-router-dom';
+// import { setSingleSelectedStorage } from '../../../functions/newAd/setSingleSelectedStorage';
 import { setSingleSelectedAttrsStorage } from '../../../functions/newAd/setSingleSelectedAttrsStorage';
 import { ChevronLeft } from '../../globals/Icons';
-import { navigateAfterFilter } from '../../../functions/adFilters/navigateAfterFilter';
+// import { navigateAfterFilter } from '../../../functions/adFilters/navigateAfterFilter';
 
 export function ListItems({
   list,
@@ -13,44 +13,44 @@ export function ListItems({
   newAdStorageValue,
   storagePram,
   setOpenList,
-  basicNewAdStorage,
-  setItemTitle,
+  // basicNewAdStorage,
+  // setItemTitle,
   type,
-  setFilterListTitle,
-  navigateTo,
-  lable,
-  queryKey,
+  // setFilterListTitle,
+  // navigateTo,
+  // lable,
+  // queryKey,
   firstItemBold,
+  setSelectedItem,
 }) {
   // Get Current Url For Filter Type
-  const locationUrl = useLocation();
-  const queryParams = new URLSearchParams(locationUrl.search);
 
   const handleItems = (item) => {
     // Filter Form Settings
-    if (type === 'filter' || type === 'category_search') {
-      // Navigate After ad Filter Param in url
-      navigateAfterFilter(
-        queryParams,
-        item,
-        navigateTo,
-        lable,
-        queryKey,
-        locationUrl
-      );
+    setSelectedItem(item);
+    // if (type === 'filter' || type === 'category_search') {
+    //   // Navigate After ad Filter Param in url
+    //   navigateAfterFilter(
+    //     queryParams,
+    //     item,
+    //     navigateTo,
+    //     lable,
+    //     queryKey,
+    //     locationUrl
+    //   );
 
-      // Set Title (value or name) Of Selected Item For Showing In Filter Filed
-      type === 'filter' && setItemTitle(item.title ? item.title : item.name);
+    //   // Set Title (value or name) Of Selected Item For Showing In Filter Filed
+    //   type === 'filter' && setItemTitle(item.title ? item.title : item.name);
 
-      // Set Title Of List Items (like titr)
-      if (lable === 'دسته بندی') {
-        setFilterListTitle({
-          name: item.title ? item.title : item.name,
-          slug: item.slug,
-          id: item.id,
-        });
-      }
-    }
+    //   // Set Title Of List Items (like titr)
+    //   if (lable === 'دسته بندی') {
+    //     setFilterListTitle({
+    //       name: item.title ? item.title : item.name,
+    //       slug: item.slug,
+    //       id: item.id,
+    //     });
+    //   }
+    // }
 
     // List Of Items
     item.children?.length > 0 && setListItems(item.children),
@@ -62,44 +62,45 @@ export function ListItems({
       type !== 'category_search' &&
       setListItems(item.brands);
 
-    //Delete Excludedattributes Of Category
-    if (newAdStorageValue) {
-      for (let key in newAdStorageValue) {
-        item.excludedAttributes?.length > 0 &&
-          item.excludedAttributes.map((ex) => {
-            key == ex.attributeID && delete newAdStorageValue[key];
-          });
-      }
-    }
+    // //Delete Excludedattributes Of Category
+    // if (newAdStorageValue) {
+    //   for (let key in newAdStorageValue) {
+    //     item.excludedAttributes?.length > 0 &&
+    //       item.excludedAttributes.map((ex) => {
+    //         key == ex.attributeID && delete newAdStorageValue[key];
+    //       });
+    //   }
+    // }
 
-    //Single Slection Storage Setting
+    // //Single Slection Storage Setting
+    // if (storagePram) {
+    //   setSingleSelectedStorage(
+    //     (stateVal) => {
+    //       setNewAdStorageValue(stateVal);
+    //     },
+    //     newAdStorageValue,
+    //     item,
+    //     storagePram,
+    //     basicNewAdStorage
+    //   );
+    // }
 
-    setSingleSelectedStorage(
-      (stateVal) => {
-        setNewAdStorageValue(stateVal);
-      },
-      newAdStorageValue,
-      item,
-      storagePram,
-      basicNewAdStorage
-    );
-
-    //Category Attributes Storage Setting
-    if (storagePram !== 'location') {
-      setSingleSelectedAttrsStorage(
-        (stateVal) => {
-          setNewAdStorageValue(stateVal);
-        },
-        item,
-        storagePram,
-        setOpenList,
-        newAdStorageValue
-      );
-    }
+    // //Category Attributes Storage Setting
+    // if (storagePram !== 'location') {
+    //   setSingleSelectedAttrsStorage(
+    //     (stateVal) => {
+    //       setNewAdStorageValue(stateVal);
+    //     },
+    //     item,
+    //     storagePram,
+    //     setOpenList,
+    //     newAdStorageValue
+    //   );
+    // }
 
     //Close List Box
     if (
-      (item.children?.length == 0 && item.brands?.length == 0) ||
+      (item.children?.length === 0 && item.brands?.length === 0) ||
       (item.children === undefined &&
         (item.districts === undefined || item.districts?.length == 0)) ||
       ((type === 'filter' || type === 'category_search') &&

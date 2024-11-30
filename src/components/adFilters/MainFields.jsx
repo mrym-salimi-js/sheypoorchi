@@ -1,5 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
-import SingleSelected from '../formFileds/singleSelected/SingleSelected';
+import { createContext, useEffect, useMemo, useState } from 'react';
 import ToggleSwich from '../formFileds/ToggleSwich';
 import TextComponent from '../formFileds/TextComponent';
 import LocationBox from '../locations/LocationBox';
@@ -14,7 +13,9 @@ import {
 import AttrsFields from './AttrsFields';
 import { allCatSortOptions } from '../../functions/adFilters/categorySortOptionTyps';
 import { deleteFilterSearch } from '../../functions/adFilters/deleteFilterSearch';
+import SingleSelectedSupport from './SingleSelectedSupport';
 
+export const FilterContext = createContext();
 export function MainFields() {
   const [cookie] = useCookies();
   const navigateTo = useNavigate();
@@ -100,70 +101,66 @@ export function MainFields() {
   }, [category]);
 
   return (
-    <div className='w-full h-auto p-6 flex flex-col gap-8 pb-[5.25rem]'>
-      {/* SortOptions */}
-      {sortOptions.length > 0 && selctedSo !== undefined && (
-        <SingleSelected
-          lable={'مرتب سازی'}
-          allList={sortOptions}
-          defaultItem={selctedSo}
+    <FilterContext.Provider value={{ navigateTo }}>
+      <div className='w-full h-auto p-6 flex flex-col gap-8 pb-[5.25rem]'>
+        {/* SortOptions */}
+        {sortOptions.length > 0 && selctedSo !== undefined && (
+          <SingleSelectedSupport
+            lable={'مرتب سازی'}
+            allList={sortOptions}
+            defaultItem={selctedSo}
+            queryKey={'o'}
+          />
+        )}
+
+        {/* By Photo Ad Switch */}
+        <ToggleSwich
+          lable='فقط آگهی های عکس دار'
           type={'filter'}
+          queryKey={'wp'}
           navigateTo={navigateTo}
-          queryKey={'o'}
-          firstItemBold={true}
+          queryParams={searchItems}
         />
-      )}
 
-      {/* By Photo Ad Switch */}
-      <ToggleSwich
-        lable='فقط آگهی های عکس دار'
-        type={'filter'}
-        queryKey={'wp'}
-        navigateTo={navigateTo}
-        queryParams={searchItems}
-      />
+        {/* Categories */}
+        {selectedCat && (
+          <SingleSelectedSupport
+            lable={'دسته بندی'}
+            allList={adsCategoriesList}
+            defaultItem={selectedCat.name}
+            queryKey={'c'}
+          />
+        )}
 
-      {/* Categories */}
-      {selectedCat && (
-        <SingleSelected
-          lable={'دسته بندی'}
-          allList={adsCategoriesList}
+        {/* Locations */}
+        <TextComponent
+          setOpenList={setOpenLocation}
+          adLable={'استان و شهر'}
+          itemTitle={selectedLoc}
           type={'filter'}
-          defaultItem={selectedCat.name}
-          navigateTo={navigateTo}
-          queryKey={'c'}
-          firstItemBold={true}
         />
-      )}
 
-      {/* Locations */}
-      <TextComponent
-        setOpenList={setOpenLocation}
-        adLable={'استان و شهر'}
-        itemTitle={selectedLoc}
-        type={'filter'}
-      />
+        {openLocation && <LocationBox setOpenLocation={setOpenLocation} />}
 
-      {openLocation && <LocationBox setOpenLocation={setOpenLocation} />}
-
-      {/* Category Parent Attributes */}
-      {parentCatAttr.length > 0 && (
-        <AttrsFields
-          catAttrs={parentCatAttr}
-          setOpenLocation={setOpenLocation}
-          navigateTo={navigateTo}
-          searchItems={searchItems}
-        />
-      )}
-      {/* Category Child Attributes */}
-      {childCatAttr.length > 0 && (
-        <AttrsFields
-          catAttrs={childCatAttr}
-          setOpenLocation={setOpenLocation}
-          navigateTo={navigateTo}
-          searchItems={searchItems}
-        />
-      )}
-    </div>
+        {/* Category Parent Attributes */}
+        {parentCatAttr.length > 0 && (
+          <AttrsFields
+            catAttrs={parentCatAttr}
+            setOpenLocation={setOpenLocation}
+            navigateTo={navigateTo}
+            searchItems={searchItems}
+          />
+        )}
+        {/* Category Child Attributes */}
+        {childCatAttr.length > 0 && (
+          <AttrsFields
+            catAttrs={childCatAttr}
+            setOpenLocation={setOpenLocation}
+            navigateTo={navigateTo}
+            searchItems={searchItems}
+          />
+        )}
+      </div>
+    </FilterContext.Provider>
   );
 }

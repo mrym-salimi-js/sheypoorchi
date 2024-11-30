@@ -1,10 +1,10 @@
 import { useContext, useState } from 'react';
 import { BorderRoundedBtn } from '../globals/BorderRoundedBtn';
-import { NewAdFormProvider } from './NewAdForm';
+import { NewAdContext } from './NewAdForm';
 
 export function ClearForm() {
   const { setNewAdStorageValue, basicNewAdStorage, setValidation } =
-    useContext(NewAdFormProvider);
+    useContext(NewAdContext);
   const [clearingFormAlarm, setClearingFormAlarm] = useState(false);
 
   const handleClearingFormAsk = () => {

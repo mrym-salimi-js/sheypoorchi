@@ -2,7 +2,6 @@ import { createContext, useEffect } from 'react';
 import { useState } from 'react';
 import { PhotoComponent } from './PhotoComponent';
 import TextComponent from '../formFileds/TextComponent';
-import SingleSelected from '../formFileds/singleSelected/SingleSelected';
 import UserType from './UserType';
 import ToggleSwich from '../formFileds/ToggleSwich';
 import SeccessfulToast from '../globals/SuccessfulToast';
@@ -12,8 +11,9 @@ import { Map } from '../map/Map';
 import { FormHeader } from './FormHeader';
 import { SubmiteFormBtn } from './SubmiteFormBtn';
 import { useNavigate } from 'react-router-dom';
+import SingleSelectedSupport from './SingleSelectedSupport';
 
-export const NewAdFormProvider = createContext();
+export const NewAdContext = createContext();
 export function NewAdForm() {
   //Form Local Storage Setting
   const formData = new FormData();
@@ -63,8 +63,7 @@ export function NewAdForm() {
   const adDescSubTitle = 'توضیحات مناسبی برای آگهی تان وارد کنید.';
 
   //Get Form category Attributes Items
-  const getCatAttrs =
-    newAdStorageValue && getCategoriyAttr(adsCategoriesList, newAdStorageValue);
+  const getCatAttrs = getCategoriyAttr(adsCategoriesList, newAdStorageValue);
 
   const catAttr = getCatAttrs?.attributes;
   const placeHolder = getCatAttrs?.placeholder;
@@ -105,7 +104,7 @@ export function NewAdForm() {
     <>
       {successToast && <SeccessfulToast setSuccessToast={setSuccessToast} />}
       <div className='w-[97%] lg:w-[90%] p-3 flex flex-col  gap-8 bg-white'>
-        <NewAdFormProvider.Provider
+        <NewAdContext.Provider
           value={{
             setNewAdStorageValue,
             newAdStorageValue,
@@ -131,16 +130,10 @@ export function NewAdForm() {
 
             <div className='lg:w-[47%] p-3 flex flex-col gap-12 '>
               {/* Categories*/}
-              <SingleSelected
+              <SingleSelectedSupport
                 lable={'دسته بندی'}
                 allList={adsCategoriesList}
                 storagePram={'category'}
-                type={'newAd'}
-                setNewAdStorageValue={setNewAdStorageValue}
-                newAdStorageValue={newAdStorageValue}
-                basicNewAdStorage={basicNewAdStorage}
-                setValidation={setValidation}
-                validation={validation}
               />
 
               {/*Categories Attributes*/}
@@ -161,16 +154,11 @@ export function NewAdForm() {
                   );
                 } else if (item.type == 2) {
                   return (
-                    <SingleSelected
+                    <SingleSelectedSupport
                       key={index}
                       lable={item.name}
                       allList={item.value.options}
                       storagePram={item.id}
-                      setNewAdStorageValue={setNewAdStorageValue}
-                      newAdStorageValue={newAdStorageValue}
-                      basicNewAdStorage={basicNewAdStorage}
-                      setValidation={setValidation}
-                      validation={validation}
                     />
                   );
                 } else if (item.type == 7) {
@@ -218,16 +206,10 @@ export function NewAdForm() {
                 />
               }
               {/* Location*/}
-              <SingleSelected
+              <SingleSelectedSupport
                 lable={'مکان'}
                 allList={adsLocationList}
                 storagePram={'location'}
-                type={'newAd'}
-                setNewAdStorageValue={setNewAdStorageValue}
-                newAdStorageValue={newAdStorageValue}
-                basicNewAdStorage={basicNewAdStorage}
-                setValidation={setValidation}
-                validation={validation}
               />
               {/* Map*/}
               <Map
@@ -267,7 +249,7 @@ export function NewAdForm() {
               />
             </div>
           </form>
-        </NewAdFormProvider.Provider>
+        </NewAdContext.Provider>
       </div>
     </>
   );

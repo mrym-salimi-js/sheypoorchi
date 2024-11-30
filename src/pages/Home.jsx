@@ -70,9 +70,9 @@ export default function Home() {
         setBrandAndModel,
       }}
     >
-      <div className='w-[98%] sm:w-[85%] h-full relative flex flex-col gap-6 items-center mb-14  p-2'>
+      <div className='w-[98%] sm:w-[85%] h-full absolute flex flex-col gap-6 items-center mb-14  p-2'>
         <Header />
-        {category !== undefined && (
+        {category && (
           <>
             <AdFiltersBox />
             <OptionsBtn />

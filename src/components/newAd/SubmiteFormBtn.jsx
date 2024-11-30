@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { formLocalErrorHandling } from '../../functions/newAd/formLocalErrorHandling';
-import { NewAdFormProvider } from './NewAdForm';
+import { NewAdContext } from './NewAdForm';
 import { SpinnerLoading } from '../globals/SpinnerLoading';
 
 export function SubmiteFormBtn({ sendLoading }) {
@@ -12,7 +12,7 @@ export function SubmiteFormBtn({ sendLoading }) {
     setAttrs,
     attrs,
     setFormSubmitted,
-  } = useContext(NewAdFormProvider);
+  } = useContext(NewAdContext);
   const handleFormSubmite = () => {
     //Get Storage Category Attributes
     const attrRes = catAttr?.map((item) => {

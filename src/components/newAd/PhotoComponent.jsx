@@ -1,10 +1,9 @@
 import { useContext, useEffect, useState } from 'react';
 import { Camera, RecycleBin } from '../globals/Icons';
-import { NewAdFormProvider } from './NewAdForm';
+import { NewAdContext } from './NewAdForm';
 
 export function PhotoComponent() {
-  const { setNewAdStorageValue, newAdStorageValue } =
-    useContext(NewAdFormProvider);
+  const { setNewAdStorageValue, newAdStorageValue } = useContext(NewAdContext);
   const [allPhoto, setAllPhoto] = useState([]);
 
   let reader;

@@ -11,13 +11,14 @@ export function List({
   newAdStorageValue,
   storagePram,
   basicNewAdStorage,
-  setItemTitle,
+  // setItemTitle,
   type,
-  setFilterListTitle,
-  filterListTitle,
+  // setFilterListTitle,
+  // filterListTitle,
   navigateTo,
   queryKey,
   firstItemBold,
+  setSelectedItem,
 }) {
   const [listType, setListType] = useState('main');
   const [lastList, setLastList] = useState();
@@ -37,7 +38,7 @@ export function List({
                 title={'main'}
                 setListItems={setListItems}
                 lastList={lastList}
-                setFilterListTitle={setFilterListTitle}
+                // setFilterListTitle={setFilterListTitle}
               />
             )}
             <p className='text-lg '>{lable}</p>
@@ -54,11 +55,12 @@ export function List({
           <ul className='flex flex-col gap-2 p-1 '>
             <ListItems
               list={
-                (type === 'filter' || type === 'category_search') &&
-                lable === 'دسته بندی' &&
-                filterListTitle
-                  ? [filterListTitle, ...allList]
-                  : allList
+                // (type === 'filter' || type === 'category_search') &&
+                // lable === 'دسته بندی' &&
+                // filterListTitle
+                //   ? [filterListTitle, ...allList]
+                //   : allList
+                allList
               }
               setListItems={setListItems}
               setLastList={setLastList}
@@ -69,13 +71,14 @@ export function List({
               storagePram={storagePram}
               setOpenList={setOpenList}
               basicNewAdStorage={basicNewAdStorage}
-              setItemTitle={setItemTitle}
+              // setItemTitle={setItemTitle}
               type={type}
-              setFilterListTitle={setFilterListTitle}
+              // setFilterListTitle={setFilterListTitle}
               navigateTo={navigateTo}
               lable={lable}
               queryKey={queryKey}
               firstItemBold={firstItemBold}
+              setSelectedItem={setSelectedItem}
             />
           </ul>
         </div>
