@@ -6,7 +6,6 @@ import {
 } from '../../functions/validation/adFormValidation';
 import { ChevronLeft } from '../globals/Icons';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { deleteFilterSearch } from '../../functions/adFilters/deleteFilterSearch';
 import { navTo } from '../../functions/globals/navTo';
 import cookies from 'js-cookie';
 
@@ -48,7 +47,6 @@ export default function TextComponent({
   }, [searchItem]);
 
   // Input Blur Setttings
-
   const handleInputBlur = (inputTag) => {
     const inputVal = inputTag.value;
 
@@ -75,10 +73,11 @@ export default function TextComponent({
     }
 
     if (type === 'filter') {
-      inputVal
+      inputVal !== ''
         ? (queryParams.set(queryKey, inputVal),
           navTo(locationUrl.pathname, queryParams, navigateTo))
-        : deleteFilterSearch(queryParams, queryKey, navigateTo, locationUrl);
+        : queryParams.delete(queryKey),
+        navTo(locationUrl.pathname, queryParams, navigateTo);
     }
 
     newAdStorageValue &&

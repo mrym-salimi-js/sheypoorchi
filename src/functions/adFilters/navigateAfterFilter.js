@@ -7,7 +7,8 @@ export function navigateAfterFilter(
   navigateTo,
   lable,
   queryKey,
-  locationUrl
+  locationUrl,
+  params
 ) {
   if (!item) return;
   if (lable === 'مرتب سازی') {
@@ -21,7 +22,7 @@ export function navigateAfterFilter(
     navTo(`/s/iran/${item.slug}`, queryParams, navigateTo);
   } else {
     queryParams.set(queryKey, item.id);
-    navTo(`/s/iran/${item.slug}`, queryParams, navigateTo);
+    navTo(`/s/iran/${params.category}`, queryParams, navigateTo);
   }
   // Nav To Home Page
   if (item.name === 'همه گروه ها') {

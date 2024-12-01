@@ -16,7 +16,6 @@ export default function SingleSelected({
   setListItems,
   setSelectedItem,
 }) {
-  // console.log(openList);
   return (
     <>
       <TextComponent

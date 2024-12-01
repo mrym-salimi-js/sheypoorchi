@@ -74,14 +74,19 @@ export function OptionsBtn() {
           });
         });
       }
-      key.includes('p') &&
+      key.includes('mxp') &&
         setFilterItemsList((prev) => [
           ...prev,
-          { id: 0, title: 'قیمت', slug: key },
+          { id: 0, title: 'حداکثر قیمت', slug: key },
+        ]);
+      key.includes('mnp') &&
+        setFilterItemsList((prev) => [
+          ...prev,
+          { id: 0, title: 'حداقل قیمت', slug: key },
         ]);
     }
   }, [locationUrl]);
-
+  console.log(filterItemsList);
   return (
     <div
       onClick={handleScrollItem}
@@ -101,7 +106,9 @@ export function OptionsBtn() {
           />
         )}
         {filterItemsList?.map((fI) => {
-          return <FilterItemBtn key={fI.id} lable={fI.title} slug={fI.slug} />;
+          return (
+            <FilterItemBtn key={fI.id + 1} lable={fI.title} slug={fI.slug} />
+          );
         })}
       </ul>
     </div>

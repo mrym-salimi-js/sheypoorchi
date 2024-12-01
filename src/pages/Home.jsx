@@ -22,15 +22,7 @@ export default function Home() {
   const locationUrl = useLocation();
   const [cookie] = useCookies();
   const [filterFormDisplay, setFilterFormDisplay] = useState('hidden');
-
   const [brandAndModel, setBrandAndModel] = useState();
-
-  // Set Selected Cat In Cookie
-  // const catItemInUrl = cookie['selectedCat'];
-  // useEffect(() => {
-  //   setCookie('selectedCat', catItemInUrl ? catItemInUrl : '');
-  // }, []);
-
   // Url Params
   const category = params.category;
   const brands = params.brands;
@@ -90,7 +82,11 @@ export default function Home() {
           </>
         )}
 
-        <AdsList />
+        <AdsList
+          category={category}
+          queryParams={queryParams}
+          locationUrl={locationUrl}
+        />
       </div>
       <NavBar />
     </HomeContext.Provider>

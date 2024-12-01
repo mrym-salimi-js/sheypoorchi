@@ -29,20 +29,20 @@ export default function NavBar() {
             className='flex flex-col gap-2 items-center'
           >
             <Speaker color={'#84105C'} size={'size-6'} />
-            <p className='text-sm text-[#84105C]'>آگهی ها</p>
+            <p className='text-[0.7rem] text-[#84105C]'>آگهی ها</p>
           </a>
         </li>
 
-        <li className='nav-li h-full flex items-center cursor-pointer'>
+        <li className='nav-li h-full flex  items-center cursor-pointer'>
           <a
             href='/newad'
             onClick={(event) =>
               navIconSelected(event.currentTarget, event, '/newAd')
             }
-            className='flex flex-col  items-center'
+            className='flex flex-col gap-2 items-center'
           >
             <CirclePlus color={'#84105C '} size={'size-10 relative bottom-5'} />
-            <p className='text-sm text-gray-500 relative bottom-2'>
+            <p className='text-[0.7rem] text-gray-500 relative bottom-2'>
               ثبت آگهی جدید
             </p>
           </a>
@@ -56,7 +56,7 @@ export default function NavBar() {
             className='flex flex-col gap-2 items-center'
           >
             <User color={'#858383'} size={'size-6'} />
-            <p className='text-sm text-gray-500'>حساب من</p>
+            <p className='text-[0.7rem] text-gray-500'>حساب من</p>
           </a>
         </li>
       </ul>

@@ -1,7 +1,7 @@
 import { useContext, useEffect, useMemo, useState } from 'react';
 import SingleSelected from '../formFileds/singleSelected/SingleSelected';
 import { navigateAfterFilter } from '../../functions/adFilters/navigateAfterFilter';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 import { FilterContext } from './MainFields';
 
 export default function SingleSelectedSupport({
@@ -12,10 +12,11 @@ export default function SingleSelectedSupport({
 }) {
   const { navigateTo } = useContext(FilterContext);
   const [openList, setOpenList] = useState();
-  const [listItems, setListItems] = useState();
+  const [listItems, setListItems] = useState([]);
   const [itemTitle, setItemTitle] = useState();
   const [selectedItem, setSelectedItem] = useState();
   const [filterListTitle, setFilterListTitle] = useState();
+  const params = useParams();
 
   const locationUrl = useLocation();
   const queryParams = new URLSearchParams(locationUrl.search);
@@ -28,7 +29,8 @@ export default function SingleSelectedSupport({
       navigateTo,
       lable,
       queryKey,
-      locationUrl
+      locationUrl,
+      params
     );
 
     // Set Title (value or name) Of Selected Item For Showing In Filter Filed
@@ -70,26 +72,14 @@ export default function SingleSelectedSupport({
   useEffect(() => {
     setFilterListTitle({ name: 'همه گروه ها', slug: '', id: '' });
 
-    allList &&
-      setListItems(
-        filterListTitle !== undefined ? [filterListTitle, ...allList] : allList
-      );
+    allList && setListItems(allList);
   }, [openList]);
 
-  // useEffect(() => {
-  //   if (lable !== 'دسته بندی') return;
-  //   selectedItem?.brands?.length > 0 &&
-  //     setListItems([filterListTitle, ...selectedItem.brands]);
-  //   selectedItem?.children?.length > 0 &&
-  //     setListItems([filterListTitle, ...selectedItem.children]);
-  //   selectedItem?.districts?.length > 0 &&
-  //     setListItems([filterListTitle, ...selectedItem.districts]);
-  // }, [filterListTitle]);
   return (
     <>
       <SingleSelected
         lable={lable}
-        listItems={listItems}
+        listItems={[filterListTitle, ...listItems]}
         defaultItem={defaultItem}
         type={'filter'}
         firstItemBold={true}
