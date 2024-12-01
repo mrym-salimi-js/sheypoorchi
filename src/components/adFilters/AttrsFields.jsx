@@ -1,6 +1,6 @@
-import SingleSelected from '../formFileds/singleSelected/SingleSelected';
 import TextComponent from '../formFileds/TextComponent';
 import ToggleSwich from '../formFileds/ToggleSwich';
+import SingleSelectedSupport from './SingleSelectedSupport';
 
 export default function AttrsFields({
   catAttrs,
@@ -69,11 +69,9 @@ export function AttrsItems({ item, setOpenLocation, navigateTo, searchItems }) {
     item.dependency.length == 0
   ) {
     return (
-      <SingleSelected
+      <SingleSelectedSupport
         lable={item.name || item.title}
         allList={item.options}
-        type={'filter'}
-        navigateTo={navigateTo}
         queryKey={item.queryKey}
       />
     );

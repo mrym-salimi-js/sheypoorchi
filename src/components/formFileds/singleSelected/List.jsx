@@ -7,18 +7,9 @@ export function List({
   allList,
   setListItems,
   setOpenList,
-  setNewAdStorageValue,
-  newAdStorageValue,
-  storagePram,
-  basicNewAdStorage,
-  // setItemTitle,
-  type,
-  // setFilterListTitle,
-  // filterListTitle,
-  navigateTo,
-  queryKey,
   firstItemBold,
   setSelectedItem,
+  type,
 }) {
   const [listType, setListType] = useState('main');
   const [lastList, setLastList] = useState();
@@ -54,29 +45,10 @@ export function List({
         <div className='h-[87%] p-1 mt-[20px] overflow-scroll '>
           <ul className='flex flex-col gap-2 p-1 '>
             <ListItems
-              list={
-                // (type === 'filter' || type === 'category_search') &&
-                // lable === 'دسته بندی' &&
-                // filterListTitle
-                //   ? [filterListTitle, ...allList]
-                //   : allList
-                allList
-              }
-              setListItems={setListItems}
+              type={type}
+              list={allList}
               setLastList={setLastList}
               setListType={setListType}
-              listType={'main'}
-              setNewAdStorageValue={setNewAdStorageValue}
-              newAdStorageValue={newAdStorageValue}
-              storagePram={storagePram}
-              setOpenList={setOpenList}
-              basicNewAdStorage={basicNewAdStorage}
-              // setItemTitle={setItemTitle}
-              type={type}
-              // setFilterListTitle={setFilterListTitle}
-              navigateTo={navigateTo}
-              lable={lable}
-              queryKey={queryKey}
               firstItemBold={firstItemBold}
               setSelectedItem={setSelectedItem}
             />

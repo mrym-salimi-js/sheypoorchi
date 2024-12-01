@@ -1,23 +1,24 @@
-import { useContext, useEffect, useMemo, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { BorderRoundedBtn } from '../globals/BorderRoundedBtn';
 import { ChevronDown } from '../globals/Icons';
-import { List } from '../formFileds/singleSelected/List';
 import { useLocation, useNavigate, useSearchParams } from 'react-router-dom';
 import { deleteFilterSearch } from '../../functions/adFilters/deleteFilterSearch';
 import { HomeContext } from '../../pages/Home';
 import { FindMainCategories } from '../Category';
+import ListSupport from './ListSupport';
 
 export function CategoryListBtn() {
   const { category } = useContext(HomeContext);
-
   const [selectedCat, setSelectedCat] = useState();
   const [openList, setOpenList] = useState(false);
   const mainCats = FindMainCategories();
-  const [listItems, setListItems] = useState();
   const navigateTo = useNavigate();
-  const [filterListTitle, setFilterListTitle] = useState();
   const locationUrl = useLocation();
+  const queryParams = new URLSearchParams(locationUrl.search);
+  const [allSearchItems] = useSearchParams();
+  const searchObject = Object.fromEntries(allSearchItems.entries());
 
+  // Get Selected Cat
   useEffect(() => {
     if (mainCats !== undefined) {
       mainCats.map((item) => {
@@ -36,22 +37,13 @@ export function CategoryListBtn() {
     }
   }, [locationUrl]);
 
-  useMemo(() => {
-    setFilterListTitle({ name: 'همه گروه ها', slug: '', id: '' });
-
-    setListItems(mainCats);
-  }, [openList]);
-
   const handleCategoryListDisplay = () => {
     setOpenList(!openList);
   };
 
   // Delete Serach Item Of Url
-  const searchItems = new URLSearchParams(locationUrl.search);
-  const [allSearchItems] = useSearchParams();
-  const searchObject = Object.fromEntries(allSearchItems.entries());
   useEffect(() => {
-    deleteFilterSearch(searchObject, searchItems, navigateTo, locationUrl);
+    deleteFilterSearch(searchObject, queryParams, navigateTo, locationUrl);
   }, [category]);
 
   return (
@@ -67,16 +59,15 @@ export function CategoryListBtn() {
         }
       />
       {openList && (
-        <List
-          lable={'دسته بندی'}
-          allList={listItems}
-          setListItems={setListItems}
+        <ListSupport
           setOpenList={setOpenList}
+          openList={openList}
           navigateTo={navigateTo}
-          type={'category_search'}
-          setFilterListTitle={setFilterListTitle}
-          filterListTitle={filterListTitle}
-          firstItemBold={true}
+          mainCats={mainCats}
+          queryParams={queryParams}
+          lable={'دسته بندی'}
+          locationUrl={locationUrl}
+          queryKey={'c'}
         />
       )}
     </>

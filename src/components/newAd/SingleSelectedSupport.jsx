@@ -15,31 +15,11 @@ export default function SingleSelectedSupport({ lable, allList, storagePram }) {
     validation,
   } = useContext(NewAdContext);
   const [openList, setOpenList] = useState();
-
   const [listItems, setListItems] = useState();
   const [selectedItem, setSelectedItem] = useState();
-  setParamsAfterDependencies(
-    (storageVal) => {
-      setNewAdStorageValue(storageVal);
-    },
-    openList,
-    newAdStorageValue,
-    storagePram
-  );
-  // singleSelectedErrorHandling(
-  //   (stateVal) => {
-  //     setValidation(stateVal);
-  //   },
-  //   openList,
-  //   newAdStorageValue,
-  //   storagePram,
-  //   lable,
-  //   validation
-  // );
 
   useEffect(() => {
     if (!selectedItem) return;
-
     //Delete Excludedattributes Of Category
     if (newAdStorageValue) {
       for (let key in newAdStorageValue) {
@@ -73,8 +53,42 @@ export default function SingleSelectedSupport({ lable, allList, storagePram }) {
         newAdStorageValue
       );
     }
+
+    selectedItem?.children?.length > 0 && setListItems(selectedItem?.children);
+    selectedItem?.districts?.length > 0 &&
+      setListItems(selectedItem?.districts);
+
+    if (
+      (selectedItem?.children?.length === 0 &&
+        selectedItem?.brands?.length === 0) ||
+      (selectedItem.children === undefined &&
+        (selectedItem?.districts === undefined ||
+          selectedItem?.districts?.length == 0))
+    ) {
+      setOpenList(false);
+    }
   }, [selectedItem]);
   useEffect(() => {
+    setParamsAfterDependencies(
+      (storageVal) => {
+        setNewAdStorageValue(storageVal);
+      },
+      openList,
+      newAdStorageValue,
+      storagePram
+    );
+
+    singleSelectedErrorHandling(
+      (stateVal) => {
+        setValidation(stateVal);
+      },
+      openList,
+      newAdStorageValue,
+      storagePram,
+      lable,
+      validation
+    );
+
     allList && setListItems(allList);
   }, [openList]);
   return (
@@ -86,7 +100,6 @@ export default function SingleSelectedSupport({ lable, allList, storagePram }) {
         storagePram={storagePram}
         setNewAdStorageValue={setNewAdStorageValue}
         newAdStorageValue={newAdStorageValue}
-        basicNewAdStorage={basicNewAdStorage}
         setValidation={setValidation}
         validation={validation}
         setOpenList={setOpenList}

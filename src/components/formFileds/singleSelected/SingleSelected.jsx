@@ -8,10 +8,6 @@ export default function SingleSelected({
   storagePram,
   setValidation,
   validation,
-  basicNewAdStorage,
-  queryKey,
-  type,
-  navigateTo,
   firstItemBold,
   setOpenList,
   openList,
@@ -42,15 +38,6 @@ export default function SingleSelected({
           setListItems={setListItems}
           lable={lable}
           setOpenList={setOpenList}
-          setNewAdStorageValue={setNewAdStorageValue}
-          newAdStorageValue={newAdStorageValue}
-          storagePram={storagePram}
-          basicNewAdStorage={basicNewAdStorage}
-          type={type}
-          // setFilterListTitle={setFilterListTitle}
-          // filterListTitle={filterListTitle}
-          navigateTo={navigateTo}
-          queryKey={queryKey}
           firstItemBold={firstItemBold}
           setSelectedItem={setSelectedItem}
         />

@@ -16,11 +16,12 @@ export default function SingleSelectedSupport({
   const [itemTitle, setItemTitle] = useState();
   const [selectedItem, setSelectedItem] = useState();
   const [filterListTitle, setFilterListTitle] = useState();
-  // Set DefaultItem Of Filter Filed By Every Updating
 
   const locationUrl = useLocation();
   const queryParams = new URLSearchParams(locationUrl.search);
   useEffect(() => {
+    if (!selectedItem) return;
+
     navigateAfterFilter(
       queryParams,
       selectedItem,
@@ -43,7 +44,24 @@ export default function SingleSelectedSupport({
         id: selectedItem?.id,
       });
     }
+
+    selectedItem?.brands?.length > 0 && setListItems(selectedItem.brands);
+    selectedItem?.children?.length > 0 && setListItems(selectedItem?.children);
+    selectedItem?.districts?.length > 0 &&
+      setListItems(selectedItem?.districts);
+
+    if (
+      (selectedItem?.children?.length === 0 &&
+        selectedItem?.brands?.length === 0) ||
+      (selectedItem?.children === undefined &&
+        (selectedItem?.districts === undefined ||
+          selectedItem?.districts?.length == 0)) ||
+      selectedItem?.brands?.length > 0
+    ) {
+      setOpenList(false);
+    }
   }, [selectedItem]);
+
   useMemo(() => {
     defaultItem && setItemTitle(defaultItem);
   }, [defaultItem]);
@@ -57,7 +75,16 @@ export default function SingleSelectedSupport({
         filterListTitle !== undefined ? [filterListTitle, ...allList] : allList
       );
   }, [openList]);
-  // console.log(filterListTitle);
+
+  // useEffect(() => {
+  //   if (lable !== 'دسته بندی') return;
+  //   selectedItem?.brands?.length > 0 &&
+  //     setListItems([filterListTitle, ...selectedItem.brands]);
+  //   selectedItem?.children?.length > 0 &&
+  //     setListItems([filterListTitle, ...selectedItem.children]);
+  //   selectedItem?.districts?.length > 0 &&
+  //     setListItems([filterListTitle, ...selectedItem.districts]);
+  // }, [filterListTitle]);
   return (
     <>
       <SingleSelected
@@ -65,8 +92,6 @@ export default function SingleSelectedSupport({
         listItems={listItems}
         defaultItem={defaultItem}
         type={'filter'}
-        navigateTo={navigateTo}
-        queryKey={queryKey}
         firstItemBold={true}
         setOpenList={setOpenList}
         openList={openList}
