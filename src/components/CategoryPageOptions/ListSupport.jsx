@@ -6,49 +6,55 @@ export default function ListSupport({
   setOpenList,
   navigateTo,
   openList,
-  mainCats,
+  list,
   queryParams,
   lable,
   locationUrl,
   queryKey,
+  setSelectedItem,
+  type,
 }) {
   const [listItems, setListItems] = useState();
   const [filterListTitle, setFilterListTitle] = useState();
-  const [selectedItem, setSelectedItem] = useState();
 
-  useEffect(() => {
-    if (!selectedItem) return;
+  const handleListItems = (item) => {
+    if (!item) return;
+    setSelectedItem(item);
     // Navigate After ad Filter Param in url
     setOpenList(false);
     navigateAfterFilter(
       queryParams,
-      selectedItem,
+      item,
       navigateTo,
       lable,
       queryKey,
       locationUrl
     );
-  }, [selectedItem]);
+  };
 
   useEffect(() => {
-    setFilterListTitle({ name: 'همه گروه ها', slug: '', id: '' });
+    type === 'categorySearch' &&
+      setFilterListTitle({ name: 'همه گروه ها', slug: '', id: '' });
   }, [openList]);
+
   useEffect(() => {
-    mainCats &&
-      filterListTitle &&
-      openList &&
-      setListItems([filterListTitle, ...mainCats]);
+    if (list && openList) {
+      filterListTitle
+        ? setListItems([filterListTitle, ...list])
+        : setListItems(list);
+    }
   }, [filterListTitle]);
+
   return (
     <>
       <List
-        type={'categorySearch'}
+        type={type}
         lable={lable}
         allList={listItems}
         setListItems={setListItems}
         setOpenList={setOpenList}
         firstItemBold={true}
-        setSelectedItem={setSelectedItem}
+        handleListItems={handleListItems}
       />
     </>
   );

@@ -14,18 +14,18 @@ export default function SingleSelectedSupport({
   const [openList, setOpenList] = useState();
   const [listItems, setListItems] = useState([]);
   const [itemTitle, setItemTitle] = useState();
-  const [selectedItem, setSelectedItem] = useState();
   const [filterListTitle, setFilterListTitle] = useState();
   const params = useParams();
 
   const locationUrl = useLocation();
   const queryParams = new URLSearchParams(locationUrl.search);
-  useEffect(() => {
-    if (!selectedItem) return;
+
+  const handleListItems = (item) => {
+    if (!item) return;
 
     navigateAfterFilter(
       queryParams,
-      selectedItem,
+      item,
       navigateTo,
       lable,
       queryKey,
@@ -34,35 +34,30 @@ export default function SingleSelectedSupport({
     );
 
     // Set Title (value or name) Of Selected Item For Showing In Filter Filed
-    setItemTitle(
-      selectedItem?.title ? selectedItem?.title : selectedItem?.name
-    );
+    setItemTitle(item?.title ? item?.title : item?.name);
 
     // Set Title Of List Items (like titr)
     if (lable === 'دسته بندی') {
       setFilterListTitle({
-        name: selectedItem?.title ? selectedItem?.title : selectedItem?.name,
-        slug: selectedItem?.slug,
-        id: selectedItem?.id,
+        name: item?.title ? item?.title : item?.name,
+        slug: item?.slug,
+        id: item?.id,
       });
     }
 
-    selectedItem?.brands?.length > 0 && setListItems(selectedItem.brands);
-    selectedItem?.children?.length > 0 && setListItems(selectedItem?.children);
-    selectedItem?.districts?.length > 0 &&
-      setListItems(selectedItem?.districts);
+    item?.brands?.length > 0 && setListItems(item.brands);
+    item?.children?.length > 0 && setListItems(item?.children);
+    item?.districts?.length > 0 && setListItems(item?.districts);
 
     if (
-      (selectedItem?.children?.length === 0 &&
-        selectedItem?.brands?.length === 0) ||
-      (selectedItem?.children === undefined &&
-        (selectedItem?.districts === undefined ||
-          selectedItem?.districts?.length == 0)) ||
-      selectedItem?.brands?.length > 0
+      (item?.children?.length === 0 && item?.brands?.length === 0) ||
+      (item?.children === undefined &&
+        (item?.districts === undefined || item?.districts?.length == 0)) ||
+      item?.brands?.length > 0
     ) {
       setOpenList(false);
     }
-  }, [selectedItem]);
+  };
 
   useMemo(() => {
     defaultItem && setItemTitle(defaultItem);
@@ -74,12 +69,14 @@ export default function SingleSelectedSupport({
 
     allList && setListItems(allList);
   }, [openList]);
-
+  // console.log(item);
   return (
     <>
       <SingleSelected
         lable={lable}
-        listItems={[filterListTitle, ...listItems]}
+        listItems={
+          lable === 'دسته بندی' ? [filterListTitle, ...listItems] : listItems
+        }
         defaultItem={defaultItem}
         type={'filter'}
         firstItemBold={true}
@@ -87,7 +84,8 @@ export default function SingleSelectedSupport({
         openList={openList}
         itemTitle={itemTitle}
         setListItems={setListItems}
-        setSelectedItem={setSelectedItem}
+        setListTitle={setFilterListTitle}
+        handleListItems={handleListItems}
       />
     </>
   );

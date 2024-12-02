@@ -13,7 +13,7 @@ export function navigateAfterFilter(
   if (!item) return;
   if (lable === 'مرتب سازی') {
     const selctedSo = allCatSortOptions.find((soItem) => {
-      return soItem.name === item.title;
+      return soItem.name === item.title || soItem.name === item.name;
     });
     queryParams.set('o', selctedSo.slug);
     navTo(locationUrl.pathname, queryParams, navigateTo);

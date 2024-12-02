@@ -3,14 +3,14 @@ export function BackBtn({
   title,
   lastList,
   setListItems,
-  setFilterListTitle,
+  setListTitle,
 }) {
   const handleListItems = () => {
     // Back For Location Lists
     title && setTitle(title);
 
     // Back For Category Lists
-    setFilterListTitle && setFilterListTitle(null);
+    setListTitle && setListTitle(null);
     setListItems && setListItems(lastList);
   };
   return (

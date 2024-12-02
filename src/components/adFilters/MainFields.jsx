@@ -1,4 +1,4 @@
-import { createContext, useEffect, useMemo, useState } from 'react';
+import { createContext, useEffect, useState } from 'react';
 import ToggleSwich from '../formFileds/ToggleSwich';
 import TextComponent from '../formFileds/TextComponent';
 import LocationBox from '../locations/LocationBox';
@@ -82,7 +82,7 @@ export function MainFields() {
   }, [category, adsCategoriesList]);
 
   // Find Selected Sort Opton In Url
-  useMemo(() => {
+  useEffect(() => {
     const selctedSos = allCatSortOptions.find((soItem) => {
       return soItem.slug === searchItems.get('o');
     });
@@ -91,7 +91,7 @@ export function MainFields() {
         ? setSelectedSo(selctedSos.name)
         : setSelectedSo(sortOptions.find((o) => o.id === defaultSortid).title);
     }
-  }, [locationUrl]);
+  }, [sortOptions]);
 
   // Delete Serach Item Of Url
   const [allSearchItems] = useSearchParams();
@@ -104,7 +104,7 @@ export function MainFields() {
     <FilterContext.Provider value={{ navigateTo }}>
       <div className='w-full h-auto p-6 flex flex-col gap-8 pb-[5.25rem]'>
         {/* SortOptions */}
-        {sortOptions.length > 0 && selctedSo !== undefined && (
+        {sortOptions.length > 0 && selctedSo && (
           <SingleSelectedSupport
             lable={'مرتب سازی'}
             allList={sortOptions}

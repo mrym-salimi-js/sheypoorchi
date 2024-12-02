@@ -8,8 +8,9 @@ export function List({
   setListItems,
   setOpenList,
   firstItemBold,
-  setSelectedItem,
   type,
+  setListTitle,
+  handleListItems,
 }) {
   const [listType, setListType] = useState('main');
   const [lastList, setLastList] = useState();
@@ -29,7 +30,7 @@ export function List({
                 title={'main'}
                 setListItems={setListItems}
                 lastList={lastList}
-                // setFilterListTitle={setFilterListTitle}
+                setListTitle={setListTitle}
               />
             )}
             <p className='text-lg '>{lable}</p>
@@ -50,7 +51,7 @@ export function List({
               setLastList={setLastList}
               setListType={setListType}
               firstItemBold={firstItemBold}
-              setSelectedItem={setSelectedItem}
+              handleListItems={handleListItems}
             />
           </ul>
         </div>

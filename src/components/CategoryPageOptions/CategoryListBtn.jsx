@@ -63,11 +63,12 @@ export function CategoryListBtn() {
           setOpenList={setOpenList}
           openList={openList}
           navigateTo={navigateTo}
-          mainCats={mainCats}
+          list={mainCats}
           queryParams={queryParams}
           lable={'دسته بندی'}
           locationUrl={locationUrl}
           queryKey={'c'}
+          type={'categorySearch'}
         />
       )}
     </>

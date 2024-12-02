@@ -6,6 +6,10 @@ import { FindMainCategories } from '../Category';
 import { useContext, useEffect, useState } from 'react';
 import { HomeContext } from '../../pages/Home';
 import { scrollSlider } from '../../functions/globals/scrollSlider';
+import { setFilteredPrice } from '../../functions/CategoryPageOptions/setFilteredPrice';
+import { setFilteredItems } from '../../functions/CategoryPageOptions/setFilteredItems';
+import { SortOptionsBtn } from './SortOptionsBtn';
+import { setFilteredAdPhotoSetItem } from '../../functions/CategoryPageOptions/setFilteredAdPhotoSetItem';
 
 export function OptionsBtn() {
   const {
@@ -52,41 +56,40 @@ export function OptionsBtn() {
     setFilterItemsList([]);
 
     for (let key in searchObject) {
-      if (key !== 'c' && key !== 'cities' && key !== 'o') {
+      if (key !== 'c' && key !== 'cities') {
         const id = key.match(/\d+/g);
 
         mainCategories?.map((item) => {
           item.attributes.map((attrItem) => {
             attrItem.id == id &&
-              setFilterItemsList((prev) => [
-                ...prev,
-                { id: id, title: attrItem.title, slug: key },
-              ]);
+              setFilteredItems(
+                key,
+                (stateVal) => setFilterItemsList(stateVal),
+                id,
+                attrItem
+              );
           });
           item.children?.map((chItem) => {
             chItem.attributes?.map((attrChItem) => {
               attrChItem.id == id &&
-                setFilterItemsList((prev) => [
-                  ...prev,
-                  { id: id, title: attrChItem.title, slug: key },
-                ]);
+                setFilteredItems(
+                  key,
+                  (stateVal) => setFilterItemsList(stateVal),
+                  id,
+                  attrChItem
+                );
             });
           });
         });
+
+        setFilteredPrice(key, (stateVal) => setFilterItemsList(stateVal));
+        setFilteredAdPhotoSetItem(key, (stateVal) =>
+          setFilterItemsList(stateVal)
+        );
       }
-      key.includes('mxp') &&
-        setFilterItemsList((prev) => [
-          ...prev,
-          { id: 0, title: 'حداکثر قیمت', slug: key },
-        ]);
-      key.includes('mnp') &&
-        setFilterItemsList((prev) => [
-          ...prev,
-          { id: 0, title: 'حداقل قیمت', slug: key },
-        ]);
     }
   }, [locationUrl]);
-  console.log(filterItemsList);
+
   return (
     <div
       onClick={handleScrollItem}
@@ -97,6 +100,7 @@ export function OptionsBtn() {
         className='w-auto  px-1 flex gap-3 m-0'
       >
         <FilterBtn />
+        <SortOptionsBtn searchObject={searchObject} />
         <CategoryListBtn />
         {brandAndModel !== undefined && (
           <FilterItemBtn
@@ -105,9 +109,13 @@ export function OptionsBtn() {
             slug={brandAndModel?.slug}
           />
         )}
-        {filterItemsList?.map((fI) => {
+        {filterItemsList?.map((fI, index) => {
           return (
-            <FilterItemBtn key={fI.id + 1} lable={fI.title} slug={fI.slug} />
+            <FilterItemBtn
+              key={fI.id * index}
+              lable={fI.title}
+              slug={fI.slug}
+            />
           );
         })}
       </ul>

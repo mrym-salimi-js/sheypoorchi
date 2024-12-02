@@ -14,7 +14,8 @@ export default function SingleSelected({
   itemTitle,
   listItems,
   setListItems,
-  setSelectedItem,
+  setListTitle,
+  handleListItems,
 }) {
   return (
     <>
@@ -38,7 +39,8 @@ export default function SingleSelected({
           lable={lable}
           setOpenList={setOpenList}
           firstItemBold={firstItemBold}
-          setSelectedItem={setSelectedItem}
+          setListTitle={setListTitle}
+          handleListItems={handleListItems}
         />
       )}
     </>

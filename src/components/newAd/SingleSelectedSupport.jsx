@@ -16,15 +16,14 @@ export default function SingleSelectedSupport({ lable, allList, storagePram }) {
   } = useContext(NewAdContext);
   const [openList, setOpenList] = useState();
   const [listItems, setListItems] = useState();
-  const [selectedItem, setSelectedItem] = useState();
 
-  useEffect(() => {
-    if (!selectedItem) return;
+  const handleListItems = (item) => {
+    if (!item) return;
     //Delete Excludedattributes Of Category
     if (newAdStorageValue) {
       for (let key in newAdStorageValue) {
-        selectedItem?.excludedAttributes?.length > 0 &&
-          selectedItem?.excludedAttributes.map((ex) => {
+        item?.excludedAttributes?.length > 0 &&
+          item?.excludedAttributes.map((ex) => {
             key == ex.attributeID && delete newAdStorageValue[key];
           });
       }
@@ -36,7 +35,7 @@ export default function SingleSelectedSupport({ lable, allList, storagePram }) {
         setNewAdStorageValue(stateVal);
       },
       newAdStorageValue,
-      selectedItem,
+      item,
       storagePram,
       basicNewAdStorage
     );
@@ -47,27 +46,25 @@ export default function SingleSelectedSupport({ lable, allList, storagePram }) {
         (stateVal) => {
           setNewAdStorageValue(stateVal);
         },
-        selectedItem,
+        item,
         storagePram,
         setOpenList,
         newAdStorageValue
       );
     }
 
-    selectedItem?.children?.length > 0 && setListItems(selectedItem?.children);
-    selectedItem?.districts?.length > 0 &&
-      setListItems(selectedItem?.districts);
+    item?.children?.length > 0 && setListItems(item?.children);
+    item?.districts?.length > 0 && setListItems(item?.districts);
 
     if (
-      (selectedItem?.children?.length === 0 &&
-        selectedItem?.brands?.length === 0) ||
-      (selectedItem.children === undefined &&
-        (selectedItem?.districts === undefined ||
-          selectedItem?.districts?.length == 0))
+      (item?.children?.length === 0 && item?.brands?.length === 0) ||
+      (item.children === undefined &&
+        (item?.districts === undefined || item?.districts?.length == 0))
     ) {
       setOpenList(false);
     }
-  }, [selectedItem]);
+  };
+
   useEffect(() => {
     setParamsAfterDependencies(
       (storageVal) => {
@@ -91,6 +88,7 @@ export default function SingleSelectedSupport({ lable, allList, storagePram }) {
 
     allList && setListItems(allList);
   }, [openList]);
+
   return (
     <>
       <SingleSelected
@@ -104,8 +102,7 @@ export default function SingleSelectedSupport({ lable, allList, storagePram }) {
         validation={validation}
         setOpenList={setOpenList}
         openList={openList}
-        setSelectedItem={setSelectedItem}
-        selectedItem={selectedItem}
+        handleListItems={handleListItems}
       />
     </>
   );

@@ -1,7 +1,23 @@
+import { useContext } from 'react';
+import { HomeContext } from '../../pages/Home';
 import { BorderRoundedBtn } from '../globals/BorderRoundedBtn';
+import { deleteFilterSearch } from '../../functions/adFilters/deleteFilterSearch';
+import { useLocation, useNavigate, useSearchParams } from 'react-router-dom';
 
 export default function Head() {
-  const handleClearingFilter = () => {};
+  const locationUrl = useLocation();
+  const navigateTo = useNavigate();
+
+  const [allSearchItems] = useSearchParams();
+  const searchObject = Object.fromEntries(allSearchItems.entries());
+  // Get Url Search
+  const searchItems = new URLSearchParams(locationUrl.search);
+
+  const { setFilterFormDisplay } = useContext(HomeContext);
+  const handleClearingFilter = () => {
+    deleteFilterSearch(searchObject, searchItems, navigateTo, locationUrl);
+    setFilterFormDisplay('hidden');
+  };
   return (
     <div className='w-full h-30 p-8 flex items-center justify-between border-b '>
       <p className='text-lg lg:text-xl'>فیلتر</p>
