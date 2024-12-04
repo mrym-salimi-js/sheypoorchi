@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react';
-import TextComponent from '../components/formFileds/TextComponent';
+import TextComponent from '../components/formFileds/text/TextComponent';
 import { linkTo } from '../functions/globals/linkTo';
 import { useNavigate } from 'react-router-dom';
 import { authenticateValidation } from '../functions/validation/adFormValidation';

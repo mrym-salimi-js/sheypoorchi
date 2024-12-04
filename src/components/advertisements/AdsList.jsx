@@ -7,6 +7,7 @@ export function AdsList({ category, queryParams, locationUrl }) {
   const [adsList, setAdsList] = useState();
 
   useEffect(() => {
+    if (!category) return;
     const getAdsByUrlChanges = async () => {
       const response = await axios.get(
         `http://127.0.0.1:5137/api/ads/s/${category}?${queryParams}`
@@ -17,7 +18,7 @@ export function AdsList({ category, queryParams, locationUrl }) {
   }, [category, locationUrl]);
 
   useEffect(() => {
-    if (category || queryParams) return;
+    if (category) return;
     const getAdsList = async () => {
       const response = await getAds();
       setAdsList(response.data);

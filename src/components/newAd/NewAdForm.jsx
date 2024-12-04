@@ -1,7 +1,7 @@
 import { createContext, useEffect } from 'react';
 import { useState } from 'react';
 import { PhotoComponent } from './PhotoComponent';
-import TextComponent from '../formFileds/TextComponent';
+import TextComponent from '../formFileds/text/TextComponent';
 import UserType from './UserType';
 import ToggleSwich from '../formFileds/ToggleSwich';
 import SeccessfulToast from '../globals/SuccessfulToast';

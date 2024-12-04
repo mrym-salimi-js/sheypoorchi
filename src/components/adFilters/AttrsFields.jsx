@@ -1,4 +1,4 @@
-import TextComponent from '../formFileds/TextComponent';
+import TextComponent from '../formFileds/text/TextComponent';
 import ToggleSwich from '../formFileds/ToggleSwich';
 import SingleSelectedSupport from './SingleSelectedSupport';
 

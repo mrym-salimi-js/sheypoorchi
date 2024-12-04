@@ -1,6 +1,6 @@
 import { createContext, useEffect, useState } from 'react';
 import ToggleSwich from '../formFileds/ToggleSwich';
-import TextComponent from '../formFileds/TextComponent';
+import TextComponent from '../formFileds/text/TextComponent';
 import LocationBox from '../locations/LocationBox';
 import { useCookies } from 'react-cookie';
 import { selectedLocations } from '../../functions/locations/selectedLocations';

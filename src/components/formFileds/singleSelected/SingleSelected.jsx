@@ -1,4 +1,4 @@
-import TextComponent from '../TextComponent';
+import TextComponent from '../text/TextComponent';
 import { List } from './List';
 
 export default function SingleSelected({
