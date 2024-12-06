@@ -1,18 +1,18 @@
 import { QueryClientProvider, QueryClient } from '@tanstack/react-query';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Home from './pages/Home';
 import Register from './pages/Register';
 import Login from './pages/Login';
-import NewAd from './pages/NewAd';
 import { adsCategoriesList } from './services/adsCategoriesList';
-import { useEffect } from 'react';
+import { lazy, Suspense, useEffect } from 'react';
 import { adsLocationsList } from './services/adsLocationsList';
-import Single from './pages/Single';
 import ForgetPassword from './pages/ForgetPassword';
 import ResetPassword from './pages/ResetPassword';
 import MyAccount from './pages/user/MyAccount';
 import Messages from './pages/user/message/Messages';
-// import axios from 'axios';
+import PageLoading from './components/globals/PageLoading';
+const Home = lazy(() => import('./pages/Home'));
+const Single = lazy(() => import('./pages/Single'));
+const NewAd = lazy(() => import('./pages/NewAd'));
 
 function App() {
   useEffect(() => {
@@ -93,28 +93,30 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/s/iran' element={<Home />} />
-          <Route path='/register' element={<Register />} />
-          <Route path='/login' element={<Login />} />
-          <Route path='/forgetPassword' element={<ForgetPassword />} />
-          <Route path='/resetPassword/:token' element={<ResetPassword />} />
-          <Route path='/s/iran?cities=:location' element={<Home />} />
-          <Route
-            path='/s/iran/:category?cities=:locations'
-            element={<Home />}
-          />
-          <Route path='/s/iran/:category' element={<Home />} />
-          <Route path='/s/iran/:category/:brands' element={<Home />} />
-          <Route path='/s/iran/:category/:brands/:model' element={<Home />} />
-          <Route path='/newAd' element={<NewAd />} />
-          <Route path='/v/:id/:title' element={<Single />} />
-          <Route path='/myAccount' element={<MyAccount />} />
-          <Route path='/myAccount/messages' element={<Messages />} />
-          <Route path='/myAccount/messages/:adId' element={<Messages />} />
-          {/* <Route path='*' element={<Home />} /> */}
-        </Routes>
+        <Suspense fallback={<PageLoading />}>
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/s/iran' element={<Home />} />
+            <Route path='/register' element={<Register />} />
+            <Route path='/login' element={<Login />} />
+            <Route path='/forgetPassword' element={<ForgetPassword />} />
+            <Route path='/resetPassword/:token' element={<ResetPassword />} />
+            <Route path='/s/iran?cities=:location' element={<Home />} />
+            <Route
+              path='/s/iran/:category?cities=:locations'
+              element={<Home />}
+            />
+            <Route path='/s/iran/:category' element={<Home />} />
+            <Route path='/s/iran/:category/:brands' element={<Home />} />
+            <Route path='/s/iran/:category/:brands/:model' element={<Home />} />
+            <Route path='/newAd' element={<NewAd />} />
+            <Route path='/v/:id/:title' element={<Single />} />
+            <Route path='/myAccount' element={<MyAccount />} />
+            <Route path='/myAccount/messages' element={<Messages />} />
+            <Route path='/myAccount/messages/:adId' element={<Messages />} />
+            {/* <Route path='*' element={<Home />} /> */}
+          </Routes>
+        </Suspense>
       </BrowserRouter>
     </QueryClientProvider>
   );

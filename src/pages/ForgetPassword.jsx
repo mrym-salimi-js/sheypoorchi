@@ -1,17 +1,12 @@
 import { useRef, useState } from 'react';
 import TextComponent from '../components/formFileds/text/TextComponent';
-import { linkTo } from '../functions/globals/linkTo';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { authenticateValidation } from '../functions/validation/adFormValidation';
 import axios from 'axios';
-import { navTo } from '../functions/globals/navTo';
-import { useCookies } from 'react-cookie';
 
 export default function ForgetPassword() {
   const inputRefs = useRef([]);
   const [validation, setValidation] = useState();
-  const navigateTo = useNavigate();
-  const [cookie, setCookie] = useCookies();
   const handleForgetPass = async () => {
     // Check field form value after click on register btn
     inputRefs?.current?.map((item) => {
@@ -47,9 +42,7 @@ export default function ForgetPassword() {
       }
     }
   };
-  const handleNavTo = (event, currentTarget) => {
-    linkTo(event, navigateTo, currentTarget.getAttribute('href'));
-  };
+
   return (
     <div className='w-full h-full absolute flex justify-center items-center'>
       <div className='w-[90%]  md:w-[52%] lg:w-[58%] xl:w-[40%]  p-8 border border-gray-200 rounded-[2rem] bg-white '>
@@ -79,12 +72,9 @@ export default function ForgetPassword() {
         </div>
         <div className='w-full p-2 mt-2 flex justify-between items-center'>
           <div className='flex flex-col gap-2'>
-            <a
-              href='/login'
-              onClick={(event) => handleNavTo(event, event.currentTarget)}
-            >
+            <Link to='/login'>
               <p className='text-gray-300 text-sm mr-4'>رمز عبورم یادمه :)</p>
-            </a>
+            </Link>
           </div>
           <button
             onClick={handleForgetPass}

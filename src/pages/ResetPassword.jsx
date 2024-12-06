@@ -1,7 +1,6 @@
 import { useRef, useState } from 'react';
 import TextComponent from '../components/formFileds/text/TextComponent';
-import { linkTo } from '../functions/globals/linkTo';
-import { useNavigate, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { authenticateValidation } from '../functions/validation/adFormValidation';
 import axios from 'axios';
 import { navTo } from '../functions/globals/navTo';
@@ -50,9 +49,7 @@ export default function ResetPassword() {
       }
     }
   };
-  const handleNavTo = (event, currentTarget) => {
-    linkTo(event, navigateTo, currentTarget.getAttribute('href'));
-  };
+
   return (
     <div className='w-full h-full absolute flex justify-center items-center'>
       <div className='w-[90%]  md:w-[52%] lg:w-[58%] xl:w-[40%]  p-8 border border-gray-200 rounded-[2rem] bg-white '>
@@ -87,12 +84,9 @@ export default function ResetPassword() {
         </div>
         <div className='w-full p-2 mt-2 flex justify-between items-center'>
           <div className='flex flex-col gap-2'>
-            <a
-              href='/forgetPassword'
-              onClick={(event) => handleNavTo(event, event.currentTarget)}
-            >
+            <Link to='/forgetPassword'>
               <p className='text-gray-300 text-sm mr-4'>فراموشی رمز عبور!</p>
-            </a>
+            </Link>
           </div>
           <button
             onClick={handleResetPassword}

@@ -13,7 +13,6 @@ import { Speaker } from '../components/globals/Icons';
 import CategoryPageBreadCrumbs from '../components/breadCrumbs/CategoryPageBreadCrumbs';
 import HomePageBreadCrumb from '../components/breadCrumbs/HomePageBreadCrumb';
 import { navTo } from '../functions/globals/navTo';
-
 export const HomeContext = createContext();
 
 export default function Home() {
@@ -46,6 +45,12 @@ export default function Home() {
       navTo(pathName, queryParams, navigateTo);
     }
   }, [cookieCitiesInUrl]);
+
+  useEffect(() => {
+    // Set Last Url In LocalStorage Before Change Url
+    localStorage.setItem('last-url-pathname', locationUrl.pathname);
+    localStorage.setItem('last-url-search', locationUrl.search);
+  }, [locationUrl]);
 
   return (
     <HomeContext.Provider

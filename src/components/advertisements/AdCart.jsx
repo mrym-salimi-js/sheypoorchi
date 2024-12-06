@@ -3,8 +3,6 @@ import { getCost } from '../../functions/advertisements/getCost';
 import { AdCartPhoto } from './AdCartPhoto';
 import { AdCartTextContent } from './AdCartTextContent';
 import { AdCartFooter } from './AdCartFooter';
-import { useLocation, useNavigate } from 'react-router-dom';
-import { linkTo } from '../../functions/globals/linkTo';
 
 export function AdCart({ adItem }) {
   const { attribute, createAd, _id, location, photo, title } = adItem;
@@ -20,23 +18,12 @@ export function AdCart({ adItem }) {
   const adTitle = title?.trim().replace(/\s+/g, '-');
   const href = `/v/${_id}/${adTitle}`;
 
-  const locationUrl = useLocation();
-  const navigateTo = useNavigate();
-  const handleLinkTo = (event) => {
-    linkTo(locationUrl, event, navigateTo, href);
-  };
   return (
     <li className='max-w-[320px] w-[300px]  h-auto border border-gray-300 bg-white rounded-[2rem] px-5  relative'>
       <div className='flex flex-col gap-4 items-center relative bottom-8'>
-        <AdCartPhoto
-          handleLinkTo={handleLinkTo}
-          photo={photo}
-          href={href}
-          id={_id}
-        />
+        <AdCartPhoto photo={photo} href={href} id={_id} />
 
         <AdCartTextContent
-          handleLinkTo={handleLinkTo}
           title={title}
           cost={cost}
           createAd={createAd}

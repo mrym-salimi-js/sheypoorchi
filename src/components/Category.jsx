@@ -1,7 +1,6 @@
-import { useContext, useEffect, useState } from 'react';
-import { HomeContext } from '../pages/Home';
+import { useEffect, useState } from 'react';
 import { scrollSlider } from '../functions/globals/scrollSlider';
-import { linkTo } from '../functions/globals/linkTo';
+import { Link } from 'react-router-dom';
 
 export function FindMainCategories() {
   const [mainCategories, setMainCategories] = useState();
@@ -13,13 +12,7 @@ export function FindMainCategories() {
   return mainCategories;
 }
 export default function Category() {
-  const { queryParams, navigateTo } = useContext(HomeContext);
-
   const mainCategories = FindMainCategories();
-
-  const handleNavTo = (slug, event) => {
-    linkTo(event, navigateTo, `/s/iran/${slug}`, queryParams.toString());
-  };
 
   const handleScrollItems = () => [
     scrollSlider(document.querySelectorAll('.cat-items-box')),
@@ -39,15 +32,12 @@ export default function Category() {
                 className='min-w-[92px] flex flex-col items-center gap-2 p-2'
                 key={item.id}
               >
-                <a
-                  href={`/s/iran/${item.slug}`}
-                  onClick={(event) => {
-                    handleNavTo(item.slug, event);
-                  }}
+                <Link
+                  to={`/s/iran/${item.slug}`}
                   className='w-full p-2 bg-gray-50 rounded-3xl cursor-pointer flex flex-col gap-3 justify-center items-center'
                 >
                   <img className='w-14 h-14 ' src={item.iconURL}></img>
-                </a>
+                </Link>
                 <p className='text-black text-[0.7rem] py-1 px-2 text-center'>
                   {item.name}
                 </p>

@@ -1,7 +1,6 @@
 import { useRef, useState } from 'react';
 import TextComponent from '../components/formFileds/text/TextComponent';
-import { useNavigate } from 'react-router-dom';
-import { linkTo } from '../functions/globals/linkTo';
+import { Link, useNavigate } from 'react-router-dom';
 import { authenticateValidation } from '../functions/validation/adFormValidation';
 import axios from 'axios';
 import { navTo } from '../functions/globals/navTo';
@@ -51,9 +50,7 @@ export default function Register() {
       }
     }
   };
-  const handleNavTo = (event) => {
-    linkTo(event, navigateTo, `/login`);
-  };
+
   return (
     <div className='w-full h-full absolute flex justify-center items-center'>
       <div className='w-[90%]  md:w-[52%] lg:w-[58%] xl:w-[40%]  p-8 border border-gray-200 rounded-[2rem] bg-white '>
@@ -89,9 +86,9 @@ export default function Register() {
           })}
         </div>
         <div className='w-full p-2 mt-2 flex  justify-between items-center'>
-          <a href='/login' onClick={handleNavTo}>
+          <Link to='/login'>
             <p className='text-gray-300 text-sm mr-4'>قبلا ثبت نام کردی؟</p>
-          </a>
+          </Link>
           <button
             onClick={handleRegister}
             className='w-36 h-11 bg-[#84105C] p-3 rounded-full flex gap-3 items-center justify-around  hover:opacity-[0.9] shadow-md'

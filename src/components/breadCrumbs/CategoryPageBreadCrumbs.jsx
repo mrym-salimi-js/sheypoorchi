@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from 'react';
 import HomePageBreadCrumb from './HomePageBreadCrumb';
 import { ChevronLeft } from '../globals/Icons';
 import { HomeContext } from '../../pages/Home';
-import { linkTo } from '../../functions/globals/linkTo';
+import { Link } from 'react-router-dom';
 
 export default function CategoryPageBreadCrumbs() {
   const { brandAndModel, category, locationUrl } = useContext(HomeContext);
@@ -45,26 +45,16 @@ export default function CategoryPageBreadCrumbs() {
 }
 
 export function BreadCrumbItem({ breadItem }) {
-  const { navigateTo, queryParams } = useContext(HomeContext);
-  const handleNavTo = (event) => {
-    linkTo(
-      event,
-      navigateTo,
-      `/s/iran/${breadItem?.slug}`,
-      queryParams.toString()
-    );
-  };
   return (
     <div className='w-auto h-full flex items-center justify-center'>
-      <a
-        href={`/s/iran/${breadItem?.slug}`}
-        onClick={handleNavTo}
+      <Link
+        to={`/s/iran/${breadItem?.slug}`}
         className='w-full h-full outline-none flex gap-1 items-center cursor-pointer'
       >
         <p className='text-[0.8rem] text-black'>
           {breadItem?.name || breadItem?.title}
         </p>
-      </a>
+      </Link>
     </div>
   );
 }

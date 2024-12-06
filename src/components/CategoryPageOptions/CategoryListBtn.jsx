@@ -69,6 +69,7 @@ export function CategoryListBtn() {
           locationUrl={locationUrl}
           queryKey={'c'}
           type={'categorySearch'}
+          setSelectedItem={setSelectedCat}
         />
       )}
     </>

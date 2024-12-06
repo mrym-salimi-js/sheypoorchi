@@ -129,7 +129,7 @@ export function SingleAdDetails({ singleAd, adCreator }) {
 
         <div className='w-full mt-1 flex flex-col lg:flex-row justify-between items-start gap-14 lg:gap-0'>
           <div className='w-full  lg:w-[45%]  h-auto flex flex-col gap-6 lg:items-start items-center'>
-            <Gallery partScreen={true} />
+            {photo[0] && <Gallery partScreen={true} />}
             <div className='w-full lg:hidden'>
               <SinglePageBreadCrumbs />
             </div>
@@ -160,7 +160,7 @@ export function SingleAdDetails({ singleAd, adCreator }) {
           </div>
         </div>
       </div>
-      <FullScreenGallery />
+      {photo[0] && <FullScreenGallery />}
       <NavBar />
     </SingleContext.Provider>
   );
