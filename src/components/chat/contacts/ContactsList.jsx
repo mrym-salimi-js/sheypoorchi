@@ -19,9 +19,10 @@ export default function ContactsList({
   // Get Contacts List
   useEffect(() => {
     const getContacts = async () => {
+      const baseURL = import.meta.env.VITE_BASE_URL;
       try {
         const contectList = await axios.get(
-          `http://127.0.0.1:5137/api/chat/chatContacts`,
+          `${baseURL}/api/chat/chatContacts`,
           {
             headers: {
               Authorization: `Bearer ${userToken}`,

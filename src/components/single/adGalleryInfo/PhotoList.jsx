@@ -10,6 +10,8 @@ export function PhotoList({ phothoWidth, partScreen }) {
     _id,
     counter,
   } = useContext(SingleContext);
+
+  const baseURL = import.meta.env.VITE_BASE_URL;
   const handlePhotoFullScreen = (index) => {
     setCounter(index);
     setPhotoFullScreen(true);
@@ -21,7 +23,7 @@ export function PhotoList({ phothoWidth, partScreen }) {
         !partScreen ? `h-[480px]` : `h-[350px]`
       } flex  transition-all`}
     >
-      {photo !== undefined &&
+      {photo[0] &&
         photo.map((item, index) => {
           return (
             <li
@@ -43,7 +45,7 @@ export function PhotoList({ phothoWidth, partScreen }) {
                 className={`${
                   !partScreen ? `sm:w-auto w-full` : `w-full`
                 } h-full object-cover`}
-                src={`http://127.0.0.1:5137/img/${_id}/${item.name}`}
+                src={`${baseURL}/img/${_id}/${item.name}`}
                 alt=''
               />
             </li>

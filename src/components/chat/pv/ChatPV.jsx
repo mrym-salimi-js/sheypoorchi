@@ -22,8 +22,9 @@ export default function ChatPV({ userToken, pvShow, contactList }) {
   // Just foe rerender page and change download Icon
   const [fileDlStatus, setFileDlStatus] = useState();
 
+  const baseURL = import.meta.env.VITE_BASE_URL;
   // Backend url
-  const socket = io('http://127.0.0.1:5137');
+  const socket = io(baseURL);
 
   // Get Each Message Text By every Sending
   useEffect(() => {
@@ -67,7 +68,7 @@ export default function ChatPV({ userToken, pvShow, contactList }) {
 
     const messages = async () => {
       const msgList = await axios.get(
-        `http://127.0.0.1:5137/api/chat/chatMessages/${adId}`,
+        `${baseURL}/api/chat/chatMessages/${adId}`,
         {
           headers: {
             Authorization: `Bearer ${userToken}`,

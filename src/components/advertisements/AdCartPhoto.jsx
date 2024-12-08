@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Camera } from '../globals/Icons';
 export function AdCartPhoto({ photo, href, id }) {
+  const baseURL = import.meta.env.VITE_BASE_URL;
   return (
     <>
       {photo[0] ? (
@@ -11,7 +12,7 @@ export function AdCartPhoto({ photo, href, id }) {
         >
           <img
             className='w-full h-full object-cover'
-            src={`http://127.0.0.1:5137/img/${id}/${photo[0]?.name}`}
+            src={`${baseURL}/img/${id}/${photo[0]?.name}`}
             alt={photo[0].name}
           />
         </Link>

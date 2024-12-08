@@ -10,6 +10,7 @@ export function ThumbnailList({ thumbnailParentRef, partScreen }) {
     setPhotoFullScreen,
     visibleThumbnailNumber,
   } = useContext(SingleContext);
+  const baseURL = import.meta.env.VITE_BASE_URL;
   const handleShowPhoto = (e, index) => {
     if (index == visibleThumbnailNumber) {
       setCounter(index);
@@ -53,7 +54,7 @@ export function ThumbnailList({ thumbnailParentRef, partScreen }) {
             >
               <img
                 className={`w-full h-full cursor-pointer object-cover brightness-0 transition-all`}
-                src={`http://127.0.0.1:5137/img/${_id}/${item.name}`}
+                src={`${baseURL}/img/${_id}/${item.name}`}
                 alt=''
               />
               {partScreen && index == visibleThumbnailNumber && (

@@ -9,9 +9,8 @@ export function Connections() {
   const [userProf, setUserPrpf] = useState();
   useEffect(() => {
     const getProf = async () => {
-      const response = await fetch(
-        `http://127.0.0.1:5137/api/users/${adCreator._id}`
-      );
+      const baseURL = import.meta.env.VITE_BASE_URL;
+      const response = await fetch(`${baseURL}/api/users/${adCreator._id}`);
       setUserPrpf(response.status);
     };
     getProf();

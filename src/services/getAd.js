@@ -1,8 +1,9 @@
 import axios from 'axios';
 
 export async function getAd(id) {
+  const baseURL = import.meta.env.VITE_BASE_URL;
   try {
-    const getAd = await axios.get(`http://127.0.0.1:5137/api/ads/${id}`);
+    const getAd = await axios.get(`${baseURL}/api/ads/${id}`);
 
     return getAd.data;
   } catch (error) {

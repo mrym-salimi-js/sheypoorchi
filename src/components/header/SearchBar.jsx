@@ -11,7 +11,7 @@ export default function SearchBar() {
   const cities = citiesList();
 
   return (
-    <div className='w-full xl:w-[60%] h-20  flex justify-center items-center z-[10000] '>
+    <div className='w-full xl:w-[63%] h-20  flex justify-center items-center z-[10000] '>
       <div className='w-[95%] h-[70%] border border-gray-200 z-20 rounded-xl flex gap-2 justify-between'>
         {/*Input */}
         <input

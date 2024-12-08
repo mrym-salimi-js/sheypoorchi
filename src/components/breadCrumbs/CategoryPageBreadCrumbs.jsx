@@ -28,7 +28,7 @@ export default function CategoryPageBreadCrumbs() {
   }, [locationUrl]);
 
   return (
-    <div className='w-full h-auto flex gap-2  p-3 py-4 border-b-[1px] border-t-[1px] items-center '>
+    <div className='w-full h-auto flex gap-1  p-3 py-4 border-b-[1px] border-t-[1px] items-center '>
       <HomePageBreadCrumb />
       <ChevronLeft color={'#000000'} size={'size-4'} />
       <BreadCrumbItem breadItem={mainCat[0]} />

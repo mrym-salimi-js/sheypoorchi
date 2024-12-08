@@ -78,6 +78,7 @@ export function ChatContent({
 }
 
 export function ContentFileItem({ decodedJwt, item, handleDownloadFile }) {
+  const baseURL = import.meta.env.VITE_BASE_URL;
   return (
     <>
       <li
@@ -89,9 +90,9 @@ export function ContentFileItem({ decodedJwt, item, handleDownloadFile }) {
         <a
           onClick={(event) => handleDownloadFile(event)}
           className=' h-full w-14 rounded-2xl bg-gray-200 flex items-center justify-center'
-          href={`http://127.0.0.1:5137/chat/${item.senderId}-${
-            item.reciverId
-          }-${item.adId}/${decodeURI(item.message).replace(/ /g, '-')}`}
+          href={`${baseURL}/chat/${item.senderId}-${item.reciverId}-${
+            item.adId
+          }/${decodeURI(item.message).replace(/ /g, '-')}`}
           download={item.message}
         >
           {!localStorage.getItem('downloadedFiles')?.includes(item.message) && (

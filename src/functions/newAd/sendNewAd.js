@@ -78,16 +78,12 @@ export async function sendNewAd(
     navTo('/login', '', navigateTo);
     return;
   }
-
+  const baseURL = import.meta.env.VITE_BASE_URL;
   try {
-    const response = await axios.post(
-      'http://127.0.0.1:5137/api/ads/',
-      formData,
-      {
-        headers: { 'Content-Type': 'multipart:form-data' },
-        // body: JSON.stringify({ key: 'value' }),
-      }
-    );
+    const response = await axios.post(`${baseURL}/api/ads/`, formData, {
+      headers: { 'Content-Type': 'multipart:form-data' },
+      // body: JSON.stringify({ key: 'value' }),
+    });
     return response;
   } catch (error) {
     console.log(error);

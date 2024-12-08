@@ -19,6 +19,9 @@ function App() {
     const cats = JSON.parse(localStorage.getItem('ads_categories_list'));
     const locs = JSON.parse(localStorage.getItem('ads_locations_list'));
 
+    const baseURL = import.meta.env.VITE_BASE_URL;
+    console.log(baseURL);
+
     !cats &&
       localStorage.setItem(
         'ads_categories_list',
@@ -32,7 +35,7 @@ function App() {
 
     // local api
     const getMessages = async () => {
-      const response = await fetch(`http://127.0.0.1:5137/api/ads/`);
+      const response = await fetch(`${baseURL}/api/ads/`);
       const messages = await response.json();
       // console.log(messages);
       return messages;
