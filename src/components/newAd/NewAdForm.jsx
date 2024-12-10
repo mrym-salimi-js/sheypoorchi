@@ -4,7 +4,7 @@ import { PhotoComponent } from './PhotoComponent';
 import TextComponent from '../formFileds/text/TextComponent';
 import UserType from './UserType';
 import ToggleSwich from '../formFileds/ToggleSwich';
-import SeccessfulToast from '../globals/SuccessfulToast';
+import NotifToast from '../globals/NotifToast';
 import { getCategoriyAttr } from '../../functions/newAd/getCategoryAttr';
 import { sendNewAd } from '../../functions/newAd/sendNewAd';
 import { Map } from '../map/Map';
@@ -73,7 +73,7 @@ export function NewAdForm() {
   const [attrs, setAttrs] = useState([]);
 
   const navigateTo = useNavigate();
-  const [successToast, setSuccessToast] = useState(false);
+  const [notifToast, setNotifToast] = useState({ message: '', status: '' });
   const [sendLoading, setSendLoading] = useState(false);
   //Send Form
   useEffect(() => {
@@ -85,8 +85,17 @@ export function NewAdForm() {
         navigateTo
       );
 
-      res.data.status === 'success' && setSuccessToast(true),
-        setSendLoading(false);
+      res.data.status === 'success'
+        ? setNotifToast({
+            message: 'آگهی شما با موفقیت ثبت شد',
+            status: 'success',
+          })
+        : setNotifToast({
+            message: 'در ثبت آگهی خطایی رخ داده',
+            status: 'fail',
+          });
+
+      setSendLoading(false);
     };
 
     if (
@@ -102,7 +111,9 @@ export function NewAdForm() {
 
   return (
     <>
-      {successToast && <SeccessfulToast setSuccessToast={setSuccessToast} />}
+      {notifToast.message && (
+        <NotifToast setNotif={setNotifToast} notif={notifToast} />
+      )}
       <div className='w-[97%] lg:w-[90%] p-3 flex flex-col  gap-8 bg-white'>
         <NewAdContext.Provider
           value={{

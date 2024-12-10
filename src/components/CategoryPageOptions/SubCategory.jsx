@@ -63,7 +63,7 @@ export function SubCategory() {
   return (
     <div
       onClick={handleScrollItems}
-      className='sub-cat-items-box w-full h-auto bg-gray-50  ul-box border-b-[1px] border-t-[1px]'
+      className='sub-cat-items-box w-full h-auto bg-gray-50  border-b-[1px] border-t-[1px]'
     >
       <ul className='w-auto  flex overflow-x-scroll  m-0 py-1 '>
         {catList?.map((item) => {

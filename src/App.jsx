@@ -20,7 +20,6 @@ function App() {
     const locs = JSON.parse(localStorage.getItem('ads_locations_list'));
 
     const baseURL = import.meta.env.VITE_BASE_URL;
-    console.log(baseURL);
 
     !cats &&
       localStorage.setItem(

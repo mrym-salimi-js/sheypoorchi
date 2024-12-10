@@ -1,17 +1,12 @@
-import { Link } from 'react-router-dom';
 import { Speaker } from '../globals/Icons';
 
-export function Logo({ handleNavTo }) {
+export function Logo({ color, size, textStyle }) {
   return (
-    <Link
-      to='/s/iran'
-      onClick={(event) => handleNavTo(event, '/s/iran')}
-      className='hidden lg:flex'
-    >
+    <a href='/s/iran'>
       <div className='flex gap-3 items-center'>
-        <Speaker color={'#84105C'} size={'size-8'} />
-        <h2 className='text-black'>شیپورچی</h2>
+        <Speaker color={color} size={size} />
+        <h2 className={textStyle}>شیپورچی</h2>
       </div>
-    </Link>
+    </a>
   );
 }

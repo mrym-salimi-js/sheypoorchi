@@ -24,7 +24,7 @@ export default function Category() {
       id='places-category-box'
       className='w-[98%] h-[130px] py-1 px-4 rounded-xl z-[1000] bg-white  '
     >
-      <div className=' cat-items-box w-full h-full overflow-x-scroll ul-box'>
+      <div className='cat-items-box w-full h-full overflow-x-scroll ul-box'>
         <ul id='places-category-ul' className='w-auto py-3 px-1 flex gap-6 m-0'>
           {mainCategories?.map((item) => {
             return (

@@ -11,7 +11,9 @@ export function Header() {
 
   return (
     <div className='w-full h-auto py-3  border-b-[1px] flex items-center justify-between'>
-      <Logo />
+      <div className='hidden lg:flex'>
+        <Logo color={'#84105C'} size={'size-8'} textStyle={'text-black'} />
+      </div>
 
       {locationUrl.pathname !== '/newAd' &&
         !locationUrl.pathname.startsWith('/myAccount') &&
