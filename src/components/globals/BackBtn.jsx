@@ -4,8 +4,10 @@ export function BackBtn({
   lastList,
   setListItems,
   setListTitle,
+  setSearchRes,
 }) {
   const handleListItems = () => {
+    setSearchRes('');
     // Back For Location Lists
     title && setTitle(title);
 

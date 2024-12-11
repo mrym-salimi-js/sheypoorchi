@@ -22,7 +22,7 @@ export function ListItems({
           onClick={() => {
             handleItems(item), handleListItems(item);
           }}
-          className='cursor-pointer border-t pb-4 pt-4 flex justify-between items-center '
+          className='cursor-pointer border-r-2 border-pink-400 p-3  flex justify-between items-center '
           key={index}
           data-index={index}
         >
@@ -39,13 +39,7 @@ export function ListItems({
               (item?.children?.length > 0 || item.districts?.length > 0) &&
               type !== 'categorySearch'
             ) {
-              return (
-                <ChevronLeft
-                  color={'#000000'}
-                  size={'size-4'}
-                  strokeWidth={2.4}
-                />
-              );
+              return <ChevronLeft color={'#000000'} size={'size-5'} />;
             }
           })()}
         </li>

@@ -7,9 +7,10 @@ export function Connections() {
   const { _id, adCreator } = useContext(SingleContext);
   const navigateTo = useNavigate();
   const [userProf, setUserPrpf] = useState();
+
+  const baseURL = import.meta.env.VITE_BASE_URL;
   useEffect(() => {
     const getProf = async () => {
-      const baseURL = import.meta.env.VITE_BASE_URL;
       const response = await fetch(`${baseURL}/api/users/${adCreator._id}`);
       setUserPrpf(response.status);
     };
@@ -26,8 +27,8 @@ export function Connections() {
         <a className='w-16 h-16 rounded-full overflow-hidden cursor-pointer'>
           <img
             src={
-              userProf && userProf !== 404
-                ? `http://127.0.0.1:5137/api/users/${adCreator._id}`
+              userProf && userProf !== 404 && adCreator.photho
+                ? `${baseURL}/api/users/${adCreator._id}`
                 : defaultProfile
             }
             className='w-full h-full object-cover'

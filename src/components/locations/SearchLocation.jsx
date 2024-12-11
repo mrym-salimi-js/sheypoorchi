@@ -1,6 +1,7 @@
 import { useContext, useState } from 'react';
 import { LocationContext } from './LocationBox';
 import { provincesList } from '../../functions/localStorage/locations';
+import SearchAtList from '../globals/SearchAtList';
 
 export function SearchLocation() {
   const { prvId, locSituation, prvName, setSearchRes } =
@@ -46,13 +47,5 @@ export function SearchLocation() {
     setSearchRes(bothRes);
   };
 
-  return (
-    <div className='w-full h-16 rounded-lg p-2 z-20  border flex gap-1 justify-between items-center'>
-      <input
-        onChange={(event) => handleInputValue(event)}
-        className='outline-none w-full h-full p-2 text-gray-400 placeholder-gray-200 text-[12px] '
-        placeholder={plcVal}
-      ></input>
-    </div>
-  );
+  return <SearchAtList handleInputValue={handleInputValue} plcVal={plcVal} />;
 }

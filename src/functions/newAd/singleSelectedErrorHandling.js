@@ -17,7 +17,8 @@ export function singleSelectedErrorHandling(
           },
           lable,
           validation,
-          newAdStorageValue[storagePram]?.dependencies[1]
+          newAdStorageValue[storagePram]?.dependencies &&
+            newAdStorageValue[storagePram]?.dependencies[1]
         )
       : adFormValidation(
           (stateVal) => {

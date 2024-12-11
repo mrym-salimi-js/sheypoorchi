@@ -58,7 +58,7 @@ export default function SingleSelectedSupport({ lable, allList, storagePram }) {
 
     if (
       (item?.children?.length === 0 && item?.brands?.length === 0) ||
-      (item.children === undefined &&
+      (item?.children === undefined &&
         (item?.districts === undefined || item?.districts?.length == 0))
     ) {
       setOpenList(false);
@@ -86,7 +86,7 @@ export default function SingleSelectedSupport({ lable, allList, storagePram }) {
       validation
     );
 
-    allList && setListItems(allList);
+    allList != undefined && setListItems(allList);
   }, [openList]);
 
   return (
