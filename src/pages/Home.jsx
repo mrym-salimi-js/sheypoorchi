@@ -20,7 +20,9 @@ export default function Home() {
   const params = useParams();
   const locationUrl = useLocation();
   const [cookie] = useCookies();
-  const [filterFormDisplay, setFilterFormDisplay] = useState('hidden');
+  const [filterFormDisplay, setFilterFormDisplay] = useState(
+    'opacity-0 invisible'
+  );
   const [brandAndModel, setBrandAndModel] = useState();
   // Url Params
   const category = params.category;
@@ -80,7 +82,7 @@ export default function Home() {
         {category === undefined && (
           <>
             <Category />
-            <div className='w-[98%] h-auto p-4 flex flex-row gap-3 justify-start items-center border-t-[1px] border-b-[1px]'>
+            <div className='w-[98%] h-auto p-4 flex flex-row gap-3 justify-start items-center border-t-[1px] border-b-[1px] '>
               <Speaker color={'#84105C'} size={'size-7'} />
               <HomePageBreadCrumb />
             </div>

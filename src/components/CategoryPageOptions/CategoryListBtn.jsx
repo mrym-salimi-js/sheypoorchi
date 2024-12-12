@@ -10,7 +10,7 @@ import ListSupport from './ListSupport';
 export function CategoryListBtn() {
   const { category } = useContext(HomeContext);
   const [selectedCat, setSelectedCat] = useState();
-  const [openList, setOpenList] = useState(false);
+  const [openList, setOpenList] = useState('opacity-0 invisible');
   const mainCats = FindMainCategories();
   const navigateTo = useNavigate();
   const locationUrl = useLocation();
@@ -38,7 +38,7 @@ export function CategoryListBtn() {
   }, [locationUrl]);
 
   const handleCategoryListDisplay = () => {
-    setOpenList(!openList);
+    setOpenList('opacity-100 visible');
   };
 
   // Delete Serach Item Of Url

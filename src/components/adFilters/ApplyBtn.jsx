@@ -5,7 +5,7 @@ export default function ApplyBtn() {
   const { setFilterFormDisplay } = useContext(HomeContext);
 
   const handleFilterFormDisplay = () => {
-    setFilterFormDisplay('hidden');
+    setFilterFormDisplay('opacity-0 invisible');
   };
 
   return (

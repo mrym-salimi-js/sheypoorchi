@@ -7,7 +7,7 @@ export function FilterBtn() {
   const { setFilterFormDisplay } = useContext(HomeContext);
 
   const handleFilterFormDisplay = () => {
-    setFilterFormDisplay('block');
+    setFilterFormDisplay('opacity-100 visible');
   };
   return (
     <BorderRoundedBtn

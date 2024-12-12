@@ -12,7 +12,7 @@ import { CitiesList } from './cities/CitiesList';
 
 export const LocationContext = createContext();
 
-export default function LocationBox({ setOpenLocation }) {
+export default function LocationBox({ setOpenLocation, openLocation }) {
   const [cookie, setCookie, removeCookie] = useCookies();
   const [locSituation, setLocSituation] = useState('استان');
   const [allCheckedBoxes, setAllCheckedBoxes] = useState([]);
@@ -64,7 +64,16 @@ export default function LocationBox({ setOpenLocation }) {
         setOpenLocation,
       }}
     >
-      <div className='w-full h-full flex flex-col items-center justify-end lg:justify-center fixed top-0 right-0 bg-[#7e7e7ed1] z-[100000]'>
+      <div
+        className={`w-full h-full fixed top-0 right-0 bg-[#00000073] z-[100000] transition-opacity duration-1000 ease-in-out  ${openLocation}`}
+      ></div>
+      <div
+        className={`w-full h-full flex flex-col items-center justify-end lg:justify-center fixed top-0 right-0   transition-all duration-1000 ease-in-out z-[1000000]  ${
+          !openLocation.includes('invisible')
+            ? `translate-y-0`
+            : `translate-y-full`
+        }    `}
+      >
         <div className='w-full md:w-[75%] lg:w-[40%] h-[88%] bg-white rounded-2xl relative  z-[100000] border border-gray-50  overflow-hidden top-2 bottom-0  p-8 '>
           <div className=' flex flex-col gap-4'>
             <div className='flex justify-between items-center border-r-4 border-pink-400 pr-2'>

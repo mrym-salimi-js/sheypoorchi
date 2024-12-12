@@ -29,5 +29,5 @@ export function setSingleSelectedAttrsStorage(
           id: item.id,
         },
       })),
-      setOpenList(false));
+      setOpenList('opacity-0 invisible'));
 }

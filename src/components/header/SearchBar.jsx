@@ -5,7 +5,7 @@ import { citiesList } from '../../functions/localStorage/locations';
 import { mapMerker } from '../globals/Icons';
 
 export default function SearchBar() {
-  const [openLocation, setOpenLocation] = useState(false);
+  const [openLocation, setOpenLocation] = useState('opacity-0 invisible');
   const [cookie] = useCookies();
 
   const cities = citiesList();
@@ -29,7 +29,7 @@ export default function SearchBar() {
                 const citiesLength = cookie['cities'].length;
                 return (
                   <p
-                    onClick={() => setOpenLocation(!openLocation)}
+                    onClick={() => setOpenLocation('opacity-100 visible')}
                     className='text-[0.8rem] text-gray-400 cursor-pointer  text-nowrap'
                     key={city.id}
                   >
@@ -40,7 +40,7 @@ export default function SearchBar() {
             })
           ) : (
             <p
-              onClick={() => setOpenLocation(!openLocation)}
+              onClick={() => setOpenLocation('opacity-100 visible')}
               className='text-[0.8rem] text-gray-400 cursor-pointer text-nowrap'
             >
               همه ایران
@@ -48,7 +48,12 @@ export default function SearchBar() {
           )}
         </div>
       </div>
-      {openLocation && <LocationBox setOpenLocation={setOpenLocation} />}
+      {openLocation && (
+        <LocationBox
+          setOpenLocation={setOpenLocation}
+          openLocation={openLocation}
+        />
+      )}
     </div>
   );
 }

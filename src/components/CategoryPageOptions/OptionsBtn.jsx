@@ -91,31 +91,33 @@ export function OptionsBtn() {
   }, [locationUrl]);
 
   return (
-    <div
-      onClick={handleScrollItem}
-      className='w-full h-auto filtered-item-box overflow-x-scroll ul-box'
-    >
-      <ul id='places-category-ul' className='w-auto   px-1 flex gap-3  m-0'>
-        <FilterBtn />
-        <SortOptionsBtn searchObject={searchObject} />
-        <CategoryListBtn />
-        {brandAndModel !== undefined && (
-          <FilterItemBtn
-            key={brandAndModel?.id}
-            lable={brandAndModel?.title}
-            slug={brandAndModel?.slug}
-          />
-        )}
-        {filterItemsList?.map((fI, index) => {
-          return (
+    <div className='w-[99%] h-14 '>
+      <div
+        onClick={handleScrollItem}
+        className='w-full h-full  filtered-item-box overflow-x-scroll ul-box'
+      >
+        <ul id='places-category-ul' className='w-auto   px-1 flex gap-3  m-0'>
+          <FilterBtn />
+          <SortOptionsBtn searchObject={searchObject} />
+          <CategoryListBtn />
+          {brandAndModel !== undefined && (
             <FilterItemBtn
-              key={fI.id * index}
-              lable={fI.title}
-              slug={fI.slug}
+              key={brandAndModel?.id}
+              lable={brandAndModel?.title}
+              slug={brandAndModel?.slug}
             />
-          );
-        })}
-      </ul>
+          )}
+          {filterItemsList?.map((fI, index) => {
+            return (
+              <FilterItemBtn
+                key={fI.id * index}
+                lable={fI.title}
+                slug={fI.slug}
+              />
+            );
+          })}
+        </ul>
+      </div>
     </div>
   );
 }

@@ -11,7 +11,7 @@ export default function SingleSelectedSupport({
   queryKey,
 }) {
   const { navigateTo } = useContext(FilterContext);
-  const [openList, setOpenList] = useState();
+  const [openList, setOpenList] = useState('opacity-0 invisible');
   const [listItems, setListItems] = useState([]);
   const [itemTitle, setItemTitle] = useState();
   const [filterListTitle, setFilterListTitle] = useState();
@@ -55,7 +55,7 @@ export default function SingleSelectedSupport({
         (item?.districts === undefined || item?.districts?.length == 0)) ||
       item?.brands?.length > 0
     ) {
-      setOpenList(false);
+      setOpenList('opacity-0 invisible');
     }
   };
 

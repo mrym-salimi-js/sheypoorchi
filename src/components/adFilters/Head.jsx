@@ -16,7 +16,7 @@ export default function Head() {
   const { setFilterFormDisplay } = useContext(HomeContext);
   const handleClearingFilter = () => {
     deleteFilterSearch(searchObject, searchItems, navigateTo, locationUrl);
-    setFilterFormDisplay('hidden');
+    setFilterFormDisplay('opacity-0 invisible');
   };
   return (
     <div className='w-full h-30 p-8 flex items-center justify-between border-b '>

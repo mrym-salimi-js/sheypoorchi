@@ -33,7 +33,7 @@ export default function TextComponent({
   const handleInputShow = (txt) => {
     filedType === 'text'
       ? (txt.children[0].children[1].focus(), setInputShow(adLable))
-      : setOpenList(true);
+      : setOpenList('opacity-100 visible');
   };
 
   // Set Filter Writing Filed Values (min/max)

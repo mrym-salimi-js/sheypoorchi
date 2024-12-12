@@ -26,7 +26,7 @@ export function EntryChangesBtn() {
       removeCookie('cities');
     }
 
-    setOpenLocation(false);
+    setOpenLocation('opaciti-0 invisible');
   };
 
   return (
@@ -43,7 +43,7 @@ export function EntryChangesBtn() {
       </button>
 
       <button
-        onClick={() => setOpenLocation(false)}
+        onClick={() => setOpenLocation('opaciti-0 invisible')}
         className=' border  bg-gray-200 rounded-lg text-sm'
       >
         انصراف

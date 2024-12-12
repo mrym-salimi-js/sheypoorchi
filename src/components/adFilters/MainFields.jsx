@@ -31,7 +31,7 @@ export function MainFields() {
   const [childCatAttr, setChildCatAttr] = useState([]);
   const [sortOptions, setSortOptions] = useState([]);
   const [defaultSortid, setDefaultSortid] = useState(1);
-  const [openLocation, setOpenLocation] = useState(false);
+  const [openLocation, setOpenLocation] = useState('opaciti-0 invisible');
   const [selctedSo, setSelectedSo] = useState();
   const locationUrl = useLocation();
   // Get Url Search
@@ -140,7 +140,12 @@ export function MainFields() {
           type={'filter'}
         />
 
-        {openLocation && <LocationBox setOpenLocation={setOpenLocation} />}
+        {openLocation && (
+          <LocationBox
+            setOpenLocation={setOpenLocation}
+            openLocation={openLocation}
+          />
+        )}
 
         {/* Category Parent Attributes */}
         {parentCatAttr.length > 0 && (

@@ -32,17 +32,16 @@ export default function SingleSelected({
         itemTitle={itemTitle}
       />
 
-      {openList && (
-        <List
-          allList={listItems}
-          setListItems={setListItems}
-          lable={lable}
-          setOpenList={setOpenList}
-          firstItemBold={firstItemBold}
-          setListTitle={setListTitle}
-          handleListItems={handleListItems}
-        />
-      )}
+      <List
+        allList={listItems}
+        setListItems={setListItems}
+        lable={lable}
+        setOpenList={setOpenList}
+        firstItemBold={firstItemBold}
+        setListTitle={setListTitle}
+        handleListItems={handleListItems}
+        openList={openList}
+      />
     </>
   );
 }

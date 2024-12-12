@@ -55,6 +55,7 @@ export default function ListSupport({
         setOpenList={setOpenList}
         firstItemBold={true}
         handleListItems={handleListItems}
+        openList={openList}
       />
     </>
   );

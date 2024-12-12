@@ -14,7 +14,7 @@ export default function SingleSelectedSupport({ lable, allList, storagePram }) {
     setValidation,
     validation,
   } = useContext(NewAdContext);
-  const [openList, setOpenList] = useState();
+  const [openList, setOpenList] = useState('opacity-0 invisible');
   const [listItems, setListItems] = useState();
 
   const handleListItems = (item) => {
@@ -61,7 +61,7 @@ export default function SingleSelectedSupport({ lable, allList, storagePram }) {
       (item?.children === undefined &&
         (item?.districts === undefined || item?.districts?.length == 0))
     ) {
-      setOpenList(false);
+      setOpenList('opacity-0 invisible');
     }
   };
 
