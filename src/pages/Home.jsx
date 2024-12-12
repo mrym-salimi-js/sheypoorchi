@@ -13,6 +13,8 @@ import { Speaker } from '../components/globals/Icons';
 import CategoryPageBreadCrumbs from '../components/breadCrumbs/CategoryPageBreadCrumbs';
 import HomePageBreadCrumb from '../components/breadCrumbs/HomePageBreadCrumb';
 import { navTo } from '../functions/globals/navTo';
+import axios from 'axios';
+import { getAds } from '../services/getAds';
 export const HomeContext = createContext();
 
 export default function Home() {
@@ -23,6 +25,7 @@ export default function Home() {
   const [filterFormDisplay, setFilterFormDisplay] = useState(
     'opacity-0 invisible'
   );
+  const baseURL = import.meta.env.VITE_BASE_URL;
   const [brandAndModel, setBrandAndModel] = useState();
   // Url Params
   const category = params.category;
@@ -31,13 +34,65 @@ export default function Home() {
   // Url Search
   const queryParams = new URLSearchParams(locationUrl.search);
 
+  const [adsList, setAdsList] = useState();
+  const [searchedAds, setSearchedAds] = useState();
+
+  // Get All Ads By every Change category and locationUrl
+  useEffect(() => {
+    const getAd = async () => {
+      const ads = await axios.get(
+        `${baseURL}/api/ads?cities=${cookieCitiesInUrl}`
+      );
+      ads.status === 200 && setAdsList(ads.data.data);
+    };
+    const getAdsList = async () => {
+      const response = await getAds();
+      setAdsList(response.data);
+    };
+
+    if (!category) {
+      cookie['cities'] !== undefined && cookie['cities'].length > 0
+        ? getAd()
+        : getAdsList();
+    }
+
+    if (!category) return;
+    const getAdsByUrlChanges = async () => {
+      const response = await axios.get(
+        `${baseURL}/api/ads/s/${category}?${queryParams}`
+      );
+      setAdsList(response.data.data);
+    };
+    getAdsByUrlChanges();
+  }, [category, locationUrl]);
+
+  // Get All Ads By First Rendering
+  useEffect(() => {
+    const getAd = async () => {
+      const ads = await axios.get(
+        `${baseURL}/api/ads?cities=${cookieCitiesInUrl}`
+      );
+      ads.status === 200 && setAdsList(ads.data.data);
+    };
+    cookie['cities'] && cookie['cities'].length > 0 && getAd();
+
+    if (category) return;
+    const getAdsList = async () => {
+      const response = await getAds();
+      setAdsList(response.data);
+    };
+    getAdsList();
+  }, []);
+
   // Global Url Set In Home Page
   const cookieCitiesInUrl = encodeURIComponent(
     JSON.stringify(cookie['cities'])
   );
+  // Nave To After Change  Cities In Cookie
   useEffect(() => {
     if (cookie['cities'] !== undefined && cookie['cities'].length > 0) {
       queryParams.set('cities', cookieCitiesInUrl);
+
       navTo(locationUrl.pathname, queryParams, navigateTo);
     } else {
       queryParams.delete('cities');
@@ -48,8 +103,8 @@ export default function Home() {
     }
   }, [cookieCitiesInUrl]);
 
+  // Set Last Url In LocalStorage Before Change Url
   useEffect(() => {
-    // Set Last Url In LocalStorage Before Change Url
     localStorage.setItem('last-url-pathname', locationUrl.pathname);
     localStorage.setItem('last-url-search', locationUrl.search);
   }, [locationUrl]);
@@ -67,6 +122,8 @@ export default function Home() {
         queryParams,
         brandAndModel,
         setBrandAndModel,
+        setSearchedAds,
+        adsList,
       }}
     >
       <div className='w-[98%] sm:w-[87%] h-full absolute flex flex-col gap-6 items-center mb-14  p-2'>
@@ -89,11 +146,7 @@ export default function Home() {
           </>
         )}
 
-        <AdsList
-          category={category}
-          queryParams={queryParams}
-          locationUrl={locationUrl}
-        />
+        <AdsList adsList={searchedAds ? searchedAds : adsList} />
       </div>
       <NavBar />
     </HomeContext.Provider>
