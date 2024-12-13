@@ -17,6 +17,8 @@ export default function ForgetPassword() {
   const [inputVal, setInputVal] = useState();
 
   useEffect(() => {
+    document.title = 'فراموشی رمز عبور';
+
     userTokenCheck(baseURL, navigateTo);
   }, []);
 

@@ -19,6 +19,8 @@ export default function ResetPassword() {
   const [inputVal, setInputVal] = useState();
 
   useEffect(() => {
+    document.title = 'ساخت رمز عبور جدید';
+
     userTokenCheck(baseURL, navigateTo);
   }, []);
 

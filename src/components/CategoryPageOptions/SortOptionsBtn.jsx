@@ -21,8 +21,6 @@ export function SortOptionsBtn({ searchObject }) {
     setOpenList(!openList);
   };
 
-  //   useEffect(() => {}, []);
-
   useEffect(() => {
     setSortOptions(allCatSortOptions);
 

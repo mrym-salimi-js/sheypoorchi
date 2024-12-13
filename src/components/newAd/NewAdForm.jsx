@@ -33,6 +33,8 @@ export function NewAdForm() {
   };
 
   useEffect(() => {
+    document.title = 'ثبت آگهی';
+
     const values = JSON.parse(localStorage.getItem('form-list-values'));
     values && setNewAdStorageValue(values);
 

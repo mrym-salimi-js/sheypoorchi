@@ -1,4 +1,4 @@
-import { useContext, useEffect, useMemo, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import SingleSelected from '../formFileds/singleSelected/SingleSelected';
 import { navigateAfterFilter } from '../../functions/adFilters/navigateAfterFilter';
 import { useLocation, useParams } from 'react-router-dom';
@@ -59,7 +59,7 @@ export default function SingleSelectedSupport({
     }
   };
 
-  useMemo(() => {
+  useEffect(() => {
     defaultItem && setItemTitle(defaultItem);
   }, [defaultItem]);
 
@@ -69,7 +69,6 @@ export default function SingleSelectedSupport({
 
     allList && setListItems(allList);
   }, [openList]);
-  // console.log(item);
   return (
     <>
       <SingleSelected

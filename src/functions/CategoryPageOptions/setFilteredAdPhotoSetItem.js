@@ -1,7 +1,8 @@
-export function setFilteredAdPhotoSetItem(key, setFilterItemsList) {
+export function setFilteredAdPhotoSetItem(key, res) {
   key.includes('wp') &&
-    setFilterItemsList((prev) => [
-      ...prev,
-      { id: -1, title: 'آگهی های عکس دار', slug: key },
-    ]);
+    res.push({ id: -1, title: 'آگهی های عکس دار', slug: key });
+  // setFilterItemsList((prev) => [
+  //   ...prev,
+  //   { id: -1, title: 'آگهی های عکس دار', slug: key },
+  // ]);
 }

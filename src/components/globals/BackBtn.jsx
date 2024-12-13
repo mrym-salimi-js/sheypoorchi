@@ -7,7 +7,7 @@ export function BackBtn({
   setSearchRes,
 }) {
   const handleListItems = () => {
-    setSearchRes('');
+    setSearchRes && setSearchRes('');
     // Back For Location Lists
     title && setTitle(title);
 

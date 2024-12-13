@@ -64,6 +64,8 @@ export function SingleAdDetails({ singleAd, adCreator }) {
   } = singleAd;
 
   useEffect(() => {
+    document.title = title;
+
     getCost(attribute, (costVal) => {
       setCost(costVal);
     });

@@ -34,7 +34,6 @@ export function List({
     });
     searchedItems && setSearchRes(searchedItems);
   };
-  console.log(openList);
 
   return (
     <>

@@ -19,6 +19,7 @@ export default function Register() {
   const [inputVal, setInputVal] = useState();
 
   useEffect(() => {
+    document.title = 'ثبت نام کاربر';
     userTokenCheck(baseURL, navigateTo);
   }, []);
 

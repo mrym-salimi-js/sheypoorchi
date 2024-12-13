@@ -9,35 +9,38 @@ export function FilteringCity() {
 
   const handleHideFilteredCitiy = (cityName) => {
     const filtered = allCheckedBoxes.filter((item) => {
-      if (item.name !== cityName) {
+      if (item?.name !== cityName) {
         return item;
       }
     });
     setAllCheckedBoxes(filtered);
     setDeleteAllBtnClicked(true);
   };
-
   return (
     <div className='w-full overflow-scroll'>
       <ul className='flex gap-3 py-2 items-center justify-start'>
         {allCheckedBoxes?.map((city, index) => {
           return (
-            <BorderRoundedBtn
-              key={index}
-              borderColor={'border-[#84105C]'}
-              bgColor={'bg-pink-50'}
-              textColor={'text-[#84105C]'}
-              textSize={'text-[0.7rem]'}
-              lable={city.name}
-              handleAction={() => handleHideFilteredCitiy(city.name, city.id)}
-              icon={
-                <CloseMark
-                  color={'#84105C'}
-                  size={'size-5'}
-                  strokeWidth={'2'}
-                />
-              }
-            />
+            city !== undefined && (
+              <BorderRoundedBtn
+                key={index}
+                borderColor={'border-[#84105C]'}
+                bgColor={'bg-pink-50'}
+                textColor={'text-[#84105C]'}
+                textSize={'text-[0.7rem]'}
+                lable={city?.name}
+                handleAction={() =>
+                  handleHideFilteredCitiy(city?.name, city.id)
+                }
+                icon={
+                  <CloseMark
+                    color={'#84105C'}
+                    size={'size-5'}
+                    strokeWidth={'2'}
+                  />
+                }
+              />
+            )
           );
         })}
       </ul>

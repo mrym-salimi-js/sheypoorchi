@@ -14,7 +14,7 @@ export function EntryChangesBtn() {
 
   const cookieItems = [];
   allCheckedBoxes?.forEach((item) => {
-    cookieItems.push(item.id);
+    cookieItems.push(item?.id);
   });
 
   const handleLocationCookie = () => {

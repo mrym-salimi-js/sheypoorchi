@@ -9,6 +9,7 @@ import { SearchLocation } from './SearchLocation';
 import { SearchItems } from './SearchItems';
 import { EntryChangesBtn } from './EntryChangesBtn';
 import { CitiesList } from './cities/CitiesList';
+import { findProvinces } from '../../functions/locations/findProvinces';
 
 export const LocationContext = createContext();
 
@@ -25,18 +26,28 @@ export default function LocationBox({ setOpenLocation, openLocation }) {
 
   const cities = citiesList();
 
-  const filterdCitiesByCookies = cities?.filter((city) => {
-    if (cookie['cities']) {
-      return cookie['cities'].includes(city.id);
-    }
-  });
-
   useEffect(() => {
-    filterdCitiesByCookies !== undefined &&
-      setAllCheckedBoxes(filterdCitiesByCookies);
+    const list = [];
+    cities?.forEach((city) => {
+      if (cookie['cities']) {
+        cookie['cities'].includes(city.id) &&
+          list.push({
+            name: city.name,
+            id: city.id,
+            province_id: city.province_id,
+          });
+      }
+    });
+    list.length > 0 && setAllCheckedBoxes(list);
     if (cookie['provinces']) {
       setCheck(cookie['provinces']);
     }
+  }, []);
+
+  const prvs = findProvinces();
+  const [prvList, setPrvList] = useState();
+  useEffect(() => {
+    setPrvList(prvs);
   }, []);
 
   return (
@@ -79,7 +90,13 @@ export default function LocationBox({ setOpenLocation, openLocation }) {
             <div className='flex justify-between items-center border-r-4 border-pink-400 pr-2'>
               <div className='flex'>
                 {locSituation === 'شهر' && (
-                  <BackBtn title={'استان'} setTitle={setLocSituation} />
+                  <BackBtn
+                    title={'استان'}
+                    setTitle={setLocSituation}
+                    setSearchRes={setSearchRes}
+                    setListItems={setPrvList}
+                    lastList={prvList}
+                  />
                 )}
                 <p className='w-auto text-md  p-2 '>انتخاب {locSituation}</p>
               </div>

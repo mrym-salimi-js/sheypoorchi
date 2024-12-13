@@ -18,6 +18,7 @@ export default function Login() {
   const [inputVal, setInputVal] = useState();
 
   useEffect(() => {
+    document.title = 'ورود کاربر';
     userTokenCheck(baseURL, navigateTo);
   }, []);
 

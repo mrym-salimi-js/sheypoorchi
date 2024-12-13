@@ -15,13 +15,12 @@ export function CitiesList() {
   } = useContext(LocationContext);
 
   const cities = findCities(prvId);
-
   const data = searchRes[0] ? searchRes : cities;
 
   const handleCheckedAll = () => {
     const allCheck = document.getElementById('all-check');
 
-    setCheck([...check, prvId]);
+    prvId && setCheck([...check, prvId]);
 
     cities?.forEach((city) => {
       if (city !== undefined) {
@@ -46,7 +45,6 @@ export function CitiesList() {
       setCheck(filterChecks);
     }
   };
-
   const handleAllCheck = (prvId) => {
     let checkAllStatus = false;
 

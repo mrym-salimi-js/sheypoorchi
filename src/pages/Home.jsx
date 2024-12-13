@@ -1,5 +1,7 @@
+'use server';
+
 import NavBar from '../components/NavBar';
-import Category from '../components/Category';
+import Category, { FindMainCategories } from '../components/Category';
 import { AdsList } from '../components/advertisements/AdsList';
 import { useCookies } from 'react-cookie';
 import { createContext, useEffect, useState } from 'react';
@@ -26,7 +28,7 @@ export default function Home() {
     'opacity-0 invisible'
   );
   const baseURL = import.meta.env.VITE_BASE_URL;
-  const [brandAndModel, setBrandAndModel] = useState();
+  // const [brandAndModel, setBrandAndModel] = useState();
   // Url Params
   const category = params.category;
   const brands = params.brands;
@@ -36,25 +38,29 @@ export default function Home() {
 
   const [adsList, setAdsList] = useState();
   const [searchedAds, setSearchedAds] = useState();
+  // Global Url Set In Home Page
+  const cookieCitiesInUrl = encodeURIComponent(
+    JSON.stringify(cookie['cities'])
+  );
 
   // Get All Ads By every Change category and locationUrl
   useEffect(() => {
-    const getAd = async () => {
-      const ads = await axios.get(
-        `${baseURL}/api/ads?cities=${cookieCitiesInUrl}`
-      );
-      ads.status === 200 && setAdsList(ads.data.data);
-    };
-    const getAdsList = async () => {
-      const response = await getAds();
-      setAdsList(response.data);
-    };
+    // const getAd = async () => {
+    //   const ads = await axios.get(
+    //     `${baseURL}/api/ads?cities=${cookieCitiesInUrl}`
+    //   );
+    //   ads.status === 200 && setAdsList(ads.data.data);
+    // };
+    // const getAdsList = async () => {
+    //   const response = await getAds();
+    //   setAdsList(response.data);
+    // };
 
-    if (!category) {
-      cookie['cities'] !== undefined && cookie['cities'].length > 0
-        ? getAd()
-        : getAdsList();
-    }
+    // if (!category) {
+    //   cookie['cities'] !== undefined && cookie['cities'].length > 0
+    //     ? getAd()
+    //     : getAdsList();
+    // }
 
     if (!category) return;
     const getAdsByUrlChanges = async () => {
@@ -84,10 +90,6 @@ export default function Home() {
     getAdsList();
   }, []);
 
-  // Global Url Set In Home Page
-  const cookieCitiesInUrl = encodeURIComponent(
-    JSON.stringify(cookie['cities'])
-  );
   // Nave To After Change  Cities In Cookie
   useEffect(() => {
     if (cookie['cities'] !== undefined && cookie['cities'].length > 0) {
@@ -101,12 +103,26 @@ export default function Home() {
         : locationUrl.pathname;
       navTo(pathName, queryParams, navigateTo);
     }
-  }, [cookieCitiesInUrl]);
+  }, [cookie, category]);
 
   // Set Last Url In LocalStorage Before Change Url
+  const mainCat = FindMainCategories();
   useEffect(() => {
     localStorage.setItem('last-url-pathname', locationUrl.pathname);
     localStorage.setItem('last-url-search', locationUrl.search);
+
+    // Set Title For Metatag
+    if (!locationUrl.pathname.includes('/s/iran')) return;
+    if (!category) {
+      document.title = 'شیپورچی مرجع نیازمندی های سرتاسر ایران';
+    } else {
+      const currentCat = mainCat?.find((item) => {
+        return item.slug === category;
+      });
+
+      currentCat !== undefined &&
+        (document.title = `اگهی های مربوط یه ${currentCat?.name}`);
+    }
   }, [locationUrl]);
 
   return (
@@ -120,10 +136,11 @@ export default function Home() {
         locationUrl,
         navigateTo,
         queryParams,
-        brandAndModel,
-        setBrandAndModel,
+        // brandAndModel,
+        // setBrandAndModel,
         setSearchedAds,
         adsList,
+        cookieCitiesInUrl,
       }}
     >
       <div className='w-[98%] sm:w-[87%] h-full absolute flex flex-col gap-6 items-center mb-14  p-2'>

@@ -3,7 +3,7 @@ import { CategoryListBtn } from './CategoryListBtn';
 import { FilterBtn } from './FilterBtn';
 import FilterItemBtn from './FilterItemBtn';
 import { FindMainCategories } from '../Category';
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useMemo } from 'react';
 import { HomeContext } from '../../pages/Home';
 import { scrollSlider } from '../../functions/globals/scrollSlider';
 import { setFilteredPrice } from '../../functions/CategoryPageOptions/setFilteredPrice';
@@ -12,14 +12,7 @@ import { SortOptionsBtn } from './SortOptionsBtn';
 import { setFilteredAdPhotoSetItem } from '../../functions/CategoryPageOptions/setFilteredAdPhotoSetItem';
 
 export function OptionsBtn() {
-  const {
-    category,
-    brands,
-    model,
-    locationUrl,
-    brandAndModel,
-    setBrandAndModel,
-  } = useContext(HomeContext);
+  const { category, brands, model, locationUrl } = useContext(HomeContext);
 
   const handleScrollItem = () => {
     scrollSlider(document.querySelectorAll('.filtered-item-box'));
@@ -27,68 +20,115 @@ export function OptionsBtn() {
   const [searchItems] = useSearchParams();
   const searchObject = Object.fromEntries(searchItems.entries());
   const mainCategories = FindMainCategories();
-  const [filterItemsList, setFilterItemsList] = useState([]);
+  // const [filterItemsList, setFilterItemsList] = useState([]);
 
-  useEffect(() => {
-    // Get And Set Brand And Model
-    setBrandAndModel();
+  // Memoized computation for setting brand and model
+  const computedBrandAndModel = useMemo(() => {
+    let res = null;
     mainCategories?.map((item) => {
       if (item.name === 'وسایل نقلیه') {
-        item.children?.map((chItem) => {
-          chItem.brands.map((bItem) => {
-            brands !== undefined &&
-              bItem.slug === `${category}/${brands}` &&
-              setBrandAndModel(
+        item.children?.forEach((chItem) => {
+          chItem.brands.forEach((bItem) => {
+            if (
+              brands !== undefined &&
+              bItem.slug === `${category}/${brands}`
+            ) {
+              res =
                 model !== undefined
                   ? {
                       id: bItem.id,
                       title: `${bItem.name}   /   ${model}`,
                       slug: `${bItem.slug}/${model}`,
                     }
-                  : { id: bItem.id, title: bItem.name, slug: bItem.slug }
-              );
+                  : { id: bItem.id, title: bItem.name, slug: bItem.slug };
+            }
           });
         });
       }
     });
+    return res;
+  }, [locationUrl]);
 
-    //Get And Set Search Param From Url
-    setFilterItemsList([]);
-
+  // Memoized computation for filter items list
+  const computedFilterItemsList = useMemo(() => {
+    let res = [];
     for (let key in searchObject) {
       if (key !== 'c' && key !== 'cities') {
         const id = key.match(/\d+/g);
 
         mainCategories?.map((item) => {
           item.attributes.map((attrItem) => {
-            attrItem.id == id &&
-              setFilteredItems(
-                key,
-                (stateVal) => setFilterItemsList(stateVal),
-                id,
-                attrItem
-              );
+            attrItem.id == id && setFilteredItems(key, res, id, attrItem);
           });
           item.children?.map((chItem) => {
             chItem.attributes?.map((attrChItem) => {
-              attrChItem.id == id &&
-                setFilteredItems(
-                  key,
-                  (stateVal) => setFilterItemsList(stateVal),
-                  id,
-                  attrChItem
-                );
+              attrChItem.id == id && setFilteredItems(key, res, id, attrChItem);
             });
           });
         });
-
-        setFilteredPrice(key, (stateVal) => setFilterItemsList(stateVal));
-        setFilteredAdPhotoSetItem(key, (stateVal) =>
-          setFilterItemsList(stateVal)
-        );
       }
+      setFilteredPrice(key, res);
+      setFilteredAdPhotoSetItem(key, res);
     }
+    return res;
   }, [locationUrl]);
+
+  // useEffect(() => {
+  //   // Get And Set Brand And Model
+  //   // setBrandAndModel();
+  //   // mainCategories?.map((item) => {
+  //   //   if (item.name === 'وسایل نقلیه') {
+  //   //     item.children?.map((chItem) => {
+  //   //       chItem.brands.map((bItem) => {
+  //   //         brands !== undefined &&
+  //   //           bItem.slug === `${category}/${brands}` &&
+  //   //           setBrandAndModel(
+  //   //             model !== undefined
+  //   //               ? {
+  //   //                   id: bItem.id,
+  //   //                   title: `${bItem.name}   /   ${model}`,
+  //   //                   slug: `${bItem.slug}/${model}`,
+  //   //                 }
+  //   //               : { id: bItem.id, title: bItem.name, slug: bItem.slug }
+  //   //           );
+  //   //       });
+  //   //     });
+  //   //   }
+  //   // });
+  //   //Get And Set Search Param From Url
+  //   // setFilterItemsList([]);
+  //   // for (let key in searchObject) {
+  //   //   if (key !== 'c' && key !== 'cities') {
+  //   //     const id = key.match(/\d+/g);
+  //   //     mainCategories?.map((item) => {
+  //   //       item.attributes.map((attrItem) => {
+  //   //         attrItem.id == id &&
+  //   //           setFilteredItems(
+  //   //             key,
+  //   //             (stateVal) => setFilterItemsList(stateVal),
+  //   //             id,
+  //   //             attrItem
+  //   //           );
+  //   //       });
+  //   //       item.children?.map((chItem) => {
+  //   //         chItem.attributes?.map((attrChItem) => {
+  //   //           attrChItem.id == id &&
+  //   //             setFilteredItems(
+  //   //               key,
+  //   //               (stateVal) => setFilterItemsList(stateVal),
+  //   //               id,
+  //   //               attrChItem
+  //   //             );
+  //   //         });
+  //   //       });
+  //   //     });
+  //   //     setFilteredPrice(key, (stateVal) => setFilterItemsList(stateVal));
+  //   //     setFilteredAdPhotoSetItem(key, (stateVal) =>
+  //   //       setFilterItemsList(stateVal)
+  //   //     );
+  //   //   }
+  //   // }
+  // }, [locationUrl]);
 
   return (
     <div className='w-[99%] h-14 '>
@@ -100,14 +140,14 @@ export function OptionsBtn() {
           <FilterBtn />
           <SortOptionsBtn searchObject={searchObject} />
           <CategoryListBtn />
-          {brandAndModel !== undefined && (
+          {computedBrandAndModel && (
             <FilterItemBtn
-              key={brandAndModel?.id}
-              lable={brandAndModel?.title}
-              slug={brandAndModel?.slug}
+              key={computedBrandAndModel?.id}
+              lable={computedBrandAndModel?.title}
+              slug={computedBrandAndModel?.slug}
             />
           )}
-          {filterItemsList?.map((fI, index) => {
+          {computedFilterItemsList?.map((fI, index) => {
             return (
               <FilterItemBtn
                 key={fI.id * index}

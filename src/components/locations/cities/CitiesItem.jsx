@@ -8,7 +8,7 @@ export function CitiesItem({ name, id }) {
   const handleCheked = (name) => {
     let checkStatus = false;
     allCheckedBoxes?.forEach((item) => {
-      if (item.name === name) {
+      if (item?.name === name) {
         checkStatus = true;
       }
     });
