@@ -8,11 +8,12 @@ import { adsLocationsList } from './services/adsLocationsList';
 import ForgetPassword from './pages/ForgetPassword';
 import ResetPassword from './pages/ResetPassword';
 import MyAccount from './pages/user/MyAccount';
-import Messages from './pages/user/message/Messages';
+import Messages from './pages/user/Messages';
 import PageLoading from './components/globals/PageLoading';
 const Home = lazy(() => import('./pages/Home'));
 const Single = lazy(() => import('./pages/Single'));
 const NewAd = lazy(() => import('./pages/NewAd'));
+import Dashboard from './pages/user/Dashboard';
 
 function App() {
   useEffect(() => {
@@ -116,6 +117,7 @@ function App() {
             <Route path='/myAccount' element={<MyAccount />} />
             <Route path='/myAccount/messages' element={<Messages />} />
             <Route path='/myAccount/messages/:adId' element={<Messages />} />
+            <Route path='/myAccount/dashboard' element={<Dashboard />} />
             {/* <Route path='*' element={<Home />} /> */}
           </Routes>
         </Suspense>
