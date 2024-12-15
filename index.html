@@ -85,6 +85,57 @@
   .rmdp-shadow{
     box-shadow: none !important
   }
+
+/*Example Of Var  In Css */
+
+  /* :root {
+  --rmdp-primary-purple: #9c27b0;
+  --rmdp-secondary-purple: #7b1fa2;
+  --rmdp-shadow-purple: #8e24aa;
+  --rmdp-today-purple: #e040fb;
+  --rmdp-hover-purple: #d500f9;
+  --rmdp-deselect-purple: #ba68c8;
+}
+
+.purple .rmdp-wrapper {
+  border: 1px solid var(--rmdp-secondary-purple);
+  box-shadow: 0 0 5px var(--rmdp-secondary-purple);
+} */
+
+.rmdp-week-day {
+  color: #71ae77e6 !important;
+  font-size: 0.75rem !important;
+}
+.rmdp-week:first-child{
+  /* background-color: rgba(222, 112, 112, 0.822) !important; */
+}
+.rmdp-week .rmdp-day{
+  border-radius: 100% !important;
+  background-color: #abd8b042 !important;
+
+}
+.rmdp-week, .rmdp-ym{
+  gap: 4px !important;
+}
+.rmdp-day.rmdp-today span{
+  background-color: #71ae77e6 !important;
+}
+.rmdp-day span:hover{
+  background-color: #abd8b042 !important;
+}
+.rmdp-header-values span{
+  color: #0d4e14e6;
+}
+.rmdp-calendar :focus {
+    outline-color: #abd8b042 !important;
+}
+.rmdp-day.rmdp-selected span:not(.highlight){
+  box-shadow: none !important;
+}
+ .rmdp-day {
+   background-color: #abd8b042 !important;
+}
+
 </style>
 
 <body dir="rtl" class="bg-[#f9f9f93b]">

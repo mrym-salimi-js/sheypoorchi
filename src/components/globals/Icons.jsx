@@ -307,7 +307,7 @@ export function XCircle({ color, size, handleDisplaySlug }) {
     </svg>
   );
 }
-export function ChevronDown({ color, size, strokeWidth }) {
+export function ChevronDown({ color, size, strokeWidth = '1.5' }) {
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'
@@ -325,7 +325,7 @@ export function ChevronDown({ color, size, strokeWidth }) {
     </svg>
   );
 }
-export function ChevronLeft({ color, size, strokeWidth }) {
+export function ChevronLeft({ color, size, strokeWidth = '1.5' }) {
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'

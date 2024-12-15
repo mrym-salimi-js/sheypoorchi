@@ -3,7 +3,7 @@ import ChatPV from '../../components/chat/pv/ChatPV';
 import ContactsList from '../../components/chat/contacts/ContactsList';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import Menu from '../../components/user/Menu';
+import Menu from '../../components/user/menu/Menu';
 
 export default function MyAccount() {
   const userToken = Cookies.get('user-Token');
