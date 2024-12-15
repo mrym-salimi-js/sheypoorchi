@@ -5,11 +5,11 @@ export default function MenuItems() {
   const locationUrl = useLocation();
   return (
     <div className='w-full h-[22rem] flex flex-col items-center gap-4 px-10'>
-      <Link className='w-[95%] transition-all cursor-pointer rounded-2xl p-3 hover:bg-[#cda7c0c3] flex gap-4 items-center'>
+      <Link className='w-[95%] transition-all cursor-pointer rounded-2xl p-3 hover:bg-[#2277606f] flex gap-4 items-center'>
         <Home
           to={'/myAccount/dashboard'}
           color={
-            locationUrl.pathname.includes('/dashboard') ? '#ffffff' : '#90587c'
+            locationUrl.pathname.includes('/dashboard') ? '#ffffff' : '#227760'
           }
           size={'size-5'}
         />
@@ -17,7 +17,7 @@ export default function MenuItems() {
           className={`text-sm ${
             locationUrl.pathname.includes('/dashboard')
               ? `text-white`
-              : `text-[#90587c]`
+              : `text-[#227760]`
           } `}
         >
           داشبورد
@@ -25,11 +25,11 @@ export default function MenuItems() {
       </Link>
       <Link
         to={'/myAccount/myInfo'}
-        className='w-[95%] transition-all cursor-pointer rounded-2xl p-3 hover:bg-[#cda7c0c3] flex gap-4 items-center'
+        className='w-[95%] transition-all cursor-pointer rounded-2xl p-3 hover:bg-[#2277606f] flex gap-4 items-center'
       >
         <User
           color={
-            locationUrl.pathname.includes('/myInfo') ? '#ffffff' : '#90587c'
+            locationUrl.pathname.includes('/myInfo') ? '#ffffff' : '#227760'
           }
           size={'size-5'}
         />
@@ -37,7 +37,7 @@ export default function MenuItems() {
           className={`text-sm ${
             locationUrl.pathname.includes('/myInfo')
               ? `text-white`
-              : `text-[#90587c]`
+              : `text-[#227760]`
           } `}
         >
           پروفایل من
@@ -45,11 +45,11 @@ export default function MenuItems() {
       </Link>
       <Link
         to={'/myAccount/myAds'}
-        className='w-[95%] transition-all cursor-pointer rounded-2xl p-3 hover:bg-[#cda7c0c3] flex gap-4 items-center'
+        className='w-[95%] transition-all cursor-pointer rounded-2xl p-3 hover:bg-[#2277606f] flex gap-4 items-center'
       >
         <Speaker
           color={
-            locationUrl.pathname.includes('/myAds') ? '#ffffff' : '#90587c'
+            locationUrl.pathname.includes('/myAds') ? '#ffffff' : '#227760'
           }
           size={'size-5'}
         />
@@ -57,7 +57,7 @@ export default function MenuItems() {
           className={`text-sm ${
             locationUrl.pathname.includes('/myAds')
               ? `text-white`
-              : `text-[#90587c]`
+              : `text-[#227760]`
           } `}
         >
           آگهی های من
@@ -65,11 +65,11 @@ export default function MenuItems() {
       </Link>
       <Link
         to={'/myAccount/seaved'}
-        className='w-[95%] transition-all cursor-pointer rounded-2xl p-3 hover:bg-[#cda7c0c3] flex gap-4 items-center'
+        className='w-[95%] transition-all cursor-pointer rounded-2xl p-3 hover:bg-[#2277606f] flex gap-4 items-center'
       >
         <Saved
           color={
-            locationUrl.pathname.includes('/seaved') ? '#ffffff' : '#90587c'
+            locationUrl.pathname.includes('/seaved') ? '#ffffff' : '#227760'
           }
           size={'size-5'}
         />
@@ -77,7 +77,7 @@ export default function MenuItems() {
           className={`text-sm ${
             locationUrl.pathname.includes('/seaved')
               ? `text-white`
-              : `text-[#90587c]`
+              : `text-[#227760]`
           } `}
         >
           ذخیره ها
@@ -85,11 +85,11 @@ export default function MenuItems() {
       </Link>
       <Link
         to={'/myAccount/messages'}
-        className='w-[95%] transition-all cursor-pointer rounded-2xl p-3 hover:bg-[#cda7c0c3] flex gap-4 items-center'
+        className='w-[95%] transition-all cursor-pointer rounded-2xl p-3 hover:bg-[#2277606f] flex gap-4 items-center'
       >
         <Chat
           color={
-            locationUrl.pathname.includes('/messages') ? '#ffffff' : '#90587c'
+            locationUrl.pathname.includes('/messages') ? '#ffffff' : '#227760'
           }
           size={'size-5'}
         />
@@ -97,7 +97,7 @@ export default function MenuItems() {
           className={`text-sm ${
             locationUrl.pathname.includes('/messages')
               ? `text-white`
-              : `text-[#90587c]`
+              : `text-[#227760]`
           } `}
         >
           پیام های من
@@ -105,10 +105,10 @@ export default function MenuItems() {
       </Link>
       <Link
         to={'/'}
-        className='w-[95%] transition-all cursor-pointer rounded-2xl p-3 hover:bg-[#cda7c0c3] flex gap-4 items-center'
+        className='w-[95%] transition-all cursor-pointer rounded-2xl p-3 hover:bg-[#2277606f] flex gap-4 items-center'
       >
-        <Logout color={'#90587c'} size={'size-5'} />
-        <p className='text-sm text-[#90587c]'>خروج</p>
+        <Logout color={'#227760'} size={'size-5'} />
+        <p className='text-sm text-[#227760]'>خروج</p>
       </Link>
     </div>
   );

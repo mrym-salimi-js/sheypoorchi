@@ -6,7 +6,7 @@ import { ChevronLeft, ChevronRight } from '../globals/Icons';
 
 export default function FCalendar() {
   return (
-    <div className='w-full h-auto flex items-center justify-center p-4 border border-[#abd8b042] rounded-3xl bg-white'>
+    <div className='w-full h-auto flex items-center justify-center p-4 border border-green-100 rounded-3xl bg-white'>
       <Calendar
         calendar={persian}
         locale={persian_fa}

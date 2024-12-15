@@ -8,7 +8,6 @@ export function AdCartFooter({ createAd, location }) {
       <div className='flex gap-2'>
         <Clock color={'#005eeb'} size={'size-4'} />
         <p className=' text-[0.7rem]'>
-          {' '}
           {momentJalaali(createAd).locale('fa').fromNow()}
         </p>
       </div>
