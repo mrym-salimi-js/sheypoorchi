@@ -54,7 +54,7 @@ export default function Login() {
         if (sendForm !== undefined) {
           sendForm.data.status === 'success' && Cookies.remove('user-pass'),
             Cookies.set('user-Token', sendForm.data.token);
-          navTo('/myAccount', '', navigateTo);
+          navTo('/myAccount/dashboard', '', navigateTo);
         }
       } catch (error) {
         setLoading(false);

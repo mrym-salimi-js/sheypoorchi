@@ -5,9 +5,11 @@ export default function MenuItems() {
   const locationUrl = useLocation();
   return (
     <div className='w-full h-[22rem] flex flex-col items-center gap-4 px-10'>
-      <Link className='w-[95%] transition-all cursor-pointer rounded-2xl p-3 hover:bg-[#2277606f] flex gap-4 items-center'>
+      <Link
+        to={'/myAccount/dashboard'}
+        className='w-[95%] transition-all cursor-pointer rounded-2xl p-3 hover:bg-[#2277606f] flex gap-4 items-center'
+      >
         <Home
-          to={'/myAccount/dashboard'}
           color={
             locationUrl.pathname.includes('/dashboard') ? '#ffffff' : '#227760'
           }
@@ -24,18 +26,18 @@ export default function MenuItems() {
         </p>
       </Link>
       <Link
-        to={'/myAccount/myInfo'}
+        to={'/myAccount/myProfile'}
         className='w-[95%] transition-all cursor-pointer rounded-2xl p-3 hover:bg-[#2277606f] flex gap-4 items-center'
       >
         <User
           color={
-            locationUrl.pathname.includes('/myInfo') ? '#ffffff' : '#227760'
+            locationUrl.pathname.includes('/myProfile') ? '#ffffff' : '#227760'
           }
           size={'size-5'}
         />
         <p
           className={`text-sm ${
-            locationUrl.pathname.includes('/myInfo')
+            locationUrl.pathname.includes('/myProfile')
               ? `text-white`
               : `text-[#227760]`
           } `}

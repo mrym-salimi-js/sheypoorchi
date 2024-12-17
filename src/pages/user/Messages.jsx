@@ -18,30 +18,28 @@ export default function MyAccount() {
   }, [params]);
 
   return (
-    <div className='w-full  h-[100%] relative flex justify-center gap-6 items-center p-2'>
-      <>
-        <Menu />
-        <div className='w-[98%] sm:w-[85%] h-full relative flex flex-col gap-6 items-center justify-center mb-14 p-2'>
-          {/*Chat Box */}
-          <div className='w-full flex lg:w-[80%] relative gap-3 overflow-hidden mt-5'>
-            {/*Contacts List */}
-            <ContactsList
-              setContactList={setContactList}
-              contactList={contactList}
-              userToken={userToken}
-              pvShow={pvShow}
-              setPvShow={setPvShow}
-            />
-            {/*Chat PV*/}
-            <ChatPV
-              userToken={userToken}
-              pvShow={pvShow}
-              setPvShow={setPvShow}
-              contactList={contactList}
-            />
-          </div>
+    <div className='w-full h-full  bg-gray-50 flex flex-col gap-5 px-3 md:px-7 items-end '>
+      <Menu />
+      <div className='w-[98%] sm:w-[85%] h-full relative flex flex-col gap-6 items-center justify-center mb-14 p-2'>
+        {/*Chat Box */}
+        <div className='w-full flex lg:w-[80%] relative gap-3 overflow-hidden mt-5'>
+          {/*Contacts List */}
+          <ContactsList
+            setContactList={setContactList}
+            contactList={contactList}
+            userToken={userToken}
+            pvShow={pvShow}
+            setPvShow={setPvShow}
+          />
+          {/*Chat PV*/}
+          <ChatPV
+            userToken={userToken}
+            pvShow={pvShow}
+            setPvShow={setPvShow}
+            contactList={contactList}
+          />
         </div>
-      </>
+      </div>
     </div>
   );
 }

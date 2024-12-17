@@ -7,13 +7,13 @@ import { lazy, Suspense, useEffect } from 'react';
 import { adsLocationsList } from './services/adsLocationsList';
 import ForgetPassword from './pages/ForgetPassword';
 import ResetPassword from './pages/ResetPassword';
-import MyAccount from './pages/user/MyAccount';
 import Messages from './pages/user/Messages';
 import PageLoading from './components/globals/PageLoading';
 const Home = lazy(() => import('./pages/Home'));
 const Single = lazy(() => import('./pages/Single'));
 const NewAd = lazy(() => import('./pages/NewAd'));
 import Dashboard from './pages/user/Dashboard';
+import Profile from './pages/user/Profile';
 
 function App() {
   useEffect(() => {
@@ -114,10 +114,10 @@ function App() {
             <Route path='/s/iran/:category/:brands/:model' element={<Home />} />
             <Route path='/newAd' element={<NewAd />} />
             <Route path='/v/:id/:title' element={<Single />} />
-            <Route path='/myAccount' element={<MyAccount />} />
             <Route path='/myAccount/messages' element={<Messages />} />
             <Route path='/myAccount/messages/:adId' element={<Messages />} />
             <Route path='/myAccount/dashboard' element={<Dashboard />} />
+            <Route path='/myAccount/myProfile' element={<Profile />} />
             {/* <Route path='*' element={<Home />} /> */}
           </Routes>
         </Suspense>

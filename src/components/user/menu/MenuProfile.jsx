@@ -12,7 +12,7 @@ export default function MenuProfile() {
         ></img>
         <p className='text-sm text-white'>مریم سلیمی</p>
         <Link
-          to={'/myAccount/editMe'}
+          to={'/myAccount/myProfile'}
           className=' cursor-pointer flex items-center'
         >
           <Pencil color={'#227760'} size={'size-6'} />
