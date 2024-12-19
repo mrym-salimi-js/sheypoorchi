@@ -14,6 +14,7 @@ const Single = lazy(() => import('./pages/Single'));
 const NewAd = lazy(() => import('./pages/NewAd'));
 import Dashboard from './pages/user/Dashboard';
 import Profile from './pages/user/Profile';
+import ProtectectedAuth from './components/ProtectectedAuth';
 
 function App() {
   useEffect(() => {
@@ -114,10 +115,40 @@ function App() {
             <Route path='/s/iran/:category/:brands/:model' element={<Home />} />
             <Route path='/newAd' element={<NewAd />} />
             <Route path='/v/:id/:title' element={<Single />} />
-            <Route path='/myAccount/messages' element={<Messages />} />
-            <Route path='/myAccount/messages/:adId' element={<Messages />} />
-            <Route path='/myAccount/dashboard' element={<Dashboard />} />
-            <Route path='/myAccount/myProfile' element={<Profile />} />
+
+            <Route
+              path='/myAccount/messages'
+              element={
+                <ProtectectedAuth>
+                  <Messages />
+                </ProtectectedAuth>
+              }
+            />
+            <Route
+              path='/myAccount/messages/:adId'
+              element={
+                <ProtectectedAuth>
+                  <Messages />
+                </ProtectectedAuth>
+              }
+            />
+            <Route
+              path='/myAccount/dashboard'
+              element={
+                <ProtectectedAuth>
+                  <Dashboard />
+                </ProtectectedAuth>
+              }
+            />
+            <Route
+              path='/myAccount/myProfile'
+              element={
+                <ProtectectedAuth>
+                  <Profile />
+                </ProtectectedAuth>
+              }
+            />
+
             {/* <Route path='*' element={<Home />} /> */}
           </Routes>
         </Suspense>

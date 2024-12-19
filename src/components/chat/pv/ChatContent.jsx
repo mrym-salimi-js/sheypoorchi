@@ -40,17 +40,17 @@ export function ChatContent({
     }
   };
   return (
-    <div className='w-full h-[330px] flex items-end border rounded-3xl overflow-hidden  bg-pink-50'>
+    <div className='w-full h-[90%] flex items-end border-t border-b  overflow-hidden  bg-[#528074]'>
       <ul
         ref={scrollRef}
         className='w-full h-full p-2 flex flex-col gap-3 items-end overflow-scroll'
       >
         {selectedAd && (
           <li
-            className={`self-start max-w-[80%] py-2 px-3 rounded-2xl flex flex-col gap-2 bg-white shadow-sm `}
+            className={`self-start max-w-[80%] py-2 px-3 rounded-lg flex flex-col gap-2 bg-white shadow-sm `}
           >
             <div className='w-full flex flex-col gap-3'>
-              <img className='w-full h-20 rounded-2xl border overflow-hidden'></img>
+              <img className='w-full h-20 rounded-lg border overflow-hidden'></img>
               <p className='text-[0.7rem] '>{selectedAd[0].title}</p>
             </div>
           </li>
@@ -84,12 +84,12 @@ export function ContentFileItem({ decodedJwt, item, handleDownloadFile }) {
       <li
         className={`${
           decodedJwt?.id === item.senderId ? `self-start` : `self-end`
-        } max-w-[80%] h-20 p-2 rounded-2xl flex flex-row-reverse gap-3 bg-white shadow-sm `}
+        } max-w-[80%] h-20 p-2 rounded-lg flex flex-row-reverse gap-3 bg-white shadow-sm `}
       >
         {/* File Icin */}
         <a
           onClick={(event) => handleDownloadFile(event)}
-          className=' h-full w-14 rounded-2xl bg-gray-200 flex items-center justify-center'
+          className=' h-full w-14 rounded-lg bg-gray-200 flex items-center justify-center'
           href={`${baseURL}/chat/${item.senderId}-${item.reciverId}-${
             item.adId
           }/${decodeURI(item.message).replace(/ /g, '-')}`}
@@ -131,10 +131,12 @@ export function ContentTextItem({ decodedJwt, item }) {
     <li
       className={`${
         decodedJwt?.id === item.senderId ? `self-start` : `self-end`
-      } max-w-[80%] py-2 px-6 rounded-2xl flex flex-col gap-2 bg-white shadow-sm `}
+      } max-w-[80%] py-2 px-4 rounded-lg justify-between flex gap-2 bg-white shadow-sm `}
     >
-      <p className='text-[0.7rem]'>{item.message}</p>
-      <p className='text-[0.6rem] text-gray-300 self-start'>
+      <p className='max-w-[80%] overflow-hidden text-[0.7rem] text-wrap'>
+        {item.message}
+      </p>
+      <p className='text-[0.6rem] text-gray-300 self-end'>
         {momentJalaali(item.createAd).locale('fa').fromNow()}
       </p>
     </li>

@@ -2,7 +2,6 @@ import { useRef, useState } from 'react';
 import { RecycleBin } from '../../globals/Icons';
 
 export default function List({ todos, setTodoItems, todoItems, visiblity }) {
-  console.log(visiblity);
   return (
     <div
       className={`w-full min-h-8 max-h-[300px] overflow-y-scroll flex flex-col items-center gap-2 p-2 self-start ${

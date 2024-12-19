@@ -3,10 +3,15 @@ import { Block, ChevronRight, More, RecycleBin } from '../../globals/Icons';
 import { navTo } from '../../../functions/globals/navTo';
 import { useNavigate, useParams } from 'react-router-dom';
 
+import defaultPrifile from '../../../assets/img/images.png';
 export function ChatHeader({ contactList }) {
   const [chatSettingStatus, setChatSettingStatus] = useState(false);
   const [contact, setContact] = useState();
+
+  const baseURL = import.meta.env.VITE_BASE_URL;
+
   const params = useParams();
+
   useEffect(() => {
     contactList.map((con) => {
       if (con.adId === params.adId) {
@@ -35,12 +40,19 @@ export function ChatHeader({ contactList }) {
     });
   });
   return (
-    <div className='w-full p-3 bg-white  flex justify-between items-center border rounded-3xl'>
+    <div className='w-full p-3   flex justify-between items-center '>
       <div className='flex gap-3 items-center'>
         <div onClick={handleExitChat} className='cursor-pointer'>
           <ChevronRight size={'size-5'} color={'#3b3a3a'} strokeWidth={2} />
         </div>
-        <img className='w-8 h-8 rounded-full bg-gray-100 '></img>
+        {contact?.photo.length > 0 ? (
+          <img
+            src={`${baseURL}/${contact?.photoPath}/${contact?.adId}/${contact?.photo[0].name}`}
+            className='w-10 h-10 rounded-full  '
+          />
+        ) : (
+          <img src={defaultPrifile} className='w-10 h-10 rounded-full  ' />
+        )}{' '}
         <div className='flex flex-col gap-3'>
           <p className='text-[0.8rem] '>{contact && contact?.adName}</p>
           {/* <p className='text-[0.6rem] '></p> */}

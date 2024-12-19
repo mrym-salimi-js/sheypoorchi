@@ -6,7 +6,7 @@ import { useParams } from 'react-router-dom';
 import Menu from '../../components/user/menu/Menu';
 
 export default function MyAccount() {
-  const userToken = Cookies.get('user-Token');
+  const userToken = Cookies.get('user-token');
   const [pvShow, setPvShow] = useState(false);
   const [contactList, setContactList] = useState();
   const params = useParams();
@@ -20,9 +20,16 @@ export default function MyAccount() {
   return (
     <div className='w-full h-full  bg-gray-50 flex flex-col gap-5 px-3 md:px-7 items-end '>
       <Menu />
-      <div className='w-[98%] sm:w-[85%] h-full relative flex flex-col gap-6 items-center justify-center mb-14 p-2'>
+      <div className='w-full  h-full md:w-[66%]  lg:w-[76%] xl:w-[81%]  p-4'>
         {/*Chat Box */}
-        <div className='w-full flex lg:w-[80%] relative gap-3 overflow-hidden mt-5'>
+        <div className='w-full h-full flex bg-white rounded-3xl border relative  overflow-hidden '>
+          {/*Chat PV*/}
+          <ChatPV
+            userToken={userToken}
+            pvShow={pvShow}
+            setPvShow={setPvShow}
+            contactList={contactList}
+          />
           {/*Contacts List */}
           <ContactsList
             setContactList={setContactList}
@@ -30,13 +37,6 @@ export default function MyAccount() {
             userToken={userToken}
             pvShow={pvShow}
             setPvShow={setPvShow}
-          />
-          {/*Chat PV*/}
-          <ChatPV
-            userToken={userToken}
-            pvShow={pvShow}
-            setPvShow={setPvShow}
-            contactList={contactList}
           />
         </div>
       </div>

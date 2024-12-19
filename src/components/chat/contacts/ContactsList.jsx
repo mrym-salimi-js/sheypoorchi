@@ -5,7 +5,6 @@ import { getAd } from '../../../services/getAd';
 import { useParams } from 'react-router-dom';
 
 export default function ContactsList({
-  userToken,
   pvShow,
   setPvShow,
   setContactList,
@@ -24,9 +23,10 @@ export default function ContactsList({
         const contectList = await axios.get(
           `${baseURL}/api/chat/chatContacts`,
           {
-            headers: {
-              Authorization: `Bearer ${userToken}`,
-            },
+            // headers: {
+            //   Authorization: `Bearer ${userToken}`,
+            // },
+            withCredentials: true,
           }
         );
         // console.log(contectList.data);
@@ -50,22 +50,24 @@ export default function ContactsList({
           adId: res.data._id,
           adName: res.data.title,
           createAd: res.data.createAd,
+          photoPath: 'img',
           photo: res.data.photo,
         },
       ]);
     };
-
     params?.adId && getAdById();
   }, []);
 
   useEffect(() => {
-    const conList = contacts.concat(newContact);
-    setContactList(conList);
-  }, [contacts, newContact]);
+    const isExistContact = contactList?.find((con) => {
+      return con._id === newContact?.adId && true;
+    });
 
+    !isExistContact && setContactList(contacts.concat(newContact));
+  }, [contacts, newContact]);
   return (
     <div
-      className={`p-2 h-[445px] gap-2 overflow-scroll border rounded-3xl bg-white ${
+      className={`p-2 h-full gap-2 overflow-scroll border-r bg-white ${
         pvShow
           ? `hidden lg:w-[30%] lg:flex lg:flex-col `
           : `w-full lg:w-[30%] flex flex-col `

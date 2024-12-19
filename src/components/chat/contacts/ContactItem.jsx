@@ -3,8 +3,12 @@ import momentJalaali from 'moment-jalaali';
 momentJalaali.loadPersian({ usePersianDigits: true });
 import { useNavigate } from 'react-router-dom';
 import { navTo } from '../../../functions/globals/navTo';
+
+import defaultPrifile from '../../../assets/img/images.png';
+
 export function ContactItem({ index, contactName, contact }) {
   const navigateTo = useNavigate();
+  const baseURL = import.meta.env.VITE_BASE_URL;
   // Open Chat PV
   const handleOpenChat = (id) => {
     navTo(`/myAccount/messages/${id}`, '', navigateTo);
@@ -16,8 +20,15 @@ export function ContactItem({ index, contactName, contact }) {
         key={index}
         className='w-full border rounded-3xl p-1 cursor-pointer'
       >
-        <div className='w-full  p-3 flex gap-4 rounded-3xl transition-all hover:bg-gray-50  items-center'>
-          <img className='w-14 h-12 rounded-full bg-gray-100 '></img>
+        <div className='w-full  p-3 flex gap-2 rounded-3xl transition-all hover:bg-gray-50  items-center'>
+          {contact.photo.length > 0 ? (
+            <img
+              src={`${baseURL}/${contact.photoPath}/${contact.adId}/${contact.photo[0].name}`}
+              className='w-14 h-14 rounded-full  '
+            />
+          ) : (
+            <img src={defaultPrifile} className='w-14 h-14 rounded-full  ' />
+          )}
           <div className='w-[95%] flex flex-col items-start gap-3'>
             <p ref={contactName} className='text-[0.7rem] '>
               {contact.adName}

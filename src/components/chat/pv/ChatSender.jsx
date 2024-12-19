@@ -21,7 +21,7 @@ export default function ChatSender({
     }
   };
   return (
-    <div className='w-full h-14 flex relative bg-white items-center gap-4 p-3 border rounded-3xl'>
+    <div className='w-full h-14 flex relative items-center gap-4 p-3 '>
       <div className='cursor-pointer absolute h-4 top-4  self-center'>
         <LinkFile size={'size-6 z-0'} color={'#93617f'} />
         <input

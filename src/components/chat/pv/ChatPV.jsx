@@ -8,6 +8,7 @@ import { ChatHeader } from './ChatHeader';
 import { ChatContent } from './ChatContent';
 import ChatSender from './ChatSender';
 import { useParams } from 'react-router-dom';
+import { getAd } from '../../../services/getAd';
 
 export default function ChatPV({ userToken, pvShow, contactList }) {
   const decodedJwt = userToken && jwtDecode(userToken);
@@ -24,7 +25,7 @@ export default function ChatPV({ userToken, pvShow, contactList }) {
 
   const baseURL = import.meta.env.VITE_BASE_URL;
   // Backend url
-  const socket = io(baseURL);
+  const socket = io(`${baseURL}`);
 
   // Get Each Message Text By every Sending
   useEffect(() => {
@@ -70,9 +71,10 @@ export default function ChatPV({ userToken, pvShow, contactList }) {
       const msgList = await axios.get(
         `${baseURL}/api/chat/chatMessages/${adId}`,
         {
-          headers: {
-            Authorization: `Bearer ${userToken}`,
-          },
+          // headers: {
+          //   Authorization: `Bearer ${userToken}`,
+          // },
+          withCredentials: true,
         }
       );
 
@@ -85,13 +87,33 @@ export default function ChatPV({ userToken, pvShow, contactList }) {
     adId && messages();
   }, [params]);
 
+  // Get User And Reciver Id
+  const [senderId, setSenderId] = useState();
+  const [reciverId, setReciverId] = useState();
+  useEffect(() => {
+    // UserId
+    const getUser = async () => {
+      const user = await axios.get(`${baseURL}/api/users/checkAuth`, {
+        withCredentials: true,
+      });
+      user && setSenderId(user.data.data._id);
+    };
+    getUser();
+
+    // ReciverId
+    const ad = async () => {
+      const ad = await getAd(adId);
+
+      setReciverId(ad.adCreator._id);
+    };
+    adId !== undefined && ad();
+  }, []);
+
   // Send Message
   const handleSendingMsg = () => {
     const files = fileInput.current?.files;
 
-    const senderId = decodedJwt?.id;
     const message = msgInput.current?.value;
-    const reciverId = '67366069f2ee5825d3a4828b';
 
     if (files.length > 0) {
       Object.keys(files).forEach((item) => {
@@ -120,10 +142,10 @@ export default function ChatPV({ userToken, pvShow, contactList }) {
 
   return (
     <div
-      className={` bg-[#ffffff] overflow-hidden p-2 border rounded-3xl ${
+      className={` h-full  overflow-hidden justify-between py-2  ${
         pvShow
-          ? `w-full lg:w-[70%] flex flex-col gap-1`
-          : `hidden lg:w-[70%] lg:flex flex-col gap-1`
+          ? `w-full lg:w-[70%] flex flex-col `
+          : `hidden lg:w-[70%] lg:flex flex-col `
       }`}
     >
       {/* Sending File Protal */}

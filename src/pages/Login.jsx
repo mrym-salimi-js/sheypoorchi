@@ -5,7 +5,6 @@ import axios from 'axios';
 import { navTo } from '../functions/globals/navTo';
 import Cookies from 'js-cookie';
 import AuthForm from '../components/authForm/AuthForm';
-import { userTokenCheck } from '../functions/auth/userTokenCheck';
 import NotifToast from '../components/globals/NotifToast';
 
 export default function Login() {
@@ -19,7 +18,7 @@ export default function Login() {
 
   useEffect(() => {
     document.title = 'ورود کاربر';
-    userTokenCheck(baseURL, navigateTo);
+    // userTokenCheck(baseURL, navigateTo);
   }, []);
 
   const handleLogin = async () => {
@@ -46,15 +45,21 @@ export default function Login() {
     const sendForm = async () => {
       try {
         setLoading(true);
-        const sendForm = await axios.post(`${baseURL}/api/users/login`, {
-          email: inputRefs?.current[0].value,
-          password: inputRefs?.current[1].value,
-        });
+        const sendForm = await axios.post(
+          `${baseURL}/api/users/login`,
+          {
+            email: inputRefs?.current[0].value,
+            password: inputRefs?.current[1].value,
+          },
+          {
+            withCredentials: true,
+          }
+        );
 
         if (sendForm !== undefined) {
           sendForm.data.status === 'success' && Cookies.remove('user-pass'),
-            Cookies.set('user-Token', sendForm.data.token);
-          navTo('/myAccount/dashboard', '', navigateTo);
+            // Cookies.set('user-Token', sendForm.data.token);
+            navTo('/myAccount/dashboard', '', navigateTo);
         }
       } catch (error) {
         setLoading(false);
