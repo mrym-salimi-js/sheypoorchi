@@ -40,7 +40,7 @@ export function ChatContent({
     }
   };
   return (
-    <div className='w-full h-[90%] flex items-end border-t border-b  overflow-hidden  bg-[#528074]'>
+    <div className='w-full h-[90%] flex items-end border-t border-b  overflow-hidden  bg-[#e2e2e2]'>
       <ul
         ref={scrollRef}
         className='w-full h-full p-2 flex flex-col gap-3 items-end overflow-scroll'
@@ -84,12 +84,12 @@ export function ContentFileItem({ decodedJwt, item, handleDownloadFile }) {
       <li
         className={`${
           decodedJwt?.id === item.senderId ? `self-start` : `self-end`
-        } max-w-[80%] h-20 p-2 rounded-lg flex flex-row-reverse gap-3 bg-white shadow-sm `}
+        } max-w-[80%] h-22 p-2 rounded-lg flex flex-row-reverse gap-3 bg-white shadow-sm `}
       >
         {/* File Icin */}
         <a
           onClick={(event) => handleDownloadFile(event)}
-          className=' h-full w-14 rounded-lg bg-gray-200 flex items-center justify-center'
+          className=' h-14 w-14 rounded-lg bg-gray-200 flex items-center justify-center'
           href={`${baseURL}/chat/${item.senderId}-${item.reciverId}-${
             item.adId
           }/${decodeURI(item.message).replace(/ /g, '-')}`}

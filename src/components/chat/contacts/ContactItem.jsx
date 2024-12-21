@@ -18,7 +18,7 @@ export function ContactItem({ index, contactName, contact }) {
       <div
         onClick={() => handleOpenChat(contact.adId)}
         key={index}
-        className='w-full border rounded-3xl p-1 cursor-pointer'
+        className='w-full border rounded-3xl p-1 bg-white cursor-pointer'
       >
         <div className='w-full  p-3 flex gap-2 rounded-3xl transition-all hover:bg-gray-50  items-center'>
           {contact.photo.length > 0 ? (

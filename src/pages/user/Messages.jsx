@@ -11,8 +11,6 @@ export default function MyAccount() {
   const [contactList, setContactList] = useState();
   const params = useParams();
 
-  // contactList && console.log(contactList);
-
   useEffect(() => {
     params && params.adId ? setPvShow(true) : setPvShow(false);
   }, [params]);

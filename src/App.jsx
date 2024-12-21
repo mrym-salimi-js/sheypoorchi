@@ -15,6 +15,8 @@ const NewAd = lazy(() => import('./pages/NewAd'));
 import Dashboard from './pages/user/Dashboard';
 import Profile from './pages/user/Profile';
 import ProtectectedAuth from './components/ProtectectedAuth';
+import MyAds from './pages/user/MyAds';
+import MySavedAds from './pages/user/MySavedAds';
 
 function App() {
   useEffect(() => {
@@ -145,6 +147,22 @@ function App() {
               element={
                 <ProtectectedAuth>
                   <Profile />
+                </ProtectectedAuth>
+              }
+            />
+            <Route
+              path='/myAccount/myAds'
+              element={
+                <ProtectectedAuth>
+                  <MyAds />
+                </ProtectectedAuth>
+              }
+            />
+            <Route
+              path='/myAccount/mySavedAds'
+              element={
+                <ProtectectedAuth>
+                  <MySavedAds />
                 </ProtectectedAuth>
               }
             />

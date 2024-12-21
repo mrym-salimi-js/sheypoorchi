@@ -67,7 +67,7 @@ export default function ContactsList({
   }, [contacts, newContact]);
   return (
     <div
-      className={`p-2 h-full gap-2 overflow-scroll border-r bg-white ${
+      className={`p-2 h-full gap-2 overflow-scroll border-r bg-[rgb(43,58,62)] ${
         pvShow
           ? `hidden lg:w-[30%] lg:flex lg:flex-col `
           : `w-full lg:w-[30%] flex flex-col `

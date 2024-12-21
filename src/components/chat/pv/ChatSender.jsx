@@ -41,7 +41,7 @@ export default function ChatSender({
           className=' w-[90%] text-sm text-gray-400 outline-none'
         />
         <div className='cursor-pointer' onClick={handleSendingMsg}>
-          <Send size={'size-6'} color={'#84105C'} />
+          <Send size={'size-6'} color={'#59b39b'} />
         </div>
       </div>
     </div>

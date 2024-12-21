@@ -66,18 +66,18 @@ export default function MenuItems() {
         </p>
       </Link>
       <Link
-        to={'/myAccount/seaved'}
+        to={'/myAccount/mySavedAds'}
         className='w-[95%] transition-all cursor-pointer rounded-2xl p-3 hover:bg-[#2277606f] flex gap-4 items-center'
       >
         <Saved
           color={
-            locationUrl.pathname.includes('/seaved') ? '#ffffff' : '#227760'
+            locationUrl.pathname.includes('/mySavedAds') ? '#ffffff' : '#227760'
           }
           size={'size-5'}
         />
         <p
           className={`text-sm ${
-            locationUrl.pathname.includes('/seaved')
+            locationUrl.pathname.includes('/mySavedAds')
               ? `text-white`
               : `text-[#227760]`
           } `}
