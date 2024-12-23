@@ -35,8 +35,8 @@ export function EntryChangesBtn() {
         onClick={handleLocationCookie}
         className={
           allCheckedBoxes?.length > 0 || deleteAllBtnClicked
-            ? 'hover:opacity-[0.8] outline-none text-white bg-[#84105C] rounded-lg text-sm '
-            : 'text-gray-300 bg-gray-100 rounded-lg text-sm hover:opacity-[0.8] outline-none cursor-not-allowed'
+            ? 'hover:opacity-[0.8] w-20 p-3 outline-none text-white bg-[#84105C] rounded-lg text-sm '
+            : 'text-gray-300 w-20 p-3 bg-gray-100 rounded-lg text-sm hover:opacity-[0.8] outline-none cursor-not-allowed'
         }
       >
         تایید
@@ -44,7 +44,7 @@ export function EntryChangesBtn() {
 
       <button
         onClick={() => setOpenLocation('opaciti-0 invisible')}
-        className=' border  bg-gray-200 rounded-lg text-sm'
+        className='w-20 border p-3  bg-gray-200 rounded-lg text-sm'
       >
         انصراف
       </button>

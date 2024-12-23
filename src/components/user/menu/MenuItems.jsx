@@ -70,7 +70,7 @@ export default function MenuItems() {
         className='w-[95%] transition-all cursor-pointer rounded-2xl p-3 hover:bg-[#2277606f] flex gap-4 items-center'
       >
         <Saved
-          color={
+          fill={
             locationUrl.pathname.includes('/mySavedAds') ? '#ffffff' : '#227760'
           }
           size={'size-5'}

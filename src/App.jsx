@@ -103,8 +103,22 @@ function App() {
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/s/iran' element={<Home />} />
-            <Route path='/register' element={<Register />} />
-            <Route path='/login' element={<Login />} />
+            <Route
+              path='/register'
+              element={
+                <ProtectectedAuth>
+                  <Register />
+                </ProtectectedAuth>
+              }
+            />
+            <Route
+              path='/login'
+              element={
+                <ProtectectedAuth>
+                  <Login />
+                </ProtectectedAuth>
+              }
+            />
             <Route path='/forgetPassword' element={<ForgetPassword />} />
             <Route path='/resetPassword/:token' element={<ResetPassword />} />
             <Route path='/s/iran?cities=:location' element={<Home />} />

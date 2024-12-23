@@ -1,4 +1,5 @@
 import { Speaker } from './Icons';
+import ThreePointsLoading from './ThreePointsLoading';
 
 export default function PageLoading() {
   return (
@@ -9,11 +10,7 @@ export default function PageLoading() {
             <Speaker color={'#84105C'} size={'size-8'} />
             <h2 className='text-[#5d1142]'>شیپورچی</h2>
           </div>
-          <div className='flex gap-1  '>
-            <div className='h-6 w-6 bg-[#cd7fb1] rounded-full animate-bounce [animation-delay:-0.3s]'></div>
-            <div className='h-6 w-6 bg-[#cd7fb0bf] rounded-full animate-bounce [animation-delay:-0.15s]'></div>
-            <div className='h-6 w-6 bg-[#cd7fb098] rounded-full animate-bounce'></div>
-          </div>
+          <ThreePointsLoading />
         </div>
       </div>
     </>

@@ -3,8 +3,9 @@ import { SingleContext } from '../../../pages/Single';
 import { navTo } from '../../../functions/globals/navTo';
 import { useNavigate } from 'react-router-dom';
 import defaultProfile from '../../../assets/img/images.png';
+import axios from 'axios';
 export function Connections() {
-  const { _id, adCreator } = useContext(SingleContext);
+  const { _id, adCreator, setSaved } = useContext(SingleContext);
   const navigateTo = useNavigate();
   const [userProf, setUserPrpf] = useState();
 
@@ -13,11 +14,15 @@ export function Connections() {
     const getProf = async () => {
       const response = await fetch(`${baseURL}/api/users/${adCreator._id}`);
       setUserPrpf(response.status);
+
+      const user = await axios.get(`${baseURL}/api/users/me`, {
+        withCredentials: true,
+      });
+      user && user.data.data.savedAd.includes(_id) && setSaved(true);
     };
     getProf();
   }, []);
 
-  // console.log(userProf && userProf != 404);
   const handleChat = () => {
     navTo(`/myAccount/messages/${_id}`, null, navigateTo);
   };

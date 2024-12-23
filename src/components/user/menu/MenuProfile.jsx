@@ -1,6 +1,3 @@
-import { Link } from 'react-router-dom';
-import { Pencil } from '../../globals/Icons';
-
 import defaultProfile from '../../../assets/img/images.png';
 export default function MenuProfile() {
   return (
@@ -11,12 +8,6 @@ export default function MenuProfile() {
           src={defaultProfile}
         ></img>
         <p className='text-sm text-white'>مریم سلیمی</p>
-        <Link
-          to={'/myAccount/myProfile'}
-          className=' cursor-pointer flex items-center'
-        >
-          <Pencil color={'#227760'} size={'size-6'} />
-        </Link>
       </div>
     </div>
   );

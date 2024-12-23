@@ -73,7 +73,7 @@ export default function ContactsList({
           : `w-full lg:w-[30%] flex flex-col `
       }`}
     >
-      {contactList &&
+      {contactList !== undefined || contactList?.length > 0 ? (
         contactList?.map((contact, index) => {
           return (
             <ContactItem
@@ -84,19 +84,10 @@ export default function ContactsList({
               setPvShow={setPvShow}
             />
           );
-        })}
-      {/* {newContact.length > 0 &&
-        newContact.map((newCon, index) => {
-          return (
-            <ContactItem
-              key={index}
-              index={index}
-              contactName={contactName}
-              contact={newCon}
-              setPvShow={setPvShow}
-            />
-          );
-        })} */}
+        })
+      ) : (
+        <p className='text-md text-gray-50 text-center'>پیامی یافت نشد :(</p>
+      )}
     </div>
   );
 }

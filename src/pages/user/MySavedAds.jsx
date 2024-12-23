@@ -4,25 +4,37 @@ import { AdCart } from '../../components/advertisements/AdCart';
 import axios from 'axios';
 import { Plus } from '../../components/globals/Icons';
 import { Link } from 'react-router-dom';
+import { getAd } from '../../services/getAd';
+import ThreePointsLoading from '../../components/globals/ThreePointsLoading';
 
 export default function MySavedAds() {
   const baseURL = import.meta.env.VITE_BASE_URL;
-  const [myAds, setMyAds] = useState([]);
+  const [mySaved, setMySaved] = useState([]);
+  const [loading, setLoading] = useState(false);
   useEffect(() => {
     const getMyAds = async () => {
-      const ads = await axios.get(`${baseURL}/api/users/myAds`, {
+      setLoading(true);
+      const savedAdIds = await axios.get(`${baseURL}/api/users/me`, {
         withCredentials: true,
       });
-      ads && setMyAds(ads.data.data);
+
+      if (savedAdIds || savedAdIds.data.data.savedAd) {
+        savedAdIds.data.data.savedAd.forEach(async (i) => {
+          const ad = await getAd(i);
+          setMySaved((prev) => [...prev, ad.data]);
+        });
+        setLoading(false);
+      }
     };
     getMyAds();
   }, []);
+
   return (
     <div className='w-full h-full bg-gray-50 flex flex-col gap-5 px-3 lg:px-7 items-end '>
       <Menu />
-      <div className='w-full h-full md:w-[66%]  lg:w-[76%] xl:w-[81%] p-2 pt-6 flex flex-col items-center gap-24'>
+      <div className='w-full  h-full md:w-[66%]  lg:w-[76%] xl:w-[81%] p-2 pt-6 flex flex-col items-center gap-24'>
         {/* Header */}
-        <div className='w-[98%] h-40 rounded-3xl shadow-sm bg-[rgb(206,198,164)] '>
+        <div className='w-[98%] h-40 sticky top-6 z-50 rounded-3xl shadow-sm bg-[rgb(206,198,164)] '>
           <p className='w-full mt-16 text-center text-gray-50 text-md'>
             آگهی های ذخیره شده
           </p>
@@ -38,10 +50,19 @@ export default function MySavedAds() {
         </div>
         <div className='w-full h-auto  overflow-x-scroll p-8 px-4 bg-white rounded-3xl border'>
           <div className='w-auto h-auto flex gap-3 gap-y-10 mt-4 justify-start'>
-            {myAds.length > 0 &&
-              myAds.map((ad) => {
-                return <AdCart key={ad._id} adItem={ad} />;
-              })}
+            {loading ? (
+              <div className='w-full flex items-center justify-center'>
+                <ThreePointsLoading />
+              </div>
+            ) : mySaved.length > 0 ? (
+              mySaved?.map((ad, index) => {
+                return <AdCart key={index} adItem={ad} />;
+              })
+            ) : (
+              <p className='w-full text-center text-md text-gray-200'>
+                آگهی یافت نشد :(
+              </p>
+            )}
           </div>
         </div>
       </div>

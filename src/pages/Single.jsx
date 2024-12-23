@@ -49,6 +49,8 @@ export function SingleAdDetails({ singleAd, adCreator }) {
   const visibleThumbnailNumber = 4;
   const navigateTo = useNavigate();
 
+  const [saved, setSaved] = useState();
+
   const [photoFullScreen, setPhotoFullScreen] = useState(false);
   const [cost, setCost] = useState([]);
   const {
@@ -97,6 +99,8 @@ export function SingleAdDetails({ singleAd, adCreator }) {
         createAd,
         cost,
         _id,
+        saved,
+        setSaved,
       }}
     >
       <div className='w-full p-3 lg:w-[80%]  flex flex-col justify-between relative pb-24'>

@@ -24,7 +24,7 @@ export default function FullScreenGallery() {
   return (
     <>
       {photoFullScreen && (
-        <div className='w-full h-full flex items-center justify-center absolute top-0 right-0 z-[10000] bg-[#2222228a]'>
+        <div className='w-full h-full flex items-center justify-center fixed top-0 right-0 z-[10000] bg-[#2222228a]'>
           <div className='btn-parent w-8 h-8 flex items-center justify-center rounded-full bg-[#454545a5] absolute left-6 top-6 cursor-pointer hover:opacity-[0.7] z-50'>
             <CloseMark
               handleClosing={handleClosing}
