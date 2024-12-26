@@ -18,9 +18,9 @@ export function ContactItem({ index, contactName, contact }) {
       <div
         onClick={() => handleOpenChat(contact.adId)}
         key={index}
-        className='w-full border rounded-3xl p-1 bg-white cursor-pointer'
+        className='w-full border-b-[1px] border-gray-600 p-1  cursor-pointer'
       >
-        <div className='w-full  p-3 flex gap-2 rounded-3xl transition-all hover:bg-gray-50  items-center'>
+        <div className='w-full  p-3 flex gap-2 transition-all hover:opacity-[0.8]  items-center'>
           {contact.photo.length > 0 ? (
             <img
               src={`${baseURL}/${contact.photoPath}/${contact.adId}/${contact.photo[0].name}`}
@@ -30,7 +30,7 @@ export function ContactItem({ index, contactName, contact }) {
             <img src={defaultPrifile} className='w-14 h-14 rounded-full  ' />
           )}
           <div className='w-[95%] flex flex-col items-start gap-3'>
-            <p ref={contactName} className='text-[0.7rem] '>
+            <p ref={contactName} className='text-[0.7rem] text-gray-50 '>
               {contact.adName}
             </p>
             <p className='text-[0.7rem] text-gray-200 self-end'>

@@ -5,15 +5,18 @@ export default function Setter({ todoItems, setTodoItems }) {
   const textAreaRef = useRef();
   const handleSetTodo = () => {
     const text = textAreaRef.current?.value;
-    const allTodos = todoItems
-      ? [
-          ...todoItems,
-          { id: todoItems?.length + 1, text: text, blocked: false },
-        ]
-      : [{ text: text, blocked: false }];
+
+    const allTodos =
+      text.trim().length > 0
+        ? todoItems
+          ? [
+              ...todoItems,
+              { id: todoItems?.length + 1, text: text, blocked: false },
+            ]
+          : [{ text: text, blocked: false }]
+        : todoItems;
 
     localStorage.setItem('todoItems', JSON.stringify(allTodos));
-
     setTodoItems(allTodos);
     textAreaRef.current.value = '';
   };

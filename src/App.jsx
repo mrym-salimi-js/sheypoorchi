@@ -135,7 +135,7 @@ function App() {
             <Route
               path='/myAccount/messages'
               element={
-                <ProtectectedAuth>
+                <ProtectectedAuth path={'messages'}>
                   <Messages />
                 </ProtectectedAuth>
               }
@@ -143,7 +143,7 @@ function App() {
             <Route
               path='/myAccount/messages/:adId'
               element={
-                <ProtectectedAuth>
+                <ProtectectedAuth path={'messages'}>
                   <Messages />
                 </ProtectectedAuth>
               }
@@ -151,7 +151,7 @@ function App() {
             <Route
               path='/myAccount/dashboard'
               element={
-                <ProtectectedAuth>
+                <ProtectectedAuth path={'dashboard'}>
                   <Dashboard />
                 </ProtectectedAuth>
               }
@@ -159,7 +159,7 @@ function App() {
             <Route
               path='/myAccount/myProfile'
               element={
-                <ProtectectedAuth>
+                <ProtectectedAuth path={'myProfile'}>
                   <Profile />
                 </ProtectectedAuth>
               }
@@ -167,7 +167,7 @@ function App() {
             <Route
               path='/myAccount/myAds'
               element={
-                <ProtectectedAuth>
+                <ProtectectedAuth path={'myAds'}>
                   <MyAds />
                 </ProtectectedAuth>
               }
@@ -175,7 +175,7 @@ function App() {
             <Route
               path='/myAccount/mySavedAds'
               element={
-                <ProtectectedAuth>
+                <ProtectectedAuth path={'mySavedAds'}>
                   <MySavedAds />
                 </ProtectectedAuth>
               }

@@ -3,7 +3,7 @@ import { navTo } from '../functions/globals/navTo';
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 
-export default function ProtectectedAuth({ children }) {
+export default function ProtectectedAuth({ path, children }) {
   const baseURL = import.meta.env.VITE_BASE_URL;
   const navigateTo = useNavigate();
   useEffect(() => {
@@ -12,7 +12,7 @@ export default function ProtectectedAuth({ children }) {
         await axios.get(`${baseURL}/api/users/checkAuth`, {
           withCredentials: true,
         });
-        navTo('/myAccount/dashboard', '', navigateTo);
+        navTo(`/myAccount/${path}`, '', navigateTo);
       } catch (error) {
         error && navTo('/login', '', navigateTo);
       }
