@@ -6,27 +6,25 @@ export default function MenuItems() {
   return (
     <div className='w-full h-[22rem] flex flex-col items-center gap-4 px-10'>
       <Link
-        to={'/myAccount/dashboard'}
+        to={'/dashboard'}
         className='w-[95%] transition-all cursor-pointer rounded-2xl p-3 hover:bg-[#2277606f] flex gap-4 items-center'
       >
         <Home
-          color={
-            locationUrl.pathname.includes('/dashboard') ? '#ffffff' : '#227760'
-          }
+          color={locationUrl.pathname === '/dashboard' ? '#ffffff' : '#227760'}
           size={'size-5'}
         />
         <p
           className={`text-sm ${
-            locationUrl.pathname.includes('/dashboard')
+            locationUrl.pathname === '/dashboard'
               ? `text-white`
               : `text-[#227760]`
           } `}
         >
-          داشبورد
+          پیشخوان
         </p>
       </Link>
       <Link
-        to={'/myAccount/myProfile'}
+        to={'/dashboard/myProfile'}
         className='w-[95%] transition-all cursor-pointer rounded-2xl p-3 hover:bg-[#2277606f] flex gap-4 items-center'
       >
         <User
@@ -46,7 +44,7 @@ export default function MenuItems() {
         </p>
       </Link>
       <Link
-        to={'/myAccount/myAds'}
+        to={'/dashboard/myAds'}
         className='w-[95%] transition-all cursor-pointer rounded-2xl p-3 hover:bg-[#2277606f] flex gap-4 items-center'
       >
         <Speaker
@@ -66,7 +64,7 @@ export default function MenuItems() {
         </p>
       </Link>
       <Link
-        to={'/myAccount/mySavedAds'}
+        to={'/dashboard/mySavedAds'}
         className='w-[95%] transition-all cursor-pointer rounded-2xl p-3 hover:bg-[#2277606f] flex gap-4 items-center'
       >
         <Saved
@@ -86,7 +84,7 @@ export default function MenuItems() {
         </p>
       </Link>
       <Link
-        to={'/myAccount/messages'}
+        to={'/dashboard/messages'}
         className='w-[95%] transition-all cursor-pointer rounded-2xl p-3 hover:bg-[#2277606f] flex gap-4 items-center'
       >
         <Chat

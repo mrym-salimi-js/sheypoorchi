@@ -10,33 +10,31 @@ import { useNavigate, useParams } from 'react-router-dom';
 import NavBar from '../components/NavBar';
 import { getCost } from '../functions/advertisements/getCost';
 import { navTo } from '../functions/globals/navTo';
+import { useQuery } from '@tanstack/react-query';
+import PageLoading from '../components/globals/PageLoading';
 
 export const SingleContext = createContext();
 
 export default function Single() {
-  const [singleAd, setSingleAd] = useState();
-  const [adCreator, setAdcreator] = useState();
   const params = useParams();
+  const id = params.id;
+  const { data, error, isLoading } = useQuery({
+    queryKey: ['ad', id],
+    queryFn: () => getAd(id),
+  });
 
-  useEffect(() => {
-    const getSingleAd = async () => {
-      const response = await getAd(params.id);
-      response.status === 'success' && setSingleAd(response.data),
-        setAdcreator(response.adCreator);
-    };
-
-    getSingleAd();
-  }, []);
+  error && console.log(error);
 
   return (
     <>
-      {singleAd &&
-        [singleAd].map((item) => {
+      {isLoading && <PageLoading />}
+      {data &&
+        [data.data].map((item) => {
           return (
             <SingleAdDetails
               singleAd={item}
               key={item._id}
-              adCreator={adCreator}
+              adCreator={data.adCreator}
             />
           );
         })}

@@ -106,7 +106,7 @@ function App() {
             <Route
               path='/register'
               element={
-                <ProtectectedAuth>
+                <ProtectectedAuth path={'dashboard'}>
                   <Register />
                 </ProtectectedAuth>
               }
@@ -114,7 +114,7 @@ function App() {
             <Route
               path='/login'
               element={
-                <ProtectectedAuth>
+                <ProtectectedAuth path={'dashboard'}>
                   <Login />
                 </ProtectectedAuth>
               }
@@ -133,7 +133,7 @@ function App() {
             <Route path='/v/:id/:title' element={<Single />} />
 
             <Route
-              path='/myAccount/messages'
+              path='/dashboard/messages'
               element={
                 <ProtectectedAuth path={'messages'}>
                   <Messages />
@@ -141,7 +141,7 @@ function App() {
               }
             />
             <Route
-              path='/myAccount/messages/:adId'
+              path='/dashboard/messages/:adId'
               element={
                 <ProtectectedAuth path={'messages'}>
                   <Messages />
@@ -149,7 +149,7 @@ function App() {
               }
             />
             <Route
-              path='/myAccount/dashboard'
+              path='/dashboard'
               element={
                 <ProtectectedAuth path={'dashboard'}>
                   <Dashboard />
@@ -157,7 +157,7 @@ function App() {
               }
             />
             <Route
-              path='/myAccount/myProfile'
+              path='/dashboard/myProfile'
               element={
                 <ProtectectedAuth path={'myProfile'}>
                   <Profile />
@@ -165,7 +165,7 @@ function App() {
               }
             />
             <Route
-              path='/myAccount/myAds'
+              path='/dashboard/myAds'
               element={
                 <ProtectectedAuth path={'myAds'}>
                   <MyAds />
@@ -173,7 +173,7 @@ function App() {
               }
             />
             <Route
-              path='/myAccount/mySavedAds'
+              path='/dashboard/mySavedAds'
               element={
                 <ProtectectedAuth path={'mySavedAds'}>
                   <MySavedAds />
