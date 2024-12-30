@@ -119,7 +119,7 @@ export function ContentFileItem({ decodedJwt, item, handleDownloadFile }) {
             </p>
           </div>
           <p className='text-[0.6rem] text-gray-300 self-start '>
-            {momentJalaali(item.createAd).locale('fa').fromNow()}
+            {momentJalaali(item.createAt).locale('fa').fromNow()}
           </p>
         </div>
       </li>
@@ -137,7 +137,7 @@ export function ContentTextItem({ decodedJwt, item }) {
         {item.message}
       </p>
       <p className='text-[0.6rem] text-gray-300 self-end'>
-        {momentJalaali(item.createAd).locale('fa').fromNow()}
+        {momentJalaali(item.createAt).locale('fa').fromNow()}
       </p>
     </li>
   );

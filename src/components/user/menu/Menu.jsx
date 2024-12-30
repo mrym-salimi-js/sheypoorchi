@@ -3,7 +3,7 @@ import MenuProfile from './MenuProfile';
 import MenuItems from './MenuItems';
 import { CherveLeftDouble, Speaker } from '../../globals/Icons';
 
-export default function Menu() {
+export default function Menu({ photo }) {
   const [openMenu, setOpenMenu] = useState('translate-x-[85%]');
   const handleOpeningMenu = () => {
     openMenu.includes('translate-x-0')
@@ -26,7 +26,7 @@ export default function Menu() {
               <Speaker color={'#227760'} size={'size-6'} />
               <p className='text-[#227760] text-md'>شیپورچی</p>
             </a>
-            <MenuProfile />
+            <MenuProfile photo={photo} />
           </div>
           {/* Menu Items */}
           <MenuItems />

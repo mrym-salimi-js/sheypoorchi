@@ -32,7 +32,7 @@ export default function Header({ userInfo, setUserInfo }) {
 
   return (
     <div className='w-[98%] h-40 sticky top-6 z-50 rounded-3xl shadow-sm bg-[rgb(169,206,173)] '>
-      <p className='w-full mt-16 text-center text-gray-50 text-md'>
+      <p className='w-full relative bottom-[20px] md:bottom-0 mt-16 text-center text-gray-50 text-md'>
         ویرایش اطلاعات حساب کاربری
       </p>
       <div className='w-auto flex gap-12 items-center'>

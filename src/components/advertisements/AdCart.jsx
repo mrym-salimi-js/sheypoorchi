@@ -5,7 +5,7 @@ import { AdCartTextContent } from './AdCartTextContent';
 import { AdCartFooter } from './AdCartFooter';
 
 export function AdCart({ adItem }) {
-  const { attribute, createAd, _id, location, photo, title } = adItem;
+  const { attribute, createAt, _id, location, photo, title } = adItem;
 
   const [cost, setCost] = useState([]);
 
@@ -26,12 +26,12 @@ export function AdCart({ adItem }) {
         <AdCartTextContent
           title={title}
           cost={cost}
-          createAd={createAd}
+          createAt={createAt}
           location={location}
           href={href}
         />
       </div>
-      <AdCartFooter createAd={createAd} location={location} />
+      <AdCartFooter createAt={createAt} location={location} />
     </li>
   );
 }

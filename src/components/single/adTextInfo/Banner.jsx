@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 momentJalaali.loadPersian({ usePersianDigits: true });
 
 export default function Banner() {
-  const { _id, title, location, cost, createAd, setSaved, saved } =
+  const { _id, title, location, cost, createAt, setSaved, saved } =
     useContext(SingleContext);
   const navigatTo = useNavigate();
 
@@ -38,7 +38,7 @@ export default function Banner() {
       </div>
       <div className='w-full flex flex-row-reverse justify-between items-center'>
         <p className='text-sm text-gray-500'>
-          {momentJalaali(createAd).locale('fa').fromNow() +
+          {momentJalaali(createAt).locale('fa').fromNow() +
             ' در ' +
             location[1]?.name}
         </p>

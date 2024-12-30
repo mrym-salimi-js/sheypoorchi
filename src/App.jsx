@@ -7,16 +7,17 @@ import { lazy, Suspense, useEffect } from 'react';
 import { adsLocationsList } from './services/adsLocationsList';
 import ForgetPassword from './pages/ForgetPassword';
 import ResetPassword from './pages/ResetPassword';
-import Messages from './pages/user/Messages';
+// import Messages from './pages/user/Messages';
 import PageLoading from './components/globals/PageLoading';
 const Home = lazy(() => import('./pages/Home'));
 const Single = lazy(() => import('./pages/Single'));
 const NewAd = lazy(() => import('./pages/NewAd'));
-import Dashboard from './pages/user/Dashboard';
-import Profile from './pages/user/Profile';
+// import Dashboard from './pages/user/Dashboard';
+// import Profile from './pages/user/Profile';
 import ProtectectedAuth from './components/ProtectectedAuth';
-import MyAds from './pages/user/MyAds';
-import MySavedAds from './pages/user/MySavedAds';
+// import MyAds from './pages/user/MyAds';
+// import MySavedAds from './pages/user/MySavedAds';
+import Account from './pages/user/Account';
 
 function App() {
   useEffect(() => {
@@ -136,7 +137,7 @@ function App() {
               path='/dashboard/messages'
               element={
                 <ProtectectedAuth path={'messages'}>
-                  <Messages />
+                  <Account />
                 </ProtectectedAuth>
               }
             />
@@ -144,7 +145,7 @@ function App() {
               path='/dashboard/messages/:adId'
               element={
                 <ProtectectedAuth path={'messages'}>
-                  <Messages />
+                  <Account />
                 </ProtectectedAuth>
               }
             />
@@ -152,7 +153,7 @@ function App() {
               path='/dashboard'
               element={
                 <ProtectectedAuth path={'dashboard'}>
-                  <Dashboard />
+                  <Account />
                 </ProtectectedAuth>
               }
             />
@@ -160,7 +161,7 @@ function App() {
               path='/dashboard/myProfile'
               element={
                 <ProtectectedAuth path={'myProfile'}>
-                  <Profile />
+                  <Account />
                 </ProtectectedAuth>
               }
             />
@@ -168,7 +169,7 @@ function App() {
               path='/dashboard/myAds'
               element={
                 <ProtectectedAuth path={'myAds'}>
-                  <MyAds />
+                  <Account />
                 </ProtectectedAuth>
               }
             />
@@ -176,7 +177,7 @@ function App() {
               path='/dashboard/mySavedAds'
               element={
                 <ProtectectedAuth path={'mySavedAds'}>
-                  <MySavedAds />
+                  <Account />
                 </ProtectectedAuth>
               }
             />

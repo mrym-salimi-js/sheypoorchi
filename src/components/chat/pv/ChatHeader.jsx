@@ -13,7 +13,7 @@ export function ChatHeader({ contactList }) {
   const params = useParams();
 
   useEffect(() => {
-    contactList.map((con) => {
+    contactList?.map((con) => {
       if (con.adId === params.adId) {
         setContact(con);
       }
@@ -29,7 +29,7 @@ export function ChatHeader({ contactList }) {
 
   // Close Chat
   const handleExitChat = () => {
-    navTo('/myAccount/messages/', '', navigateTo);
+    navTo('/dashboard/messages/', '', navigateTo);
   };
 
   useEffect(() => {
@@ -40,7 +40,7 @@ export function ChatHeader({ contactList }) {
     });
   });
   return (
-    <div className='w-full p-3   flex justify-between items-center '>
+    <div className='w-full p-3 relative  flex justify-between items-center '>
       <div className='flex gap-3 items-center'>
         <div onClick={handleExitChat} className='cursor-pointer'>
           <ChevronRight size={'size-5'} color={'#3b3a3a'} strokeWidth={2} />

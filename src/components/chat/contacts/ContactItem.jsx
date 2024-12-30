@@ -11,7 +11,7 @@ export function ContactItem({ index, contactName, contact }) {
   const baseURL = import.meta.env.VITE_BASE_URL;
   // Open Chat PV
   const handleOpenChat = (id) => {
-    navTo(`/myAccount/messages/${id}`, '', navigateTo);
+    navTo(`/dashboard/messages/${id}`, '', navigateTo);
   };
   return (
     <>
@@ -34,7 +34,7 @@ export function ContactItem({ index, contactName, contact }) {
               {contact.adName}
             </p>
             <p className='text-[0.7rem] text-gray-200 self-end'>
-              {momentJalaali(contact.createAd).locale('fa').fromNow()}
+              {momentJalaali(contact.createAt).locale('fa').fromNow()}
             </p>
           </div>
         </div>
