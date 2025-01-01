@@ -12,10 +12,11 @@ import { OptionsBtn } from '../components/CategoryPageOptions/OptionsBtn';
 import { Speaker } from '../components/globals/Icons';
 import CategoryPageBreadCrumbs from '../components/breadCrumbs/CategoryPageBreadCrumbs';
 import HomePageBreadCrumb from '../components/breadCrumbs/HomePageBreadCrumb';
-import { navTo } from '../functions/globals/navTo';
-import { getAds } from '../services/getAds';
 import { getAdsByCategory } from '../services/getAdsByCategory';
-import { getAdsByCities } from '../services/getAdsByCities';
+import { getAds } from '../services/getAds';
+import { useQuery } from '@tanstack/react-query';
+import { navTo } from '../functions/globals/navTo';
+import PageLoading from '../components/globals/PageLoading';
 export const HomeContext = createContext();
 
 export default function Home() {
@@ -26,7 +27,6 @@ export default function Home() {
   const [filterFormDisplay, setFilterFormDisplay] = useState(
     'opacity-0 invisible'
   );
-  const [adsList, setAdsList] = useState();
   const [searchedAds, setSearchedAds] = useState();
 
   // const [brandAndModel, setBrandAndModel] = useState();
@@ -35,60 +35,42 @@ export default function Home() {
   const brands = params.brands;
   const model = params.model;
   // Url Search
-  const queryParams = new URLSearchParams(locationUrl.search);
+  const searchParams = new URLSearchParams(locationUrl.search);
+  const queryParams = {};
+  for (const [key, value] of searchParams.entries()) {
+    queryParams[key] = value;
+  }
 
   // Global Url Set In Home Page
   const cookieCitiesInUrl = encodeURIComponent(
     JSON.stringify(cookie['cities'])
   );
 
-  // Get All Ads By every Change category and locationUrl
+  // Get All Ads By every Change category and queryParams
+  const { data: adsList, isLoading } = useQuery({
+    queryKey: ['ads', category, queryParams],
+    queryFn:
+      category || Object.keys(queryParams).length > 0
+        ? async () => await getAdsByCategory(category, searchParams)
+        : async () => await getAds(),
 
-  // const { data, error, isLoading } = useQuery({
-  //   queryKey: ['ads', category, queryParams],
-  //   queryFn: () => getAdsByCategory(category, queryParams),
-  // });
-  // console.log(data, error, isLoading);
-  // data !== undefined && setAdsList(data);
-  useEffect(() => {
-    if (!category) return;
-    const getAdsByUrlChanges = async () => {
-      const response = await getAdsByCategory(category, queryParams);
-      setAdsList(response.data.data);
-    };
-    getAdsByUrlChanges();
-  }, [category, locationUrl]);
-
-  // Get All Ads By First Rendering
-  useEffect(() => {
-    const getAd = async () => {
-      const ads = await getAdsByCities(cookieCitiesInUrl);
-      ads.status === 200 && setAdsList(ads.data.data);
-    };
-    cookie['cities'] && cookie['cities'].length > 0 && getAd();
-
-    if (category) return;
-    const getAdsList = async () => {
-      const response = await getAds();
-      setAdsList(response.data);
-    };
-    getAdsList();
-  }, []);
+    keepPreviousData: true,
+  });
 
   // Nave To After Change  Cities In Cookie
   useEffect(() => {
     if (cookie['cities'] !== undefined && cookie['cities'].length > 0) {
-      queryParams.set('cities', cookieCitiesInUrl);
+      searchParams.set('cities', cookieCitiesInUrl);
 
-      navTo(locationUrl.pathname, queryParams, navigateTo);
+      navTo(locationUrl.pathname, searchParams, navigateTo);
     } else {
-      queryParams.delete('cities');
+      searchParams.delete('cities');
       const pathName = !locationUrl.pathname.includes('/s/iran')
         ? 's/iran'
         : locationUrl.pathname;
-      navTo(pathName, queryParams, navigateTo);
+      navTo(pathName, searchParams, navigateTo);
     }
-  }, [cookie, category]);
+  }, [cookieCitiesInUrl]);
 
   // Set Last Url In LocalStorage Before Change Url
   const mainCat = FindMainCategories();
@@ -121,13 +103,12 @@ export default function Home() {
         locationUrl,
         navigateTo,
         queryParams,
-        // brandAndModel,
-        // setBrandAndModel,
         setSearchedAds,
         adsList,
         cookieCitiesInUrl,
       }}
     >
+      {isLoading && <PageLoading />}
       <div className='w-[98%] sm:w-[87%] h-full absolute flex flex-col gap-6 items-center mb-14  p-2'>
         <Header />
         {category && (

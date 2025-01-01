@@ -21,7 +21,7 @@ export default function ListSupport({
     if (!item) return;
     setSelectedItem(item);
     // Navigate After ad Filter Param in url
-    setOpenList(false);
+    setOpenList('opacity-0 invisible');
     navigateAfterFilter(
       queryParams,
       item,
@@ -43,7 +43,7 @@ export default function ListSupport({
         ? setListItems([filterListTitle, ...list])
         : setListItems(list);
     }
-  }, [filterListTitle]);
+  }, [filterListTitle, openList]);
 
   return (
     <>

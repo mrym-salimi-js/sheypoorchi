@@ -3,7 +3,7 @@ import { CategoryListBtn } from './CategoryListBtn';
 import { FilterBtn } from './FilterBtn';
 import FilterItemBtn from './FilterItemBtn';
 import { FindMainCategories } from '../Category';
-import { useContext, useMemo } from 'react';
+import { useContext, useMemo, useState } from 'react';
 import { HomeContext } from '../../pages/Home';
 import { scrollSlider } from '../../functions/globals/scrollSlider';
 import { setFilteredPrice } from '../../functions/CategoryPageOptions/setFilteredPrice';
@@ -73,63 +73,7 @@ export function OptionsBtn() {
     return res;
   }, [locationUrl]);
 
-  // useEffect(() => {
-  //   // Get And Set Brand And Model
-  //   // setBrandAndModel();
-  //   // mainCategories?.map((item) => {
-  //   //   if (item.name === 'وسایل نقلیه') {
-  //   //     item.children?.map((chItem) => {
-  //   //       chItem.brands.map((bItem) => {
-  //   //         brands !== undefined &&
-  //   //           bItem.slug === `${category}/${brands}` &&
-  //   //           setBrandAndModel(
-  //   //             model !== undefined
-  //   //               ? {
-  //   //                   id: bItem.id,
-  //   //                   title: `${bItem.name}   /   ${model}`,
-  //   //                   slug: `${bItem.slug}/${model}`,
-  //   //                 }
-  //   //               : { id: bItem.id, title: bItem.name, slug: bItem.slug }
-  //   //           );
-  //   //       });
-  //   //     });
-  //   //   }
-  //   // });
-  //   //Get And Set Search Param From Url
-  //   // setFilterItemsList([]);
-  //   // for (let key in searchObject) {
-  //   //   if (key !== 'c' && key !== 'cities') {
-  //   //     const id = key.match(/\d+/g);
-  //   //     mainCategories?.map((item) => {
-  //   //       item.attributes.map((attrItem) => {
-  //   //         attrItem.id == id &&
-  //   //           setFilteredItems(
-  //   //             key,
-  //   //             (stateVal) => setFilterItemsList(stateVal),
-  //   //             id,
-  //   //             attrItem
-  //   //           );
-  //   //       });
-  //   //       item.children?.map((chItem) => {
-  //   //         chItem.attributes?.map((attrChItem) => {
-  //   //           attrChItem.id == id &&
-  //   //             setFilteredItems(
-  //   //               key,
-  //   //               (stateVal) => setFilterItemsList(stateVal),
-  //   //               id,
-  //   //               attrChItem
-  //   //             );
-  //   //         });
-  //   //       });
-  //   //     });
-  //   //     setFilteredPrice(key, (stateVal) => setFilterItemsList(stateVal));
-  //   //     setFilteredAdPhotoSetItem(key, (stateVal) =>
-  //   //       setFilterItemsList(stateVal)
-  //   //     );
-  //   //   }
-  //   // }
-  // }, [locationUrl]);
-
+  const [sortOptions, setSortOptions] = useState();
   return (
     <div className='w-[99%] h-14 '>
       <div
@@ -138,8 +82,11 @@ export function OptionsBtn() {
       >
         <ul id='places-category-ul' className='w-auto   px-1 flex gap-1 m-0'>
           <FilterBtn />
-          <SortOptionsBtn searchObject={searchObject} />
-          <CategoryListBtn />
+          <SortOptionsBtn
+            sortOptions={sortOptions}
+            searchObject={searchObject}
+          />
+          <CategoryListBtn setSortOptions={setSortOptions} />
           {computedBrandAndModel && (
             <FilterItemBtn
               key={computedBrandAndModel?.id}

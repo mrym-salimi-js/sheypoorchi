@@ -5,7 +5,7 @@ export default function NotifToast({ setNotif, notif }) {
     setNotif({ message: '', status: '' });
   };
   return (
-    <div className='w-full h-auto p-4 flex items-center justify-center fixed z-50'>
+    <div className='w-full h-auto p-4 flex items-center justify-center fixed top-0 m-auto right-0 left-0 z-50'>
       <div
         id='toast-success'
         className='flex  ease-in-out duration-500 items-center justify-between w-full max-w-xs p-4 mb-4 text-gray-500 bg-white rounded-lg shadow dark:text-gray-400 dark:bg-gray-800'

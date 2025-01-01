@@ -5,8 +5,8 @@ import { allCatSortOptions } from '../../functions/adFilters/categorySortOptionT
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Sort } from '../globals/Icons';
 
-export function SortOptionsBtn({ searchObject }) {
-  const [openList, setOpenList] = useState(false);
+export function SortOptionsBtn({ sortOptions, searchObject }) {
+  const [openList, setOpenList] = useState('opacity-0 invisible');
   const navigateTo = useNavigate();
   const locationUrl = useLocation();
   const queryParams = new URLSearchParams(locationUrl.search);
@@ -15,15 +15,14 @@ export function SortOptionsBtn({ searchObject }) {
     slug: 'n',
     id: 11111111,
   });
-  const [sortOptions, setSortOptions] = useState();
 
   const handleSortOptions = () => {
-    setOpenList(!openList);
+    openList.includes('invisible')
+      ? setOpenList('opacity-1 visible')
+      : setOpenList('opacity-0 invisible');
   };
 
   useEffect(() => {
-    setSortOptions(allCatSortOptions);
-
     allCatSortOptions.map((so) => {
       so.slug === searchObject['o'] && setSelectedSO(so);
     });

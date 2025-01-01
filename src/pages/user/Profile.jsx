@@ -3,11 +3,9 @@ import Header from '../../components/user/profile/Header';
 import Tabs from '../../components/user/profile/Tabs';
 import EditInfo from '../../components/user/profile/EditInfo';
 import EditPass from '../../components/user/profile/EditPass';
-// import axios from 'axios';
 
 export default function Profile({ userData }) {
   const [profileTab, setProfileTab] = useState('info');
-  // const baseURL = import.meta.env.VITE_BASE_URL;
   const [userInfo, setUserInfo] = useState();
   // console.log(userInfo);
   return (

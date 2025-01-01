@@ -7,7 +7,7 @@ import { HomeContext } from '../../pages/Home';
 import { FindMainCategories } from '../Category';
 import ListSupport from './ListSupport';
 
-export function CategoryListBtn() {
+export function CategoryListBtn({ setSortOptions }) {
   const { category } = useContext(HomeContext);
   const [selectedCat, setSelectedCat] = useState();
   const [openList, setOpenList] = useState('opacity-0 invisible');
@@ -24,14 +24,17 @@ export function CategoryListBtn() {
       mainCats.map((item) => {
         if (item.slug === category) {
           setSelectedCat({ id: item.id, name: item.name, slug: item.slug });
+          setSortOptions(item.sortOptions);
         }
         item.children?.map((chItem) => {
-          chItem.slug === category &&
+          if (chItem.slug === category) {
             setSelectedCat({
               id: chItem.id,
               name: chItem.name,
               slug: chItem.slug,
             });
+            setSortOptions(chItem.sortOptions);
+          }
         });
       });
     }

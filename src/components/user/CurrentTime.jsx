@@ -14,7 +14,7 @@ export default function CurrentTime() {
   const faDate = date.toLocaleDateString('fa-IR', options);
   const arDate = moment().format('iDD/iMMMM/iYYYY');
 
-  const [time, setTime] = useState();
+  const [time, setTime] = useState('00:00');
 
   useEffect(() => {
     setInterval(() => {
