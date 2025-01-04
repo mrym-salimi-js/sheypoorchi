@@ -16,7 +16,6 @@ export function SubCategory() {
   ];
 
   // Get Cat Items
-
   const computeCatList = useMemo(() => {
     if (mainCategories === undefined) return;
     let res = null;
@@ -45,35 +44,6 @@ export function SubCategory() {
     });
     return res;
   }, [locationUrl]);
-
-  // useEffect(() => {
-  //   if (mainCategories !== undefined) {
-  //     mainCategories.map((item) => {
-  //       if (item.slug === category) {
-  //         setCatList(item.children);
-  //       }
-  //       item.children?.map((chItem) => {
-  //         chItem.slug === category && setCatList(chItem.brands);
-
-  //         chItem.brands?.map((bItem) => {
-  //           if (bItem.slug === `${category}/${brands}`) {
-  //             bItem.attributes.length > 0
-  //               ? bItem.attributes?.map((bAttrItem) => {
-  //                   setCatList(bAttrItem.options);
-  //                 })
-  //               : setCatList([]);
-  //           }
-  //           if (
-  //             locationUrl.pathname ===
-  //             `/s/iran/${category}/${brands}/${encodeURI(model)}`
-  //           ) {
-  //             setCatList([]);
-  //           }
-  //         });
-  //       });
-  //     });
-  //   }
-  // }, [locationUrl]);
 
   const handleShowFilterItem = (filterItem, event) => {
     event.preventDefault();

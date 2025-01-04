@@ -1,29 +1,28 @@
 import { useContext } from 'react';
-import { TextFiledContext } from '../text/TextComponent';
+import { TextFiledContext } from './TextComponent';
 
-export default function LableText() {
+export default function LabelText() {
   const {
     inputShow,
-    adLable,
+    adLabel,
     filterValue,
     itemTitle,
     inputVal,
     newAdStorageValue,
     storagePram,
   } = useContext(TextFiledContext);
-
   return (
     <p
       className={`w-full text-md transition-all absolute bottom-3 ${
-        ((inputShow !== undefined && inputShow === adLable) ||
+        ((inputShow !== undefined && inputShow === adLabel) ||
           filterValue ||
           itemTitle ||
           inputVal ||
-          (newAdStorageValue && newAdStorageValue[storagePram]?.lable)) &&
+          (newAdStorageValue && newAdStorageValue[storagePram]?.label)) &&
         `mb-8 text-sm`
-      }  ${inputShow === adLable && ` text-[#e4aac5]`} `}
+      }  ${inputShow === adLabel && ` text-[#e4aac5]`} `}
     >
-      {adLable}
+      {adLabel}
     </p>
   );
 }

@@ -12,7 +12,7 @@ import { navTo } from '../../../functions/globals/navTo';
 
 export default function InputText() {
   const {
-    adLable,
+    adLabel,
     valueType,
     inputRefs,
     index,
@@ -54,7 +54,7 @@ export default function InputText() {
         (stateVal) => {
           setValidation(stateVal);
         },
-        adLable,
+        adLabel,
         inputVal,
         validation,
         type
@@ -75,7 +75,7 @@ export default function InputText() {
         (stateVal) => {
           setValidation(stateVal);
         },
-        adLable,
+        adLabel,
         validation,
         newAdStorageValue[storagePram]
       );
@@ -85,7 +85,7 @@ export default function InputText() {
         (stateVal) => {
           setValidation(stateVal);
         },
-        adLable,
+        adLabel,
         inputVal,
         validation,
         textLength
@@ -108,7 +108,7 @@ export default function InputText() {
         (stateVal) => {
           setValidation(stateVal);
         },
-        adLable,
+        adLabel,
         validation,
         formInputVal
       );
@@ -122,7 +122,7 @@ export default function InputText() {
 
   return (
     <input
-      data-lable={adLable}
+      data-lable={adLabel}
       type={valueType}
       ref={(el) => {
         inputRefs && (inputRefs.current[index] = el);
@@ -140,7 +140,7 @@ export default function InputText() {
       value={
         newAdStorageValue
           ? typeof newAdStorageValue[storagePram] === 'object'
-            ? newAdStorageValue[storagePram]?.lable
+            ? newAdStorageValue[storagePram]?.name
             : newAdStorageValue[storagePram]
           : itemTitle !== undefined
           ? itemTitle

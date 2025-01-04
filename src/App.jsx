@@ -18,6 +18,8 @@ import ProtectectedAuth from './components/ProtectectedAuth';
 // import MyAds from './pages/user/MyAds';
 // import MySavedAds from './pages/user/MySavedAds';
 import Account from './pages/user/Account';
+import { Provider } from 'react-redux';
+import store from './store/store';
 
 function App() {
   useEffect(() => {
@@ -98,95 +100,100 @@ function App() {
   });
 
   return (
-    <QueryClientProvider client={queryClient}>
-      <BrowserRouter>
-        <Suspense fallback={<PageLoading />}>
-          <Routes>
-            <Route path='/' element={<Home />} />
-            <Route path='/s/iran' element={<Home />} />
-            <Route
-              path='/register'
-              element={
-                <ProtectectedAuth path={'dashboard'}>
-                  <Register />
-                </ProtectectedAuth>
-              }
-            />
-            <Route
-              path='/login'
-              element={
-                <ProtectectedAuth path={'dashboard'}>
-                  <Login />
-                </ProtectectedAuth>
-              }
-            />
-            <Route path='/forgetPassword' element={<ForgetPassword />} />
-            <Route path='/resetPassword/:token' element={<ResetPassword />} />
-            <Route path='/s/iran?cities=:location' element={<Home />} />
-            <Route
-              path='/s/iran/:category?cities=:locations'
-              element={<Home />}
-            />
-            <Route path='/s/iran/:category' element={<Home />} />
-            <Route path='/s/iran/:category/:brands' element={<Home />} />
-            <Route path='/s/iran/:category/:brands/:model' element={<Home />} />
-            <Route path='/newAd' element={<NewAd />} />
-            <Route path='/v/:id/:title' element={<Single />} />
+    <Provider store={store}>
+      <QueryClientProvider client={queryClient}>
+        <BrowserRouter>
+          <Suspense fallback={<PageLoading />}>
+            <Routes>
+              <Route path='/' element={<Home />} />
+              <Route path='/s/iran' element={<Home />} />
+              <Route
+                path='/register'
+                element={
+                  <ProtectectedAuth path={'dashboard'}>
+                    <Register />
+                  </ProtectectedAuth>
+                }
+              />
+              <Route
+                path='/login'
+                element={
+                  <ProtectectedAuth path={'dashboard'}>
+                    <Login />
+                  </ProtectectedAuth>
+                }
+              />
+              <Route path='/forgetPassword' element={<ForgetPassword />} />
+              <Route path='/resetPassword/:token' element={<ResetPassword />} />
+              <Route path='/s/iran?cities=:location' element={<Home />} />
+              <Route
+                path='/s/iran/:category?cities=:locations'
+                element={<Home />}
+              />
+              <Route path='/s/iran/:category' element={<Home />} />
+              <Route path='/s/iran/:category/:brands' element={<Home />} />
+              <Route
+                path='/s/iran/:category/:brands/:model'
+                element={<Home />}
+              />
+              <Route path='/newAd' element={<NewAd />} />
+              <Route path='/v/:id/:title' element={<Single />} />
 
-            <Route
-              path='/dashboard/messages'
-              element={
-                <ProtectectedAuth path={'messages'}>
-                  <Account />
-                </ProtectectedAuth>
-              }
-            />
-            <Route
-              path='/dashboard/messages/:adId'
-              element={
-                <ProtectectedAuth path={'messages'}>
-                  <Account />
-                </ProtectectedAuth>
-              }
-            />
-            <Route
-              path='/dashboard'
-              element={
-                <ProtectectedAuth path={'dashboard'}>
-                  <Account />
-                </ProtectectedAuth>
-              }
-            />
-            <Route
-              path='/dashboard/myProfile'
-              element={
-                <ProtectectedAuth path={'myProfile'}>
-                  <Account />
-                </ProtectectedAuth>
-              }
-            />
-            <Route
-              path='/dashboard/myAds'
-              element={
-                <ProtectectedAuth path={'myAds'}>
-                  <Account />
-                </ProtectectedAuth>
-              }
-            />
-            <Route
-              path='/dashboard/mySavedAds'
-              element={
-                <ProtectectedAuth path={'mySavedAds'}>
-                  <Account />
-                </ProtectectedAuth>
-              }
-            />
+              <Route
+                path='/dashboard/messages'
+                element={
+                  <ProtectectedAuth path={'messages'}>
+                    <Account />
+                  </ProtectectedAuth>
+                }
+              />
+              <Route
+                path='/dashboard/messages/:adId'
+                element={
+                  <ProtectectedAuth path={'messages'}>
+                    <Account />
+                  </ProtectectedAuth>
+                }
+              />
+              <Route
+                path='/dashboard'
+                element={
+                  <ProtectectedAuth path={'dashboard'}>
+                    <Account />
+                  </ProtectectedAuth>
+                }
+              />
+              <Route
+                path='/dashboard/myProfile'
+                element={
+                  <ProtectectedAuth path={'myProfile'}>
+                    <Account />
+                  </ProtectectedAuth>
+                }
+              />
+              <Route
+                path='/dashboard/myAds'
+                element={
+                  <ProtectectedAuth path={'myAds'}>
+                    <Account />
+                  </ProtectectedAuth>
+                }
+              />
+              <Route
+                path='/dashboard/mySavedAds'
+                element={
+                  <ProtectectedAuth path={'mySavedAds'}>
+                    <Account />
+                  </ProtectectedAuth>
+                }
+              />
 
-            {/* <Route path='*' element={<Home />} /> */}
-          </Routes>
-        </Suspense>
-      </BrowserRouter>
-    </QueryClientProvider>
+              {/* <Route path='*' element={<Home />} /> */}
+            </Routes>
+          </Suspense>
+        </BrowserRouter>
+      </QueryClientProvider>
+    </Provider>
   );
 }
 

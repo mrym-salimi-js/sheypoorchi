@@ -2,14 +2,14 @@ import { createContext, useMemo, useState } from 'react';
 import { ChevronLeft } from '../../globals/Icons';
 import SubText from './SubText';
 import InputText from './InputText';
-import LableText from './LableText';
+import LabelText from './LabelText';
 
 export const TextFiledContext = createContext();
 
 export default function TextComponent({
   inputRefs,
   index,
-  adLable,
+  adLabel,
   setNewAdStorageValue,
   newAdStorageValue,
   storagePram,
@@ -32,7 +32,7 @@ export default function TextComponent({
   // Input Focus Settings
   const handleInputShow = (txt) => {
     filedType === 'text'
-      ? (txt.children[0].children[1].focus(), setInputShow(adLable))
+      ? (txt.children[0].children[1].focus(), setInputShow(adLabel))
       : setOpenList('opacity-100 visible');
   };
 
@@ -45,7 +45,7 @@ export default function TextComponent({
     <TextFiledContext.Provider
       value={{
         inputShow,
-        adLable,
+        adLabel,
         filterValue,
         itemTitle,
         inputVal,
@@ -72,14 +72,14 @@ export default function TextComponent({
           onClick={(event) => handleInputShow(event.currentTarget)}
           className={`w-full  border-b flex justify-between items-center relative ${
             inputShow !== undefined &&
-            inputShow === adLable &&
+            inputShow === adLabel &&
             `border-[#e4aac5]`
           } ${
-            validation && validation[`${adLable}`]?.error && `border-[#fc3b3b]`
+            validation && validation[`${adLabel}`]?.error && `border-[#fc3b3b]`
           }`}
         >
           <div className='w-full h-auto flex flex-col '>
-            <LableText />
+            <LabelText />
             <InputText />
           </div>
 

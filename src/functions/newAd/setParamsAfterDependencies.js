@@ -1,6 +1,5 @@
 export function setParamsAfterDependencies(
   setStorageCallback,
-  openList,
   newAdStorageValue,
   storagePram
 ) {

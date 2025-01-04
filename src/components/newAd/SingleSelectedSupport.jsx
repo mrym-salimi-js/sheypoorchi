@@ -1,63 +1,83 @@
 import { useContext, useEffect, useState } from 'react';
 import SingleSelected from '../formFileds/singleSelected/SingleSelected';
 import { NewAdContext } from './NewAdForm';
-import { setParamsAfterDependencies } from '../../functions/newAd/setParamsAfterDependencies';
 import { singleSelectedErrorHandling } from '../../functions/newAd/singleSelectedErrorHandling';
 import { setSingleSelectedAttrsStorage } from '../../functions/newAd/setSingleSelectedAttrsStorage';
-import { setSingleSelectedStorage } from '../../functions/newAd/setSingleSelectedStorage';
+import { useDispatch } from 'react-redux';
+import {
+  updateCategory,
+  updateLocationAfterDependencies,
+  updateCategoryAfterDependencies,
+  updateLocation,
+  updateCategoryAttr,
+} from '../../store/newAdSlice';
 
-export default function SingleSelectedSupport({ lable, allList, storagePram }) {
+export default function SingleSelectedSupport({ label, allList, storagePram }) {
   const {
     setNewAdStorageValue,
     newAdStorageValue,
-    basicNewAdStorage,
     setValidation,
     validation,
+    data,
   } = useContext(NewAdContext);
   const [openList, setOpenList] = useState('opacity-0 invisible');
   const [listItems, setListItems] = useState();
+  const dispatch = useDispatch();
 
   const handleListItems = (item) => {
     if (!item) return;
     //Delete Excludedattributes Of Category
-    if (newAdStorageValue) {
-      for (let key in newAdStorageValue) {
-        item?.excludedAttributes?.length > 0 &&
-          item?.excludedAttributes.map((ex) => {
-            key == ex.attributeID && delete newAdStorageValue[key];
-          });
-      }
-    }
+    // if (newAdStorageValue) {
+    //   for (let key in newAdStorageValue) {
+    //     item?.excludedAttributes?.length > 0 &&
+    //       item?.excludedAttributes.map((ex) => {
+    //         key == ex.attributeID && delete newAdStorageValue[key];
+    //       });
+    //   }
+    // }
 
     //Single Slection Storage Setting
-    setSingleSelectedStorage(
-      (stateVal) => {
-        setNewAdStorageValue(stateVal);
-      },
-      newAdStorageValue,
-      item,
-      storagePram,
-      basicNewAdStorage
-    );
-
-    //Category Attributes Storage Setting
+    if (storagePram === 'category') {
+      dispatch(
+        updateCategory({
+          item,
+        })
+      );
+    }
+    if (storagePram === 'location') {
+      dispatch(
+        updateLocation({
+          item,
+        })
+      );
+    }
     if (storagePram !== 'location') {
-      setSingleSelectedAttrsStorage(
-        (stateVal) => {
-          setNewAdStorageValue(stateVal);
-        },
-        item,
-        storagePram,
-        setOpenList,
-        newAdStorageValue
+      dispatch(
+        updateCategoryAttr({
+          item,
+          storagePram,
+        })
       );
     }
 
+    //Category Attributes Storage Setting
+
+    // setSingleSelectedAttrsStorage(
+    //   (stateVal) => {
+    //     setNewAdStorageValue(stateVal);
+    //   },
+    //   item,
+    //   storagePram,
+    //   setOpenList,
+    //   newAdStorageValue
+    // );
+
     item?.children?.length > 0 && setListItems(item?.children);
+
     item?.districts?.length > 0 && setListItems(item?.districts);
 
     if (
-      (item?.children?.length === 0 && item?.brands?.length === 0) ||
+      item?.children?.length === 0 ||
       (item?.children === undefined &&
         (item?.districts === undefined || item?.districts?.length == 0))
     ) {
@@ -66,14 +86,12 @@ export default function SingleSelectedSupport({ lable, allList, storagePram }) {
   };
 
   useEffect(() => {
-    setParamsAfterDependencies(
-      (storageVal) => {
-        setNewAdStorageValue(storageVal);
-      },
-      openList,
-      newAdStorageValue,
-      storagePram
-    );
+    if (data) {
+      data.category?.dependencies?.length > 1 &&
+        dispatch(updateCategoryAfterDependencies({ data }));
+      data.location?.dependencies?.length > 1 &&
+        dispatch(updateLocationAfterDependencies({ data }));
+    }
 
     singleSelectedErrorHandling(
       (stateVal) => {
@@ -82,7 +100,7 @@ export default function SingleSelectedSupport({ lable, allList, storagePram }) {
       openList,
       newAdStorageValue,
       storagePram,
-      lable,
+      label,
       validation
     );
 
@@ -92,7 +110,7 @@ export default function SingleSelectedSupport({ lable, allList, storagePram }) {
   return (
     <>
       <SingleSelected
-        lable={lable}
+        label={label}
         listItems={listItems}
         setListItems={setListItems}
         storagePram={storagePram}

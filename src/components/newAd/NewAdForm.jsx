@@ -12,6 +12,8 @@ import { FormHeader } from './FormHeader';
 import { SubmiteFormBtn } from './SubmiteFormBtn';
 import { useNavigate } from 'react-router-dom';
 import SingleSelectedSupport from './SingleSelectedSupport';
+import { resetAd } from '../../store/newAdSlice';
+import { useDispatch, useSelector } from 'react-redux';
 
 export const NewAdContext = createContext();
 export function NewAdForm() {
@@ -21,16 +23,8 @@ export function NewAdForm() {
   const [adsLocationList, setAdsLocationsList] = useState();
   const [validation, setValidation] = useState();
   const [newAdStorageValue, setNewAdStorageValue] = useState();
-  const basicNewAdStorage = {
-    category: { dependencies: [], lable: '', id: '' },
-    location: { dependencies: [], lable: '', id: '' },
-    description: '',
-    title: '',
-    photo: [],
-    userType: 'فرد',
-    phone: false,
-    chat: false,
-  };
+  const data = useSelector((state) => state.newAd);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     document.title = 'ثبت آگهی';
@@ -38,11 +32,7 @@ export function NewAdForm() {
     const values = JSON.parse(localStorage.getItem('form-list-values'));
     values && setNewAdStorageValue(values);
 
-    !values &&
-      localStorage.setItem(
-        'form-list-values',
-        JSON.stringify(basicNewAdStorage)
-      );
+    !values && dispatch(resetAd());
 
     const cats = JSON.parse(localStorage.getItem('ads_categories_list'));
     cats && setAdsCategoriesList(cats);
@@ -52,15 +42,15 @@ export function NewAdForm() {
   }, []);
 
   useEffect(() => {
-    newAdStorageValue !== undefined &&
-      localStorage.setItem(
-        'form-list-values',
-        JSON.stringify(newAdStorageValue)
-      );
-  }, [newAdStorageValue]);
+    if (data.active === true) {
+      localStorage.setItem('form-list-values', JSON.stringify(data));
 
-  const adTitleLable = 'عنوان آگهی';
-  const adDescLable = 'توضیحات';
+      setNewAdStorageValue(data);
+    }
+  }, [data]);
+
+  const adTitlelabel = 'عنوان آگهی';
+  const adDesclabel = 'توضیحات';
   const adTitleSubTitle = 'عنوان مناسبی برای آگهی تان وارد کنید.';
   const adDescSubTitle = 'توضیحات مناسبی برای آگهی تان وارد کنید.';
 
@@ -110,7 +100,7 @@ export function NewAdForm() {
       sendingForm();
     }
   }, [formSubmitted]);
-
+  // console.log(newAdStorageValue);
   return (
     <>
       {notifToast.message && (
@@ -121,7 +111,6 @@ export function NewAdForm() {
           value={{
             setNewAdStorageValue,
             newAdStorageValue,
-            basicNewAdStorage,
             setValidation,
             validation,
             catAttr,
@@ -129,6 +118,7 @@ export function NewAdForm() {
             attrs,
             setFormSubmitted,
             formData,
+            data,
           }}
         >
           {/* Form Header*/}
@@ -144,18 +134,18 @@ export function NewAdForm() {
             <div className='lg:w-[47%] p-3 flex flex-col gap-12 '>
               {/* Categories*/}
               <SingleSelectedSupport
-                lable={'دسته بندی'}
+                label={'دسته بندی'}
                 allList={adsCategoriesList}
                 storagePram={'category'}
               />
 
               {/*Categories Attributes*/}
-              {catAttr?.map((item, index) => {
+              {newAdStorageValue?.attribute.map((item, index) => {
                 if (item.type == 1 || item.type == 6 || item.type == 0) {
                   return (
                     <TextComponent
                       key={index}
-                      adLable={item.name}
+                      adLabel={item.label}
                       storagePram={item.id}
                       filedType={'text'}
                       type={'newAd'}
@@ -169,15 +159,15 @@ export function NewAdForm() {
                   return (
                     <SingleSelectedSupport
                       key={index}
-                      lable={item.name}
-                      allList={item.value.options}
+                      label={item.label}
+                      allList={item?.options}
                       storagePram={item.id}
                     />
                   );
                 } else if (item.type == 7) {
                   return (
                     <ToggleSwich
-                      lable={item.name}
+                      label={item.name}
                       storagePram={item.id}
                       key={index}
                       setNewAdStorageValue={setNewAdStorageValue}
@@ -189,7 +179,7 @@ export function NewAdForm() {
 
               {/* Ad Title*/}
               <TextComponent
-                adLable={adTitleLable}
+                adLabel={adTitlelabel}
                 storagePram={'title'}
                 textLength={'short'}
                 subFiled={placeHolder ? placeHolder.title : adTitleSubTitle}
@@ -204,7 +194,7 @@ export function NewAdForm() {
               {/* Ad Description*/}
               {
                 <TextComponent
-                  adLable={adDescLable}
+                  adLabel={adDesclabel}
                   storagePram={'description'}
                   textLength={'long'}
                   subFiled={
@@ -220,33 +210,33 @@ export function NewAdForm() {
               }
               {/* Location*/}
               <SingleSelectedSupport
-                lable={'مکان'}
+                label={'مکان'}
                 allList={adsLocationList}
                 storagePram={'location'}
               />
               {/* Map*/}
-              <Map
-                width={'100%'}
-                lat={
-                  newAdStorageValue?.location.lat
-                    ? newAdStorageValue?.location.lat
-                    : 35.696111
-                }
-                lon={
-                  newAdStorageValue?.location.lon
-                    ? newAdStorageValue?.location.lon
-                    : 51.423056
-                }
-                page={'newAd'}
-                zoom={14}
-                setNewAdStorageValue={setNewAdStorageValue}
-                newAdStorageValue={newAdStorageValue}
-              />
+              {/* <Map
+                  width={'100%'}
+                  lat={
+                    newAdStorageValue?.location.lat
+                      ? newAdStorageValue?.location.lat
+                      : 35.696111
+                  }
+                  lon={
+                    newAdStorageValue?.location.lon
+                      ? newAdStorageValue?.location.lon
+                      : 51.423056
+                  }
+                  page={'newAd'}
+                  zoom={14}
+                  setNewAdStorageValue={setNewAdStorageValue}
+                  newAdStorageValue={newAdStorageValue} */}
+              {/* /> */}
               {/* User Type*/}
               <UserType storagePram={'userType'} />
 
               <ToggleSwich
-                lable='تماس تلفنی'
+                label='تماس تلفنی'
                 desc='با فعال سازی این گزینه، شماره تماس شما در آگهی نمایش داده می شود'
                 storagePram='phone'
                 setNewAdStorageValue={setNewAdStorageValue}
@@ -254,7 +244,7 @@ export function NewAdForm() {
               />
 
               <ToggleSwich
-                lable='چت'
+                label='چت'
                 desc='با فعال سازی این گزینه امکان چت با کاربر برای شما فراهم می شود'
                 storagePram='chat'
                 setNewAdStorageValue={setNewAdStorageValue}

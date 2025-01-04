@@ -2,7 +2,7 @@ import TextComponent from '../text/TextComponent';
 import { List } from './List';
 
 export default function SingleSelected({
-  lable,
+  label,
   setNewAdStorageValue,
   newAdStorageValue,
   storagePram,
@@ -20,7 +20,7 @@ export default function SingleSelected({
   return (
     <>
       <TextComponent
-        adLable={lable}
+        adLabel={label}
         setValidation={setValidation}
         validation={validation}
         setNewAdStorageValue={setNewAdStorageValue}
@@ -35,7 +35,7 @@ export default function SingleSelected({
       <List
         allList={listItems}
         setListItems={setListItems}
-        lable={lable}
+        label={label}
         setOpenList={setOpenList}
         firstItemBold={firstItemBold}
         setListTitle={setListTitle}

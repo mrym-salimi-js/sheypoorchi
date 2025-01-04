@@ -4,7 +4,7 @@ import { CloseMark } from '../../globals/Icons';
 import { ListItems } from './ListItems';
 import SearchAtList from '../../globals/SearchAtList';
 export function List({
-  lable,
+  label,
   allList,
   setListItems,
   setOpenList,
@@ -67,7 +67,7 @@ export function List({
                     setSearchRes={setSearchRes}
                   />
                 )}
-                <p className='text-lg p-2'>{lable}</p>
+                <p className='text-lg p-2'>{label}</p>
               </div>
 
               <CloseMark
