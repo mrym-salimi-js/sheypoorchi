@@ -12,14 +12,17 @@ import {
   updateCategoryAttr,
 } from '../../store/newAdSlice';
 
-export default function SingleSelectedSupport({ label, allList, storagePram }) {
-  const {
-    setNewAdStorageValue,
-    newAdStorageValue,
-    setValidation,
-    validation,
-    data,
-  } = useContext(NewAdContext);
+export default function SingleSelectedSupport({
+  label,
+  allList,
+  storagePram,
+  index,
+  itemId,
+  filedType,
+  data,
+}) {
+  const { setNewAdStorageValue, newAdStorageValue, setValidation, validation } =
+    useContext(NewAdContext);
   const [openList, setOpenList] = useState('opacity-0 invisible');
   const [listItems, setListItems] = useState();
   const dispatch = useDispatch();
@@ -51,11 +54,12 @@ export default function SingleSelectedSupport({ label, allList, storagePram }) {
         })
       );
     }
-    if (storagePram !== 'location') {
+    if (storagePram === 'attribute' || storagePram === 'category') {
       dispatch(
         updateCategoryAttr({
+          filedType,
           item,
-          storagePram,
+          itemId,
         })
       );
     }
@@ -121,6 +125,7 @@ export default function SingleSelectedSupport({ label, allList, storagePram }) {
         setOpenList={setOpenList}
         openList={openList}
         handleListItems={handleListItems}
+        index={index}
       />
     </>
   );

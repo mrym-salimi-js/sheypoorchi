@@ -135,8 +135,8 @@ export function MainFields() {
         {/* Locations */}
         <TextComponent
           setOpenList={setOpenLocation}
-          adLable={'استان و شهر'}
-          itemTitle={selectedLoc}
+          label={'استان و شهر'}
+          fieldVal={selectedLoc}
           type={'filter'}
         />
 

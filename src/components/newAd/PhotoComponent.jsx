@@ -1,39 +1,41 @@
 import { useContext, useEffect, useState } from 'react';
 import { Camera, RecycleBin } from '../globals/Icons';
 import { NewAdContext } from './NewAdForm';
+import { useDispatch } from 'react-redux';
+import { updatePhoto } from '../../store/newAdSlice';
 
 export function PhotoComponent() {
-  const { setNewAdStorageValue, newAdStorageValue } = useContext(NewAdContext);
+  const { newAdStorageValue } = useContext(NewAdContext);
   const [allPhoto, setAllPhoto] = useState([]);
 
+  const disPatch = useDispatch();
   let reader;
 
   const handlePhotoShow = async (inputTag) => {
     const files = inputTag.files;
 
-    Object.keys(inputTag.files).forEach((item, index) => {
+    Object.keys(inputTag.files).map((item) => {
       const file = files[item];
+
       reader = new FileReader();
 
       reader.onloadend = function (event) {
+        const uniqueId = Date.now();
+        const photoDetail = {
+          id: uniqueId,
+          src: event.target.result,
+          name: file.name,
+          type: file.type,
+          size: file.size,
+        };
+
         newAdStorageValue &&
-          setNewAdStorageValue((prev) => ({
-            ...prev,
-            photo: [
-              ...prev.photo,
-              {
-                id: index,
-                src: event.target.result,
-                name: file.name,
-                type: file.type,
-                size: file.size,
-              },
-            ],
-          }));
+          disPatch(updatePhoto({ photoDetail, type: 'add' }));
       };
 
       reader.readAsDataURL(file);
     });
+    inputTag.value = null; // Allow To Add Same Photo
   };
 
   useEffect(() => {
@@ -46,13 +48,11 @@ export function PhotoComponent() {
     const photoId = e.target.closest('.bin-box').getAttribute('data-id');
 
     const filterdPhoto = newAdStorageValue.photo.filter((item) => {
-      return item.id != photoId;
+      return item !== null && +item.id !== +photoId;
     });
 
-    setNewAdStorageValue((prev) => ({
-      ...prev,
-      photo: filterdPhoto,
-    }));
+    filterdPhoto !== undefined &&
+      disPatch(updatePhoto({ filterdPhoto, type: 'remove' }));
   };
 
   return (

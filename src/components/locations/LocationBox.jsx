@@ -94,7 +94,7 @@ export default function LocationBox({ setOpenLocation, openLocation }) {
                     title={'استان'}
                     setTitle={setLocSituation}
                     setSearchRes={setSearchRes}
-                    setListItems={setPrvList}
+                    setFieldVal={setPrvList}
                     lastList={prvList}
                   />
                 )}

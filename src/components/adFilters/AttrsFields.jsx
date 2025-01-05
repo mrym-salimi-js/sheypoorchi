@@ -37,7 +37,7 @@ export function AttrsItems({ item, setOpenLocation, navigateTo, searchItems }) {
             <div className='w-1/2 h-auto text-gray-500'>
               <TextComponent
                 setOpenList={setOpenLocation}
-                adLable={'حداقل'}
+                label={'حداقل'}
                 filedType={'text'}
                 valueType={'number'}
                 type={'filter'}
@@ -48,7 +48,7 @@ export function AttrsItems({ item, setOpenLocation, navigateTo, searchItems }) {
             <div className='w-1/2 h-auto  text-gray-500'>
               <TextComponent
                 setOpenList={setOpenLocation}
-                adLable={'حداکثر'}
+                label={'حداکثر'}
                 filedType={'text'}
                 valueType={'number'}
                 type={'filter'}

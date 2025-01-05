@@ -1,10 +1,11 @@
 import { useContext, useState } from 'react';
 import { BorderRoundedBtn } from '../globals/BorderRoundedBtn';
 import { NewAdContext } from './NewAdForm';
+import { useDispatch } from 'react-redux';
+import { resetAd } from '../../store/newAdSlice';
 
 export function ClearForm() {
-  const { setNewAdStorageValue, basicNewAdStorage, setValidation } =
-    useContext(NewAdContext);
+  const { setValidation } = useContext(NewAdContext);
   const [clearingFormAlarm, setClearingFormAlarm] = useState(false);
 
   const handleClearingFormAsk = () => {
@@ -22,8 +23,6 @@ export function ClearForm() {
       />
       {clearingFormAlarm && (
         <ClearingFormAskBox
-          setNewAdStorageValue={setNewAdStorageValue}
-          basicNewAdStorage={basicNewAdStorage}
           setClearingFormAlarm={setClearingFormAlarm}
           setValidation={setValidation}
         />
@@ -31,17 +30,14 @@ export function ClearForm() {
     </>
   );
 }
-export function ClearingFormAskBox({
-  setNewAdStorageValue,
-  basicNewAdStorage,
-  setClearingFormAlarm,
-  setValidation,
-}) {
+export function ClearingFormAskBox({ setClearingFormAlarm, setValidation }) {
+  const dispatch = useDispatch();
   const handleClrearingForm = () => {
-    setNewAdStorageValue(basicNewAdStorage);
+    dispatch(resetAd());
     setValidation(undefined);
     setClearingFormAlarm(false);
     localStorage.setItem('coordinate', JSON.stringify([]));
+    window.location.reload();
   };
   const handleCloseClearingForm = () => {
     setClearingFormAlarm(false);

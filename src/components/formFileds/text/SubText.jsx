@@ -2,14 +2,14 @@ import { useContext } from 'react';
 import { TextFiledContext } from '../text/TextComponent';
 
 export default function SubText() {
-  const { validation, adLable, subFiled } = useContext(TextFiledContext);
+  const { validation, label, subFiled } = useContext(TextFiledContext);
   return (
     <>
       {(() => {
-        if (validation && validation[adLable]?.error) {
+        if (validation && validation[label]?.error) {
           return (
             <p className='text-[12px] text-[#fc3b3b] '>
-              {validation[adLable]?.error}
+              {validation[label]?.error}
             </p>
           );
         } else {

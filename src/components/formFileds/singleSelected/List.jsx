@@ -6,7 +6,7 @@ import SearchAtList from '../../globals/SearchAtList';
 export function List({
   label,
   allList,
-  setListItems,
+  setFieldVal,
   setOpenList,
   firstItemBold,
   type,
@@ -61,7 +61,7 @@ export function List({
                   <BackBtn
                     setTitle={setListType}
                     title={'main'}
-                    setListItems={setListItems}
+                    setFieldVal={setFieldVal}
                     lastList={lastList}
                     setListTitle={setListTitle}
                     setSearchRes={setSearchRes}

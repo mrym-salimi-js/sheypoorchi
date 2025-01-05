@@ -46,6 +46,9 @@ export function NewAdForm() {
       localStorage.setItem('form-list-values', JSON.stringify(data));
 
       setNewAdStorageValue(data);
+    } else {
+      const storage = JSON.parse(localStorage.getItem('form-list-values'));
+      setNewAdStorageValue(storage);
     }
   }, [data]);
 
@@ -100,13 +103,12 @@ export function NewAdForm() {
       sendingForm();
     }
   }, [formSubmitted]);
-  // console.log(newAdStorageValue);
   return (
     <>
       {notifToast.message && (
         <NotifToast setNotif={setNotifToast} notif={notifToast} />
       )}
-      <div className='w-[97%] lg:w-[90%] p-3 flex flex-col  gap-8 bg-white'>
+      <div className='w-[97%] lg:w-[90%] p-3 pb-32 flex flex-col  gap-8 bg-white'>
         <NewAdContext.Provider
           value={{
             setNewAdStorageValue,
@@ -118,7 +120,6 @@ export function NewAdForm() {
             attrs,
             setFormSubmitted,
             formData,
-            data,
           }}
         >
           {/* Form Header*/}
@@ -137,19 +138,21 @@ export function NewAdForm() {
                 label={'دسته بندی'}
                 allList={adsCategoriesList}
                 storagePram={'category'}
+                data={data}
               />
 
               {/*Categories Attributes*/}
-              {newAdStorageValue?.attribute.map((item, index) => {
+              {newAdStorageValue?.attribute?.map((item, index) => {
                 if (item.type == 1 || item.type == 6 || item.type == 0) {
                   return (
                     <TextComponent
                       key={index}
-                      adLabel={item.label}
-                      storagePram={item.id}
+                      label={item.label}
+                      index={index}
+                      storagePram={'attribute'}
+                      itemId={item.id}
                       filedType={'text'}
                       type={'newAd'}
-                      setNewAdStorageValue={setNewAdStorageValue}
                       newAdStorageValue={newAdStorageValue}
                       setValidation={setValidation}
                       validation={validation}
@@ -161,7 +164,11 @@ export function NewAdForm() {
                       key={index}
                       label={item.label}
                       allList={item?.options}
-                      storagePram={item.id}
+                      index={index}
+                      storagePram={'attribute'}
+                      itemId={item?.id}
+                      filedType={'singleSelect'}
+                      data={data}
                     />
                   );
                 } else if (item.type == 7) {
@@ -170,7 +177,6 @@ export function NewAdForm() {
                       label={item.name}
                       storagePram={item.id}
                       key={index}
-                      setNewAdStorageValue={setNewAdStorageValue}
                       newAdStorageValue={newAdStorageValue}
                     />
                   );
@@ -179,13 +185,12 @@ export function NewAdForm() {
 
               {/* Ad Title*/}
               <TextComponent
-                adLabel={adTitlelabel}
+                label={adTitlelabel}
                 storagePram={'title'}
                 textLength={'short'}
                 subFiled={placeHolder ? placeHolder.title : adTitleSubTitle}
                 filedType={'text'}
                 type={'newAd'}
-                setNewAdStorageValue={setNewAdStorageValue}
                 newAdStorageValue={newAdStorageValue}
                 setValidation={setValidation}
                 validation={validation}
@@ -194,7 +199,7 @@ export function NewAdForm() {
               {/* Ad Description*/}
               {
                 <TextComponent
-                  adLabel={adDesclabel}
+                  label={adDesclabel}
                   storagePram={'description'}
                   textLength={'long'}
                   subFiled={
@@ -202,7 +207,6 @@ export function NewAdForm() {
                   }
                   filedType={'text'}
                   type={'newAd'}
-                  setNewAdStorageValue={setNewAdStorageValue}
                   newAdStorageValue={newAdStorageValue}
                   setValidation={setValidation}
                   validation={validation}
@@ -213,6 +217,7 @@ export function NewAdForm() {
                 label={'مکان'}
                 allList={adsLocationList}
                 storagePram={'location'}
+                data={data}
               />
               {/* Map*/}
               {/* <Map
@@ -233,21 +238,21 @@ export function NewAdForm() {
                   newAdStorageValue={newAdStorageValue} */}
               {/* /> */}
               {/* User Type*/}
-              <UserType storagePram={'userType'} />
-
-              <ToggleSwich
-                label='تماس تلفنی'
-                desc='با فعال سازی این گزینه، شماره تماس شما در آگهی نمایش داده می شود'
-                storagePram='phone'
-                setNewAdStorageValue={setNewAdStorageValue}
+              <UserType />
+              <TextComponent
+                label={'شماره تماس'}
+                storagePram={'phone'}
+                subFiled={
+                  'درصورتی که تمایل دارید مشتری با شما در تماس باشد، لطفا شماره موبایل خود را وارد کنید'
+                }
+                filedType={'text'}
+                type={'newAd'}
                 newAdStorageValue={newAdStorageValue}
               />
-
               <ToggleSwich
                 label='چت'
                 desc='با فعال سازی این گزینه امکان چت با کاربر برای شما فراهم می شود'
                 storagePram='chat'
-                setNewAdStorageValue={setNewAdStorageValue}
                 newAdStorageValue={newAdStorageValue}
               />
             </div>

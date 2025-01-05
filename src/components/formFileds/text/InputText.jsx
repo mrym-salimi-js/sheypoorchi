@@ -9,17 +9,24 @@ import {
   authenticateValidation,
 } from '../../../functions/validation/adFormValidation';
 import { navTo } from '../../../functions/globals/navTo';
+import { useDispatch } from 'react-redux';
+import {
+  updateCategoryAttr,
+  updateDescription,
+  updatePhone,
+  updateTitle,
+} from '../../../store/newAdSlice';
 
 export default function InputText() {
   const {
-    adLabel,
+    label,
     valueType,
     inputRefs,
     index,
     storagePram,
     filedType,
     newAdStorageValue,
-    itemTitle,
+    fieldVal,
     filterValue,
     type,
     setValidation,
@@ -29,12 +36,14 @@ export default function InputText() {
     setInputShow,
     setInputVal,
     setFilterValue,
-    setNewAdStorageValue,
+    itemId,
   } = useContext(TextFiledContext);
 
   const locationUrl = useLocation();
   const queryParams = new URLSearchParams(locationUrl.search);
   const navigateTo = useNavigate();
+  const dispatch = useDispatch();
+
   // Input Blur Setttings
   const handleInputBlur = (inputTag) => {
     const inputVal = inputTag.value;
@@ -54,7 +63,7 @@ export default function InputText() {
         (stateVal) => {
           setValidation(stateVal);
         },
-        adLabel,
+        label,
         inputVal,
         validation,
         type
@@ -71,21 +80,23 @@ export default function InputText() {
 
     newAdStorageValue &&
       !newAdStorageValue[storagePram] &&
+      setValidation &&
       adFormValidation(
         (stateVal) => {
           setValidation(stateVal);
         },
-        adLabel,
+        label,
         validation,
         newAdStorageValue[storagePram]
       );
 
     textLength !== undefined &&
+      setValidation &&
       adTextLengthValidation(
         (stateVal) => {
           setValidation(stateVal);
         },
-        adLabel,
+        label,
         inputVal,
         validation,
         textLength
@@ -104,25 +115,38 @@ export default function InputText() {
       setFilterValue(formInputVal);
     }
     if (type === 'newAd') {
-      adFormValidation(
-        (stateVal) => {
-          setValidation(stateVal);
-        },
-        adLabel,
-        validation,
-        formInputVal
-      );
-      setNewAdStorageValue !== undefined &&
-        setNewAdStorageValue({
-          ...newAdStorageValue,
-          [`${storagePram}`]: formInputVal,
-        });
+      setValidation &&
+        adFormValidation(
+          (stateVal) => {
+            setValidation(stateVal);
+          },
+          label,
+          validation,
+          formInputVal
+        );
+
+      switch (storagePram !== undefined) {
+        case storagePram === 'title':
+          dispatch(updateTitle({ formInputVal }));
+          break;
+        case storagePram === 'description':
+          dispatch(updateDescription({ formInputVal }));
+          break;
+        case storagePram === 'attribute':
+          dispatch(updateCategoryAttr({ filedType, formInputVal, itemId }));
+          break;
+        case storagePram === 'phone':
+          dispatch(updatePhone({ formInputVal }));
+          break;
+        default:
+          break;
+      }
     }
   };
 
   return (
     <input
-      data-lable={adLabel}
+      data-label={label}
       type={valueType}
       ref={(el) => {
         inputRefs && (inputRefs.current[index] = el);
@@ -138,12 +162,13 @@ export default function InputText() {
         filedType === 'text' && handleInputBlur(event.currentTarget)
       }
       value={
-        newAdStorageValue
+        newAdStorageValue?.active
           ? typeof newAdStorageValue[storagePram] === 'object'
-            ? newAdStorageValue[storagePram]?.name
+            ? newAdStorageValue[storagePram]?.name ||
+              newAdStorageValue[storagePram][index]?.name
             : newAdStorageValue[storagePram]
-          : itemTitle !== undefined
-          ? itemTitle
+          : fieldVal !== undefined
+          ? fieldVal
           : filterValue
       }
     />

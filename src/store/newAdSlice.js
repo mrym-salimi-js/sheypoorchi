@@ -2,15 +2,15 @@ import { createSlice } from '@reduxjs/toolkit';
 
 // Initial State
 const initialState = {
-  category: { dependencies: [], label: '', id: '' },
-  location: { dependencies: [], label: '', id: '' },
+  category: { dependencies: [], name: '', id: '' },
+  location: { dependencies: [], name: '', id: '' },
   attribute: [],
   description: '',
   title: '',
   photo: [],
   userType: 'فرد',
   phone: false,
-  chat: false,
+  chat: '',
   active: false,
 };
 
@@ -22,7 +22,7 @@ const newAdSlice = createSlice({
     // Actions
     updateCategory: (state, action) => {
       action.payload.item.children?.length > 0
-        ? (resetAd(),
+        ? ((state.attribute = []),
           (state.category = {
             ...state.category,
             dependencies: [
@@ -34,7 +34,7 @@ const newAdSlice = createSlice({
               },
             ],
             id: action.payload.item.id,
-            label: action.payload.item.name,
+            name: action.payload.item.name,
           }))
         : (state.category = {
             ...state.category,
@@ -50,7 +50,7 @@ const newAdSlice = createSlice({
               },
             ],
             id: action.payload.item.id,
-            label: action.payload.item.name,
+            name: action.payload.item.name,
           });
 
       state.active = true;
@@ -59,7 +59,7 @@ const newAdSlice = createSlice({
       state.category = {
         ...state.category,
         id: state.category.dependencies[1]?.id,
-        label: state.category?.dependencies
+        name: state.category?.dependencies
           .map((i) => {
             return i.name;
           })
@@ -82,7 +82,7 @@ const newAdSlice = createSlice({
               },
             ],
             id: action.payload.item.id,
-            label: action.payload.item.name,
+            name: action.payload.item.name,
           })
         : (state.location = {
             ...state.location,
@@ -98,7 +98,7 @@ const newAdSlice = createSlice({
               },
             ],
             id: action.payload.item.id,
-            label: action.payload.item.name,
+            name: action.payload.item.name,
           });
     },
     updateLocationAfterDependencies: (state) => {
@@ -112,7 +112,7 @@ const newAdSlice = createSlice({
       state.location = {
         ...state.location,
         id: state.location.dependencies[1]?.id,
-        label: state.location?.dependencies
+        name: state.location?.dependencies
           .map((i) => {
             return i.name;
           })
@@ -123,56 +123,77 @@ const newAdSlice = createSlice({
     },
 
     updateCategoryAttr: (state, action) => {
-      if (action.payload.item.attributes !== undefined) {
-        state.attribute = [];
-
+      if (action.payload.item?.type !== undefined) {
         action.payload.item.attributes.forEach((attrItem) => {
           ((attrItem.order == 0 && attrItem.type != 7) ||
             attrItem.isSeparated) &&
             state.attribute.push(
               attrItem.options.length > 0
                 ? {
-                    id: attrItem.id,
+                    id: +attrItem.id,
                     label: attrItem.title,
                     name: '',
                     options: attrItem.options,
                     type: attrItem.type,
+                    nameId: '',
                   }
-                : { id: action.payload.item.id }
+                : {
+                    id: +attrItem.id,
+                    label: attrItem.title,
+                    name: '',
+                    type: attrItem.type,
+                  }
             );
         });
       } else {
         const attrItemIndex = state.attribute.findIndex((i) => {
-          return i.id === action.payload.storagePram;
+          return i.id === action.payload.itemId;
         });
-        state.attribute[attrItemIndex].name = action.payload.item.name;
+
+        action.payload.filedType !== 'text'
+          ? ((state.attribute[attrItemIndex].name = action.payload.item.name),
+            (state.attribute[attrItemIndex].nameId = +action.payload.item.id))
+          : (state.attribute[attrItemIndex].name = action.payload.formInputVal);
       }
     },
     updateDescription: (state, action) => {
-      state.description = action.payload;
+      state.description = action.payload.formInputVal;
+
+      state.active = true;
     },
     updateTitle: (state, action) => {
-      state.title = action.payload;
+      state.title = action.payload.formInputVal;
+
+      state.active = true;
     },
     updatePhoto: (state, action) => {
-      state.photo = action.payload;
+      if (action.payload.type === 'add') {
+        state.photo = [...state.photo, action.payload.photoDetail];
+      } else {
+        state.photo = action.payload.filterdPhoto;
+      }
+
+      state.active = true;
     },
     updateUserType: (state, action) => {
-      state.userType = action.payload;
+      state.userType = action.payload.userType;
+
+      state.active = true;
     },
-    togglePhone: (state) => {
-      state.phone = !state.phone;
+    updatePhone: (state, action) => {
+      state.phone = action.payload.formInputVal;
+
+      state.active = true;
     },
-    toggleChat: (state) => {
-      state.chat = !state.chat;
+    toggleChat: (state, action) => {
+      state.chat = action.payload.status;
+      state.active = true;
     },
     resetAd: (state) => {
-      // Clear the entire state
-      Object.keys(state).forEach((key) => delete state[key]); // Remove all keys
-      // Reassign the initial state
-      Object.assign(state, JSON.parse(JSON.stringify(initialState))); // Deep clone initialState
-
+      state.active = false;
       localStorage.setItem('form-list-values', JSON.stringify(initialState));
+
+      initialState;
     }, // Reset to default state
   },
 });
@@ -188,7 +209,7 @@ export const {
   updateTitle,
   updatePhoto,
   updateUserType,
-  togglePhone,
+  updatePhone,
   toggleChat,
   resetAd,
 } = newAdSlice.actions;

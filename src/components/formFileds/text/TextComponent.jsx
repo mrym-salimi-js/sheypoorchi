@@ -9,8 +9,7 @@ export const TextFiledContext = createContext();
 export default function TextComponent({
   inputRefs,
   index,
-  adLabel,
-  setNewAdStorageValue,
+  label,
   newAdStorageValue,
   storagePram,
   textLength,
@@ -19,11 +18,12 @@ export default function TextComponent({
   setOpenList,
   setValidation,
   validation,
-  itemTitle,
+  fieldVal,
   valueType,
   type,
   queryKey,
   searchItem,
+  itemId,
 }) {
   const [inputShow, setInputShow] = useState();
   const [filterValue, setFilterValue] = useState();
@@ -32,7 +32,7 @@ export default function TextComponent({
   // Input Focus Settings
   const handleInputShow = (txt) => {
     filedType === 'text'
-      ? (txt.children[0].children[1].focus(), setInputShow(adLabel))
+      ? (txt.children[0].children[1].focus(), setInputShow(label))
       : setOpenList('opacity-100 visible');
   };
 
@@ -45,9 +45,9 @@ export default function TextComponent({
     <TextFiledContext.Provider
       value={{
         inputShow,
-        adLabel,
+        label,
         filterValue,
-        itemTitle,
+        fieldVal,
         inputVal,
         newAdStorageValue,
         storagePram,
@@ -64,18 +64,16 @@ export default function TextComponent({
         setInputShow,
         setInputVal,
         setFilterValue,
-        setNewAdStorageValue,
+        itemId,
       }}
     >
       <div className='w-full flex flex-col gap-3 items-start  cursor-pointer'>
         <div
           onClick={(event) => handleInputShow(event.currentTarget)}
           className={`w-full  border-b flex justify-between items-center relative ${
-            inputShow !== undefined &&
-            inputShow === adLabel &&
-            `border-[#e4aac5]`
+            inputShow !== undefined && inputShow === label && `border-[#e4aac5]`
           } ${
-            validation && validation[`${adLabel}`]?.error && `border-[#fc3b3b]`
+            validation && validation[`${label}`]?.error && `border-[#fc3b3b]`
           }`}
         >
           <div className='w-full h-auto flex flex-col '>

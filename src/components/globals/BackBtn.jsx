@@ -3,7 +3,7 @@ export function BackBtn({
   title,
   lastList,
   setListItems,
-  setListTitle,
+  setFieldVal,
   setSearchRes,
 }) {
   const handleListItems = () => {
@@ -12,7 +12,7 @@ export function BackBtn({
     title && setTitle(title);
 
     // Back For Category Lists
-    setListTitle && setListTitle(null);
+    setFieldVal && setFieldVal(null);
     setListItems && setListItems(lastList);
   };
   return (

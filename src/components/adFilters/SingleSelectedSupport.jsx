@@ -13,7 +13,7 @@ export default function SingleSelectedSupport({
   const { navigateTo } = useContext(FilterContext);
   const [openList, setOpenList] = useState('opacity-0 invisible');
   const [listItems, setListItems] = useState([]);
-  const [itemTitle, setItemTitle] = useState();
+  const [fieldVal, setFieldVal] = useState();
   const [filterListTitle, setFilterListTitle] = useState();
   const params = useParams();
 
@@ -34,7 +34,7 @@ export default function SingleSelectedSupport({
     );
 
     // Set Title (value or name) Of Selected Item For Showing In Filter Filed
-    setItemTitle(item?.title ? item?.title : item?.name);
+    setFieldVal(item?.title ? item?.title : item?.name);
 
     // Set Title Of List Items (like titr)
     if (lable === 'دسته بندی') {
@@ -60,7 +60,7 @@ export default function SingleSelectedSupport({
   };
 
   useEffect(() => {
-    defaultItem && setItemTitle(defaultItem);
+    defaultItem && setFieldVal(defaultItem);
   }, [defaultItem]);
 
   // Set List Title Of Filter And ListItems
@@ -81,7 +81,7 @@ export default function SingleSelectedSupport({
         firstItemBold={true}
         setOpenList={setOpenList}
         openList={openList}
-        itemTitle={itemTitle}
+        fieldVal={fieldVal}
         setListItems={setListItems}
         setListTitle={setFilterListTitle}
         handleListItems={handleListItems}

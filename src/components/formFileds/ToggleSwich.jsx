@@ -1,12 +1,13 @@
 import { useLocation } from 'react-router-dom';
 import { deleteFilterSearch } from '../../functions/adFilters/deleteFilterSearch';
 import { navTo } from '../../functions/globals/navTo';
+import { useDispatch } from 'react-redux';
+import { toggleChat } from '../../store/newAdSlice';
 
 export default function ToggleSwich({
-  lable,
+  label,
   desc,
   storagePram,
-  setNewAdStorageValue,
   newAdStorageValue,
   type,
   queryKey,
@@ -16,24 +17,24 @@ export default function ToggleSwich({
   const locationUrl = useLocation();
   const searchItems = new URLSearchParams(locationUrl.search);
 
+  const dispatch = useDispatch();
+
   const handleInput = (e) => {
     // Insert And Update Filter Items Into Url
     if (type === 'filter') {
       queryParams.set(queryKey, e.target.checked),
         navTo(locationUrl.pathname, queryParams, navigateTo);
-    }
 
-    // Insert And Update Filter Items Into Url
-    if (e.target.checked === false) {
-      deleteFilterSearch(searchItems, queryKey, navigateTo, locationUrl);
+      // Insert And Update Filter Items Into Url
+      if (e.target.checked === false) {
+        deleteFilterSearch(searchItems, queryKey, navigateTo, locationUrl);
+      }
     }
 
     // Insert And Update LocalStorage Checked (in newAd form)
     if (newAdStorageValue) {
-      setNewAdStorageValue({
-        ...newAdStorageValue,
-        [`${storagePram}`]: e.target.checked,
-      });
+      const status = e.target.checked;
+      dispatch(toggleChat({ status }));
     }
   };
 
@@ -41,7 +42,7 @@ export default function ToggleSwich({
   return (
     <div className='w-full  flex flex-col gap-4'>
       <div className='w-full flex justify-between items-center pb-2 ]'>
-        <p className='text-md'>{lable}</p>
+        <p className='text-md'>{label}</p>
         <label className='inline-flex items-center  cursor-pointer'>
           <input
             onClick={handleInput}

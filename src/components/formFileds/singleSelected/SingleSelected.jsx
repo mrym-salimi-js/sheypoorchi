@@ -11,16 +11,17 @@ export default function SingleSelected({
   firstItemBold,
   setOpenList,
   openList,
-  itemTitle,
+  fieldVal,
   listItems,
-  setListItems,
+  setFieldVal,
   setListTitle,
   handleListItems,
+  index,
 }) {
   return (
     <>
       <TextComponent
-        adLabel={label}
+        label={label}
         setValidation={setValidation}
         validation={validation}
         setNewAdStorageValue={setNewAdStorageValue}
@@ -29,12 +30,13 @@ export default function SingleSelected({
         filedType={'singleSelected'}
         setOpenList={setOpenList}
         openList={openList}
-        itemTitle={itemTitle}
+        fieldVal={fieldVal}
+        index={index}
       />
 
       <List
         allList={listItems}
-        setListItems={setListItems}
+        setFieldVal={setFieldVal}
         label={label}
         setOpenList={setOpenList}
         firstItemBold={firstItemBold}
