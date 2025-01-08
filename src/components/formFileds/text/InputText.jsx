@@ -3,11 +3,9 @@ import { TextFiledContext } from '../text/TextComponent';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 import cookies from 'js-cookie';
-import {
-  adFormValidation,
-  adTextLengthValidation,
-  authenticateValidation,
-} from '../../../functions/validation/adFormValidation';
+import { adFormValidation } from '../../../functions/validation/adFormValidation';
+import { adTextLengthValidation } from '../../../functions/validation/adTextLengthValidation';
+import { authenticateValidation } from '../../../functions/validation/authenticateValidation';
 import { navTo } from '../../../functions/globals/navTo';
 import { useDispatch } from 'react-redux';
 import {
@@ -78,29 +76,29 @@ export default function InputText() {
         navTo(locationUrl.pathname, queryParams, navigateTo);
     }
 
-    newAdStorageValue &&
-      !newAdStorageValue[storagePram] &&
-      setValidation &&
-      adFormValidation(
-        (stateVal) => {
-          setValidation(stateVal);
-        },
-        label,
-        validation,
-        newAdStorageValue[storagePram]
-      );
-
-    textLength !== undefined &&
-      setValidation &&
-      adTextLengthValidation(
-        (stateVal) => {
-          setValidation(stateVal);
-        },
-        label,
-        inputVal,
-        validation,
-        textLength
-      );
+    if (setValidation && newAdStorageValue) {
+      (!newAdStorageValue[storagePram] || newAdStorageValue.attribute) &&
+        adFormValidation(
+          (stateVal) => {
+            setValidation(stateVal);
+          },
+          label,
+          validation,
+          !newAdStorageValue?.attribute[index]?.name
+            ? ''
+            : newAdStorageValue[storagePram]
+        ),
+        textLength !== undefined &&
+          adTextLengthValidation(
+            (stateVal) => {
+              setValidation(stateVal);
+            },
+            label,
+            inputVal,
+            validation,
+            textLength
+          );
+    }
 
     setInputShow('');
   };

@@ -1,8 +1,6 @@
 import { useContext, useEffect, useState } from 'react';
 import SingleSelected from '../formFileds/singleSelected/SingleSelected';
 import { NewAdContext } from './NewAdForm';
-import { singleSelectedErrorHandling } from '../../functions/newAd/singleSelectedErrorHandling';
-import { setSingleSelectedAttrsStorage } from '../../functions/newAd/setSingleSelectedAttrsStorage';
 import { useDispatch } from 'react-redux';
 import {
   updateCategory,
@@ -64,18 +62,6 @@ export default function SingleSelectedSupport({
       );
     }
 
-    //Category Attributes Storage Setting
-
-    // setSingleSelectedAttrsStorage(
-    //   (stateVal) => {
-    //     setNewAdStorageValue(stateVal);
-    //   },
-    //   item,
-    //   storagePram,
-    //   setOpenList,
-    //   newAdStorageValue
-    // );
-
     item?.children?.length > 0 && setListItems(item?.children);
 
     item?.districts?.length > 0 && setListItems(item?.districts);
@@ -92,21 +78,10 @@ export default function SingleSelectedSupport({
   useEffect(() => {
     if (data) {
       data.category?.dependencies?.length > 1 &&
-        dispatch(updateCategoryAfterDependencies({ data }));
+        dispatch(updateCategoryAfterDependencies());
       data.location?.dependencies?.length > 1 &&
-        dispatch(updateLocationAfterDependencies({ data }));
+        dispatch(updateLocationAfterDependencies());
     }
-
-    singleSelectedErrorHandling(
-      (stateVal) => {
-        setValidation(stateVal);
-      },
-      openList,
-      newAdStorageValue,
-      storagePram,
-      label,
-      validation
-    );
 
     allList != undefined && setListItems(allList);
   }, [openList]);

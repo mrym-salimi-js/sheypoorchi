@@ -1,18 +1,18 @@
-import { useEffect, useState } from 'react';
+import { useMemo } from 'react';
 
 export function findCities(prvId) {
-  const [citiesList, setCitiesList] = useState();
-
-  useEffect(() => {
+  const citiesList = useMemo(() => {
+    let res;
     const locs = JSON.parse(localStorage.getItem('ads_locations_list'));
 
     locs &&
-      locs.map((item) => {
+      locs.forEach((item) => {
         if (item.id == prvId) {
-          setCitiesList(item.children);
+          res = item.children;
         }
       });
-  }, []);
 
+    return res;
+  }, []);
   return citiesList;
 }

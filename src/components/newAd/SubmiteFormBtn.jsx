@@ -1,58 +1,67 @@
-import { useContext } from 'react';
-import { formLocalErrorHandling } from '../../functions/newAd/formLocalErrorHandling';
+import { useContext, useEffect, useState } from 'react';
 import { NewAdContext } from './NewAdForm';
 import { SpinnerLoading } from '../globals/SpinnerLoading';
+import formData from '../../functions/newAd/formData';
+import { useQuery } from '@tanstack/react-query';
+import createAd from '../../services/createAd';
+import formValidate from '../../functions/newAd/formValidate';
 
-export function SubmiteFormBtn({ sendLoading }) {
-  const {
-    catAttr,
-    newAdStorageValue,
-    setValidation,
-    validation,
-    setAttrs,
-    attrs,
-    setFormSubmitted,
-  } = useContext(NewAdContext);
+export function SubmiteFormBtn() {
+  const { newAdStorageValue, setValidation, validation, setNotifToast } =
+    useContext(NewAdContext);
+
+  const [validFormData, setValidFormData] = useState(false);
+  const [formDatas, setFormDatas] = useState(false);
+
+  // Create NewAd
+  const { data, isLoading } = useQuery({
+    queryKey: ['creatNewAd', formDatas],
+    queryFn: async () => await createAd(formDatas),
+    enabled: validFormData,
+  });
+
+  // Create Message Toast
+  useEffect(() => {
+    data !== undefined &&
+      (data?.status === 'success'
+        ? setNotifToast({
+            message: 'آگهی شما با موفقیت ثبت شد',
+            status: 'success',
+          })
+        : setNotifToast({
+            message: 'در ثبت آگهی خطایی رخ داده',
+            status: 'fail',
+          }));
+  }, [data]);
+
+  // Get FormData And Validate Them
   const handleFormSubmite = () => {
-    //Get Storage Category Attributes
-    const attrRes = catAttr?.map((item) => {
-      return item.value.options
-        ? {
-            id: +item.id,
-            name: item.name,
-            lable: item.value.lable,
-            lableId: item.value.id,
-          }
-        : { id: +item.id, name: item.name, lable: item.value };
-    });
+    const getFormData = async () => {
+      const res = await formData(newAdStorageValue);
+      res !== undefined && setFormDatas(res);
+    };
 
-    attrRes && setAttrs(attrRes);
+    newAdStorageValue &&
+      validation !== undefined &&
+      Object?.keys(validation)?.length == 0 &&
+      setValidFormData(true),
+      getFormData();
 
     if (newAdStorageValue) {
-      //Get Storage Parameters For Validation
-      const formMainParams = [
-        { name: 'دسته بندی', lable: newAdStorageValue?.category?.lable },
-        { name: 'عنوان آگهی', lable: newAdStorageValue?.title },
-        { name: 'توضیحات', lable: newAdStorageValue?.description },
-        { name: 'مکان', lable: newAdStorageValue?.location?.lable },
-      ];
-
       //Form Final Error Handling
-      formLocalErrorHandling(
+      formValidate(
         (setVal) => {
           setValidation(setVal);
         },
-        attrs,
-        formMainParams,
+        newAdStorageValue,
         validation
       );
-
-      setFormSubmitted(true);
     }
   };
+
   return (
     <>
-      {sendLoading ? (
+      {isLoading ? (
         <div className='w-full h-auto flex fixed right-0 bottom-0  lg:relative z-[10000] items-center justify-center  p-2'>
           <span className='w-full h-14   flex gap-3 justify-center  items-center bg-[#84105ba7]  cursor-grabbing rounded-lg '>
             <p className='text-white'> در حال ارسال فرم</p>

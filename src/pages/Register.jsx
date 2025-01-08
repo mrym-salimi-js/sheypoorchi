@@ -1,10 +1,10 @@
 import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { authenticateValidation } from '../functions/validation/adFormValidation';
+import { authenticateValidation } from '../functions/validation/authenticateValidation';
 import axios from 'axios';
 import { navTo } from '../functions/globals/navTo';
 import Cookies from 'js-cookie';
-import { userTokenCheck } from '../functions/auth/userTokenCheck';
+// import { userTokenCheck } from '../functions/auth/userTokenCheck';
 import AuthForm from '../components/authForm/AuthForm';
 import NotifToast from '../components/globals/NotifToast';
 
@@ -20,7 +20,7 @@ export default function Register() {
 
   useEffect(() => {
     document.title = 'ثبت نام کاربر';
-    userTokenCheck(baseURL, navigateTo);
+    // userTokenCheck(baseURL, navigateTo);
   }, []);
 
   const handleRegister = async () => {

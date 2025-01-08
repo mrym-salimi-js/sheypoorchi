@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export const creatAd = async (formData) => {
+const createAd = async (formData) => {
   const baseURL = import.meta.env.VITE_BASE_URL;
   try {
     const ad = await axios.post(`${baseURL}/api/ads/`, formData, {
@@ -11,3 +11,4 @@ export const creatAd = async (formData) => {
     console.log(error);
   }
 };
+export default createAd;

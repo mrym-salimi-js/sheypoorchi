@@ -1,11 +1,11 @@
 import { useEffect, useRef, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { authenticateValidation } from '../functions/validation/adFormValidation';
+import { authenticateValidation } from '../functions/validation/authenticateValidation';
 import axios from 'axios';
 import { navTo } from '../functions/globals/navTo';
 import Cookies from 'js-cookie';
 import AuthForm from '../components/authForm/AuthForm';
-import { userTokenCheck } from '../functions/auth/userTokenCheck';
+// import { userTokenCheck } from '../functions/auth/userTokenCheck';
 import NotifToast from '../components/globals/NotifToast';
 
 export default function ResetPassword() {
@@ -21,7 +21,7 @@ export default function ResetPassword() {
   useEffect(() => {
     document.title = 'ساخت رمز عبور جدید';
 
-    userTokenCheck(baseURL, navigateTo);
+    // userTokenCheck(baseURL, navigateTo);
   }, []);
 
   const handleResetPassword = async () => {

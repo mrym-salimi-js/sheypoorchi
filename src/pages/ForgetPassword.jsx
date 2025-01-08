@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
-import { authenticateValidation } from '../functions/validation/adFormValidation';
+import { authenticateValidation } from '../functions/validation/authenticateValidation';
 import axios from 'axios';
 import AuthForm from '../components/authForm/AuthForm';
-import { userTokenCheck } from '../functions/auth/userTokenCheck';
-import { useNavigate } from 'react-router-dom';
+// import { userTokenCheck } from '../functions/auth/userTokenCheck';
+// import { useNavigate } from 'react-router-dom';
 import NotifToast from '../components/globals/NotifToast';
 
 export default function ForgetPassword() {
@@ -11,7 +11,7 @@ export default function ForgetPassword() {
   const [validation, setValidation] = useState();
   const [loading, setLoading] = useState(false);
   const baseURL = import.meta.env.VITE_BASE_URL;
-  const navigateTo = useNavigate();
+  // const navigateTo = useNavigate();
 
   const [notifToast, setNotifToast] = useState({ message: '', status: '' });
   const [inputVal, setInputVal] = useState();
@@ -19,7 +19,7 @@ export default function ForgetPassword() {
   useEffect(() => {
     document.title = 'فراموشی رمز عبور';
 
-    userTokenCheck(baseURL, navigateTo);
+    // userTokenCheck(baseURL, navigateTo);
   }, []);
 
   const handleForgetPass = async () => {

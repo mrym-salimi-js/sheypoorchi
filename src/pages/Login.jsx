@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { authenticateValidation } from '../functions/validation/adFormValidation';
+import { authenticateValidation } from '../functions/validation/authenticateValidation';
 import axios from 'axios';
 import { navTo } from '../functions/globals/navTo';
 import Cookies from 'js-cookie';

@@ -2,8 +2,8 @@ import { createSlice } from '@reduxjs/toolkit';
 
 // Initial State
 const initialState = {
-  category: { dependencies: [], name: '', id: '' },
-  location: { dependencies: [], name: '', id: '' },
+  category: { dependencies: [], name: '', id: '', placeholders: '' },
+  location: { dependencies: [], name: '', id: '', placeholders: '' },
   attribute: [],
   description: '',
   title: '',
@@ -22,7 +22,9 @@ const newAdSlice = createSlice({
     // Actions
     updateCategory: (state, action) => {
       action.payload.item.children?.length > 0
-        ? ((state.attribute = []),
+        ? (((state.attribute = []),
+          (state.title = ''),
+          (state.description = '')),
           (state.category = {
             ...state.category,
             dependencies: [
@@ -35,6 +37,7 @@ const newAdSlice = createSlice({
             ],
             id: action.payload.item.id,
             name: action.payload.item.name,
+            placeholders: action.payload.item.placeholders,
           }))
         : (state.category = {
             ...state.category,
@@ -51,6 +54,8 @@ const newAdSlice = createSlice({
             ],
             id: action.payload.item.id,
             name: action.payload.item.name,
+
+            placeholders: action.payload.item.placeholders,
           });
 
       state.active = true;
@@ -132,7 +137,6 @@ const newAdSlice = createSlice({
                 ? {
                     id: +attrItem.id,
                     label: attrItem.title,
-                    name: '',
                     options: attrItem.options,
                     type: attrItem.type,
                     nameId: '',
