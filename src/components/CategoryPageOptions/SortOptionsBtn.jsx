@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { BorderRoundedBtn } from '../globals/BorderRoundedBtn';
 import ListSupport from './ListSupport';
-import { allCatSortOptions } from '../../functions/adFilters/categorySortOptionTyps';
+import { allCatSortOptions } from '../../utils/adFilters/categorySortOptionTyps';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Sort } from '../globals/Icons';
 

@@ -5,11 +5,11 @@ import FilterItemBtn from './FilterItemBtn';
 import { FindMainCategories } from '../Category';
 import { useContext, useMemo, useState } from 'react';
 import { HomeContext } from '../../pages/Home';
-import { scrollSlider } from '../../functions/globals/scrollSlider';
-import { setFilteredPrice } from '../../functions/CategoryPageOptions/setFilteredPrice';
-import { setFilteredItems } from '../../functions/CategoryPageOptions/setFilteredItems';
+import { scrollSlider } from '../../utils/globals/scrollSlider';
+import { setFilteredPrice } from '../../utils/CategoryPageOptions/setFilteredPrice';
+import { setFilteredItems } from '../../utils/CategoryPageOptions/setFilteredItems';
 import { SortOptionsBtn } from './SortOptionsBtn';
-import { setFilteredAdPhotoSetItem } from '../../functions/CategoryPageOptions/setFilteredAdPhotoSetItem';
+import { setFilteredAdPhotoSetItem } from '../../utils/CategoryPageOptions/setFilteredAdPhotoSetItem';
 
 export function OptionsBtn() {
   const { category, brands, model, locationUrl } = useContext(HomeContext);

@@ -1,6 +1,6 @@
 import { useLocation } from 'react-router-dom';
-import { deleteFilterSearch } from '../../functions/adFilters/deleteFilterSearch';
-import { navTo } from '../../functions/globals/navTo';
+import { deleteFilterSearch } from '../../utils/adFilters/deleteFilterSearch';
+import { navTo } from '../../utils/globals/navTo';
 import { useDispatch } from 'react-redux';
 import { toggleChat } from '../../store/newAdSlice';
 

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useCookies } from 'react-cookie';
-import { selectedLocations } from '../../functions/locations/selectedLocations';
+import { selectedLocations } from '../../utils/locations/selectedLocations';
 
 export default function HomePageBreadCrumb() {
   const [cookie] = useCookies();

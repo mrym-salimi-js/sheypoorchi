@@ -1,7 +1,7 @@
 import { CloseMark } from '../../globals/Icons';
 import { GalleryPhotos } from './GalleryPhotos';
 import { GalleryThumbnail } from './GalleryThumbnail';
-import { scrollSlider } from '../../../functions/globals/scrollSlider';
+import { scrollSlider } from '../../../utils/globals/scrollSlider';
 import { useContext, useRef } from 'react';
 import { SingleContext } from '../../../pages/Single';
 

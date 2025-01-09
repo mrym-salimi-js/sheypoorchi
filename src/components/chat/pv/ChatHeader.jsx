@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Block, ChevronRight, More, RecycleBin } from '../../globals/Icons';
-import { navTo } from '../../../functions/globals/navTo';
+import { navTo } from '../../../utils/globals/navTo';
 import { useNavigate, useParams } from 'react-router-dom';
 
 import defaultPrifile from '../../../assets/img/images.png';

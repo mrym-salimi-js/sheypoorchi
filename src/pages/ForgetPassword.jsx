@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { authenticateValidation } from '../functions/validation/authenticateValidation';
+import { authenticateValidation } from '../utils/validation/authenticateValidation';
 import axios from 'axios';
 import AuthForm from '../components/authForm/AuthForm';
 // import { userTokenCheck } from '../functions/auth/userTokenCheck';

@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import { navTo } from '../../functions/globals/navTo';
+import { navTo } from '../../utils/globals/navTo';
 import { ClearForm } from './ClearForm';
 
 export function FormHeader() {

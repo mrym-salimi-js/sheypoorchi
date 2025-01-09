@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from 'react';
 import { SingleContext } from '../../../pages/Single';
-import { navTo } from '../../../functions/globals/navTo';
+import { navTo } from '../../../utils/globals/navTo';
 import { useNavigate } from 'react-router-dom';
 import defaultProfile from '../../../assets/img/images.png';
 import axios from 'axios';

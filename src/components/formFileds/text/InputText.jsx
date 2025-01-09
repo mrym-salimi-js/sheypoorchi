@@ -3,10 +3,10 @@ import { TextFiledContext } from '../text/TextComponent';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 import cookies from 'js-cookie';
-import { adFormValidation } from '../../../functions/validation/adFormValidation';
-import { adTextLengthValidation } from '../../../functions/validation/adTextLengthValidation';
-import { authenticateValidation } from '../../../functions/validation/authenticateValidation';
-import { navTo } from '../../../functions/globals/navTo';
+import { adFormValidation } from '../../../utils/validation/adFormValidation';
+import { adTextLengthValidation } from '../../../utils/validation/adTextLengthValidation';
+import { authenticateValidation } from '../../../utils/validation/authenticateValidation';
+import { navTo } from '../../../utils/globals/navTo';
 import { useDispatch } from 'react-redux';
 import {
   updateCategoryAttr,

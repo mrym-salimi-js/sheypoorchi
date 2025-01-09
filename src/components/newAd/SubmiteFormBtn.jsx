@@ -1,10 +1,10 @@
 import { useContext, useEffect, useState } from 'react';
 import { NewAdContext } from './NewAdForm';
 import { SpinnerLoading } from '../globals/SpinnerLoading';
-import formData from '../../functions/newAd/formData';
+import formData from '../../utils/newAd/formData';
 import { useQuery } from '@tanstack/react-query';
 import createAd from '../../services/createAd';
-import formValidate from '../../functions/newAd/formValidate';
+import formValidate from '../../utils/newAd/formValidate';
 
 export function SubmiteFormBtn() {
   const { newAdStorageValue, setValidation, validation, setNotifToast } =

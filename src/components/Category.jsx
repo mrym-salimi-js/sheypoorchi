@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { scrollSlider } from '../functions/globals/scrollSlider';
+import { scrollSlider } from '../utils/globals/scrollSlider';
 import { Link } from 'react-router-dom';
 
 export function FindMainCategories() {

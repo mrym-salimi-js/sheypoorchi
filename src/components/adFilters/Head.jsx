@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { HomeContext } from '../../pages/Home';
 import { BorderRoundedBtn } from '../globals/BorderRoundedBtn';
-import { deleteFilterSearch } from '../../functions/adFilters/deleteFilterSearch';
+import { deleteFilterSearch } from '../../utils/adFilters/deleteFilterSearch';
 import { useLocation, useNavigate, useSearchParams } from 'react-router-dom';
 
 export default function Head() {

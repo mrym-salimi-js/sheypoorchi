@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { navigateAfterFilter } from '../../functions/adFilters/navigateAfterFilter';
+import { navigateAfterFilter } from '../../utils/adFilters/navigateAfterFilter';
 import { List } from '../formFileds/singleSelected/List';
 
 export default function ListSupport({

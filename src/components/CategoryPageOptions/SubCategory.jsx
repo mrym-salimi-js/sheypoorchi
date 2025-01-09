@@ -2,7 +2,7 @@ import { useContext, useMemo } from 'react';
 import { FindMainCategories } from '../Category';
 import { useNavigate } from 'react-router-dom';
 import { HomeContext } from '../../pages/Home';
-import { scrollSlider } from '../../functions/globals/scrollSlider';
+import { scrollSlider } from '../../utils/globals/scrollSlider';
 
 export function SubCategory() {
   const { category, brands, model, locationUrl, queryParams } =

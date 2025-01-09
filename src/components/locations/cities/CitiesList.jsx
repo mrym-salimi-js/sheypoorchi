@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { LocationContext } from '../LocationBox';
-import { findCities } from '../../../functions/locations/findCities';
+import { findCities } from '../../../utils/locations/findCities';
 import { CitiesItem } from './CitiesItem';
 
 export function CitiesList() {

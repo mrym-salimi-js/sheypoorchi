@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { getCost } from '../../functions/advertisements/getCost';
+import { getCost } from '../../utils/advertisements/getCost';
 import { AdCartPhoto } from './AdCartPhoto';
 import { AdCartTextContent } from './AdCartTextContent';
 import { AdCartFooter } from './AdCartFooter';

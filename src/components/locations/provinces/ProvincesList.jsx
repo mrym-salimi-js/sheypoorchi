@@ -1,5 +1,5 @@
 import { ProvimcesItem } from './ProvimcesItem';
-import { findProvinces } from '../../../functions/locations/findProvinces';
+import { findProvinces } from '../../../utils/locations/findProvinces';
 
 export function ProvincesList() {
   const provinces = findProvinces();

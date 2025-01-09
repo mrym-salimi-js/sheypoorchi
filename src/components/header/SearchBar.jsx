@@ -1,7 +1,7 @@
 import { useContext, useState } from 'react';
 import LocationBox from '../locations/LocationBox';
 import { useCookies } from 'react-cookie';
-import { citiesList } from '../../functions/localStorage/locations';
+import { citiesList } from '../../utils/localStorage/locations';
 import { mapMerker } from '../globals/Icons';
 import { HomeContext } from '../../pages/Home';
 

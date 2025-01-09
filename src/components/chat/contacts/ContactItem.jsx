@@ -2,7 +2,7 @@ import 'moment/locale/fa'; // Load Persian (Farsi) locale for relative time
 import momentJalaali from 'moment-jalaali';
 momentJalaali.loadPersian({ usePersianDigits: true });
 import { useNavigate } from 'react-router-dom';
-import { navTo } from '../../../functions/globals/navTo';
+import { navTo } from '../../../utils/globals/navTo';
 
 import defaultPrifile from '../../../assets/img/images.png';
 

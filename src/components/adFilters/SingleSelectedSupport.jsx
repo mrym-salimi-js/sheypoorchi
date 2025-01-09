@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from 'react';
 import SingleSelected from '../formFileds/singleSelected/SingleSelected';
-import { navigateAfterFilter } from '../../functions/adFilters/navigateAfterFilter';
+import { navigateAfterFilter } from '../../utils/adFilters/navigateAfterFilter';
 import { useLocation, useParams } from 'react-router-dom';
 import { FilterContext } from './MainFields';
 

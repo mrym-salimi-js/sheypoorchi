@@ -3,7 +3,7 @@ import { SingleContext } from '../../../pages/Single';
 import momentJalaali from 'moment-jalaali';
 import { Saved } from '../../globals/Icons';
 import { updateSavedAds } from '../../../services/user/updateSavedAds';
-import { navTo } from '../../../functions/globals/navTo';
+import { navTo } from '../../../utils/globals/navTo';
 import { useNavigate } from 'react-router-dom';
 momentJalaali.loadPersian({ usePersianDigits: true });
 

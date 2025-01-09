@@ -8,8 +8,8 @@ import FullScreenGallery from '../components/single/adGalleryInfo/FullScreenGall
 import { Header } from '../components/header/Header';
 import { useNavigate, useParams } from 'react-router-dom';
 import NavBar from '../components/NavBar';
-import { getCost } from '../functions/advertisements/getCost';
-import { navTo } from '../functions/globals/navTo';
+import { getCost } from '../utils/advertisements/getCost';
+import { navTo } from '../utils/globals/navTo';
 import { useQuery } from '@tanstack/react-query';
 import PageLoading from '../components/globals/PageLoading';
 

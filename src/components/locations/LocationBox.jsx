@@ -2,14 +2,14 @@ import { useCookies } from 'react-cookie';
 import { createContext, useEffect, useState } from 'react';
 import { ProvincesList } from './provinces/ProvincesList';
 import { BackBtn } from '../globals/BackBtn';
-import { citiesList } from '../../functions/localStorage/locations';
+import { citiesList } from '../../utils/localStorage/locations';
 import { DeleteAllFilterdCitiesBtn } from './DeleteAllFilterdCitiesBtn';
 import { FilteringCity } from './FilteringCity';
 import { SearchLocation } from './SearchLocation';
 import { SearchItems } from './SearchItems';
 import { EntryChangesBtn } from './EntryChangesBtn';
 import { CitiesList } from './cities/CitiesList';
-import { findProvinces } from '../../functions/locations/findProvinces';
+import { findProvinces } from '../../utils/locations/findProvinces';
 
 export const LocationContext = createContext();
 

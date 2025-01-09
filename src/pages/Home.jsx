@@ -15,7 +15,7 @@ import HomePageBreadCrumb from '../components/breadCrumbs/HomePageBreadCrumb';
 import { getAdsByCategory } from '../services/getAdsByCategory';
 import { getAds } from '../services/getAds';
 import { useQuery } from '@tanstack/react-query';
-import { navTo } from '../functions/globals/navTo';
+import { navTo } from '../utils/globals/navTo';
 import PageLoading from '../components/globals/PageLoading';
 export const HomeContext = createContext();
 

@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from 'react';
 import SelectedLoc from './breadCrumbs/SelectedLocs';
 import { ChevronLeft } from './globals/Icons';
 import { HomeContext } from '../pages/Home';
-import { linkTo } from './globals/functions/linkTo';
+import { linkTo } from './globals/utils/linkTo';
 
 export default function BreadCrumbs() {
   const { brandAndModel, category, locationUrl } = useContext(HomeContext);

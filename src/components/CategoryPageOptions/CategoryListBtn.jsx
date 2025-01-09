@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from 'react';
 import { BorderRoundedBtn } from '../globals/BorderRoundedBtn';
 import { ChevronDown } from '../globals/Icons';
 import { useLocation, useNavigate, useSearchParams } from 'react-router-dom';
-import { deleteFilterSearch } from '../../functions/adFilters/deleteFilterSearch';
+import { deleteFilterSearch } from '../../utils/adFilters/deleteFilterSearch';
 import { HomeContext } from '../../pages/Home';
 import { FindMainCategories } from '../Category';
 import ListSupport from './ListSupport';

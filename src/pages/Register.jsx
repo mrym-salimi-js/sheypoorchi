@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { authenticateValidation } from '../functions/validation/authenticateValidation';
+import { authenticateValidation } from '../utils/validation/authenticateValidation';
 import axios from 'axios';
-import { navTo } from '../functions/globals/navTo';
+import { navTo } from '../utils/globals/navTo';
 import Cookies from 'js-cookie';
 // import { userTokenCheck } from '../functions/auth/userTokenCheck';
 import AuthForm from '../components/authForm/AuthForm';

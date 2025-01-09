@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { navTo } from '../functions/globals/navTo';
+import { navTo } from '../utils/globals/navTo';
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 

@@ -3,7 +3,7 @@ import ToggleSwich from '../formFileds/ToggleSwich';
 import TextComponent from '../formFileds/text/TextComponent';
 import LocationBox from '../locations/LocationBox';
 import { useCookies } from 'react-cookie';
-import { selectedLocations } from '../../functions/locations/selectedLocations';
+import { selectedLocations } from '../../utils/locations/selectedLocations';
 import {
   useLocation,
   useNavigate,
@@ -11,8 +11,8 @@ import {
   useSearchParams,
 } from 'react-router-dom';
 import AttrsFields from './AttrsFields';
-import { allCatSortOptions } from '../../functions/adFilters/categorySortOptionTyps';
-import { deleteFilterSearch } from '../../functions/adFilters/deleteFilterSearch';
+import { allCatSortOptions } from '../../utils/adFilters/categorySortOptionTyps';
+import { deleteFilterSearch } from '../../utils/adFilters/deleteFilterSearch';
 import SingleSelectedSupport from './SingleSelectedSupport';
 
 export const FilterContext = createContext();
