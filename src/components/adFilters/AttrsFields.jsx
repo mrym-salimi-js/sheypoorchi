@@ -70,7 +70,7 @@ export function AttrsItems({ item, setOpenLocation, navigateTo, searchItems }) {
   ) {
     return (
       <SingleSelectedSupport
-        lable={item.name || item.title}
+        label={item.name || item.title}
         allList={item.options}
         queryKey={item.queryKey}
       />
@@ -78,7 +78,7 @@ export function AttrsItems({ item, setOpenLocation, navigateTo, searchItems }) {
   } else if (item.type == 7) {
     return (
       <ToggleSwich
-        lable={item.name || item.title}
+        label={item.name || item.title}
         type={'filter'}
         queryKey={item.queryKey}
         navigateTo={navigateTo}

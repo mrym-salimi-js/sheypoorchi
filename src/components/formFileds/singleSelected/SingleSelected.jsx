@@ -17,6 +17,7 @@ export default function SingleSelected({
   setListTitle,
   handleListItems,
   index,
+  setListItems,
 }) {
   return (
     <>
@@ -36,6 +37,7 @@ export default function SingleSelected({
 
       <List
         allList={listItems}
+        setListItems={setListItems}
         setFieldVal={setFieldVal}
         label={label}
         setOpenList={setOpenList}

@@ -22,10 +22,10 @@ export default function SingleSelectedSupport({
   const { setNewAdStorageValue, newAdStorageValue, setValidation, validation } =
     useContext(NewAdContext);
   const [openList, setOpenList] = useState('opacity-0 invisible');
-  const [listItems, setListItems] = useState();
+  const [fieldVal, setFieldVal] = useState();
   const dispatch = useDispatch();
 
-  const handleListItems = (item) => {
+  const handlefieldVal = (item) => {
     if (!item) return;
     //Delete Excludedattributes Of Category
     // if (newAdStorageValue) {
@@ -62,9 +62,9 @@ export default function SingleSelectedSupport({
       );
     }
 
-    item?.children?.length > 0 && setListItems(item?.children);
+    item?.children?.length > 0 && setFieldVal(item?.children);
 
-    item?.districts?.length > 0 && setListItems(item?.districts);
+    item?.districts?.length > 0 && setFieldVal(item?.districts);
 
     if (
       item?.children?.length === 0 ||
@@ -83,15 +83,15 @@ export default function SingleSelectedSupport({
         dispatch(updateLocationAfterDependencies());
     }
 
-    allList != undefined && setListItems(allList);
+    allList != undefined && setFieldVal(allList);
   }, [openList]);
 
   return (
     <>
       <SingleSelected
         label={label}
-        listItems={listItems}
-        setListItems={setListItems}
+        fieldVal={fieldVal}
+        setFieldVal={setFieldVal}
         storagePram={storagePram}
         setNewAdStorageValue={setNewAdStorageValue}
         newAdStorageValue={newAdStorageValue}
@@ -99,7 +99,7 @@ export default function SingleSelectedSupport({
         validation={validation}
         setOpenList={setOpenList}
         openList={openList}
-        handleListItems={handleListItems}
+        handlefieldVal={handlefieldVal}
         index={index}
       />
     </>

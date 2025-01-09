@@ -21,9 +21,9 @@ export function AdCartTextContent({ title, cost, href }) {
                   className='w-full h-auto flex gap-3 rounded-md border-r-4 border-pink-400 px-2 py-1  text-[0.7rem] text-gray-400 text-nowrap overflow-hidden'
                 >
                   <p className='w-full break-words'>
-                    {costItem.name}:{' '}
-                    {costItem.lable
-                      .toString()
+                    {costItem.label}:{' '}
+                    {costItem.name
+                      ?.toString()
                       .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}{' '}
                     تومان
                   </p>

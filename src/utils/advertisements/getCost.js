@@ -1,13 +1,13 @@
 export function getCost(attributes, setCostCallback) {
   attributes?.map((attrItem) => {
-    attrItem.name === 'قیمت (تومان)' &&
-      setCostCallback([{ name: 'قیمت', lable: attrItem.lable }]);
-    attrItem.name === 'رهن (تومان)' &&
-      setCostCallback([{ name: 'رهن', lable: attrItem.lable }]);
-    attrItem.name === 'اجاره (تومان)' &&
+    attrItem.label === 'قیمت (تومان)' &&
+      setCostCallback([{ label: 'قیمت', name: attrItem.name }]);
+    attrItem.label === 'رهن (تومان)' &&
+      setCostCallback([{ label: 'رهن', name: attrItem.name }]);
+    attrItem.label === 'اجاره (تومان)' &&
       setCostCallback((prev) => [
         ...prev,
-        { name: 'اجاره', lable: attrItem.lable },
+        { label: 'اجاره', name: attrItem.lable },
       ]);
   });
 }

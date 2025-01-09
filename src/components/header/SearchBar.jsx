@@ -12,7 +12,7 @@ export default function SearchBar() {
   const cities = citiesList();
 
   const handleSearch = (event) => {
-    const searchedAds = adsList?.filter((ad) => {
+    const searchedAds = adsList?.data.data.filter((ad) => {
       return ad.title?.includes(event.target.value);
     });
 

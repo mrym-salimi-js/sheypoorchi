@@ -21,6 +21,7 @@ import Account from './pages/user/Account';
 import { Provider } from 'react-redux';
 import { store, persistor } from './store/store';
 import { PersistGate } from 'redux-persist/integration/react';
+import NotFound from './pages/NotFound';
 
 function App() {
   useEffect(() => {
@@ -190,7 +191,7 @@ function App() {
                 }
               />
 
-              {/* <Route path='*' element={<Home />} /> */}
+              <Route path='*' element={<NotFound />} />
             </Routes>
           </Suspense>
         </BrowserRouter>

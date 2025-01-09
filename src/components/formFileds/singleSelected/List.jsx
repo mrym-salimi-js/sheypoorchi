@@ -13,6 +13,7 @@ export function List({
   setListTitle,
   handleListItems,
   openList,
+  setListItems,
 }) {
   const [listType, setListType] = useState('main');
   const [lastList, setLastList] = useState();
@@ -64,6 +65,7 @@ export function List({
                     setFieldVal={setFieldVal}
                     lastList={lastList}
                     setListTitle={setListTitle}
+                    setListItems={setListItems}
                     setSearchRes={setSearchRes}
                   />
                 )}

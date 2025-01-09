@@ -106,7 +106,7 @@ export function MainFields() {
         {/* SortOptions */}
         {sortOptions.length > 0 && selctedSo && (
           <SingleSelectedSupport
-            lable={'مرتب سازی'}
+            label={'مرتب سازی'}
             allList={sortOptions}
             defaultItem={selctedSo}
             queryKey={'o'}
@@ -115,7 +115,7 @@ export function MainFields() {
 
         {/* By Photo Ad Switch */}
         <ToggleSwich
-          lable='فقط آگهی های عکس دار'
+          label='فقط آگهی های عکس دار'
           type={'filter'}
           queryKey={'wp'}
           navigateTo={navigateTo}
@@ -125,7 +125,7 @@ export function MainFields() {
         {/* Categories */}
         {selectedCat && (
           <SingleSelectedSupport
-            lable={'دسته بندی'}
+            label={'دسته بندی'}
             allList={adsCategoriesList}
             defaultItem={selectedCat.name}
             queryKey={'c'}

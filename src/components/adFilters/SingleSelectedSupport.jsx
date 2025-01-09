@@ -5,7 +5,7 @@ import { useLocation, useParams } from 'react-router-dom';
 import { FilterContext } from './MainFields';
 
 export default function SingleSelectedSupport({
-  lable,
+  label,
   allList,
   defaultItem,
   queryKey,
@@ -27,7 +27,7 @@ export default function SingleSelectedSupport({
       queryParams,
       item,
       navigateTo,
-      lable,
+      label,
       queryKey,
       locationUrl,
       params
@@ -37,7 +37,7 @@ export default function SingleSelectedSupport({
     setFieldVal(item?.title ? item?.title : item?.name);
 
     // Set Title Of List Items (like titr)
-    if (lable === 'دسته بندی') {
+    if (label === 'دسته بندی') {
       setFilterListTitle({
         name: item?.title ? item?.title : item?.name,
         slug: item?.slug,
@@ -72,9 +72,9 @@ export default function SingleSelectedSupport({
   return (
     <>
       <SingleSelected
-        lable={lable}
+        label={label}
         listItems={
-          lable === 'دسته بندی' ? [filterListTitle, ...listItems] : listItems
+          label === 'دسته بندی' ? [filterListTitle, ...listItems] : listItems
         }
         defaultItem={defaultItem}
         type={'filter'}

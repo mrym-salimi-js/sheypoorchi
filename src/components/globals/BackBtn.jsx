@@ -6,6 +6,7 @@ export function BackBtn({
   setFieldVal,
   setSearchRes,
 }) {
+  console.log(lastList);
   const handleListItems = () => {
     setSearchRes && setSearchRes('');
     // Back For Location Lists

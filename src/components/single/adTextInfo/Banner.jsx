@@ -21,6 +21,7 @@ export default function Banner() {
     saveAd();
   };
 
+  console.log(cost);
   return (
     <div className='w-full flex flex-col gap-6 items-center p-5  border-b-[1px]'>
       <div className='w-full flex justify-between items-center'>
@@ -47,10 +48,8 @@ export default function Banner() {
           cost.map((costItem, index) => {
             return (
               <p className='text-md' key={index}>
-                {costItem.name}:{' '}
-                {costItem.lable
-                  .toString()
-                  .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}{' '}
+                {costItem.label}:{' '}
+                {costItem.name.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}{' '}
                 تومان
               </p>
             );

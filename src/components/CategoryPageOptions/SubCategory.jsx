@@ -5,7 +5,7 @@ import { HomeContext } from '../../pages/Home';
 import { scrollSlider } from '../../utils/globals/scrollSlider';
 
 export function SubCategory() {
-  const { category, brands, model, locationUrl, queryParams } =
+  const { category, brands, model, locationUrl, searchParams } =
     useContext(HomeContext);
   // const [catList, setCatList] = useState();
   const mainCategories = FindMainCategories();
@@ -51,11 +51,11 @@ export function SubCategory() {
     filterItem.slug !== undefined
       ? navigateTo({
           pathname: `/s/iran/${filterItem.slug}`,
-          search: queryParams.toString(),
+          search: searchParams && searchParams.toString(),
         })
       : navigateTo({
-          pathname: `/s/iran/${category}/${brands}/${filterItem.name}`,
-          search: queryParams.toString(),
+          pathname: `/s/iran/${category}/${brands}/${filterItem?.name}`,
+          search: searchParams && searchParams.toString(),
         });
   };
 
