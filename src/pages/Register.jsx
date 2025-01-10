@@ -31,7 +31,7 @@ export default function Register() {
           (stateVal) => {
             setValidation(stateVal);
           },
-          item.getAttribute('data-lable'),
+          item.getAttribute('data-label'),
           item.value,
           validation,
           item.type
@@ -84,23 +84,23 @@ export default function Register() {
       )}
       <AuthForm
         fieldes={[
-          { lable: 'نام', type: 'name', valueType: 'text' },
-          { lable: 'ایمیل', type: 'email', valueType: 'email' },
-          { lable: 'رمز عبور', type: 'password', valueType: 'password' },
+          { label: 'نام', type: 'name', valueType: 'text' },
+          { label: 'ایمیل', type: 'email', valueType: 'email' },
+          { label: 'رمز عبور', type: 'password', valueType: 'password' },
           {
-            lable: 'تکرار رمز عبور',
+            label: 'تکرار رمز عبور',
             type: 'password-confirm',
             valueType: 'password',
           },
         ]}
         handleBtn={handleRegister}
-        headerLable={'ثبت نام کاربر'}
+        headerLabel={'ثبت نام کاربر'}
         inputRefs={inputRefs}
         validation={validation}
         setValidation={setValidation}
         loading={loading}
-        otherLink={[{ lable: 'قبلا ثبت نام کردی؟', link: '/login' }]}
-        btnLable={'ثبت نام'}
+        otherLink={[{ label: 'قبلا ثبت نام کردی؟', link: '/login' }]}
+        btnLabel={'ثبت نام'}
       />
     </>
   );

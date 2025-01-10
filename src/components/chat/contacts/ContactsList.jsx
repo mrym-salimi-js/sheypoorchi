@@ -59,7 +59,9 @@ export default function ContactsList({
           );
         })
       ) : (
-        <p className='text-md text-gray-50 text-center'>پیامی یافت نشد :(</p>
+        <p className='text-md text-[#cccccc8f] text-center pt-7'>
+          پیامی یافت نشد :(
+        </p>
       )}
     </div>
   );

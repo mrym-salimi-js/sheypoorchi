@@ -30,7 +30,7 @@ export default function ForgetPassword() {
           (stateVal) => {
             setValidation(stateVal);
           },
-          item.getAttribute('data-lable'),
+          item.getAttribute('data-label'),
           item.value,
           validation,
           item.type
@@ -84,15 +84,15 @@ export default function ForgetPassword() {
         <NotifToast setNotif={setNotifToast} notif={notifToast} />
       )}
       <AuthForm
-        fieldes={[{ lable: 'ایمیل', type: 'email', valueType: 'email' }]}
+        fieldes={[{ label: 'ایمیل', type: 'email', valueType: 'email' }]}
         handleBtn={handleForgetPass}
-        headerLable={'فراموشی رمز عبور'}
+        headerLabel={'فراموشی رمز عبور'}
         inputRefs={inputRefs}
         validation={validation}
         setValidation={setValidation}
         loading={loading}
-        otherLink={[{ lable: 'رمز عبورم یادمه :)', link: '/login' }]}
-        btnLable={'ارسال'}
+        otherLink={[{ label: 'رمز عبورم یادمه :)', link: '/login' }]}
+        btnLabel={'ارسال'}
       />
     </>
   );

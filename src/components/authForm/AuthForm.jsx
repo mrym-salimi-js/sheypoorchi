@@ -4,7 +4,7 @@ import AuthRoundedBtn from '../globals/AuthRoundedBtn';
 import OtherLink from './OtherLink';
 import Field from './Field';
 export default function AuthForm({
-  headerLable,
+  headerLabel,
   fieldes,
   inputRefs,
   validation,
@@ -12,7 +12,7 @@ export default function AuthForm({
   handleBtn,
   loading,
   otherLink,
-  btnLable,
+  btnLabel,
 }) {
   return (
     <div className='w-full h-full absolute flex justify-center items-center'>
@@ -28,7 +28,7 @@ export default function AuthForm({
 
         <div className='w-full flex flex-col'>
           {/*  Header */}
-          <Header lable={headerLable} />
+          <Header label={headerLabel} />
           {/*  Fileds */}
           <Field
             fieldes={fieldes}
@@ -42,7 +42,7 @@ export default function AuthForm({
             <OtherLink otherLink={otherLink} />
             {/* Submit Btn */}
             <AuthRoundedBtn
-              lable={btnLable}
+              label={btnLabel}
               handleBtn={handleBtn}
               loading={loading}
             />

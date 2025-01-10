@@ -54,7 +54,7 @@ export function SingleAdDetails({ singleAd, adCreator }) {
   const {
     attribute,
     category,
-    createAd,
+    createAt,
     description,
     location,
     coordinate,
@@ -94,7 +94,7 @@ export function SingleAdDetails({ singleAd, adCreator }) {
         attribute,
         description,
         location,
-        createAd,
+        createAt,
         cost,
         _id,
         saved,

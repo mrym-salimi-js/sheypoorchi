@@ -21,7 +21,7 @@ export default function Banner() {
     saveAd();
   };
 
-  console.log(cost);
+  console.log(createAt);
   return (
     <div className='w-full flex flex-col gap-6 items-center p-5  border-b-[1px]'>
       <div className='w-full flex justify-between items-center'>

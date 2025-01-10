@@ -22,8 +22,8 @@ export default function ReviewAccount({ userInfo, userAds, userChats }) {
             : ` هنوز پیامی ندارید :(`}
         </p>
         <p className='w-full  h-32 p-4 text-center flex items-center justify-center text-sm  text-green-600 bg-green-300 rounded-3xl shadow-md'>
-          {userInfo?.savedAd.length > 0
-            ? `${userInfo.savedAd.length}   آگهی ذخیره دارید `
+          {userInfo?.savedAd?.length > 0
+            ? `${userInfo.savedAd?.length}   آگهی ذخیره دارید `
             : `هنوز آگهی ذخیره نکردید :(`}
         </p>
       </div>

@@ -153,7 +153,7 @@ export default function InputText() {
       onChange={(event) =>
         filedType === 'text' && handleStorage(event.currentTarget)
       }
-      className={`w-full outline-none text-sm text-gray-500 h-12 ${
+      className={`w-full bg-transparent outline-none text-sm text-gray-500 h-12 ${
         filedType !== 'text' && `cursor-pointer`
       }`}
       onBlur={(event) =>

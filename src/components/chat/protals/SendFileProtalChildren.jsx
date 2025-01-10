@@ -25,7 +25,7 @@ export function SendFileProtalChildren({
           </div>
           <div
             onClick={handleSendingMsg}
-            className='w-auto h-auto p-4 hover:opacity-[0.7] text-center leading-3 rounded-2xl bg-[#84105C] text-sm text-white cursor-pointer'
+            className='w-auto h-auto p-4 hover:opacity-[0.7] text-center leading-3 rounded-2xl bg-[#3a723f70] text-sm text-white cursor-pointer'
           >
             ارسال
           </div>

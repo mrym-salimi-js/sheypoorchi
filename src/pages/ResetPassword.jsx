@@ -32,7 +32,7 @@ export default function ResetPassword() {
           (stateVal) => {
             setValidation(stateVal);
           },
-          item.getAttribute('data-lable'),
+          item.getAttribute('data-label'),
           item.value,
           validation,
           item.type
@@ -116,21 +116,21 @@ export default function ResetPassword() {
       )}
       <AuthForm
         fieldes={[
-          { lable: 'رمز عبور', type: 'password', valueType: 'password' },
+          { label: 'رمز عبور', type: 'password', valueType: 'password' },
           {
-            lable: 'تکرار رمز عبور',
+            label: 'تکرار رمز عبور',
             type: 'password',
             valueType: 'password',
           },
         ]}
         handleBtn={handleResetPassword}
-        headerLable={'ساخت رمز عبور جدید'}
+        headerLabel={'ساخت رمز عبور جدید'}
         inputRefs={inputRefs}
         validation={validation}
         setValidation={setValidation}
         loading={loading}
-        otherLink={[{ lable: 'فراموشی رمز عبور!', link: '/forgetPassword' }]}
-        btnLable={'ارسال'}
+        otherLink={[{ label: 'فراموشی رمز عبور!', link: '/forgetPassword' }]}
+        btnLabel={'ارسال'}
       />
     </>
   );

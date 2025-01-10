@@ -21,9 +21,9 @@ export default function ChatSender({
     }
   };
   return (
-    <div className='w-full h-14 flex relative items-center gap-4 p-3 '>
-      <div className='cursor-pointer absolute h-4 top-4  self-center'>
-        <LinkFile size={'size-6 z-0'} color={'#93617f'} />
+    <div className='w-full h-16 flex gap-1 items-center justify-around px-2'>
+      <div className=' h-5'>
+        <LinkFile size={'size-6 z-0'} color={'#3a723f70'} />
         <input
           onChange={handleSelectFile}
           ref={fileInput}
@@ -32,17 +32,15 @@ export default function ChatSender({
           className='opacity-0 z-[10000] w-6 relative bottom-6 cursor-pointer'
         />
       </div>
-      <div className='w-[90%] h-full relative right-[8%] flex justify-between items-center left-0'>
-        <input
-          onKeyDown={handleKeyDown}
-          ref={msgInput}
-          type='text'
-          placeholder='پیام'
-          className=' w-[90%] text-sm text-gray-400 outline-none'
-        />
-        <div className='cursor-pointer' onClick={handleSendingMsg}>
-          <Send size={'size-6'} color={'#59b39b'} />
-        </div>
+      <input
+        onKeyDown={handleKeyDown}
+        ref={msgInput}
+        type='text'
+        placeholder='پیام'
+        className=' w-[80%] h-full text-sm text-gray-400 outline-none placeholder:text-gray-200'
+      />
+      <div className='cursor-pointer self-center' onClick={handleSendingMsg}>
+        <Send size={'size-6'} color={'#3a723f70'} />
       </div>
     </div>
   );

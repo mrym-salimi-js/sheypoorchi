@@ -24,7 +24,7 @@ export function Connections() {
   }, []);
 
   const handleChat = () => {
-    navTo(`/myAccount/messages/${_id}`, null, navigateTo);
+    navTo(`/dashboard/messages/${_id}`, null, navigateTo);
   };
   return (
     <div className='w-full flex flex-col gap-5 items-center border-b-[1px] p-4'>

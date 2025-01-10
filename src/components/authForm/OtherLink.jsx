@@ -6,7 +6,7 @@ export default function OtherLink({ otherLink }) {
       {otherLink.map((item, index) => {
         return (
           <Link to={item.link} key={index}>
-            <p className='text-gray-300 text-[0.8rem] mr-4'>{item.lable}</p>
+            <p className='text-gray-300 text-[0.8rem] mr-4'>{item.label}</p>
           </Link>
         );
       })}

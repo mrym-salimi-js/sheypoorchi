@@ -29,7 +29,7 @@ export default function Login() {
           (stateVal) => {
             setValidation(stateVal);
           },
-          item.getAttribute('data-lable'),
+          item.getAttribute('data-label'),
           item.value,
           validation,
           item.type
@@ -59,7 +59,7 @@ export default function Login() {
         if (sendForm !== undefined) {
           sendForm.data.status === 'success' && Cookies.remove('user-pass'),
             // Cookies.set('user-Token', sendForm.data.token);
-            navTo('/dashboard/myProfile', '', navigateTo);
+            navTo('/dashboard', '', navigateTo);
         }
       } catch (error) {
         setLoading(false);
@@ -87,20 +87,20 @@ export default function Login() {
       )}
       <AuthForm
         fieldes={[
-          { lable: 'ایمیل', type: 'email', valueType: 'email' },
-          { lable: 'رمز عبور', type: 'password', valueType: 'password' },
+          { label: 'ایمیل', type: 'email', valueType: 'email' },
+          { label: 'رمز عبور', type: 'password', valueType: 'password' },
         ]}
         handleBtn={handleLogin}
-        headerLable={'ورود کاربر'}
+        headerLabel={'ورود کاربر'}
         inputRefs={inputRefs}
         validation={validation}
         setValidation={setValidation}
         loading={loading}
         otherLink={[
-          { lable: 'هنوز ثبت نام نکردی؟', link: '/register' },
-          { lable: 'رمز عبورتو فراموش کردی؟', link: '/forgetPassword' },
+          { label: 'هنوز ثبت نام نکردی؟', link: '/register' },
+          { label: 'رمز عبورتو فراموش کردی؟', link: '/forgetPassword' },
         ]}
-        btnLable={'ورود'}
+        btnLabel={'ورود'}
       />
     </>
   );

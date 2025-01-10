@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { jwtDecode } from 'jwt-decode';
+
 import axios from 'axios';
 import { io } from 'socket.io-client';
 import { v4 as uuidv4 } from 'uuid';
@@ -10,8 +10,7 @@ import ChatSender from './ChatSender';
 import { useParams } from 'react-router-dom';
 import { getAd } from '../../../services/getAd';
 
-export default function ChatPV({ userToken, pvShow, contactList }) {
-  const decodedJwt = userToken && jwtDecode(userToken);
+export default function ChatPV({ pvShow, contactList }) {
   const [messages, setMessages] = useState([]);
   const msgInput = useRef();
   const fileInput = useRef();
@@ -103,7 +102,6 @@ export default function ChatPV({ userToken, pvShow, contactList }) {
     // ReciverId
     const ad = async () => {
       const ad = await getAd(adId);
-
       setReciverId(ad.adCreator._id);
     };
     adId !== undefined && ad();
@@ -123,6 +121,7 @@ export default function ChatPV({ userToken, pvShow, contactList }) {
           fileName: file.name.replace(/ /g, '-'),
           size: file.size,
         };
+
         socket.emit('uploadFile', { adId, senderId, reciverId, fileInfo });
         const downloadeds = localStorage.getItem('downloadedFiles');
         localStorage.setItem(
@@ -142,7 +141,7 @@ export default function ChatPV({ userToken, pvShow, contactList }) {
 
   return (
     <div
-      className={` h-full  overflow-hidden justify-between py-2  ${
+      className={` h-full  overflow-hidden justify-between  ${
         pvShow
           ? `w-full lg:w-[70%] flex flex-col `
           : `hidden lg:w-[70%] lg:flex flex-col `
@@ -165,7 +164,7 @@ export default function ChatPV({ userToken, pvShow, contactList }) {
             selectedAd={selectedAd}
             setFileDlStatus={setFileDlStatus}
             messages={messages}
-            decodedJwt={decodedJwt}
+            senderId={senderId}
           />
 
           {/*Message Sender Box */}

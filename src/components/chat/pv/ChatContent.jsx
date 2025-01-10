@@ -9,7 +9,7 @@ export function ChatContent({
   setFileDlStatus,
   selectedAd,
   messages,
-  decodedJwt,
+  senderId,
 }) {
   const scrollRef = useRef();
 
@@ -40,10 +40,10 @@ export function ChatContent({
     }
   };
   return (
-    <div className='w-full h-[90%] flex items-end border-t border-b  overflow-hidden  bg-[#e2e2e2]'>
+    <div className='w-full h-[90%] flex items-end border-t border-b  overflow-hidden  bg-[#3a723f70]'>
       <ul
         ref={scrollRef}
-        className='w-full h-full p-2 flex flex-col gap-3 items-end overflow-scroll'
+        className='w-full h-full p-2 px-3 flex flex-col gap-3 items-end overflow-scroll relative'
       >
         {selectedAd && (
           <li
@@ -59,17 +59,13 @@ export function ChatContent({
           messages.map((item) => {
             return item.type === 'file' ? (
               <ContentFileItem
-                decodedJwt={decodedJwt}
+                senderId={senderId}
                 item={item}
                 handleDownloadFile={handleDownloadFile}
                 key={item._id}
               />
             ) : (
-              <ContentTextItem
-                decodedJwt={decodedJwt}
-                item={item}
-                key={item._id}
-              />
+              <ContentTextItem senderId={senderId} item={item} key={item._id} />
             );
           })}
       </ul>
@@ -77,19 +73,21 @@ export function ChatContent({
   );
 }
 
-export function ContentFileItem({ decodedJwt, item, handleDownloadFile }) {
+export function ContentFileItem({ senderId, item, handleDownloadFile }) {
   const baseURL = import.meta.env.VITE_BASE_URL;
   return (
     <>
       <li
         className={`${
-          decodedJwt?.id === item.senderId ? `self-start` : `self-end`
-        } max-w-[80%] h-22 p-2 rounded-lg flex flex-row-reverse gap-3 bg-white shadow-sm `}
+          senderId === item.senderId
+            ? `self-start bg-gray-100 `
+            : `self-end bg-[rgb(43,58,62)] text-white `
+        }  max-w-[80%] h-22 p-2 rounded-2xl flex flex-row-reverse gap-3 bg-white shadow-sm `}
       >
         {/* File Icin */}
         <a
           onClick={(event) => handleDownloadFile(event)}
-          className=' h-14 w-14 rounded-lg bg-gray-200 flex items-center justify-center'
+          className=' h-14 w-14 rounded-2xl bg-gray-200 flex items-center justify-center'
           href={`${baseURL}/chat/${item.senderId}-${item.reciverId}-${
             item.adId
           }/${decodeURI(item.message).replace(/ /g, '-')}`}
@@ -126,12 +124,14 @@ export function ContentFileItem({ decodedJwt, item, handleDownloadFile }) {
     </>
   );
 }
-export function ContentTextItem({ decodedJwt, item }) {
+export function ContentTextItem({ senderId, item }) {
   return (
     <li
       className={`${
-        decodedJwt?.id === item.senderId ? `self-start` : `self-end`
-      } max-w-[80%] py-2 px-4 rounded-lg justify-between flex gap-2 bg-white shadow-sm `}
+        senderId === item.senderId
+          ? `self-start bg-gray-100 `
+          : `self-end bg-[rgb(43,58,62)] text-white `
+      } max-w-[80%]  p-3 rounded-2xl justify-between flex gap-2  shadow-sm `}
     >
       <p className='max-w-[80%] overflow-hidden text-[0.7rem] text-wrap'>
         {item.message}
@@ -139,6 +139,16 @@ export function ContentTextItem({ decodedJwt, item }) {
       <p className='text-[0.6rem] text-gray-300 self-end'>
         {momentJalaali(item.createAt).locale('fa').fromNow()}
       </p>
+      <span
+        className={`
+          ${
+            senderId === item.senderId
+              ? `border-t-gray-100 rotate-[20deg] right-1`
+              : `border-t-[rgb(43,58,62)] rotate-[-20deg] left-1`
+          } 
+         
+          w-0 h-0  border-l-[8px] border-l-transparent border-t-[15px] border-r-[13px] border-r-transparent  rounded-lg absolute   `}
+      ></span>
     </li>
   );
 }
