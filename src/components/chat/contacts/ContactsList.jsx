@@ -46,7 +46,7 @@ export default function ContactsList({
       const finalCon =
         contactList?.length > 0 ? contactList?.concat(newContact) : newContact;
 
-      finalCon.length > 0 && setContacts(finalCon);
+      finalCon?.length > 0 && setContacts(finalCon);
     }
   }, [contactList, newContact]);
 
@@ -58,8 +58,8 @@ export default function ContactsList({
           : `w-full lg:w-[30%] flex flex-col `
       }`}
     >
-      {contacts !== undefined || contactList?.length > 0 ? (
-        contactList?.map((contact, index) => {
+      {contacts !== undefined ? (
+        contacts?.map((contact, index) => {
           return (
             <ContactItem
               key={index}
@@ -76,7 +76,7 @@ export default function ContactsList({
         </p>
       )}
 
-      {newContact.length > 0 &&
+      {/* {newContact.length > 0 &&
         newContact?.map((contact, index) => {
           return (
             <ContactItem
@@ -87,7 +87,7 @@ export default function ContactsList({
               setPvShow={setPvShow}
             />
           );
-        })}
+        })} */}
     </div>
   );
 }

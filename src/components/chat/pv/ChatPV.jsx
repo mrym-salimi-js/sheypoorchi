@@ -14,10 +14,15 @@ export default function ChatPV({ pvShow, contactList }) {
   const msgInput = useRef();
   const fileInput = useRef();
   const params = useParams();
-  const adId = params.adId;
+  const adIdInParams = params.adId;
   const [selectedAd, setSelectedAd] = useState();
   const [selectedFiles, setSelectedFiles] = useState();
+  const [groupMsgs, setGroupMsgs] = useState();
 
+  const [sended, setSended] = useState(false);
+  const [senderId, setSenderId] = useState();
+  const [reciverId, setReciverId] = useState();
+  const [adId, setAdId] = useState();
   // Just foe rerender page and change download Icon
   const [fileDlStatus, setFileDlStatus] = useState();
 
@@ -26,6 +31,7 @@ export default function ChatPV({ pvShow, contactList }) {
   const socket = io(`${baseURL}`);
 
   // Get Each Message Text By every Sending
+
   useEffect(() => {
     socket.on('message', ({ senderId, reciverId, message }) => {
       setMessages((prevMsg) => [
@@ -34,6 +40,7 @@ export default function ChatPV({ pvShow, contactList }) {
           id: uuidv4(),
           senderId,
           reciverId,
+          adId: adId,
           message,
           type: 'text',
         },
@@ -41,7 +48,9 @@ export default function ChatPV({ pvShow, contactList }) {
     });
 
     return () => socket.off('message');
-  }, []);
+  }, [sended]);
+
+  console.log(messages);
 
   // Get Each Message File By every Sending
   useEffect(() => {
@@ -52,6 +61,7 @@ export default function ChatPV({ pvShow, contactList }) {
           id: uuidv4(),
           senderId,
           reciverId,
+          adId: adId,
           message: fileInfo.fileName,
           type: 'file',
         },
@@ -65,9 +75,9 @@ export default function ChatPV({ pvShow, contactList }) {
   useEffect(() => {
     setMessages([]);
 
-    const messages = async () => {
+    const getMessages = async () => {
       const msgList = await axios.get(
-        `${baseURL}/api/chat/chatMessages/${adId}`,
+        `${baseURL}/api/chat/chatMessages/${adIdInParams}`,
         {
           withCredentials: true,
         }
@@ -79,12 +89,25 @@ export default function ChatPV({ pvShow, contactList }) {
         }),
         msgList.data.data.ad && setSelectedAd(msgList.data.data.ad);
     };
-    adId && messages();
+    adIdInParams && getMessages();
+    setSended(!sended);
   }, [params]);
 
+  console.log(sended);
+  // Groped Messages For Use In Ad Host Chat
+  useEffect(() => {
+    const separatedByAdId = messages?.reduce((acc, message) => {
+      if (!acc[message.adId]) {
+        acc[message.adId] = [];
+      }
+      acc[message.adId].push(message);
+      return acc;
+    }, {});
+
+    setGroupMsgs(separatedByAdId);
+  }, [messages]);
+
   // Get User And Reciver Id
-  const [senderId, setSenderId] = useState();
-  const [reciverId, setReciverId] = useState();
   useEffect(() => {
     // UserId
     const getUser = async () => {
@@ -97,19 +120,23 @@ export default function ChatPV({ pvShow, contactList }) {
 
     // ReciverId
     contactList?.map((con) => {
-      console.log(con);
-      if (con.chatId === params.adId) {
+      if (con.chatId === adIdInParams) {
         setReciverId(con.chatId);
       }
     });
-    // const ad = async () => {
-    //   const ad = await getAd(adId);
-    //   setReciverId(ad.adCreator._id);
-    // // };
-    // adId !== undefined && ad();
-  }, []);
+
+    // AdId
+  }, [params]);
+
+  useEffect(() => {
+    const en = selectedAd !== undefined && Object.entries(selectedAd);
+
+    setAdId(selectedAd !== undefined && en[en?.length - 1][1]._id);
+  }, [selectedAd, params]);
+  console.log(adId);
 
   // Send Message
+
   const handleSendingMsg = () => {
     const files = fileInput.current?.files;
 
@@ -167,7 +194,11 @@ export default function ChatPV({ pvShow, contactList }) {
           <ChatContent
             selectedAd={selectedAd}
             setFileDlStatus={setFileDlStatus}
-            messages={messages}
+            messages={
+              selectedAd !== undefined && selectedAd.length > 0
+                ? groupMsgs
+                : messages
+            }
             senderId={senderId}
           />
 
