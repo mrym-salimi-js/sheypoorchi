@@ -11,6 +11,7 @@ export function ChatContent({
   messages,
   senderId,
 }) {
+  const baseURL = import.meta.env.VITE_BASE_URL;
   const scrollRef = useRef();
 
   // Auto Scroll Down In Caht
@@ -39,6 +40,7 @@ export function ChatContent({
       console.log(error);
     }
   };
+
   return (
     <div className='w-full h-[90%] flex items-end border-t border-b  overflow-hidden  bg-[#3a723f70]'>
       <ul
@@ -46,14 +48,27 @@ export function ChatContent({
         className='w-full h-full p-2 px-3 flex flex-col gap-3 items-end overflow-scroll relative'
       >
         {selectedAd && (
-          <li
-            className={`self-start max-w-[80%] py-2 px-3 rounded-lg flex flex-col gap-2 bg-white shadow-sm `}
-          >
-            <div className='w-full flex flex-col gap-3'>
-              <img className='w-full h-20 rounded-lg border overflow-hidden'></img>
-              <p className='text-[0.7rem] '>{selectedAd[0].title}</p>
-            </div>
-          </li>
+          <>
+            <li
+              className={`self-end max-w-[80%] py-2 px-3 rounded-2xl flex gap-2 bg-[rgb(43,58,62)] shadow-sm cursor-pointer`}
+            >
+              <a
+                className='w-full h-full'
+                href={`/v/${selectedAd._id}/${selectedAd.title}`}
+              >
+                <div className='w-full flex items-center p-3 rounded-2xl border-r-[#ebebeb70] border-r-[4px] bg-[#b1bab270] gap-3'>
+                  <img
+                    className='w-10 h-10 rounded-lg border overflow-hidden'
+                    src={`${baseURL}/img/${selectedAd._id}/${selectedAd.photo[0].name}`}
+                  ></img>
+                  <p className='text-[0.7rem] text-white '>
+                    {selectedAd.title}
+                  </p>
+                </div>
+              </a>
+              <span className='border-t-[rgb(43,58,62)] rotate-[-20deg] left-1 w-0 h-0  border-l-[8px] border-l-transparent border-t-[15px] border-r-[13px] border-r-transparent  rounded-lg absolute '></span>
+            </li>
+          </>
         )}
         {messages?.length > 0 &&
           messages.map((item) => {

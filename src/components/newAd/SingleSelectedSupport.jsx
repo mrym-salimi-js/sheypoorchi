@@ -25,7 +25,7 @@ export default function SingleSelectedSupport({
   const [fieldVal, setFieldVal] = useState();
   const dispatch = useDispatch();
 
-  const handlefieldVal = (item) => {
+  const handleListItems = (item) => {
     if (!item) return;
     //Delete Excludedattributes Of Category
     // if (newAdStorageValue) {
@@ -99,7 +99,7 @@ export default function SingleSelectedSupport({
         validation={validation}
         setOpenList={setOpenList}
         openList={openList}
-        handlefieldVal={handlefieldVal}
+        handleListItems={handleListItems}
         index={index}
       />
     </>

@@ -14,12 +14,11 @@ export function ChatHeader({ contactList }) {
 
   useEffect(() => {
     contactList?.map((con) => {
-      if (con.adId === params.adId) {
+      if (con.chatId === params.adId) {
         setContact(con);
       }
     });
   });
-  // console.log(contactList);
 
   const navigateTo = useNavigate();
   // Handle More Btn
@@ -45,10 +44,14 @@ export function ChatHeader({ contactList }) {
         <div onClick={handleExitChat} className='cursor-pointer'>
           <ChevronRight size={'size-5'} color={'#3b3a3a'} strokeWidth={2} />
         </div>
-        {contact?.photo.length > 0 ? (
+        {contact?.photo?.length > 0 ? (
           <img
-            src={`${baseURL}/${contact?.photoPath}/${contact?.adId}/${contact?.photo[0].name}`}
-            className='w-10 h-10 rounded-full  '
+            src={
+              contact.photoPath === 'img'
+                ? `${baseURL}/${contact.photoPath}/${contact.chatId}/${contact.photo[0].name}`
+                : `${baseURL}/${contact.photoPath}/img/${contact.photo}`
+            }
+            className='w-10 h-10 rounded-full'
           />
         ) : (
           <img src={defaultPrifile} className='w-10 h-10 rounded-full  ' />

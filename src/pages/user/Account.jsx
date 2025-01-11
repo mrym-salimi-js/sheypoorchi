@@ -40,7 +40,7 @@ export default function Account() {
         userChatsIsLoading ||
         userSavedAdsLoading) && <PageLoading />}
 
-      <Menu photo={user?.photo} />
+      <Menu photo={user?.photo} name={user?.name} />
 
       <div className='w-full h-full  bg-gray-50 flex flex-col gap-5 px-3 md:px-7 items-end '>
         {locationUrl.pathname === '/dashboard' && (

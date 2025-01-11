@@ -2,7 +2,7 @@ import useBase64ToBlob from '../../hooks/useBase64ToBlob';
 import { _ } from 'lodash';
 import { omit } from 'lodash';
 
-const formData = async (newAdStorageValue) => {
+const formData = async (newAdStorageValue, userInfo) => {
   const formData = new FormData();
 
   const allPhoto =
@@ -59,6 +59,7 @@ const formData = async (newAdStorageValue) => {
   );
 
   formData?.append('userType', newAdStorageValue.userType);
+  formData?.append('userId', userInfo?._id);
   formData?.append('phone', newAdStorageValue.phone);
   formData?.append('chat', newAdStorageValue.chat);
 

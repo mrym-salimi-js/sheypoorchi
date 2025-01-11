@@ -73,7 +73,14 @@ const App = () => {
                   path='/s/iran/:category/:brands/:model'
                   element={<Home />}
                 />
-                <Route path='/newAd' element={<NewAd />} />
+                <Route
+                  path='/newAd'
+                  element={
+                    <ProtectectedAuth path={'newAd'}>
+                      <NewAd />
+                    </ProtectectedAuth>
+                  }
+                />
                 <Route path='/v/:id/:title' element={<Single />} />
                 <Route
                   path='/dashboard/messages'

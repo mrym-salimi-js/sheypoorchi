@@ -8,7 +8,6 @@ import { ChatHeader } from './ChatHeader';
 import { ChatContent } from './ChatContent';
 import ChatSender from './ChatSender';
 import { useParams } from 'react-router-dom';
-import { getAd } from '../../../services/getAd';
 
 export default function ChatPV({ pvShow, contactList }) {
   const [messages, setMessages] = useState([]);
@@ -70,9 +69,6 @@ export default function ChatPV({ pvShow, contactList }) {
       const msgList = await axios.get(
         `${baseURL}/api/chat/chatMessages/${adId}`,
         {
-          // headers: {
-          //   Authorization: `Bearer ${userToken}`,
-          // },
           withCredentials: true,
         }
       );
@@ -100,11 +96,17 @@ export default function ChatPV({ pvShow, contactList }) {
     getUser();
 
     // ReciverId
-    const ad = async () => {
-      const ad = await getAd(adId);
-      setReciverId(ad.adCreator._id);
-    };
-    adId !== undefined && ad();
+    contactList?.map((con) => {
+      console.log(con);
+      if (con.chatId === params.adId) {
+        setReciverId(con.chatId);
+      }
+    });
+    // const ad = async () => {
+    //   const ad = await getAd(adId);
+    //   setReciverId(ad.adCreator._id);
+    // // };
+    // adId !== undefined && ad();
   }, []);
 
   // Send Message
@@ -158,7 +160,9 @@ export default function ChatPV({ pvShow, contactList }) {
       {pvShow && (
         <>
           {/*Chat Header */}
-          <ChatHeader contactList={contactList} />
+          {contactList !== undefined && (
+            <ChatHeader contactList={contactList} />
+          )}
           {/*Chat Content */}
           <ChatContent
             selectedAd={selectedAd}

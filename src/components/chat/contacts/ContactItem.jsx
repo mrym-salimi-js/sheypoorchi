@@ -16,14 +16,18 @@ export function ContactItem({ index, contactName, contact }) {
   return (
     <>
       <div
-        onClick={() => handleOpenChat(contact.adId)}
+        onClick={() => handleOpenChat(contact.chatId)}
         key={index}
         className='w-full border-b-[1px] border-gray-600 p-1  cursor-pointer'
       >
         <div className='w-full  p-3 flex gap-2 transition-all hover:opacity-[0.8]  items-center'>
-          {contact.photo.length > 0 ? (
+          {contact.photo?.length > 0 ? (
             <img
-              src={`${baseURL}/${contact.photoPath}/${contact.adId}/${contact.photo[0].name}`}
+              src={
+                contact.photoPath === 'img'
+                  ? `${baseURL}/${contact.photoPath}/${contact.chatId}/${contact.photo[0].name}`
+                  : `${baseURL}/${contact.photoPath}/img/${contact.photo}`
+              }
               className='w-14 h-14 rounded-full  '
             />
           ) : (

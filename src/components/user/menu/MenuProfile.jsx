@@ -1,5 +1,5 @@
 import defaultProfile from '../../../assets/img/images.png';
-export default function MenuProfile({ photo }) {
+export default function MenuProfile({ photo, name }) {
   const baseURL = import.meta.env.VITE_BASE_URL;
 
   return (
@@ -13,7 +13,7 @@ export default function MenuProfile({ photo }) {
               : defaultProfile
           }
         ></img>
-        <p className='text-sm text-white'>مریم سلیمی</p>
+        <p className='text-sm text-white'>{name}</p>
       </div>
     </div>
   );

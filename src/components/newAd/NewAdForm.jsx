@@ -13,7 +13,7 @@ import { resetAd } from '../../store/newAdSlice';
 import { useDispatch, useSelector } from 'react-redux';
 
 export const NewAdContext = createContext();
-export function NewAdForm() {
+export function NewAdForm({ userInfo }) {
   const [notifToast, setNotifToast] = useState({ message: '', status: '' });
   const [adsCategoriesList, setAdsCategoriesList] = useState();
   const [adsLocationList, setAdsLocationsList] = useState();
@@ -77,7 +77,7 @@ export function NewAdForm() {
               {/* Select Photo*/}
               <PhotoComponent />
               {/* New Ad Btn */}
-              <SubmiteFormBtn />
+              <SubmiteFormBtn userInfo={userInfo} />
             </div>
 
             <div className='lg:w-[47%] p-3 flex flex-col gap-12 '>

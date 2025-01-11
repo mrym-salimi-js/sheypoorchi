@@ -36,8 +36,8 @@ export default function SingleSelected({
       />
 
       <List
-        allList={listItems}
-        setListItems={setListItems}
+        allList={listItems || fieldVal}
+        setListItems={setListItems || setFieldVal}
         setFieldVal={setFieldVal}
         label={label}
         setOpenList={setOpenList}

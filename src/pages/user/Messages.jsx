@@ -1,13 +1,11 @@
-import Cookies from 'js-cookie';
 import ChatPV from '../../components/chat/pv/ChatPV';
 import ContactsList from '../../components/chat/contacts/ContactsList';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 export default function Messages({ contactList }) {
-  const userToken = Cookies.get('user-token');
   const [pvShow, setPvShow] = useState(false);
-  const [contacs, setContacts] = useState();
+  const [contacts, setContacts] = useState([]);
   const params = useParams();
 
   useEffect(() => {
@@ -20,17 +18,14 @@ export default function Messages({ contactList }) {
       <div className='w-full h-full flex bg-white rounded-3xl border relative  overflow-hidden '>
         {/*Chat PV*/}
         <ChatPV
-          userToken={userToken}
           pvShow={pvShow}
-          setPvShow={setPvShow}
-          contactList={contactList}
+          contactList={contacts.length > 0 ? contacts : contactList}
         />
         {/*Contacts List */}
         <ContactsList
           setContacts={setContacts}
-          contacs={contacs}
+          contacts={contacts}
           contactList={contactList}
-          userToken={userToken}
           pvShow={pvShow}
           setPvShow={setPvShow}
         />

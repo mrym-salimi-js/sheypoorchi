@@ -6,7 +6,7 @@ import { useQuery } from '@tanstack/react-query';
 import createAd from '../../services/createAd';
 import formValidate from '../../utils/newAd/formValidate';
 
-export function SubmiteFormBtn() {
+export function SubmiteFormBtn({ userInfo }) {
   const { newAdStorageValue, setValidation, validation, setNotifToast } =
     useContext(NewAdContext);
 
@@ -37,15 +37,11 @@ export function SubmiteFormBtn() {
   // Get FormData And Validate Them
   const handleFormSubmite = () => {
     const getFormData = async () => {
-      const res = await formData(newAdStorageValue);
+      const res = await formData(newAdStorageValue, userInfo);
       res !== undefined && setFormDatas(res);
     };
 
-    newAdStorageValue &&
-      validation !== undefined &&
-      Object?.keys(validation)?.length == 0 &&
-      setValidFormData(true),
-      getFormData();
+    setValidFormData(true), getFormData();
 
     if (newAdStorageValue) {
       //Form Final Error Handling

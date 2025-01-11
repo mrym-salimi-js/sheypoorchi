@@ -6,12 +6,13 @@ import { useParams } from 'react-router-dom';
 export default function ContactsList({
   pvShow,
   setPvShow,
+  contactList,
   contacts,
   setContacts,
-  contactList,
 }) {
   const contactName = useRef();
   const params = useParams();
+
   const [newContact, setNewContact] = useState([]);
 
   // Set New Contact For Starting New Chat
@@ -21,23 +22,34 @@ export default function ContactsList({
 
       setNewContact([
         {
-          adId: res.data._id,
+          chatId: res.data._id,
           adName: res.data.title,
-          createAt: res.data.createAt,
+          createAt: new Date().getTime(),
           photoPath: 'img',
           photo: res.data.photo,
         },
       ]);
     };
+
     params?.adId && getAdById();
   }, []);
-  useEffect(() => {
-    const isExistContact = contactList?.find((con) => {
-      return con._id === newContact?.adId && true;
-    });
 
-    !isExistContact && setContacts(contactList?.concat(newContact));
+  useEffect(() => {
+    const isExistContact =
+      contactList?.length > 0
+        ? contactList?.map((con) => {
+            return con.chatId === newContact[0]?.chatId && true;
+          })
+        : [false];
+
+    if (isExistContact !== undefined && isExistContact[0] === false) {
+      const finalCon =
+        contactList?.length > 0 ? contactList?.concat(newContact) : newContact;
+
+      finalCon.length > 0 && setContacts(finalCon);
+    }
   }, [contactList, newContact]);
+
   return (
     <div
       className={`p-2 h-full gap-2 overflow-scroll border-r bg-[rgb(43,58,62)] ${
@@ -63,6 +75,19 @@ export default function ContactsList({
           پیامی یافت نشد :(
         </p>
       )}
+
+      {newContact.length > 0 &&
+        newContact?.map((contact, index) => {
+          return (
+            <ContactItem
+              key={index}
+              index={index}
+              contactName={contactName}
+              contact={contact}
+              setPvShow={setPvShow}
+            />
+          );
+        })}
     </div>
   );
 }
