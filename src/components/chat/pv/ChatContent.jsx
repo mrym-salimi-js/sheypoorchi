@@ -115,6 +115,7 @@ export function ChatContent({
 }
 
 export function ContentFileItem({ senderId, item, handleDownloadFile }) {
+  console.log(senderId, item.senderId);
   const baseURL = import.meta.env.VITE_BASE_URL;
   return (
     <li
@@ -122,12 +123,12 @@ export function ContentFileItem({ senderId, item, handleDownloadFile }) {
         senderId === item.senderId
           ? `self-start bg-gray-100 `
           : `self-end bg-[rgb(43,58,62)] text-white `
-      }  max-w-[80%] h-22 p-2 rounded-2xl flex flex-row-reverse gap-3 bg-white shadow-sm `}
+      }  max-w-[80%] h-22 p-2 rounded-2xl flex flex-row-reverse gap-3  shadow-sm `}
     >
       {/* File Icin */}
       <a
         onClick={(event) => handleDownloadFile(event)}
-        className=' h-14 w-14 rounded-2xl bg-gray-200 flex items-center justify-center'
+        className=' h-14 w-14 rounded-2xl border-r-[#ebebeb70] border-r-[4px] bg-[#b1bab270]  flex items-center justify-center'
         href={`${baseURL}/chat/${item.senderId}-${item.reciverId}-${
           item.adId
         }/${decodeURI(item.message).replace(/ /g, '-')}`}
@@ -160,6 +161,16 @@ export function ContentFileItem({ senderId, item, handleDownloadFile }) {
           {momentJalaali(item.createAt).locale('fa').fromNow()}
         </p>
       </div>
+      <span
+        className={`
+          ${
+            senderId === item.senderId
+              ? `border-t-gray-100 rotate-[20deg] right-1`
+              : `border-t-[rgb(43,58,62)] rotate-[-20deg] left-1`
+          } 
+         
+          w-0 h-0  border-l-[8px] border-l-transparent border-t-[15px] border-r-[13px] border-r-transparent  rounded-lg absolute   `}
+      ></span>
     </li>
   );
 }

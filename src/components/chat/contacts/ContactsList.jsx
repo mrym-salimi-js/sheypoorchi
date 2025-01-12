@@ -12,7 +12,7 @@ export default function ContactsList({
 }) {
   const contactName = useRef();
   const params = useParams();
-
+  console.log(contactList);
   const [newContact, setNewContact] = useState([]);
 
   // Set New Contact For Starting New Chat
@@ -24,6 +24,7 @@ export default function ContactsList({
         {
           chatId: res.data._id,
           adName: res.data.title,
+          creatorId: res.data.userId,
           createAt: new Date().getTime(),
           photoPath: 'img',
           photo: res.data.photo,
@@ -31,12 +32,16 @@ export default function ContactsList({
       ]);
     };
 
-    params?.adId && getAdById();
+    contactList?.forEach((c) => {
+      if (c.chatId !== params.adId) {
+        params?.adId && getAdById();
+      }
+    });
   }, []);
 
   useEffect(() => {
     const isExistContact =
-      contactList?.length > 0
+      contactList?.length > 0 && newContact.length > 0
         ? contactList?.map((con) => {
             return con.chatId === newContact[0]?.chatId && true;
           })

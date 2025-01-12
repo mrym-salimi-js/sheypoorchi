@@ -50,9 +50,7 @@ export default function Account() {
             userChats={userChats?.result}
           />
         )}
-        {locationUrl.pathname.includes('/dashboard/messages') && (
-          <Messages contactList={userChats?.data} />
-        )}
+        {locationUrl.pathname.includes('/dashboard/messages') && <Messages />}
         {locationUrl.pathname === '/dashboard/myProfile' && (
           <Profile userData={user} />
         )}

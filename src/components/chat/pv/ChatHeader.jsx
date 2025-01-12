@@ -56,9 +56,12 @@ export function ChatHeader({ contactList }) {
         ) : (
           <img src={defaultPrifile} className='w-10 h-10 rounded-full  ' />
         )}{' '}
-        <div className='flex flex-col gap-3'>
+        <div className='flex flex-col gap-1'>
           <p className='text-[0.8rem] '>{contact && contact?.adName}</p>
-          {/* <p className='text-[0.6rem] '></p> */}
+
+          <p className={`text-gray-300 text-[0.7rem]`}>
+            {navigator.onLine ? `online` : 'offline'}
+          </p>
         </div>
       </div>
       <div

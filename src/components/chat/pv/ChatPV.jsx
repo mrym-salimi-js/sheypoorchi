@@ -19,28 +19,32 @@ export default function ChatPV({ pvShow, contactList }) {
   const [selectedFiles, setSelectedFiles] = useState();
   const [groupMsgs, setGroupMsgs] = useState();
 
-  const [sended, setSended] = useState(false);
   const [senderId, setSenderId] = useState();
-  const [reciverId, setReciverId] = useState();
-  const [adId, setAdId] = useState();
-  // Just foe rerender page and change download Icon
+  let reciverId;
+  let adId;
+
+  // Just for rerender page and change download Icon
   const [fileDlStatus, setFileDlStatus] = useState();
 
   const baseURL = import.meta.env.VITE_BASE_URL;
   // Backend url
   const socket = io(`${baseURL}`);
 
+  //Get AdId
+  const en = selectedAd !== undefined && Object.entries(selectedAd);
+  adId = selectedAd !== undefined ? en[en?.length - 1][1]._id : adIdInParams;
+
   // Get Each Message Text By every Sending
 
   useEffect(() => {
-    socket.on('message', ({ senderId, reciverId, message }) => {
+    socket.on('message', ({ adId, senderId, reciverId, message }) => {
       setMessages((prevMsg) => [
         ...prevMsg,
         {
           id: uuidv4(),
           senderId,
           reciverId,
-          adId: adId,
+          adId,
           message,
           type: 'text',
         },
@@ -48,20 +52,18 @@ export default function ChatPV({ pvShow, contactList }) {
     });
 
     return () => socket.off('message');
-  }, [sended]);
-
-  console.log(messages);
+  }, []);
 
   // Get Each Message File By every Sending
   useEffect(() => {
-    socket.on('file', ({ senderId, reciverId, fileInfo }) => {
+    socket.on('file', ({ adId, senderId, reciverId, fileInfo }) => {
       setMessages((prevMsg) => [
         ...prevMsg,
         {
           id: uuidv4(),
           senderId,
           reciverId,
-          adId: adId,
+          adId,
           message: fileInfo.fileName,
           type: 'file',
         },
@@ -89,11 +91,9 @@ export default function ChatPV({ pvShow, contactList }) {
         }),
         msgList.data.data.ad && setSelectedAd(msgList.data.data.ad);
     };
-    adIdInParams && getMessages();
-    setSended(!sended);
+    getMessages();
   }, [params]);
 
-  console.log(sended);
   // Groped Messages For Use In Ad Host Chat
   useEffect(() => {
     const separatedByAdId = messages?.reduce((acc, message) => {
@@ -107,7 +107,7 @@ export default function ChatPV({ pvShow, contactList }) {
     setGroupMsgs(separatedByAdId);
   }, [messages]);
 
-  // Get User And Reciver Id
+  // Get  SenderId
   useEffect(() => {
     // UserId
     const getUser = async () => {
@@ -117,26 +117,19 @@ export default function ChatPV({ pvShow, contactList }) {
       user && setSenderId(user.data.data._id);
     };
     getUser();
+  }, [params]);
 
-    // ReciverId
+  // Get ReciverId
+  contactList !== undefined &&
     contactList?.map((con) => {
       if (con.chatId === adIdInParams) {
-        setReciverId(con.chatId);
+        con.creatorId !== undefined
+          ? (reciverId = con.creatorId)
+          : (reciverId = con.chatId);
       }
     });
 
-    // AdId
-  }, [params]);
-
-  useEffect(() => {
-    const en = selectedAd !== undefined && Object.entries(selectedAd);
-
-    setAdId(selectedAd !== undefined && en[en?.length - 1][1]._id);
-  }, [selectedAd, params]);
-  console.log(adId);
-
   // Send Message
-
   const handleSendingMsg = () => {
     const files = fileInput.current?.files;
 
@@ -151,7 +144,10 @@ export default function ChatPV({ pvShow, contactList }) {
           size: file.size,
         };
 
-        socket.emit('uploadFile', { adId, senderId, reciverId, fileInfo });
+        senderId &&
+          reciverId &&
+          adId &&
+          socket.emit('uploadFile', { adId, senderId, reciverId, fileInfo });
         const downloadeds = localStorage.getItem('downloadedFiles');
         localStorage.setItem(
           'downloadedFiles',

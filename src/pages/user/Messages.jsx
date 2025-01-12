@@ -2,11 +2,19 @@ import ChatPV from '../../components/chat/pv/ChatPV';
 import ContactsList from '../../components/chat/contacts/ContactsList';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { getChatContacts } from '../../services/user/getChatContacts';
+import { useQuery } from '@tanstack/react-query';
 
-export default function Messages({ contactList }) {
+export default function Messages() {
   const [pvShow, setPvShow] = useState(false);
   const [contacts, setContacts] = useState([]);
   const params = useParams();
+
+  const { data } = useQuery({
+    queryKey: ['userChats'],
+    queryFn: getChatContacts,
+    refetchOnWindowFocus: true,
+  });
 
   useEffect(() => {
     params && params.adId ? setPvShow(true) : setPvShow(false);
@@ -19,13 +27,13 @@ export default function Messages({ contactList }) {
         {/*Chat PV*/}
         <ChatPV
           pvShow={pvShow}
-          contactList={contacts.length > 0 ? contacts : contactList}
+          contactList={contacts.length > 0 ? contacts : data?.data}
         />
         {/*Contacts List */}
         <ContactsList
           setContacts={setContacts}
           contacts={contacts}
-          contactList={contactList}
+          contactList={data?.data}
           pvShow={pvShow}
           setPvShow={setPvShow}
         />
