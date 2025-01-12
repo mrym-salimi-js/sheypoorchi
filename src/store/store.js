@@ -1,4 +1,3 @@
-// store.js
 import { configureStore } from '@reduxjs/toolkit';
 import {
   persistStore,
@@ -11,7 +10,7 @@ import {
   REGISTER,
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-import newAdReducer from './newAdSlice';
+import newAdReducer, { resetAd } from './newAdSlice';
 
 const persistConfig = {
   key: 'newAd',
@@ -34,4 +33,10 @@ const store = configureStore({
 
 const persistor = persistStore(store);
 
-export { store, persistor };
+// Function to purge persisted state and reset Redux state
+const clearPersistedState = () => {
+  persistor.purge();
+  store.dispatch(resetAd());
+};
+
+export { store, persistor, clearPersistedState };

@@ -41,7 +41,12 @@ export function SubmiteFormBtn({ userInfo }) {
       res !== undefined && setFormDatas(res);
     };
 
-    setValidFormData(true), getFormData();
+    newAdStorageValue &&
+      (validation === undefined ||
+        (typeof validation === 'object' &&
+          Object.entries(validation)?.length == 0)) &&
+      setValidFormData(true),
+      getFormData();
 
     if (newAdStorageValue) {
       //Form Final Error Handling

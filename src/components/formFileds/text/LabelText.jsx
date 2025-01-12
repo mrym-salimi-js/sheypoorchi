@@ -6,18 +6,17 @@ export default function LabelText() {
     inputShow,
     label,
     filterValue,
-    fieldVal,
     inputVal,
     newAdStorageValue,
     storagePram,
     index,
   } = useContext(TextFiledContext);
+
   return (
     <p
       className={`w-full text-md transition-all absolute bottom-3 ${
         ((inputShow !== undefined && inputShow === label) ||
           filterValue ||
-          fieldVal ||
           inputVal ||
           (newAdStorageValue &&
             (typeof newAdStorageValue[storagePram] === 'object'

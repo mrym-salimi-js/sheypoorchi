@@ -3,11 +3,10 @@ import { NewAdForm } from '../components/newAd/NewAdForm';
 import { getUser } from '../services/user/getUser';
 
 export default function NewAd() {
-  const { data, isLoading } = useQuery({
+  const { data } = useQuery({
     queryKey: ['user'],
     queryFn: getUser,
   });
-  console.log(isLoading);
 
   return (
     <>

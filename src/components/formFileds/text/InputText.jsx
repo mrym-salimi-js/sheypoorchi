@@ -77,7 +77,8 @@ export default function InputText() {
     }
 
     if (setValidation && newAdStorageValue) {
-      (!newAdStorageValue[storagePram] || newAdStorageValue.attribute) &&
+      (!newAdStorageValue[storagePram] ||
+        (storagePram === 'attributr' && newAdStorageValue.attribute)) &&
         adFormValidation(
           (stateVal) => {
             setValidation(stateVal);

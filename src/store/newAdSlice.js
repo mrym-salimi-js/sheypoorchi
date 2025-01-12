@@ -9,7 +9,7 @@ const initialState = {
   title: '',
   photo: [],
   userType: 'فرد',
-  phone: false,
+  phone: '',
   chat: '',
   active: false,
 };
@@ -193,10 +193,7 @@ const newAdSlice = createSlice({
       state.chat = action.payload.status;
       state.active = true;
     },
-    resetAd: (state) => {
-      state.active = false;
-      localStorage.setItem('form-list-values', JSON.stringify(initialState));
-
+    resetAd: () => {
       initialState;
     }, // Reset to default state
   },

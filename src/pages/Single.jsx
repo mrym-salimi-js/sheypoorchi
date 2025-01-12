@@ -59,7 +59,10 @@ export function SingleAdDetails({ singleAd, adCreator }) {
     location,
     coordinate,
     photo,
+    phone,
     title,
+    chat,
+    userId,
     _id,
   } = singleAd;
 
@@ -99,6 +102,9 @@ export function SingleAdDetails({ singleAd, adCreator }) {
         _id,
         saved,
         setSaved,
+        chat,
+        phone,
+        userId,
       }}
     >
       <div className='w-full p-3 lg:w-[80%]  flex flex-col justify-between relative pb-24'>

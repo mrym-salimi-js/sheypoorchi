@@ -1,15 +1,26 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
 import { SingleContext } from '../../../pages/Single';
 import { navTo } from '../../../utils/globals/navTo';
 import { useNavigate } from 'react-router-dom';
 import defaultProfile from '../../../assets/img/images.png';
 import axios from 'axios';
+import { useQuery } from '@tanstack/react-query';
+import { getUser } from '../../../services/user/getUser';
+
 export function Connections() {
-  const { _id, adCreator, setSaved } = useContext(SingleContext);
+  const { _id, adCreator, chat, phone, userId, setSaved } =
+    useContext(SingleContext);
+
   const navigateTo = useNavigate();
   const [userProf, setUserPrpf] = useState();
-
+  const phoneRef = useRef();
   const baseURL = import.meta.env.VITE_BASE_URL;
+
+  const { data } = useQuery({
+    queryKey: ['user'],
+    queryFn: getUser,
+  });
+
   useEffect(() => {
     const getProf = async () => {
       const response = await fetch(`${baseURL}/api/users/${adCreator._id}`);
@@ -22,6 +33,11 @@ export function Connections() {
     };
     getProf();
   }, []);
+
+  const handlePhonNumber = () => {
+    console.dir(phoneRef);
+    phoneRef.current.innerText = '0' + phone;
+  };
 
   const handleChat = () => {
     navTo(`/dashboard/messages/${_id}`, null, navigateTo);
@@ -41,18 +57,25 @@ export function Connections() {
         </a>
         <p className='text-sm'>{adCreator?.name}</p>
       </div>
-
-      <div className='w-full flex gap-3'>
-        <p className='w-1/2  p-5 hover:opacity-[0.7] text-center leading-3 rounded-full bg-[#84105C] text-sm text-white cursor-pointer'>
-          اطلاعات تماس
-        </p>
-        <p
-          onClick={handleChat}
-          className='w-1/2  p-5 hover:opacity-[0.7] text-center leading-3 rounded-full border border-[#84105C] bg-pink-50  text-sm text-[#84105C] cursor-pointer'
-        >
-          چت
-        </p>
-      </div>
+      {data !== undefined && data._id !== userId && (
+        <div className='w-full flex gap-3'>
+          <p
+            ref={phoneRef}
+            onClick={handlePhonNumber}
+            className='w-full  p-5 hover:opacity-[0.7] text-center leading-3 rounded-full bg-[#84105C] text-sm text-white cursor-pointer'
+          >
+            اطلاعات تماس
+          </p>
+          {chat && (
+            <p
+              onClick={handleChat}
+              className='w-full  p-5 hover:opacity-[0.7] text-center leading-3 rounded-full border border-[#84105C] bg-pink-50  text-sm text-[#84105C] cursor-pointer'
+            >
+              چت
+            </p>
+          )}
+        </div>
+      )}
     </div>
   );
 }

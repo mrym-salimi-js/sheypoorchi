@@ -1,8 +1,7 @@
 import { useContext, useState } from 'react';
 import { BorderRoundedBtn } from '../globals/BorderRoundedBtn';
 import { NewAdContext } from './NewAdForm';
-import { useDispatch } from 'react-redux';
-import { resetAd } from '../../store/newAdSlice';
+import { clearPersistedState } from '../../store/store';
 
 export function ClearForm() {
   const { setValidation } = useContext(NewAdContext);
@@ -31,12 +30,13 @@ export function ClearForm() {
   );
 }
 export function ClearingFormAskBox({ setClearingFormAlarm, setValidation }) {
-  const dispatch = useDispatch();
   const handleClrearingForm = () => {
-    dispatch(resetAd());
+    clearPersistedState();
+
     setValidation(undefined);
     setClearingFormAlarm(false);
     localStorage.setItem('coordinate', JSON.stringify([]));
+
     window.location.reload();
   };
   const handleCloseClearingForm = () => {

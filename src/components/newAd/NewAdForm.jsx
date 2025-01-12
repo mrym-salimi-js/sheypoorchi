@@ -174,7 +174,7 @@ export function NewAdForm({ userInfo }) {
                 data={data}
               />
               {/* Map*/}
-              <Map
+              {/* <Map
                 width={'100%'}
                 lat={
                   newAdStorageValue?.location.lat
@@ -190,7 +190,7 @@ export function NewAdForm({ userInfo }) {
                 zoom={14}
                 setNewAdStorageValue={setNewAdStorageValue}
                 newAdStorageValue={newAdStorageValue}
-              />
+              /> */}
 
               {/* User Type*/}
               <UserType />
