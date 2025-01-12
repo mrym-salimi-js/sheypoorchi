@@ -10,14 +10,20 @@ export default function LabelText() {
     newAdStorageValue,
     storagePram,
     index,
+    fieldVal,
+    defaultItem,
+    type,
   } = useContext(TextFiledContext);
 
+  // console.log(fieldVal);
   return (
     <p
       className={`w-full text-md transition-all absolute bottom-3 ${
         ((inputShow !== undefined && inputShow === label) ||
+          (type === `filter` && fieldVal) ||
           filterValue ||
           inputVal ||
+          defaultItem ||
           (newAdStorageValue &&
             (typeof newAdStorageValue[storagePram] === 'object'
               ? newAdStorageValue[storagePram]?.name ||

@@ -19,8 +19,8 @@ export function AdCart({ adItem }) {
   const href = `/v/${_id}/${adTitle}`;
 
   return (
-    <li className='max-w-[340px] min-w-[270px] w-[340px] md:w-[300px] h-auto border border-gray-300 bg-white rounded-[2rem] px-5  relative list-none'>
-      <div className='flex flex-col gap-4 items-center relative bottom-8'>
+    <li className='max-w-[300px] min-w-[270px] w-[300px] md:w-[300px] h-auto border border-gray-200 bg-white rounded-[3rem] p-4  relative list-none'>
+      <div className='flex flex-col gap-2 items-center '>
         <AdCartPhoto photo={photo} href={href} id={_id} />
 
         <AdCartTextContent
@@ -31,7 +31,7 @@ export function AdCart({ adItem }) {
           href={href}
         />
       </div>
-      <AdCartFooter createAt={createAt} location={location} />
+      <AdCartFooter createAt={createAt} location={location} href={href} />
     </li>
   );
 }

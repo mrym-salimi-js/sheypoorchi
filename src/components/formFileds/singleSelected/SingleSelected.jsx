@@ -18,10 +18,12 @@ export default function SingleSelected({
   handleListItems,
   index,
   setListItems,
+  defaultItem,
 }) {
   return (
     <>
       <TextComponent
+        defaultItem={defaultItem}
         label={label}
         setValidation={setValidation}
         validation={validation}

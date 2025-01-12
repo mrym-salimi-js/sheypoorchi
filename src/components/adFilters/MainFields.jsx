@@ -14,6 +14,7 @@ import AttrsFields from './AttrsFields';
 import { allCatSortOptions } from '../../utils/adFilters/categorySortOptionTyps';
 import { deleteFilterSearch } from '../../utils/adFilters/deleteFilterSearch';
 import SingleSelectedSupport from './SingleSelectedSupport';
+import manageCostInForm from '../../utils/globals/manageCostInForm';
 
 export const FilterContext = createContext();
 export function MainFields() {
@@ -60,9 +61,10 @@ export function MainFields() {
       adsCategoriesList?.find((item) => {
         // Get Parent Cat Attrs
         if (item.slug === category && item.type != 0) {
-          setParentCatAttr([]);
-          setParentCatAttr(item.attributes);
-          setChildCatAttr([]);
+          const updatedParentCatAttr = [...item.attributes]; // Create a copy
+          const updatedChildCatAttr = [];
+          setParentCatAttr(updatedParentCatAttr);
+          setChildCatAttr(updatedChildCatAttr);
           setSelectedCat(item);
           item.defaultSortid && setDefaultSortid(item.defaultSortid);
           item.sortOptions.length > 0 && setSortOptions(item.sortOptions);
@@ -70,8 +72,8 @@ export function MainFields() {
         //Get Child Cat Attrs
         item.children?.find((itemCh) => {
           if (itemCh?.slug === category) {
-            setChildCatAttr(itemCh.attributes);
-            setParentCatAttr(item.attributes);
+            const updatedChildCatAttr = [...itemCh.attributes]; // Create a copy
+            setChildCatAttr(updatedChildCatAttr);
             setSelectedCat(itemCh);
             itemCh.defaultSortid && setSortOptions(itemCh.sortOptions);
             itemCh.sortOptions.length > 0 && setSortOptions(itemCh.sortOptions);
@@ -80,6 +82,15 @@ export function MainFields() {
       });
     }
   }, [category, adsCategoriesList]);
+
+  // Manage Costs
+  useEffect(() => {
+    childCatAttr.length > 0 &&
+      childCatAttr.map((p) => {
+        (p.id === '68090' || p.id === '68092') &&
+          manageCostInForm(parentCatAttr, 1);
+      });
+  }, [childCatAttr]);
 
   // Find Selected Sort Opton In Url
   useEffect(() => {

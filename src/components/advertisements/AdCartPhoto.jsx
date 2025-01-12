@@ -8,7 +8,7 @@ export function AdCartPhoto({ photo, href, id }) {
         <Link
           // onClick={handleLinkTo}
           to={href}
-          className='w-[90%] h-[150px] bg-white relative rounded-[2rem] overflow-hidden cursor-pointer shadow-md'
+          className='w-[95%] h-[150px] bg-white relative rounded-[2rem] overflow-hidden cursor-pointer'
         >
           <img
             className='w-full h-full object-cover'
@@ -19,7 +19,7 @@ export function AdCartPhoto({ photo, href, id }) {
       ) : (
         <Link
           to={href}
-          className='w-[95%] h-[150px]  relative rounded-[2rem] overflow-hidden cursor-pointer bg-gray-100 flex items-center justify-center shadow-md'
+          className='w-[95%] h-[150px]  relative rounded-[2rem] overflow-hidden cursor-pointer bg-gray-100 flex items-center justify-center '
         >
           <Camera color={'#cccccc'} size={'size-10'} />
           <span className='w-14 h-[2px] bg-[#cccccc] rotate-45 absolute'></span>

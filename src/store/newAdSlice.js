@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import manageCostInForm from '../utils/globals/manageCostInForm';
 
 // Initial State
 const initialState = {
@@ -141,12 +142,14 @@ const newAdSlice = createSlice({
                     type: attrItem.type,
                     nameId: '',
                   }
-                : {
+                : ((attrItem.id == 68090 || attrItem.id == 68092) &&
+                    manageCostInForm(state.attribute, 1),
+                  {
                     id: +attrItem.id,
                     label: attrItem.title,
                     name: '',
                     type: attrItem.type,
-                  }
+                  })
             );
         });
       } else {

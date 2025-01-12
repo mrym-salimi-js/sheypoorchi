@@ -24,6 +24,7 @@ export default function TextComponent({
   queryKey,
   searchItem,
   itemId,
+  defaultItem,
 }) {
   const [inputShow, setInputShow] = useState();
   const [filterValue, setFilterValue] = useState();
@@ -53,6 +54,7 @@ export default function TextComponent({
         storagePram,
         subFiled,
         valueType,
+        defaultItem,
         inputRefs,
         index,
         filedType,
