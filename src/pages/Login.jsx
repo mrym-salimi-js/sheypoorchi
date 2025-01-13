@@ -63,7 +63,7 @@ export default function Login() {
         }
       } catch (error) {
         setLoading(false);
-        error.response.status !== 200 &&
+        error.response?.status !== 200 &&
           setNotifToast({
             message: 'کاربری با این مشخصات یافت نشد',
             status: 'fail',

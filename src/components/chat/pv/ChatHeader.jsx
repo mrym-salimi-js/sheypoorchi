@@ -2,8 +2,12 @@ import { useEffect, useState } from 'react';
 import { Block, ChevronRight, More, RecycleBin } from '../../globals/Icons';
 import { navTo } from '../../../utils/globals/navTo';
 import { useNavigate, useParams } from 'react-router-dom';
-
+import momentJalaali from 'moment-jalaali';
+momentJalaali.loadPersian({ usePersianDigits: true });
 import defaultPrifile from '../../../assets/img/images.png';
+import { useQuery } from '@tanstack/react-query';
+import { getUserById } from '../../../services/user/getUserById';
+
 export function ChatHeader({ contactList }) {
   const [chatSettingStatus, setChatSettingStatus] = useState(false);
   const [contact, setContact] = useState();
@@ -38,6 +42,22 @@ export function ChatHeader({ contactList }) {
       }
     });
   });
+
+  // Get User
+  const userId =
+    contact?.creatorId !== undefined ? contact?.creatorId : contact?.chatId;
+
+  const { data: user } = useQuery({
+    queryKey: ['user', userId],
+    queryFn: () => getUserById(userId),
+    refetchInterval: 5000,
+  });
+  // Set User Status
+  const [status, setStatus] = useState('offline');
+  useEffect(() => {
+    user !== undefined && setStatus(user?.data?.status);
+  }, [user]);
+
   return (
     <div className='w-full p-3 relative  flex justify-between items-center '>
       <div className='flex gap-3 items-center'>
@@ -60,7 +80,11 @@ export function ChatHeader({ contactList }) {
           <p className='text-[0.8rem] '>{contact && contact?.adName}</p>
 
           <p className={`text-gray-300 text-[0.7rem]`}>
-            {navigator.onLine ? `online` : 'offline'}
+            {status === 'onlone'
+              ? 'انلاین'
+              : `اخرین بازدید  ${momentJalaali(user?.data?.lastSeen)
+                  .locale('fa')
+                  .fromNow()}`}
           </p>
         </div>
       </div>

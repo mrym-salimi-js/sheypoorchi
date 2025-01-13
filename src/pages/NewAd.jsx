@@ -1,8 +1,10 @@
 import { useQuery } from '@tanstack/react-query';
 import { NewAdForm } from '../components/newAd/NewAdForm';
 import { getUser } from '../services/user/getUser';
+import { updateUserStatus } from '../services/user/updateUserStatus';
 
 export default function NewAd() {
+  updateUserStatus();
   const { data } = useQuery({
     queryKey: ['user'],
     queryFn: getUser,

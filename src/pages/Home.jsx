@@ -17,9 +17,11 @@ import { getAds } from '../services/getAds';
 import { useQuery } from '@tanstack/react-query';
 import { navTo } from '../utils/globals/navTo';
 import PageLoading from '../components/globals/PageLoading';
+import { updateUserStatus } from '../services/user/updateUserStatus';
 export const HomeContext = createContext();
 
 export default function Home() {
+  updateUserStatus();
   const navigateTo = useNavigate();
   const params = useParams();
   const locationUrl = useLocation();

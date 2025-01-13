@@ -10,7 +10,7 @@ export default function Messages() {
   const [contacts, setContacts] = useState([]);
   const params = useParams();
 
-  const { data } = useQuery({
+  const { data: chatContacts } = useQuery({
     queryKey: ['userChats'],
     queryFn: getChatContacts,
     refetchOnWindowFocus: true,
@@ -27,13 +27,13 @@ export default function Messages() {
         {/*Chat PV*/}
         <ChatPV
           pvShow={pvShow}
-          contactList={contacts.length > 0 ? contacts : data?.data}
+          contactList={contacts.length > 0 ? contacts : chatContacts?.data}
         />
         {/*Contacts List */}
         <ContactsList
           setContacts={setContacts}
           contacts={contacts}
-          contactList={data?.data}
+          contactList={chatContacts?.data}
           pvShow={pvShow}
           setPvShow={setPvShow}
         />

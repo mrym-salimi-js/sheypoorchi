@@ -5,6 +5,7 @@ import formData from '../../utils/newAd/formData';
 import { useQuery } from '@tanstack/react-query';
 import createAd from '../../services/createAd';
 import formValidate from '../../utils/newAd/formValidate';
+import { clearPersistedState } from '../../store/store';
 
 export function SubmiteFormBtn({ userInfo }) {
   const { newAdStorageValue, setValidation, validation, setNotifToast } =
@@ -24,10 +25,12 @@ export function SubmiteFormBtn({ userInfo }) {
   useEffect(() => {
     data !== undefined &&
       (data?.status === 'success'
-        ? setNotifToast({
+        ? (setNotifToast({
             message: 'آگهی شما با موفقیت ثبت شد',
             status: 'success',
-          })
+          }),
+          clearPersistedState(),
+          window.location.reload())
         : setNotifToast({
             message: 'در ثبت آگهی خطایی رخ داده',
             status: 'fail',

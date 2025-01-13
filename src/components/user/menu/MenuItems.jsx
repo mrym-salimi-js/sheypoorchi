@@ -1,8 +1,14 @@
 import { Chat, Home, Logout, Saved, Speaker, User } from '../../globals/Icons';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { logout } from '../../../services/user/logout';
 
 export default function MenuItems() {
   const locationUrl = useLocation();
+  const navigateTo = useNavigate();
+
+  const handleLogout = () => {
+    logout(navigateTo);
+  };
   return (
     <div className='w-full h-[22rem] flex flex-col items-center gap-4 px-10'>
       <Link
@@ -103,13 +109,13 @@ export default function MenuItems() {
           پیام های من
         </p>
       </Link>
-      <Link
-        to={'/'}
+      <div
+        onClick={handleLogout}
         className='w-[95%] transition-all cursor-pointer rounded-2xl p-3 hover:bg-[#2277606f] flex gap-4 items-center'
       >
         <Logout color={'#227760'} size={'size-5'} />
         <p className='text-sm text-[#227760]'>خروج</p>
-      </Link>
+      </div>
     </div>
   );
 }

@@ -59,6 +59,7 @@ export default function ForgetPassword() {
               message: 'ایمیلی برای شما ارسال شد!',
               status: 'success',
             });
+          setLoading(false);
         }
       } catch (error) {
         setLoading(false);

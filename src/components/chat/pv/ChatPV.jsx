@@ -111,10 +111,10 @@ export default function ChatPV({ pvShow, contactList }) {
   useEffect(() => {
     // UserId
     const getUser = async () => {
-      const user = await axios.get(`${baseURL}/api/users/checkAuth`, {
+      const user = await axios.get(`${baseURL}/api/users/me`, {
         withCredentials: true,
       });
-      user && setSenderId(user.data.data._id);
+      user && setSenderId(user.data.data?._id);
     };
     getUser();
   }, [params]);

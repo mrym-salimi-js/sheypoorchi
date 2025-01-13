@@ -12,10 +12,12 @@ import { getCost } from '../utils/advertisements/getCost';
 import { navTo } from '../utils/globals/navTo';
 import { useQuery } from '@tanstack/react-query';
 import PageLoading from '../components/globals/PageLoading';
+import { updateUserStatus } from '../services/user/updateUserStatus';
 
 export const SingleContext = createContext();
 
 export default function Single() {
+  updateUserStatus();
   const params = useParams();
   const id = params.id;
   const { data, error, isLoading } = useQuery({

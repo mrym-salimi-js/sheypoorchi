@@ -9,7 +9,7 @@ export default function ProtectectedAuth({ path, children }) {
   useEffect(() => {
     const getUser = async () => {
       try {
-        await axios.get(`${baseURL}/api/users/checkAuth`, {
+        await axios.get(`${baseURL}/api/users/me`, {
           withCredentials: true,
         });
         path === 'dashboard' && navTo(`/${path}`, '', navigateTo);

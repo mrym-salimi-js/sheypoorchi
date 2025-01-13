@@ -115,7 +115,6 @@ export function ChatContent({
 }
 
 export function ContentFileItem({ senderId, item, handleDownloadFile }) {
-  console.log(senderId, item.senderId);
   const baseURL = import.meta.env.VITE_BASE_URL;
   return (
     <li

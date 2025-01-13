@@ -1,12 +1,15 @@
 import { useQuery } from '@tanstack/react-query';
 import ProfileInput from './ProfileInput';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { updateUserInfo } from '../../../services/user/updateUserInfo';
-import { ToastContainer, toast } from 'react-toastify';
+// import { ToastContainer, toast } from 'react-toastify';
+import NotifToast from '../../globals/NotifToast';
 
 export default function EditInfo({ userInfo }) {
   const [formData, setFormData] = useState();
   const [form, setForm] = useState(false);
+
+  const [notifToast, setNotifToast] = useState({ message: '', status: '' });
 
   const { data } = useQuery({
     queryKey: ['userInfo', formData],
@@ -15,14 +18,27 @@ export default function EditInfo({ userInfo }) {
     refetchInterval: false,
   });
 
-  form &&
-    data !== undefined &&
-    (data?.data?.status === 'success'
-      ? toast.success('تغییرات با موفقیت انجام شد.')
-      : toast.error('خطایی رخ داد!'));
+  useEffect(() => {
+    form &&
+      data !== undefined &&
+      (data?.data?.status === 'success'
+        ? setNotifToast({
+            message: 'تغییرات با موفقیت انجام شد.',
+            status: 'success',
+          })
+        : setNotifToast({
+            message: 'خطایی رخ داد!',
+            status: 'fail',
+          }));
+  }, [data]);
+
+  // console.log(notifToast);
   return (
     <>
-      {<ToastContainer position='top-center' />}
+      {notifToast.message && (
+        <NotifToast setNotif={setNotifToast} notif={notifToast} />
+      )}
+      {/* {<ToastContainer position='top-center' />} */}
       <div className='w-full lg:w-1/2 h-auto  flex flex-col gap-3'>
         {[
           { name: 'نام', key: 'name' },

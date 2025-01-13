@@ -10,6 +10,6 @@ export const getUser = async () => {
       throw new Error('درخواست با خطا مواجه شد');
     return response.data.data;
   } catch (error) {
-    return error;
+    return error.response.data.status;
   }
 };

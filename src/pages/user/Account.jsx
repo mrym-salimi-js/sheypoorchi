@@ -11,9 +11,13 @@ import Profile from './Profile';
 import MyAds from './MyAds';
 import MySavedAds from './MySavedAds';
 import { getSavedAds } from '../../services/user/getSavedAds';
+import { updateUserStatus } from '../../services/user/updateUserStatus';
+// import { useEffect } from 'react';
 
 export default function Account() {
   const locationUrl = useLocation();
+
+  updateUserStatus();
 
   const { data: user, isLoading: userIsLoading } = useQuery({
     queryKey: ['user'],

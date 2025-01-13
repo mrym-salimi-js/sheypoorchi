@@ -12,7 +12,7 @@ export default function ContactsList({
 }) {
   const contactName = useRef();
   const params = useParams();
-  console.log(contactList);
+  // console.log(contactList);
   const [newContact, setNewContact] = useState([]);
 
   // Set New Contact For Starting New Chat
