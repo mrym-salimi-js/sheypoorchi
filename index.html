@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/assets/advertising-icon-BnWN16Jd.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>شیپورچی</title>
+  <script type="module" crossorigin src="/assets/index-BzOAfmGi.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-BOaK1nZP.css">
+</head>
+
+<style>
+  #root {
+    flex: 1 0 calc(25% - 20px)
+  }
+
+  body {
+    display: flex;
+    align-items: start !important;
+  }
+
+  @font-face {
+    font-family: IRANSans;
+    src: url(/assets/IRANSansWeb-CejdoTbN.ttf) format('truetype');
+  }
+
+  * {
+    font-family: IRANSans;
+  }
+
+  .leaflet-bottom {
+    display: none;
+  }
+
+  .leaflet-touch .leaflet-control-layers,
+  .leaflet-touch .leaflet-bar {
+    border: none !important;
+    border-radius: 30px;
+  }
+
+  .leaflet-touch .leaflet-bar a:first-child {
+    border-top-left-radius: 5px !important;
+    border-top-right-radius: 5px !important;
+
+  }
+
+  .leaflet-touch .leaflet-bar a:last-child {
+    border-bottom-right-radius: 5px !important;
+    border-bottom-left-radius: 5px !important;
+  }
+
+  .leaflet-container.leaflet-touch-drag {
+    border-radius: 15px;
+  }
+
+  ::-webkit-scrollbar {
+    width: 3px;
+    height: 3px;
+
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #eaeaea;
+  }
+
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #a6a6a6;
+  }
+
+  .ul-box {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .ul-box::-webkit-scrollbar {
+    display: none;
+  }
+
+  .rmdp-shadow{
+    box-shadow: none !important
+  }
+
+/*Example Of Var  In Css */
+
+  /* :root {
+  --rmdp-primary-purple: #9c27b0;
+  --rmdp-secondary-purple: #7b1fa2;
+  --rmdp-shadow-purple: #8e24aa;
+  --rmdp-today-purple: #e040fb;
+  --rmdp-hover-purple: #d500f9;
+  --rmdp-deselect-purple: #ba68c8;
+}
+
+.purple .rmdp-wrapper {
+  border: 1px solid var(--rmdp-secondary-purple);
+  box-shadow: 0 0 5px var(--rmdp-secondary-purple);
+} */
+
+.rmdp-week-day {
+  color: #71ae77e6 !important;
+  font-size: 0.75rem !important;
+}
+.rmdp-week:first-child{
+  /* background-color: rgba(222, 112, 112, 0.822) !important; */
+}
+.rmdp-week .rmdp-day{
+  border-radius: 100% !important;
+  background-color: #abd8b042 !important;
+
+}
+.rmdp-week, .rmdp-ym{
+  gap: 4px !important;
+}
+.rmdp-day.rmdp-today span{
+  background-color: #71ae77e6 !important;
+}
+.rmdp-day span:hover{
+  background-color: #abd8b042 !important;
+}
+.rmdp-header-values span{
+  color: #0d4e14e6;
+}
+.rmdp-calendar :focus {
+    outline-color: #abd8b042 !important;
+}
+.rmdp-day.rmdp-selected span:not(.highlight){
+  box-shadow: none !important;
+}
+ .rmdp-day {
+   background-color: #abd8b042 !important;
+}
+
+.active{
+  color: white;
+}
+.Toastify__toast {
+  font-family:Rastin !important;
+  font-size: 0.8rem;
+  padding-bottom: 5px;
+}
+
+/* Example styles to hide the eye icon */ 
+input[type="password"]::-ms-reveal,
+ input[type="password"]::-ms-clear { display: none; }
+ 
+input[type="password"]::-webkit-clear-button,
+ input[type="password"]::-webkit-inner-spin-button,
+  input[type="password"]::-webkit-outer-spin-button,
+   input[type="password"]::-webkit-password-toggle { display: none; } 
+ 
+input[type="password"]::-moz-clear-button { display: none; }
+</style>
+
+<body dir="rtl" class="bg-[#f9f9f93b]">
+  <div class="absolute m-auto left-0 right-0 top-0 bottom-0 flex justify-center items-center " id="protal-root"></div>
+  <div id="root" class="absolute m-auto left-0 right-0 top-0 bottom-0 flex flex-col items-center"></div>
+</body>
+
+</html>

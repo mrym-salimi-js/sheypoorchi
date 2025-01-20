@@ -1,0 +1,1 @@
+import{j as t}from"./index-BzOAfmGi.js";const s="/assets/404-CwwqIgbx.png";function n(){return t.jsx("div",{className:"w-auto h-[90%] flex items-center justify-between",children:t.jsx("img",{src:s})})}export{n as default};
