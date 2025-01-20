@@ -1,6 +1,4 @@
 import { useEffect, useRef, useState } from 'react';
-
-import axios from 'axios';
 import { io } from 'socket.io-client';
 import { v4 as uuidv4 } from 'uuid';
 import { SendFileProtalChildren } from '../protals/SendFileProtalChildren';
@@ -8,6 +6,8 @@ import { ChatHeader } from './ChatHeader';
 import { ChatContent } from './ChatContent';
 import ChatSender from './ChatSender';
 import { useParams } from 'react-router-dom';
+import { getUser } from '../../../services/user/getUser';
+import getChatMessages from '../../../services/user/getChatMessages';
 
 export default function ChatPV({ pvShow, contactList }) {
   const [messages, setMessages] = useState([]);
@@ -18,24 +18,23 @@ export default function ChatPV({ pvShow, contactList }) {
   const [selectedAd, setSelectedAd] = useState();
   const [selectedFiles, setSelectedFiles] = useState();
   const [groupMsgs, setGroupMsgs] = useState();
-
   const [senderId, setSenderId] = useState();
   let reciverId;
   let adId;
 
   // Just for rerender page and change download Icon
   const [fileDlStatus, setFileDlStatus] = useState();
+  console.log(fileDlStatus, 'downloaded file status');
 
   const baseURL = import.meta.env.VITE_BASE_URL;
   // Backend url
   const socket = io(`${baseURL}`);
 
   //Get AdId
-  const en = selectedAd !== undefined && Object.entries(selectedAd);
-  adId = selectedAd !== undefined ? en[en?.length - 1][1]._id : adIdInParams;
+  const sa = selectedAd !== undefined && Object.entries(selectedAd);
+  adId = selectedAd !== undefined ? sa[sa?.length - 1][1]._id : adIdInParams;
 
   // Get Each Message Text By every Sending
-
   useEffect(() => {
     socket.on('message', ({ adId, senderId, reciverId, message }) => {
       setMessages((prevMsg) => [
@@ -77,21 +76,15 @@ export default function ChatPV({ pvShow, contactList }) {
   useEffect(() => {
     setMessages([]);
 
-    const getMessages = async () => {
-      const msgList = await axios.get(
-        `${baseURL}/api/chat/chatMessages/${adIdInParams}`,
-        {
-          withCredentials: true,
-        }
-      );
+    const msgList = getChatMessages(adIdInParams);
 
-      msgList && setMessages([]),
-        msgList.data.data.message.map((item) => {
-          setMessages((prevMessages) => [...prevMessages, item]);
-        }),
-        msgList.data.data.ad && setSelectedAd(msgList.data.data.ad);
-    };
-    getMessages();
+    if (msgList) {
+      setMessages([]);
+      msgList.message.map((item) => {
+        setMessages((prevMessages) => [...prevMessages, item]);
+      });
+      msgList.ad && setSelectedAd(msgList.ad);
+    }
   }, [params]);
 
   // Groped Messages For Use In Ad Host Chat
@@ -110,12 +103,9 @@ export default function ChatPV({ pvShow, contactList }) {
   // Get  SenderId
   useEffect(() => {
     // UserId
-    const getUser = async () => {
-      const user = await axios.get(`${baseURL}/api/users/me`, {
-        withCredentials: true,
-      });
-      user && setSenderId(user.data.data?._id);
-    };
+    const user = getUser();
+    user && setSenderId(user?._id);
+
     getUser();
   }, [params]);
 
