@@ -1,0 +1,1 @@
+import{a as r}from"./index-CyHgDxDZ.js";const e=async()=>{const a="https://pensive-volhard-wbilxm8r4.liara.run";try{const t=await r.get(`${a}/api/users/me`,{withCredentials:!0});if(t.data.status==="fail")throw new Error("درخواست با خطا مواجه شد");return t.data.data}catch(t){return t.response.data.status}};export{e as g};

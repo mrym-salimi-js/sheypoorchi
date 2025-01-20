@@ -1,1 +1,0 @@
-import{j as s,w as i}from"./index-Dqs9VKQ8.js";function t({color:e,size:r,textStyle:a}){return s.jsx("a",{href:"/s/iran",children:s.jsxs("div",{className:"flex gap-3 items-center",children:[s.jsx(i,{color:e,size:r}),s.jsx("h2",{className:a,children:"شیپورچی"})]})})}export{t as L};
