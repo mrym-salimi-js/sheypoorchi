@@ -1,7 +1,13 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { InVisible, Visible } from '../../globals/Icons';
 
-export default function ProfileInput({ el, data, setFormData }) {
+export default function ProfileInput({
+  el,
+  data,
+  register,
+  setValue,
+  trigger,
+}) {
   const [passVis, setPassVis] = useState('password');
   const [inputVal, setInputVal] = useState();
 
@@ -9,28 +15,36 @@ export default function ProfileInput({ el, data, setFormData }) {
     passVis === 'password' ? setPassVis('text') : setPassVis('password');
   };
 
+  useEffect(() => {
+    setValue(el?.name, data && data[el.name], { shouldValidate: true });
+    trigger(['name', 'email']);
+  }, [setValue]);
+
   const handleInputValue = (event) => {
     setInputVal(event.target.value);
-    setFormData((prevData) => ({ ...prevData, [el.key]: event.target.value }));
+
+    // setFormData((prevData) => ({ ...prevData, [el.name]: event.target.value }));
   };
   return (
     <div className='w-full h-auto p-2 flex flex-col gap-1'>
       <p className='w-auto  p-2  text-[0.8rem] text-gray-400 pr-5'>
-        {el?.name}
+        {el?.label}
       </p>
       <div className='w-full p-3  h-14 border rounded-2xl bg-white overflow-hidden  flex items-center justify-between'>
         <input
+          {...register(el?.name, { required: 'لطفا این قسمت را کامل کنید' })}
           onChange={handleInputValue}
-          name={el?.key}
-          value={data && !inputVal ? data[el.key] : inputVal}
-          type={el?.name.includes('رمز') ? passVis : 'text'}
+          // name={el?.name}
+          // defaultValue={data && data[el?.name]}
+          value={data && !inputVal ? data[el.name] : inputVal}
+          type={el?.label.includes('رمز') ? passVis : 'text'}
           className='w-full h-full outline-none text-[0.8rem] text-gray-300 placeholder:text-gray-300'
           placeholder={
-            (el?.name.includes('فعلی') && 'رمز عبور فعلی خود را وارد کنید') ||
-            (el?.name.includes('جدید') && 'رمز عبور جدید خود را وارد کنید')
+            (el?.label.includes('فعلی') && 'رمز عبور فعلی خود را وارد کنید') ||
+            (el?.label.includes('جدید') && 'رمز عبور جدید خود را وارد کنید')
           }
         />
-        {el?.name.includes('رمز') && (
+        {el?.label.includes('رمز') && (
           <div
             onClick={handlePassVisiblity}
             className='w-auto h-auto cursor-pointer'

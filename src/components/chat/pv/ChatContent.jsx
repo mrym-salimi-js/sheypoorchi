@@ -5,7 +5,7 @@ import 'moment/locale/fa'; // Load Persian (Farsi) locale for relative time
 import momentJalaali from 'moment-jalaali';
 momentJalaali.loadPersian({ usePersianDigits: true });
 
-import defaultImage from '../../../assets/img/images.png';
+// import defaultImage from '../../../assets/img/images.png';
 
 export function ChatContent({
   setFileDlStatus,
@@ -93,7 +93,7 @@ export function ChatContent({
               );
             })
           : messages !== undefined &&
-            messages.map((item) => {
+            messages?.map((item) => {
               return item.type === 'file' ? (
                 <ContentFileItem
                   senderId={senderId}
@@ -148,7 +148,7 @@ export function ContentFileItem({ senderId, item, handleDownloadFile }) {
         <p className='text-[0.7rem]'>{item.message}</p>
         <div className='flex gap-2 flex-row-reverse'>
           <p className='text-gray-500 text-[0.6rem]'>
-            {item.size?.toString()?.split('').map(Number).length > 6
+            {item.size?.toString()?.split('')?.map(Number).length > 6
               ? `${(item.size / (1024 * 1024)).toFixed(2)`mb`}`
               : `${(item.size / 1024).toFixed(2)} kb`}
           </p>

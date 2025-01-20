@@ -75,16 +75,18 @@ export default function ChatPV({ pvShow, contactList }) {
   // Get All Message Of Chat
   useEffect(() => {
     setMessages([]);
+    const getAllMsg = async () => {
+      const msgList = await getChatMessages(adIdInParams);
 
-    const msgList = getChatMessages(adIdInParams);
-
-    if (msgList) {
-      setMessages([]);
-      msgList.message.map((item) => {
-        setMessages((prevMessages) => [...prevMessages, item]);
-      });
-      msgList.ad && setSelectedAd(msgList.ad);
-    }
+      if (msgList) {
+        // setMessages([]);
+        msgList?.message?.map((item) => {
+          setMessages((prevMessages) => [...prevMessages, item]);
+        });
+        msgList.ad && setSelectedAd(msgList.ad);
+      }
+    };
+    getAllMsg();
   }, [params]);
 
   // Groped Messages For Use In Ad Host Chat
@@ -153,6 +155,8 @@ export default function ChatPV({ pvShow, contactList }) {
     msgInput.current.value = '';
     fileInput.current.value = '';
   };
+
+  // console.log(messages);
 
   return (
     <div

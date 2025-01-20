@@ -45,13 +45,17 @@ export function ChatHeader({ contactList }) {
 
   // Get User
   const userId =
-    contact?.creatorId !== undefined ? contact?.creatorId : contact?.chatId;
+    contact !== undefined && contact?.creatorId !== undefined
+      ? contact?.creatorId
+      : contact?.chatId;
 
   const { data: user } = useQuery({
     queryKey: ['user', userId],
     queryFn: () => getUserById(userId),
+    enabled: userId !== undefined, // This enables the query only if userId is not undefined
     refetchInterval: 5000,
   });
+
   // Set User Status
   const [status, setStatus] = useState('offline');
   useEffect(() => {
