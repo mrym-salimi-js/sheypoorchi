@@ -1,13 +1,12 @@
-// import { useQuery } from '@tanstack/react-query';
 import ProfileInput from './ProfileInput';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { updateUserInfo } from '../../../services/user/updateUserInfo';
 // import { ToastContainer, toast } from 'react-toastify';
 import NotifToast from '../../globals/NotifToast';
 import { useForm } from 'react-hook-form';
-
-import { yupResolver } from '@hookform/resolvers/yup';
-import * as yup from 'yup';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { z } from 'zod';
+import { SpinnerLoading } from '../../globals/SpinnerLoading';
 
 export default function EditInfo({ userInfo }) {
   // const [formData, setFormData] = useState();
@@ -15,35 +14,38 @@ export default function EditInfo({ userInfo }) {
   const formRef = useRef();
   const [notifToast, setNotifToast] = useState({ message: '', status: '' });
 
-  const schema = yup
-    .object({
-      name: yup.string().required('لطفااین قسمت را تکمیل کنید'),
-      email: yup
-        .string()
-        .email('آدرس ایمیل صحیح نمی باشد')
-        .required('لطفااین قسمت را تکمیل کنید'),
-    })
-    .required();
+  const schema = z.object({
+    name: z.string().min(1, { message: 'لطفااین قسمت را تکمیل کنید' }),
+    email: z
+      .string()
+      .min(1, { message: 'لطفااین قسمت را تکمیل کنید' })
+      .email('آدرس ایمیل صحیح نمی باشد'),
+  });
 
   const {
     register,
     setValue,
-    trigger,
-    formState: { errors },
+    formState: { errors, isSubmitting },
     handleSubmit,
   } = useForm({
-    resolver: yupResolver(schema),
-    // defaultValues: {
-    //   name: userInfo !== undefined && userInfo?.name,
-    //   email: userInfo !== undefined && userInfo?.email,
-    // },
+    resolver: zodResolver(schema),
+
+    mode: 'onBlur',
   });
-  console.log(errors);
+
   const onSubmit = (data) => {
     updateUserInfo(data);
     formRef?.current && formRef?.current.submit();
   };
 
+  useEffect(() => {
+    isSubmitting &&
+      setNotifToast({
+        message: 'فرم ارسال شد',
+        status: 'success',
+      });
+  }, [isSubmitting]);
+  // console.log(isSubmitted);
   // const { data } = useQuery({
   //   queryKey: ['userInfo', formData],
   //   queryFn: async () => updateUserInfo(formData),
@@ -77,11 +79,10 @@ export default function EditInfo({ userInfo }) {
         className='w-full lg:w-1/2 h-auto  flex flex-col gap-3'
       >
         {[
-          { label: 'نام', name: 'name', error: 'لطفا این قسمت را تکمیل کنید' },
+          { label: 'نام', name: 'name' },
           {
             label: 'ایمیل',
             name: 'email',
-            error: 'لطفا این قسمت را تکمیل کنید',
           },
         ].map((el, index) => {
           return (
@@ -92,18 +93,19 @@ export default function EditInfo({ userInfo }) {
               setValue={setValue}
               // setFormData={setFormData}
               register={register}
-              trigger={trigger}
+              errors={errors}
             />
           );
         })}
         {/* Aplly Btn */}
         <div
           onClick={handleSubmit(onSubmit)}
-          className='w-full h-auto flex  items-center justify-center  p-2'
+          className='w-full h-14 flex  items-center justify-center  gap-3 bg-[rgb(169,206,173)] text-white cursor-pointer rounded-lg hover:opacity-[0.7]  p-2'
         >
-          <span className='w-full h-14 slef-end  flex justify-center items-center bg-[rgb(169,206,173)] text-white cursor-pointer rounded-lg hover:opacity-[0.7] '>
+          <span className='w-auto  slef-end  flex justify-center items-center '>
             اعمال تغییرات
           </span>
+          {isSubmitting && <SpinnerLoading w={'w-5'} h={'h-5'} />}
         </div>
       </form>
     </>

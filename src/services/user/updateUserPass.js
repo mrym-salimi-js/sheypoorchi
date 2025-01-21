@@ -10,8 +10,8 @@ export const updateUserPass = async (formData) => {
         withCredentials: true,
       }
     );
-    return res;
+    return res.response.data;
   } catch (error) {
-    return error;
+    return error.response.data;
   }
 };

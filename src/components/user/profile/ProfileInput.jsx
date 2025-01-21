@@ -1,13 +1,7 @@
 import { useEffect, useState } from 'react';
 import { InVisible, Visible } from '../../globals/Icons';
 
-export default function ProfileInput({
-  el,
-  data,
-  register,
-  setValue,
-  trigger,
-}) {
+export default function ProfileInput({ el, data, register, setValue, errors }) {
   const [passVis, setPassVis] = useState('password');
   const [inputVal, setInputVal] = useState();
 
@@ -16,8 +10,8 @@ export default function ProfileInput({
   };
 
   useEffect(() => {
-    setValue(el?.name, data && data[el.name], { shouldValidate: true });
-    trigger(['name', 'email']);
+    !el?.name.includes('pass') &&
+      setValue(el?.name, data && data[el.name], { shouldValidate: true });
   }, [setValue]);
 
   const handleInputValue = (event) => {
@@ -34,8 +28,6 @@ export default function ProfileInput({
         <input
           {...register(el?.name, { required: 'لطفا این قسمت را کامل کنید' })}
           onChange={handleInputValue}
-          // name={el?.name}
-          // defaultValue={data && data[el?.name]}
           value={data && !inputVal ? data[el.name] : inputVal}
           type={el?.label.includes('رمز') ? passVis : 'text'}
           className='w-full h-full outline-none text-[0.8rem] text-gray-300 placeholder:text-gray-300'
@@ -57,6 +49,11 @@ export default function ProfileInput({
           </div>
         )}
       </div>
+      {errors[el.name] && (
+        <p className='w-full h-auto p-2 text-[0.7rem] text-red-500'>
+          {errors[el.name].message}
+        </p>
+      )}
     </div>
   );
 }

@@ -55,9 +55,8 @@ export default function Account() {
           />
         )}
         {locationUrl.pathname.includes('/dashboard/messages') && <Messages />}
-        {locationUrl.pathname === '/dashboard/myProfile' && (
-          <Profile userData={user} />
-        )}
+        {locationUrl.pathname === '/dashboard/myProfile' &&
+          user !== undefined && <Profile userData={user} />}
         {locationUrl.pathname === '/dashboard/myAds' && (
           <MyAds userAds={userAds?.data} />
         )}
