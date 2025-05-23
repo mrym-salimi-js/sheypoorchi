@@ -1,8 +1,10 @@
 import { AdCart } from '../../components/advertisements/AdCart';
 import { Plus } from '../../components/globals/Icons';
-import { Link } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 
-export default function MySavedAds({ savedAds }) {
+export default function MySavedAds() {
+  const { savedAds } = useLoaderData();
+  console.log(savedAds);
   return (
     <div className='w-full  h-full md:w-[66%]  lg:w-[76%] xl:w-[81%] p-2 pt-6 flex flex-col items-center gap-24'>
       {/* Header */}

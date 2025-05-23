@@ -8,8 +8,8 @@ export const updateUserStatus = async () => {
       withCredentials: true,
     });
     // console.log(response);
-    return response.data.status;
+    return response?.data.status;
   } catch (error) {
-    return error.response.data.status;
+    return error?.response?.data.status;
   }
 };

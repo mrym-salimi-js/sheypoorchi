@@ -1,9 +1,9 @@
 import axios from 'axios';
 import { navTo } from '../utils/globals/navTo';
-import { useNavigate } from 'react-router-dom';
+import { Outlet, useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 
-export default function ProtectectedAuth({ path, children }) {
+export default function ProtectectedAuth({ path }) {
   const baseURL = import.meta.env.VITE_BASE_URL;
   const navigateTo = useNavigate();
   useEffect(() => {
@@ -20,5 +20,5 @@ export default function ProtectectedAuth({ path, children }) {
     getUser();
   }, []);
 
-  return children;
+  return <Outlet />;
 }
