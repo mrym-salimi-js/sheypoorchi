@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://mrym-salimi-js.github.io/Advertising-react",
+  "homepage": "https://mrym-salimi-js.github.io/sheypoorchi",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

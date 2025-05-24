@@ -93,6 +93,7 @@ export default function Home() {
         (document.title = `اگهی های مربوط یه ${currentCat?.name}`);
     }
   }, [locationUrl]);
+
   return (
     <HomeContext.Provider
       value={{
@@ -132,6 +133,7 @@ export default function Home() {
 
         <AdsList adsList={searchedAds ? searchedAds : adsList?.data?.data} />
       </div>
+
       <NavBar />
     </HomeContext.Provider>
   );
