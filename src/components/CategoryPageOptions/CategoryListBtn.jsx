@@ -4,14 +4,14 @@ import { ChevronDown } from '../globals/Icons';
 import { useLocation, useNavigate, useSearchParams } from 'react-router-dom';
 import { deleteFilterSearch } from '../../utils/adFilters/deleteFilterSearch';
 import { HomeContext } from '../../pages/Home';
-import { FindMainCategories } from '../Category';
+import { useMainCats } from '../../hooks/useMainCats';
 import ListSupport from './ListSupport';
 
 export function CategoryListBtn({ setSortOptions }) {
   const { category } = useContext(HomeContext);
   const [selectedCat, setSelectedCat] = useState();
   const [openList, setOpenList] = useState('opacity-0 invisible');
-  const mainCats = FindMainCategories();
+  const mainCats = useMainCats();
   const navigateTo = useNavigate();
   const locationUrl = useLocation();
   const queryParams = new URLSearchParams(locationUrl.search);

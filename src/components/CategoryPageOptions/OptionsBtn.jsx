@@ -2,7 +2,7 @@ import { useSearchParams } from 'react-router-dom';
 import { CategoryListBtn } from './CategoryListBtn';
 import { FilterBtn } from './FilterBtn';
 import FilterItemBtn from './FilterItemBtn';
-import { FindMainCategories } from '../Category';
+import { useMainCats } from '../../hooks/useMainCats';
 import { useContext, useMemo, useState } from 'react';
 import { HomeContext } from '../../pages/Home';
 import { scrollSlider } from '../../utils/globals/scrollSlider';
@@ -19,7 +19,7 @@ export function OptionsBtn() {
   };
   const [searchItems] = useSearchParams();
   const searchObject = Object.fromEntries(searchItems.entries());
-  const mainCategories = FindMainCategories();
+  const mainCategories = useMainCats();
   // const [filterItemsList, setFilterItemsList] = useState([]);
 
   // Memoized computation for setting brand and model

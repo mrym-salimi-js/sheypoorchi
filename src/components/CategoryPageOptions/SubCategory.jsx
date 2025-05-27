@@ -1,5 +1,5 @@
 import { useContext, useMemo } from 'react';
-import { FindMainCategories } from '../Category';
+import { useMainCats } from '../../hooks/useMainCats';
 import { useNavigate } from 'react-router-dom';
 import { HomeContext } from '../../pages/Home';
 import { scrollSlider } from '../../utils/globals/scrollSlider';
@@ -8,7 +8,7 @@ export function SubCategory() {
   const { category, brands, model, locationUrl, searchParams } =
     useContext(HomeContext);
   // const [catList, setCatList] = useState();
-  const mainCategories = FindMainCategories();
+  const mainCategories = useMainCats();
   const navigateTo = useNavigate();
 
   const handleScrollItems = () => [

@@ -2,10 +2,11 @@ import Head from './Head';
 import { MainFields } from './MainFields';
 import ApplyBtn from './ApplyBtn';
 import { useContext } from 'react';
-import { HomeContext } from '../../pages/Home';
+import { CategoryPageContext } from '../CategoryPageDetails';
 
 export default function AdFiltersBox() {
-  const { filterFormDisplay, setFilterFormDisplay } = useContext(HomeContext);
+  const { filterFormDisplay, setFilterFormDisplay } =
+    useContext(CategoryPageContext);
   const handleFilterFormDisplay = (event) => {
     !filterFormDisplay.includes('invisible') &&
       event.target.id === 'filter-box' &&

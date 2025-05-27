@@ -1,18 +1,9 @@
-import { useEffect, useState } from 'react';
+import { useMainCats } from '../hooks/useMainCats';
 import { scrollSlider } from '../utils/globals/scrollSlider';
 import { Link } from 'react-router-dom';
 
-export function FindMainCategories() {
-  const [mainCategories, setMainCategories] = useState();
-
-  useEffect(() => {
-    const mainCats = JSON.parse(localStorage.getItem('ads_categories_list'));
-    mainCats && setMainCategories(mainCats);
-  }, []);
-  return mainCategories;
-}
 export default function Category() {
-  const mainCategories = FindMainCategories();
+  const mainCategories = useMainCats();
 
   const handleScrollItems = () => [
     scrollSlider(document.querySelectorAll('.cat-items-box')),
