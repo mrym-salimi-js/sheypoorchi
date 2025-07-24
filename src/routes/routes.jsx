@@ -37,10 +37,11 @@ export const routes = [
     path: 's/iran/:category/:brand/:model',
     element: <Home />,
   },
-  { path: '*', element: <NotFound /> },
+
   { path: 'newAd', element: <NewAd /> },
   { path: 'v/:id/:title', element: <Single /> },
-
   ...authRoute,
   ...userAccountRoute,
+
+  { path: '*', element: <NotFound /> },
 ];
