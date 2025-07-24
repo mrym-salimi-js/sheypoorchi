@@ -1,8 +1,8 @@
 import { useContext } from 'react';
-import { HomeContext } from '../../pages/Home';
+import { CategoryPageContext } from '../../components/CategoryPageDetails';
 
 export default function ApplyBtn() {
-  const { setFilterFormDisplay } = useContext(HomeContext);
+  const { setFilterFormDisplay } = useContext(CategoryPageContext);
 
   const handleFilterFormDisplay = () => {
     setFilterFormDisplay('opacity-0 invisible');

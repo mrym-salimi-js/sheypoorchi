@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { HomeContext } from '../../pages/Home';
+import { CategoryPageContext } from '../../components/CategoryPageDetails';
 import { BorderRoundedBtn } from '../globals/BorderRoundedBtn';
 import { deleteFilterSearch } from '../../utils/adFilters/deleteFilterSearch';
 import { useLocation, useNavigate, useSearchParams } from 'react-router-dom';
@@ -13,7 +13,7 @@ export default function Head() {
   // Get Url Search
   const searchItems = new URLSearchParams(locationUrl.search);
 
-  const { setFilterFormDisplay } = useContext(HomeContext);
+  const { setFilterFormDisplay } = useContext(CategoryPageContext);
   const handleClearingFilter = () => {
     deleteFilterSearch(searchObject, searchItems, navigateTo, locationUrl);
     setFilterFormDisplay('opacity-0 invisible');

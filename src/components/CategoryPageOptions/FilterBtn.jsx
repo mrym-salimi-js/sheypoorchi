@@ -1,10 +1,10 @@
 import { useContext } from 'react';
 import { BorderRoundedBtn } from '../globals/BorderRoundedBtn';
 import { Filter } from '../globals/Icons';
-import { HomeContext } from '../../pages/Home';
+import { CategoryPageContext } from '../../components/CategoryPageDetails';
 
 export function FilterBtn() {
-  const { setFilterFormDisplay } = useContext(HomeContext);
+  const { setFilterFormDisplay } = useContext(CategoryPageContext);
 
   const handleFilterFormDisplay = () => {
     setFilterFormDisplay('opacity-100 visible');
