@@ -16,7 +16,7 @@ const queryClient = new QueryClient({
 });
 
 const router = createBrowserRouter(routes, {
-  basename: '/sheypoorchi',
+  basename: '/',
 });
 
 export default function App() {
