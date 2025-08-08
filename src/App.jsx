@@ -6,6 +6,9 @@ import { QueryClientProvider, QueryClient } from '@tanstack/react-query';
 
 import { store, persistor } from './store/store';
 import { routes } from './routes/routes';
+import { useEffect } from 'react';
+import { adsCategoriesList } from './services/adsCategoriesList';
+import { adsLocationsList } from './services/adsLocationsList';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -18,6 +21,22 @@ const queryClient = new QueryClient({
 const router = createBrowserRouter(routes);
 
 export default function App() {
+  // Set Locations and Categories Array In Local Storage
+  useEffect(() => {
+    if (!localStorage.getItem('ads_categories_list')) {
+      localStorage.setItem(
+        'ads_categories_list',
+        JSON.stringify(adsCategoriesList)
+      );
+    }
+    if (!localStorage.getItem('ads_locations_list')) {
+      localStorage.setItem(
+        'ads_locations_list',
+        JSON.stringify(adsLocationsList)
+      );
+    }
+  }, []);
+
   return (
     <CookiesProvider>
       <Provider store={store}>
