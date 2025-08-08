@@ -15,9 +15,7 @@ const queryClient = new QueryClient({
   },
 });
 
-const router = createBrowserRouter(routes, {
-  basename: '/',
-});
+const router = createBrowserRouter(routes);
 
 export default function App() {
   return (
