@@ -13,6 +13,7 @@ export function BackBtn({
 
     // Back For Category Lists
     setFieldVal && setFieldVal(null);
+
     setListItems && setListItems(lastList);
   };
   return (

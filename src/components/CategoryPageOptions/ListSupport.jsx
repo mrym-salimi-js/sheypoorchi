@@ -8,7 +8,7 @@ export default function ListSupport({
   openList,
   list,
   queryParams,
-  lable,
+  label,
   locationUrl,
   queryKey,
   setSelectedItem,
@@ -26,7 +26,7 @@ export default function ListSupport({
       queryParams,
       item,
       navigateTo,
-      lable,
+      label,
       queryKey,
       locationUrl
     );
@@ -49,7 +49,7 @@ export default function ListSupport({
     <>
       <List
         type={type}
-        lable={lable}
+        label={label}
         allList={listItems}
         setListItems={setListItems}
         setOpenList={setOpenList}

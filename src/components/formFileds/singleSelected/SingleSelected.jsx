@@ -19,6 +19,7 @@ export default function SingleSelected({
   index,
   setListItems,
   defaultItem,
+  searchItem,
 }) {
   return (
     <>
@@ -35,6 +36,7 @@ export default function SingleSelected({
         openList={openList}
         fieldVal={fieldVal}
         index={index}
+        searchItem={searchItem}
       />
 
       <List

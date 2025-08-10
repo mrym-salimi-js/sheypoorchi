@@ -13,7 +13,7 @@ export function FormHeader() {
   };
   return (
     <div className='w-full lg:p-4 flex justify-between items-center border-b pb-5'>
-      <div className='w-auto h-auto flex gap-5 items-center'>
+      <div className='w-auto h-auto flex gap-3 items-center'>
         <button
           onClick={handleBackBtn}
           className='flex  p-2 bg-[#efeaea57] rounded-md  items-center justify-center outline-none'

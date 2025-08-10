@@ -28,7 +28,7 @@ export function FilteringCity() {
                 bgColor={'bg-pink-50'}
                 textColor={'text-[#84105C]'}
                 textSize={'text-[0.7rem]'}
-                lable={city?.name}
+                label={city?.name}
                 handleAction={() =>
                   handleHideFilteredCitiy(city?.name, city.id)
                 }

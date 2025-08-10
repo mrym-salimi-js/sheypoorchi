@@ -14,7 +14,7 @@ export function FilterBtn() {
       borderColor={'border-[#84105C]'}
       bgColor={'bg-[#84105C]'}
       textColor={'text-[#ffffff]'}
-      lable={'فیلتر'}
+      label={'فیلتر'}
       handleAction={handleFilterFormDisplay}
       icon={<Filter color={'#ffffff'} size={'size-6'} />}
     />

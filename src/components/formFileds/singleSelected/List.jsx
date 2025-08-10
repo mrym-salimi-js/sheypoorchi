@@ -55,9 +55,9 @@ export function List({
           className={`w-full rounded-t-3xl relative bottom-0  md:w-[75%] lg:w-[40%] h-auto max-h-[80%] bg-white lg:rounded-3xl   z-[100000] border border-gray-50  overflow-hidden   p-4 flex flex-col gap-4 `}
         >
           <div className='w-12 h-1 bg-[#ecececa2] rounded-full self-center lg:hidden absolute top-4'></div>
-          <div className='w-full h-full p-8'>
+          <div className='w-full h-full p-4'>
             <div className='flex justify-between items-center pb-5 '>
-              <div className='flex items-center gap-3 border-r-4 border-pink-400 pr-2'>
+              <div className='flex items-center gap-1 border-r-4 border-pink-400 pr-2'>
                 {listType === 'sub' && (
                   <BackBtn
                     setTitle={setListType}

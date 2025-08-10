@@ -1,4 +1,4 @@
-import { createContext, useMemo, useState } from 'react';
+import { createContext, useEffect, useMemo, useState } from 'react';
 import { ChevronLeft } from '../../globals/Icons';
 import SubText from './SubText';
 import InputText from './InputText';
@@ -38,8 +38,9 @@ export default function TextComponent({
   };
 
   // Set Filter Writing Filed Values (min/max)
-  useMemo(() => {
-    type === 'filter' && searchItem && setFilterValue(searchItem);
+
+  useEffect(() => {
+    searchItem !== undefined && setFilterValue(searchItem);
   }, [searchItem]);
 
   return (

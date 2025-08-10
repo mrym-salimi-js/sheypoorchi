@@ -85,7 +85,7 @@ export default function LocationBox({ setOpenLocation, openLocation }) {
             : `translate-y-full`
         }    `}
       >
-        <div className='w-full md:w-[75%] lg:w-[40%] h-[88%] bg-white rounded-2xl relative  z-[100000] border border-gray-50  overflow-hidden top-2 bottom-0  p-8 '>
+        <div className='w-full md:w-[75%] lg:w-[40%] h-[88%] bg-white rounded-2xl relative  z-[100000] border border-gray-50  overflow-hidden top-5 bottom-0  p-7 '>
           <div className=' flex flex-col gap-4'>
             <div className='flex justify-between items-center border-r-4 border-pink-400 pr-2'>
               <div className='flex'>

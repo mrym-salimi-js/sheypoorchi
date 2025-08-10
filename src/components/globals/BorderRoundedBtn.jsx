@@ -3,7 +3,7 @@ export function BorderRoundedBtn({
   bgColor,
   textColor,
   textSize,
-  lable,
+  label,
   handleAction,
   icon,
 }) {
@@ -15,7 +15,7 @@ export function BorderRoundedBtn({
       } ${bgColor}  rounded-full border ${borderColor} cursor-pointer`}
     >
       {icon}
-      <p className={`${textColor}`}>{lable}</p>
+      <p className={`${textColor}`}>{label}</p>
     </div>
   );
 }

@@ -9,7 +9,7 @@ export function AdCartFooter({ createAt, location, href }) {
       <div className='w-[80%] h-auto  px-1 py-5   flex justify-around items-center m-auto left-0 right-0 '>
         <div className='flex gap-2 '>
           <Clock color={'#005eeb'} size={'size-4'} />
-          <p className=' text-[0.7rem] text-gray-400'>
+          <p className=' text-[0.7rem] text-gray-700'>
             {momentJalaali(createAt).locale('fa').fromNow()}
           </p>
         </div>
@@ -17,13 +17,13 @@ export function AdCartFooter({ createAt, location, href }) {
 
         <div className='flex gap-2'>
           <MapIcon color={'#84105C'} size={'size-4'} />
-          <p className=' text-[0.7rem] text-gray-400'>{location[1].name}</p>
+          <p className=' text-[0.7rem] text-gray-700'>{location[1].name}</p>
         </div>
       </div>
       <Link to={href} className=' flex items-center hover:opacity-[0.7]  gap-2'>
-        <p className='text-[#c278a8] text-[0.8rem]'>مشاهده آگهی</p>
+        <p className='text-[#d1d1d1] text-[0.8rem]'>مشاهده آگهی</p>
 
-        <ArrowLeft color={'#c278a8'} size={'size-4'} stroke={1.5} />
+        <ArrowLeft color={'#d1d1d1'} size={'size-4'} stroke={1.5} />
       </Link>
     </div>
   );

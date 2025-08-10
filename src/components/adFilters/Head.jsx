@@ -22,7 +22,7 @@ export default function Head() {
     <div className='w-full h-30 p-8 flex items-center justify-between border-b '>
       <p className='text-lg lg:text-xl'>فیلتر</p>
       <BorderRoundedBtn
-        lable={'حذف فیلتر'}
+        label={'حذف فیلتر'}
         handleAction={handleClearingFilter}
         borderColor={'border-[#84105C]'}
         bgColor={'bg-pink-50'}

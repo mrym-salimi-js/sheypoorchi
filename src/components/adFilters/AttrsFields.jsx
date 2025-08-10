@@ -25,6 +25,7 @@ export default function AttrsFields({
 }
 
 export function AttrsItems({ item, setOpenLocation, navigateTo, searchItems }) {
+  // console.log(item);
   if (item.type == 1 || item.type == 6) {
     return (
       <>
@@ -39,7 +40,7 @@ export function AttrsItems({ item, setOpenLocation, navigateTo, searchItems }) {
                 setOpenList={setOpenLocation}
                 label={'حداقل'}
                 filedType={'text'}
-                valueType={'number'}
+                valueType={'text'}
                 type={'filter'}
                 queryKey={`mn${item.queryKey}`}
                 searchItem={searchItems.get(`mn${item.queryKey}`)}
@@ -50,7 +51,7 @@ export function AttrsItems({ item, setOpenLocation, navigateTo, searchItems }) {
                 setOpenList={setOpenLocation}
                 label={'حداکثر'}
                 filedType={'text'}
-                valueType={'number'}
+                valueType={'text'}
                 type={'filter'}
                 queryKey={`mx${item.queryKey}`}
                 searchItem={searchItems.get(`mx${item.queryKey}`)}
@@ -73,6 +74,11 @@ export function AttrsItems({ item, setOpenLocation, navigateTo, searchItems }) {
         label={item.name || item.title}
         allList={item.options}
         queryKey={item.queryKey}
+        searchItem={
+          item.options.find((i) => {
+            return i.id == searchItems.get(item.queryKey);
+          })?.name
+        }
       />
     );
   } else if (item.type == 7) {

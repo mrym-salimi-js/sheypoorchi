@@ -80,7 +80,7 @@ export function OptionsBtn() {
         onClick={handleScrollItem}
         className='w-full h-full  filtered-item-box overflow-x-scroll ul-box'
       >
-        <ul id='places-category-ul' className='w-auto   px-1 flex gap-1 m-0'>
+        <ul id='places-category-ul' className='w-auto   px-1 flex gap-2 m-0'>
           <FilterBtn />
           <SortOptionsBtn
             sortOptions={sortOptions}
@@ -90,7 +90,7 @@ export function OptionsBtn() {
           {computedBrandAndModel && (
             <FilterItemBtn
               key={computedBrandAndModel?.id}
-              lable={computedBrandAndModel?.title}
+              label={computedBrandAndModel?.title}
               slug={computedBrandAndModel?.slug}
             />
           )}
@@ -98,7 +98,7 @@ export function OptionsBtn() {
             return (
               <FilterItemBtn
                 key={fI.id * index}
-                lable={fI.title}
+                label={fI.title}
                 slug={fI.slug}
               />
             );

@@ -1,5 +1,5 @@
 const manageCostInForm = (array, id) => {
-  // console.log('del');
+  console.log(array, id);
   const index = array.findIndex((obj) => {
     return +obj.id == id;
   });

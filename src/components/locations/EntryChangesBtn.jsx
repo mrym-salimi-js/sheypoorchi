@@ -30,7 +30,7 @@ export function EntryChangesBtn() {
   };
 
   return (
-    <div className='w-[93%] p-4 flex flex-row-reverse gap-2 justify-start bg-white items-center absolute bottom-0 '>
+    <div className='w-[93%] p-4 flex flex-row-reverse gap-2 justify-start bg-white items-center absolute bottom-7 '>
       <button
         onClick={handleLocationCookie}
         className={

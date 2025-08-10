@@ -55,7 +55,7 @@ export function CategoryListBtn({ setSortOptions }) {
         borderColor={'border-[#84105C]'}
         bgColor={'bg-pink-50'}
         textColor={'text-[#84105C]'}
-        lable={selectedCat?.name}
+        label={selectedCat?.name}
         handleAction={handleCategoryListDisplay}
         icon={
           <ChevronDown color={'#84105C'} size={'size-5'} strokeWidth={'2'} />
@@ -68,7 +68,7 @@ export function CategoryListBtn({ setSortOptions }) {
           navigateTo={navigateTo}
           list={mainCats}
           queryParams={queryParams}
-          lable={'دسته بندی'}
+          label={'دسته بندی'}
           locationUrl={locationUrl}
           queryKey={'c'}
           type={'categorySearch'}

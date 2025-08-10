@@ -160,7 +160,9 @@ const newAdSlice = createSlice({
         action.payload.filedType !== 'text'
           ? ((state.attribute[attrItemIndex].name = action.payload.item.name),
             (state.attribute[attrItemIndex].nameId = +action.payload.item.id))
-          : (state.attribute[attrItemIndex].name = action.payload.formInputVal);
+          : (state.attribute[attrItemIndex].name =
+              state.attribute[attrItemIndex].label.includes('قیمت') &&
+              action.payload.formInputVal.replace(/,/g, ''));
       }
     },
     updateDescription: (state, action) => {

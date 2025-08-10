@@ -3,7 +3,7 @@ import { BorderRoundedBtn } from '../globals/BorderRoundedBtn';
 import { XCircle } from '../globals/Icons';
 import { HomeContext } from '../../pages/Home';
 
-export default function FilterItemBtn({ lable, slug }) {
+export default function FilterItemBtn({ label, slug }) {
   const { locationUrl, navigateTo } = useContext(HomeContext);
 
   const split = slug.split('/');
@@ -30,7 +30,7 @@ export default function FilterItemBtn({ lable, slug }) {
       borderColor={'border-[#84105C]'}
       bgColor={'bg-pink-50'}
       textColor={'text-[#84105C]'}
-      lable={lable}
+      label={label}
       icon={
         <XCircle
           handleDisplaySlug={handleDisplaySlug}

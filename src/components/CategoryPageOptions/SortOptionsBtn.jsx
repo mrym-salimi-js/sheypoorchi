@@ -34,7 +34,7 @@ export function SortOptionsBtn({ sortOptions, searchObject }) {
         borderColor={'border-[#84105C]'}
         bgColor={'bg-pink-50'}
         textColor={'text-[#84105C]'}
-        lable={selectedSO?.name}
+        label={selectedSO?.name}
         handleAction={handleSortOptions}
         icon={<Sort color={'#84105C'} size={'size-5'} strokeWidth={'2'} />}
       />
@@ -45,7 +45,7 @@ export function SortOptionsBtn({ sortOptions, searchObject }) {
           navigateTo={navigateTo}
           list={sortOptions}
           queryParams={queryParams}
-          lable={'مرتب سازی'}
+          label={'مرتب سازی'}
           locationUrl={locationUrl}
           queryKey={'o'}
           setSelectedItem={setSelectedSO}

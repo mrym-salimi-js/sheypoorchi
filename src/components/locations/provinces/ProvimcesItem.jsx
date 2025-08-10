@@ -21,7 +21,7 @@ export function ProvimcesItem({ prvName, prvId }) {
         key={prvId}
       >
         <p className='text-sm'>{prvName}</p>
-        <ChevronLeft color={'#000000'} size={'size-5'} />
+        <ChevronLeft color={'#000000'} size={'size-4'} strokeWidth={2.4} />
       </li>
     </>
   );

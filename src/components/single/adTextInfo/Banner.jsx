@@ -5,6 +5,7 @@ import { Saved } from '../../globals/Icons';
 import { updateSavedAds } from '../../../services/user/updateSavedAds';
 import { navTo } from '../../../utils/globals/navTo';
 import { useNavigate } from 'react-router-dom';
+import { formatPrice } from '../../../utils/globals/formatPrice';
 momentJalaali.loadPersian({ usePersianDigits: true });
 
 export default function Banner() {
@@ -48,9 +49,7 @@ export default function Banner() {
           cost.map((costItem, index) => {
             return (
               <p className='text-md' key={index}>
-                {costItem.label}:{' '}
-                {costItem.name.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}{' '}
-                تومان
+                {costItem.label}: {formatPrice(costItem.name, 'قیمت')} تومان
               </p>
             );
           })}

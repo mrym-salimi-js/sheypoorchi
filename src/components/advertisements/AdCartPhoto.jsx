@@ -11,6 +11,7 @@ export function AdCartPhoto({ photo, href, id }) {
           className='w-[95%] h-[150px] bg-white relative rounded-[2rem] overflow-hidden cursor-pointer'
         >
           <img
+            loading='lazy'
             className='w-full h-full object-cover'
             src={`${baseURL}/img/${id}/${photo[0]?.name}`}
             alt={photo[0].name}

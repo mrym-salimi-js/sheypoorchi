@@ -39,7 +39,13 @@ export function ListItems({
               (item?.children?.length > 0 || item.districts?.length > 0) &&
               type !== 'categorySearch'
             ) {
-              return <ChevronLeft color={'#000000'} size={'size-5'} />;
+              return (
+                <ChevronLeft
+                  color={'#000000'}
+                  size={'size-4'}
+                  strokeWidth={2.4}
+                />
+              );
             }
           })()}
         </li>

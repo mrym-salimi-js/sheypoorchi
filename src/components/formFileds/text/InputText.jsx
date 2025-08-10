@@ -14,6 +14,7 @@ import {
   updatePhone,
   updateTitle,
 } from '../../../store/newAdSlice';
+import { formatPrice } from '../../../utils/globals/formatPrice';
 
 export default function InputText() {
   const {
@@ -108,10 +109,13 @@ export default function InputText() {
   const handleStorage = (inputTag) => {
     const formInputVal = inputTag.value;
 
-    inputTag.value !== undefined && setInputVal(inputTag.value);
+    if (inputTag.value !== undefined) {
+      setInputVal(inputTag.value);
+    }
 
     if (type === 'filter') {
-      setFilterValue(formInputVal);
+      const cleanNumber = formInputVal.replace(/[,٬\s]/g, '');
+      setFilterValue(cleanNumber);
     }
     if (type === 'newAd') {
       setValidation &&
@@ -164,11 +168,11 @@ export default function InputText() {
         newAdStorageValue?.active
           ? typeof newAdStorageValue[storagePram] === 'object'
             ? newAdStorageValue[storagePram]?.name ||
-              newAdStorageValue[storagePram][index]?.name
-            : newAdStorageValue[storagePram]
+              formatPrice(newAdStorageValue[storagePram][index]?.name, label)
+            : formatPrice(newAdStorageValue[storagePram], label)
           : fieldVal !== undefined
           ? fieldVal
-          : filterValue
+          : formatPrice(filterValue, label)
       }
     />
   );

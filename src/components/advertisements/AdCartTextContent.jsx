@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { formatPrice } from '../../utils/globals/formatPrice';
 export function AdCartTextContent({ title, cost, href }) {
   return (
     <>
@@ -15,14 +16,10 @@ export function AdCartTextContent({ title, cost, href }) {
               return (
                 <span
                   key={index}
-                  className='w-full h-auto flex gap-3 rounded-md py-1  text-[0.7rem] text-gray-400 text-nowrap overflow-hidden'
+                  className='w-full h-auto flex gap-3 rounded-md py-1  text-[0.7rem] text-gray-700 text-nowrap overflow-hidden'
                 >
                   <p className='w-full break-words text-center'>
-                    {costItem.label}:{' '}
-                    {costItem.name
-                      ?.toString()
-                      .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}{' '}
-                    تومان
+                    {costItem.label}: {formatPrice(costItem.name, 'قیمت')} تومان
                   </p>
                 </span>
               );

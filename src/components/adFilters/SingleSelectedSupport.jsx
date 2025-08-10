@@ -9,6 +9,7 @@ export default function SingleSelectedSupport({
   allList,
   defaultItem,
   queryKey,
+  searchItem,
 }) {
   const { navigateTo } = useContext(FilterContext);
   const [openList, setOpenList] = useState('opacity-0 invisible');
@@ -69,12 +70,16 @@ export default function SingleSelectedSupport({
 
     allList && setListItems(allList);
   }, [openList]);
+
+  // console.log(filterListTitle);
   return (
     <>
       <SingleSelected
         label={label}
         listItems={
-          label === 'دسته بندی' ? [filterListTitle, ...listItems] : listItems
+          label === 'دسته بندی' && listItems[0]?.name !== 'همه گروه ها'
+            ? [filterListTitle, ...listItems]
+            : listItems
         }
         defaultItem={defaultItem}
         type={'filter'}
@@ -85,6 +90,7 @@ export default function SingleSelectedSupport({
         setListItems={setListItems}
         setListTitle={setFilterListTitle}
         handleListItems={handleListItems}
+        searchItem={searchItem}
       />
     </>
   );
