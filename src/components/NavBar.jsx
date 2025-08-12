@@ -13,7 +13,7 @@ export default function NavBar() {
   };
 
   return (
-    <nav className='w-full border  h-16 xl:hidden  bg-white border-[#f3f3f3] fixed bottom-0  m-auto left-0 right-0 z-[1000] py-8'>
+    <nav className='w-[96%] mb-4 border  h-16 xl:hidden rounded-3xl   bg-white border-gray-200 fixed bottom-0  m-auto left-0 right-0 z-[1000] py-8'>
       <ul className='w-full h-full flex gap-2 justify-around items-center'>
         <li className='nav-li h-full flex items-center cursor-pointer  '>
           <a

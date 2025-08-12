@@ -105,6 +105,8 @@ const newAdSlice = createSlice({
             ],
             id: action.payload.item.id,
             name: action.payload.item.name,
+            lat: action.payload.item.lat,
+            lon: action.payload.item.lon,
           });
     },
     updateLocationAfterDependencies: (state) => {
@@ -126,6 +128,10 @@ const newAdSlice = createSlice({
         lat: lat,
         lon: lon,
       };
+    },
+    updateLocationCoordsByMoved: (state, action) => {
+      state.location.lat = action.payload.lat;
+      state.location.lon = action.payload.lon;
     },
 
     updateCategoryAttr: (state, action) => {
@@ -161,8 +167,9 @@ const newAdSlice = createSlice({
           ? ((state.attribute[attrItemIndex].name = action.payload.item.name),
             (state.attribute[attrItemIndex].nameId = +action.payload.item.id))
           : (state.attribute[attrItemIndex].name =
-              state.attribute[attrItemIndex].label.includes('قیمت') &&
-              action.payload.formInputVal.replace(/,/g, ''));
+              state.attribute[attrItemIndex].type === 1
+                ? action.payload.formInputVal.replace(/,/g, '')
+                : action.payload.formInputVal);
       }
     },
     updateDescription: (state, action) => {
@@ -210,6 +217,7 @@ export const {
   updateCategoryAfterDependencies,
   updateLocation,
   updateLocationAfterDependencies,
+  updateLocationCoordsByMoved,
   updateCategoryAttr,
   updateDescription,
   updateTitle,

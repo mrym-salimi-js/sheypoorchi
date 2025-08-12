@@ -106,7 +106,7 @@ export default function InputText() {
   };
 
   // Input Change Value settings
-  const handleStorage = (inputTag) => {
+  const handleAfterChange = (inputTag) => {
     const formInputVal = inputTag.value;
 
     if (inputTag.value !== undefined) {
@@ -114,7 +114,7 @@ export default function InputText() {
     }
 
     if (type === 'filter') {
-      const cleanNumber = formInputVal.replace(/[,٬\s]/g, '');
+      const cleanNumber = formInputVal?.replace(/[,٬\s]/g, '');
       setFilterValue(cleanNumber);
     }
     if (type === 'newAd') {
@@ -150,13 +150,13 @@ export default function InputText() {
   return (
     <input
       data-label={label}
-      type={valueType}
+      type={filedType}
       ref={(el) => {
         inputRefs && (inputRefs.current[index] = el);
       }}
       name={storagePram}
       onChange={(event) =>
-        filedType === 'text' && handleStorage(event.currentTarget)
+        filedType === 'text' && handleAfterChange(event.currentTarget)
       }
       className={`w-full bg-transparent outline-none text-sm text-gray-500 h-12 ${
         filedType !== 'text' && `cursor-pointer`
@@ -168,11 +168,14 @@ export default function InputText() {
         newAdStorageValue?.active
           ? typeof newAdStorageValue[storagePram] === 'object'
             ? newAdStorageValue[storagePram]?.name ||
-              formatPrice(newAdStorageValue[storagePram][index]?.name, label)
-            : formatPrice(newAdStorageValue[storagePram], label)
+              formatPrice(
+                newAdStorageValue[storagePram][index]?.name,
+                valueType
+              )
+            : formatPrice(newAdStorageValue[storagePram], valueType)
           : fieldVal !== undefined
           ? fieldVal
-          : formatPrice(filterValue, label)
+          : formatPrice(filterValue, valueType)
       }
     />
   );

@@ -40,7 +40,7 @@ export function AttrsItems({ item, setOpenLocation, navigateTo, searchItems }) {
                 setOpenList={setOpenLocation}
                 label={'حداقل'}
                 filedType={'text'}
-                valueType={'text'}
+                valueType={item.type}
                 type={'filter'}
                 queryKey={`mn${item.queryKey}`}
                 searchItem={searchItems.get(`mn${item.queryKey}`)}
@@ -51,7 +51,7 @@ export function AttrsItems({ item, setOpenLocation, navigateTo, searchItems }) {
                 setOpenList={setOpenLocation}
                 label={'حداکثر'}
                 filedType={'text'}
-                valueType={'text'}
+                valueType={item.type}
                 type={'filter'}
                 queryKey={`mx${item.queryKey}`}
                 searchItem={searchItems.get(`mx${item.queryKey}`)}

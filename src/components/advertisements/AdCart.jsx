@@ -19,7 +19,7 @@ export function AdCart({ adItem }) {
   const href = `/v/${_id}/${adTitle}`;
 
   return (
-    <li className='max-w-[300px] min-w-[270px] w-[300px] md:w-[300px] h-auto border border-gray-200 bg-white rounded-[3rem] p-4  relative list-none'>
+    <li className=' h-auto border border-gray-200 bg-white rounded-[3rem] p-4 relative list-none'>
       <div className='flex flex-col gap-2 items-center '>
         <AdCartPhoto photo={photo} href={href} id={_id} />
 

@@ -1,9 +1,6 @@
-export const formatPrice = (val, label) => {
-  if (
-    label.includes('قیمت') ||
-    label.includes('حداقل') ||
-    label.includes('حداکثر')
-  ) {
+export const formatPrice = (val, valueType) => {
+  // Check valueType for being numberType input
+  if (valueType !== undefined && valueType === 1) {
     const formated = val?.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 
     // if (formated !== undefined && formated !== '') {

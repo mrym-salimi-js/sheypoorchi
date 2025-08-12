@@ -14,7 +14,7 @@ export function ClearForm() {
   return (
     <>
       <BorderRoundedBtn
-        lable={'پاک کردن فرم'}
+        label={'پاک کردن فرم'}
         handleAction={handleClearingFormAsk}
         borderColor={'border-[#84105C]'}
         bgColor={'bg-pink-50'}

@@ -16,10 +16,10 @@ export function GalleryPhotos({ photoGrandParentRef, partScreen }) {
   }, 100);
 
   useEffect(() => {
-    photo.length == 1 || counter == photo.length - 1
+    photo.length === 1 || counter === photo.length - 1
       ? setNextBtn(false)
       : setNextBtn(true);
-    counter != 0 ? setPrevBtn(true) : setPrevBtn(false);
+    counter !== 0 ? setPrevBtn(true) : setPrevBtn(false);
   }, [counter]);
 
   const handleNextMovment = () => {

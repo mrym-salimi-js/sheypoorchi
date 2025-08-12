@@ -9,15 +9,7 @@ import { useState } from 'react';
 import { mapMerker } from '../globals/Icons';
 import { Icon } from 'leaflet';
 
-export function Map({
-  width,
-  lat,
-  lon,
-  page,
-  zoom,
-  setNewAdStorageValue,
-  newAdStorageValue,
-}) {
+export function Map({ width, lat, lon, page, zoom }) {
   const [movedLat, setMovedLat] = useState();
   const [movedLon, setMovedLon] = useState();
 
@@ -57,8 +49,6 @@ export function Map({
             <MapAutomaticChanges
               lat={lat}
               lon={lon}
-              setNewAdStorageValue={setNewAdStorageValue}
-              newAdStorageValue={newAdStorageValue}
               setMovedLat={setMovedLat}
               setMovedLon={setMovedLon}
               movedLat={movedLat}

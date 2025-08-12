@@ -15,5 +15,5 @@ export function selectedLocations(cookie, setSelectedLocCallBack, locs) {
           }
         });
       })
-    : setSelectedLocCallBack('ایران');
+    : setSelectedLocCallBack('');
 }

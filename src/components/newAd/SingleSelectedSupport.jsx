@@ -19,7 +19,7 @@ export default function SingleSelectedSupport({
   filedType,
   data,
 }) {
-  const { setNewAdStorageValue, newAdStorageValue, setValidation, validation } =
+  const { newAdStorageValue, setValidation, validation } =
     useContext(NewAdContext);
   const [openList, setOpenList] = useState('opacity-0 invisible');
   const [fieldVal, setFieldVal] = useState();
@@ -93,7 +93,6 @@ export default function SingleSelectedSupport({
         fieldVal={fieldVal}
         setFieldVal={setFieldVal}
         storagePram={storagePram}
-        setNewAdStorageValue={setNewAdStorageValue}
         newAdStorageValue={newAdStorageValue}
         setValidation={setValidation}
         validation={validation}

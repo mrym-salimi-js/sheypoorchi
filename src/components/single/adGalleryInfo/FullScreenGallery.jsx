@@ -13,8 +13,8 @@ export default function FullScreenGallery() {
 
   const handleClosing = () => {
     counter > 4 && setCounter(4);
-
     setPhotoFullScreen(false);
+    setCounter(0);
   };
 
   const handleScrollSlider = () => {
@@ -25,7 +25,10 @@ export default function FullScreenGallery() {
     <>
       {photoFullScreen && (
         <div className='w-full h-full flex items-center justify-center fixed top-0 right-0 z-[10000] bg-[#2222228a]'>
-          <div className='btn-parent w-8 h-8 flex items-center justify-center rounded-full bg-[#454545a5] absolute left-6 top-6 cursor-pointer hover:opacity-[0.7] z-50'>
+          <div
+            className='btn-parent w-8 h-8 flex items-center justify-center rounded-full bg-[#454545a5] absolute left-6 top-6 cursor-pointer hover:opacity-[0.7] z-50'
+            onClick={handleClosing}
+          >
             <CloseMark
               handleClosing={handleClosing}
               color={'#ffffff'}
@@ -33,25 +36,23 @@ export default function FullScreenGallery() {
             />
           </div>
 
-          <div className={`w-full  flex lg:items-center h-full items-center`}>
+          <div className='w-full flex lg:items-center h-full items-center'>
             <div
               ref={photoGrandParentRef}
-              className={`w-full h-[85%] absolute bottom-7`}
+              className='w-full h-[85%] absolute bottom-7'
             >
-              <div
-                className={`flex flex-col  gap-3 overflow-hidden h-full justify-between`}
-              >
+              <div className='flex flex-col gap-3 overflow-hidden h-full justify-between'>
                 <GalleryPhotos photoGrandParentRef={photoGrandParentRef} />
 
                 <div
                   onClick={handleScrollSlider}
                   className={`w-[98%] ${
                     photoFullScreen ? `md:w-[50%]` : `md:w-full`
-                  } h-[100px]  rounded-xl absolute bottom-0 self-center z-[100000]`}
+                  } h-[100px] rounded-xl absolute bottom-0 self-center z-[100000]`}
                 >
                   <div
                     ref={thumbnailGrandParentRef}
-                    className='thumbnail-grand-parent w-full h-full flex items-start justify-start sm:justify-center overflow-x-scroll ul-box'
+                    className='thumbnail-grand-parent w-full h-full flex items-start justify-start  overflow-x-scroll ul-box'
                   >
                     <GalleryThumbnail />
                   </div>

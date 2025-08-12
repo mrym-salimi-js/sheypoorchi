@@ -15,7 +15,6 @@ export default function LabelText() {
     type,
   } = useContext(TextFiledContext);
 
-  // console.log(fieldVal);
   return (
     <p
       className={`w-full text-md transition-all absolute bottom-3 ${

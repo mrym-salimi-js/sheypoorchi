@@ -1,11 +1,11 @@
 import { useEffect } from 'react';
 import { useMap } from 'react-leaflet';
+import { useDispatch } from 'react-redux';
+import { updateLocationCoordsByMoved } from '../../store/newAdSlice';
 
 export function MapAutomaticChanges({
   lat,
   lon,
-  setNewAdStorageValue,
-  newAdStorageValue,
   setMovedLat,
   setMovedLon,
   movedLat,
@@ -13,46 +13,37 @@ export function MapAutomaticChanges({
   setMapMoved,
 }) {
   const map = useMap();
+  const dispatch = useDispatch();
 
   // Auto Find Loc On Map
   useEffect(() => {
     lat && lon && map.setView([lat, lon]);
-  }, [lat, lon]);
+  }, [lat, lon, map]);
 
-  // Find center Of Map
-  map.on('moveend', () => {
-    setMovedLat(map.getCenter().lat);
-    setMovedLon(map.getCenter().lng);
-
-    movedLat && movedLon ? setMapMoved(true) : setMapMoved(false);
-  });
-
-  // Change Coordinate in Localstorage After Moving
+  // Find center Of Map on move
   useEffect(() => {
-    newAdStorageValue &&
-      setNewAdStorageValue({
-        ...newAdStorageValue,
-        location: {
-          ...newAdStorageValue?.location,
-          lat: movedLat,
-          lon: movedLon,
-        },
-      });
+    const handleMoveEnd = () => {
+      const center = map.getCenter();
+      setMovedLat(center.lat);
+      setMovedLon(center.lng);
+
+      setMapMoved(!!(center.lat && center.lng));
+    };
+
+    map.on('moveend', handleMoveEnd);
+
+    // cleanup listener on unmount
+    return () => {
+      map.off('moveend', handleMoveEnd);
+    };
+  }, [map]);
+
+  // Change Coordinate in Redux After Moving
+  useEffect(() => {
+    if (movedLat && movedLon) {
+      dispatch(updateLocationCoordsByMoved({ lat: movedLat, lon: movedLon }));
+    }
   }, [movedLat, movedLon]);
 
-  // Find Cordinate Of Location In List After Every Reload Page
-  useEffect(() => {
-    const coordinate = JSON.parse(localStorage.getItem('coordinate'));
-    const lat = coordinate && coordinate.lat;
-    const lon = coordinate && coordinate.lon;
-
-    setNewAdStorageValue((prev) => ({
-      ...prev,
-      location: {
-        ...prev.location,
-        lat: lat,
-        lon: lon,
-      },
-    }));
-  }, []);
+  return null;
 }

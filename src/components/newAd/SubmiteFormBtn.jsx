@@ -20,6 +20,7 @@ export function SubmiteFormBtn({ userInfo }) {
     queryFn: async () => await createAd(formDatas),
     enabled: validFormData,
   });
+  // console.log(data);
 
   // Create Message Toast
   useEffect(() => {
@@ -41,6 +42,7 @@ export function SubmiteFormBtn({ userInfo }) {
   const handleFormSubmite = () => {
     const getFormData = async () => {
       const res = await formData(newAdStorageValue, userInfo);
+
       res !== undefined && setFormDatas(res);
     };
 

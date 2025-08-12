@@ -3,7 +3,6 @@ import { List } from './List';
 
 export default function SingleSelected({
   label,
-  setNewAdStorageValue,
   newAdStorageValue,
   storagePram,
   setValidation,
@@ -28,7 +27,6 @@ export default function SingleSelected({
         label={label}
         setValidation={setValidation}
         validation={validation}
-        setNewAdStorageValue={setNewAdStorageValue}
         newAdStorageValue={newAdStorageValue}
         storagePram={storagePram}
         filedType={'singleSelected'}

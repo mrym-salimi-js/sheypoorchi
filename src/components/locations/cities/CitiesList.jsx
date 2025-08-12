@@ -58,7 +58,7 @@ export function CitiesList() {
   };
 
   return (
-    <div className='h-[65%] p-1 border-t-2 border-gray-100 mt-[20px] overflow-scroll '>
+    <div className='h-[58%] lg:h-[51%] p-1 border-t-2 border-gray-100 mt-[20px] overflow-scroll '>
       <ul className='flex flex-col p-2'>
         <li className='cursor-pointer flex justify-between items-center border-b-[1px] pb-2'>
           <p className='text-sm p-1 pr-2 border-r-4  border-pink-400'>

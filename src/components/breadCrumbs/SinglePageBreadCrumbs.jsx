@@ -1,6 +1,7 @@
 import { useContext } from 'react';
 import { ChevronLeft } from '../globals/Icons';
 import { SingleContext } from '../../pages/Single';
+import { Link } from 'react-router-dom';
 
 export default function SinglePageBreadCrumbs() {
   const { category, title } = useContext(SingleContext);
@@ -23,13 +24,13 @@ export default function SinglePageBreadCrumbs() {
 export function BreadCrumbItem({ breadItem }) {
   return (
     <li className='w-auto h-full flex items-center justify-center'>
-      <a
-        href=''
+      <Link
+        to={`/s/iran/${breadItem?.slug}`}
         className='w-full h-full outline-none flex gap-1 items-center cursor-pointer'
       >
         <p className='text-[0.8rem] text-black'>{breadItem.name}</p>
         <ChevronLeft color={'#000000'} size={'size-4'} />
-      </a>
+      </Link>
     </li>
   );
 }

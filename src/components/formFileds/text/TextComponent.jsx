@@ -1,4 +1,4 @@
-import { createContext, useEffect, useMemo, useState } from 'react';
+import { createContext, useEffect, useState } from 'react';
 import { ChevronLeft } from '../../globals/Icons';
 import SubText from './SubText';
 import InputText from './InputText';
@@ -37,11 +37,12 @@ export default function TextComponent({
       : setOpenList('opacity-100 visible');
   };
 
-  // Set Filter Writing Filed Values (min/max)
-
   useEffect(() => {
+    // Reset inputVal after change category of newAdStorageValue in newAd mood
+    inputVal && setInputVal('');
+    // Set Filter Writing Filed Values in filter mood
     searchItem !== undefined && setFilterValue(searchItem);
-  }, [searchItem]);
+  }, [searchItem, newAdStorageValue?.category]);
 
   return (
     <TextFiledContext.Provider

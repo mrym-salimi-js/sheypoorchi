@@ -40,6 +40,7 @@ export function NewAdForm({ userInfo }) {
 
   // Get Store NewAd By Every Change Data (Redux)
   useEffect(() => {
+    // console.log(data);
     if (data.active === true) {
       localStorage.setItem('form-list-values', JSON.stringify(data));
 
@@ -49,6 +50,14 @@ export function NewAdForm({ userInfo }) {
       setNewAdStorageValue(storage);
     }
   }, [data]);
+
+  const [lat, setLat] = useState(35.696111);
+  const [lon, setLon] = useState(51.423056);
+
+  useEffect(() => {
+    newAdStorageValue?.location?.lat && setLat(newAdStorageValue?.location.lat);
+    newAdStorageValue?.location?.lon && setLon(newAdStorageValue?.location.lon);
+  }, [newAdStorageValue?.location]);
 
   const adTitlelabel = 'عنوان آگهی';
   const adDesclabel = 'توضیحات';
@@ -60,10 +69,9 @@ export function NewAdForm({ userInfo }) {
       {notifToast.message && (
         <NotifToast setNotif={setNotifToast} notif={notifToast} />
       )}
-      <div className='w-[97%] lg:w-[90%] p-3 pb-32 flex flex-col  gap-8 bg-white'>
+      <div className='w-[97%] lg:w-[90%] p-3 pb-32 flex flex-col  gap-3 bg-white'>
         <NewAdContext.Provider
           value={{
-            setNewAdStorageValue,
             newAdStorageValue,
             setValidation,
             validation,
@@ -101,6 +109,7 @@ export function NewAdForm({ userInfo }) {
                       itemId={item.id}
                       filedType={'text'}
                       type={'newAd'}
+                      valueType={item.type}
                       newAdStorageValue={newAdStorageValue}
                       setValidation={setValidation}
                       validation={validation}
@@ -174,23 +183,13 @@ export function NewAdForm({ userInfo }) {
                 data={data}
               />
               {/* Map*/}
-              {/* <Map
+              <Map
                 width={'100%'}
-                lat={
-                  newAdStorageValue?.location.lat
-                    ? newAdStorageValue?.location.lat
-                    : 35.696111
-                }
-                lon={
-                  newAdStorageValue?.location.lon
-                    ? newAdStorageValue?.location.lon
-                    : 51.423056
-                }
+                lat={lat}
+                lon={lon}
                 page={'newAd'}
                 zoom={14}
-                setNewAdStorageValue={setNewAdStorageValue}
-                newAdStorageValue={newAdStorageValue}
-              /> */}
+              />
 
               {/* User Type*/}
               <UserType />
