@@ -3,7 +3,6 @@ import { SingleContext } from '../../../pages/Single';
 
 export function ThumbnailList({ thumbnailParentRef, partScreen, itemRefs }) {
   const {
-    _id,
     photo,
     photoParantRef,
     setCounter,
@@ -11,7 +10,7 @@ export function ThumbnailList({ thumbnailParentRef, partScreen, itemRefs }) {
     visibleThumbnailNumber,
   } = useContext(SingleContext);
 
-  const baseURL = import.meta.env.VITE_BASE_URL;
+  // const baseURL = import.meta.env.VITE_BASE_URL;
 
   const handleShowPhoto = (e, index) => {
     if (index === visibleThumbnailNumber) {
@@ -57,8 +56,10 @@ export function ThumbnailList({ thumbnailParentRef, partScreen, itemRefs }) {
             >
               <img
                 className={`w-full h-full cursor-pointer object-cover brightness-0 transition-all`}
-                src={`${baseURL}/img/${_id}/${item.name}`}
-                alt=''
+                src={item.url}
+                loading='lazy'
+                alt={item.name}
+                placeholder='blur'
               />
               {partScreen && index === visibleThumbnailNumber && (
                 <p className='text-white text-xl z-50 absolute cursor-pointer'>

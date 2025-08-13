@@ -148,35 +148,70 @@ export default function InputText() {
   };
 
   return (
-    <input
-      data-label={label}
-      type={filedType}
-      ref={(el) => {
-        inputRefs && (inputRefs.current[index] = el);
-      }}
-      name={storagePram}
-      onChange={(event) =>
-        filedType === 'text' && handleAfterChange(event.currentTarget)
-      }
-      className={`w-full bg-transparent outline-none text-sm text-gray-500 h-12 ${
-        filedType !== 'text' && `cursor-pointer`
-      }`}
-      onBlur={(event) =>
-        filedType === 'text' && handleInputBlur(event.currentTarget)
-      }
-      value={
-        newAdStorageValue?.active
-          ? typeof newAdStorageValue[storagePram] === 'object'
-            ? newAdStorageValue[storagePram]?.name ||
-              formatPrice(
-                newAdStorageValue[storagePram][index]?.name,
-                valueType
-              )
-            : formatPrice(newAdStorageValue[storagePram], valueType)
-          : fieldVal !== undefined
-          ? fieldVal
-          : formatPrice(filterValue, valueType)
-      }
-    />
+    <>
+      {label === 'توضیحات' ? (
+        <textarea
+          data-label={label}
+          type={filedType}
+          ref={(el) => {
+            inputRefs && (inputRefs.current[index] = el);
+          }}
+          name={storagePram}
+          onChange={(event) =>
+            filedType === 'text' && handleAfterChange(event.currentTarget)
+          }
+          className={`w-full h-20 bg-transparent outline-none text-sm text-gray-500 ${
+            filedType !== 'text' && `cursor-pointer`
+          }`}
+          onBlur={(event) =>
+            filedType === 'text' && handleInputBlur(event.currentTarget)
+          }
+          value={
+            newAdStorageValue?.active
+              ? typeof newAdStorageValue[storagePram] === 'object'
+                ? newAdStorageValue[storagePram]?.name ||
+                  formatPrice(
+                    newAdStorageValue[storagePram][index]?.name,
+                    valueType
+                  )
+                : formatPrice(newAdStorageValue[storagePram], valueType)
+              : fieldVal !== undefined
+              ? fieldVal
+              : formatPrice(filterValue, valueType)
+          }
+        />
+      ) : (
+        <input
+          data-label={label}
+          type={filedType}
+          ref={(el) => {
+            inputRefs && (inputRefs.current[index] = el);
+          }}
+          name={storagePram}
+          onChange={(event) =>
+            filedType === 'text' && handleAfterChange(event.currentTarget)
+          }
+          className={`w-full bg-transparent outline-none text-sm text-gray-500 h-12 ${
+            filedType !== 'text' && `cursor-pointer`
+          }`}
+          onBlur={(event) =>
+            filedType === 'text' && handleInputBlur(event.currentTarget)
+          }
+          value={
+            newAdStorageValue?.active
+              ? typeof newAdStorageValue[storagePram] === 'object'
+                ? newAdStorageValue[storagePram]?.name ||
+                  formatPrice(
+                    newAdStorageValue[storagePram][index]?.name,
+                    valueType
+                  )
+                : formatPrice(newAdStorageValue[storagePram], valueType)
+              : fieldVal !== undefined
+              ? fieldVal
+              : formatPrice(filterValue, valueType)
+          }
+        />
+      )}
+    </>
   );
 }

@@ -50,9 +50,7 @@ export default function Header({ userInfo, setUserInfo }) {
             }}
             className='w-36 h-36 object-cover z-30 cursor-pointer  border-[10px] border-gray-50 rounded-full overflow-hidden '
             src={
-              userInfo?.photo !== undefined
-                ? `${baseURL}/user/img/${userInfo?.photo}`
-                : defaultProfile
+              userInfo?.photo !== undefined ? userInfo?.photo : defaultProfile
             }
           />
         </div>

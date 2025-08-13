@@ -14,7 +14,7 @@ export function ContactItem({ index, contactName, contact }) {
   const baseURL = import.meta.env.VITE_BASE_URL;
   // Open Chat PV
   const handleOpenChat = (id) => {
-    navTo(`/dashboard/messages/${id}`, '', navigateTo);
+    navTo(`/messages/${id}`, '', navigateTo);
   };
 
   // Get User

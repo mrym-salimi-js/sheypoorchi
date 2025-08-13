@@ -21,7 +21,7 @@ export function AdCart({ adItem }) {
   return (
     <li className=' h-auto border border-gray-200 bg-white rounded-[3rem] p-4 relative list-none'>
       <div className='flex flex-col gap-2 items-center '>
-        <AdCartPhoto photo={photo} href={href} id={_id} />
+        <AdCartPhoto photo={photo} href={href} />
 
         <AdCartTextContent
           title={title}

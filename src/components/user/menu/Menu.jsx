@@ -16,7 +16,7 @@ export default function Menu({ photo, name }) {
       className={`w-full   md:w-[35%]  lg:w-[25%] xl:w-[20%]  fixed right-0 h-full flex  items-center justify-center py-4 pl-4 pr-3 transition-all ease-in-out duration-500 z-[100000]  ${openMenu} md:translate-x-0`}
     >
       {/* Menu Colored Box */}
-      <div className='w-full  h-full rounded-[4rem] overflow-hidden justify-between bg-[rgb(43,58,62)] flex flex-col items-center '>
+      <div className='w-full  h-full rounded-[2rem] overflow-hidden justify-between bg-[rgb(43,58,62)] flex flex-col items-center '>
         <div className='w-full flex flex-col gap-6'>
           <div className='w-full flex flex-col justify-between pt-9 items-center'>
             <a

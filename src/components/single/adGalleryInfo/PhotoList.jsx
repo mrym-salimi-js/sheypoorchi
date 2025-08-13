@@ -2,16 +2,10 @@ import { useContext } from 'react';
 import { SingleContext } from '../../../pages/Single';
 
 export function PhotoList({ phothoWidth, partScreen }) {
-  const {
-    setCounter,
-    setPhotoFullScreen,
-    photoParantRef,
-    photo,
-    _id,
-    counter,
-  } = useContext(SingleContext);
+  const { setCounter, setPhotoFullScreen, photoParantRef, photo, counter } =
+    useContext(SingleContext);
 
-  const baseURL = import.meta.env.VITE_BASE_URL;
+  // const baseURL = import.meta.env.VITE_BASE_URL;
   const handlePhotoFullScreen = (index) => {
     setCounter(index);
     setPhotoFullScreen(true);
@@ -45,8 +39,10 @@ export function PhotoList({ phothoWidth, partScreen }) {
                 className={`${
                   !partScreen ? `sm:w-auto w-full` : `w-full`
                 } h-full object-cover`}
-                src={`${baseURL}/img/${_id}/${item.name}`}
-                alt=''
+                src={item.url}
+                loading='lazy'
+                alt={item.name}
+                placeholder='blur'
               />
             </li>
           );

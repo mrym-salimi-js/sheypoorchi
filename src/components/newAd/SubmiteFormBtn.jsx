@@ -70,7 +70,7 @@ export function SubmiteFormBtn({ userInfo }) {
       {isLoading ? (
         <div className='w-full h-auto flex fixed right-0 bottom-0  lg:relative z-[10000] items-center justify-center  p-2'>
           <span className='w-full h-14   flex gap-3 justify-center  items-center bg-[#84105ba7]  cursor-grabbing rounded-lg '>
-            <p className='text-white'> در حال ارسال فرم</p>
+            <p className='text-white'>در حال ثبت آگهی</p>
             <SpinnerLoading />
           </span>
         </div>

@@ -32,7 +32,11 @@ export default function ChatPV({ pvShow, contactList }) {
 
   //Get AdId
   const sa = selectedAd !== undefined && Object.entries(selectedAd);
-  adId = selectedAd !== undefined ? sa[sa?.length - 1][1]._id : adIdInParams;
+  console.log(selectedAd);
+  adId =
+    selectedAd !== undefined && selectedAd?.length > 0
+      ? sa[sa?.length - 1][1]._id
+      : adIdInParams;
 
   // Get Each Message Text By every Sending
   useEffect(() => {

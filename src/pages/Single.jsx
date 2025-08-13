@@ -25,7 +25,7 @@ export default function Single() {
     queryFn: () => getAd(id),
   });
 
-  error && console.log(error);
+  error && console.dir(error);
 
   return (
     <>

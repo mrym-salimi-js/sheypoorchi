@@ -1,112 +1,84 @@
 import ProfileInput from './ProfileInput';
-import { useEffect, useRef, useState } from 'react';
+import { useState } from 'react';
 import { updateUserInfo } from '../../../services/user/updateUserInfo';
 // import { ToastContainer, toast } from 'react-toastify';
 import NotifToast from '../../globals/NotifToast';
-import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { SpinnerLoading } from '../../globals/SpinnerLoading';
+import { useForm } from 'react-hook-form';
 
-export default function EditInfo({ userInfo }) {
-  // const [formData, setFormData] = useState();
-  // const [form, setForm] = useState(false);
-  const formRef = useRef();
-  const [notifToast, setNotifToast] = useState({ message: '', status: '' });
+export default function ProfileForm({ userInfo }) {
+  const [notifToast, setNotifToast] = useState(null);
 
   const schema = z.object({
-    name: z.string().min(1, { message: 'لطفااین قسمت را تکمیل کنید' }),
+    name: z.string().min(1, { message: 'لطفا این قسمت را تکمیل کنید' }),
     email: z
       .string()
-      .min(1, { message: 'لطفااین قسمت را تکمیل کنید' })
+      .min(1, { message: 'لطفا این قسمت را تکمیل کنید' })
       .email('آدرس ایمیل صحیح نمی باشد'),
   });
 
   const {
     register,
+    handleSubmit,
     setValue,
     formState: { errors, isSubmitting },
-    handleSubmit,
   } = useForm({
     resolver: zodResolver(schema),
-
-    mode: 'onBlur',
+    defaultValues: {
+      name: userInfo?.name || '',
+      email: userInfo?.email || '',
+    },
   });
 
-  const onSubmit = (data) => {
-    updateUserInfo(data);
-    formRef?.current && formRef?.current.submit();
+  const onSubmit = async (data) => {
+    try {
+      const res = await updateUserInfo(data);
+      if (res?.status === 200) {
+        setNotifToast({
+          message: 'تغییرات با موفقیت ذخیره شد.',
+          status: 'success',
+        });
+      } else {
+        setNotifToast({ message: 'خطایی رخ داد!', status: 'fail' });
+      }
+    } catch (err) {
+      setNotifToast({ message: 'مشکل در ارتباط با سرور.', status: 'fail' });
+    }
   };
 
-  useEffect(() => {
-    isSubmitting &&
-      setNotifToast({
-        message: 'فرم ارسال شد',
-        status: 'success',
-      });
-  }, [isSubmitting]);
-  // console.log(isSubmitted);
-  // const { data } = useQuery({
-  //   queryKey: ['userInfo', formData],
-  //   queryFn: async () => updateUserInfo(formData),
-  //   enabled: form,
-  //   refetchInterval: false,
-  // });
-
-  // useEffect(() => {
-  //   form &&
-  //     data !== undefined &&
-  //     (data?.data?.status === 'success'
-  //       ? setNotifToast({
-  //           message: 'تغییرات با موفقیت انجام شد.',
-  //           status: 'success',
-  //         })
-  //       : setNotifToast({
-  //           message: 'خطایی رخ داد!',
-  //           status: 'fail',
-  //         }));
-  // }, [data]);
-
-  // console.log(notifToast);
   return (
     <>
-      {notifToast.message && (
+      {notifToast?.message && (
         <NotifToast setNotif={setNotifToast} notif={notifToast} />
       )}
-      {/* {<ToastContainer position='top-center' />} */}
       <form
-        ref={formRef}
-        className='w-full lg:w-1/2 h-auto  flex flex-col gap-3'
+        onSubmit={handleSubmit(onSubmit)}
+        className='w-full lg:w-1/2 h-auto flex flex-col gap-3'
       >
         {[
           { label: 'نام', name: 'name' },
-          {
-            label: 'ایمیل',
-            name: 'email',
-          },
-        ].map((el, index) => {
-          return (
-            <ProfileInput
-              data={userInfo}
-              el={el}
-              key={index}
-              setValue={setValue}
-              // setFormData={setFormData}
-              register={register}
-              errors={errors}
-            />
-          );
-        })}
-        {/* Aplly Btn */}
-        <div
-          onClick={handleSubmit(onSubmit)}
-          className='w-full h-14 flex  items-center justify-center  gap-3 bg-[rgb(169,206,173)] text-white cursor-pointer rounded-lg hover:opacity-[0.7]  p-2'
+          { label: 'ایمیل', name: 'email' },
+        ].map((el, index) => (
+          <ProfileInput
+            key={index}
+            el={el}
+            data={userInfo}
+            setValue={setValue}
+            register={register}
+            errors={errors}
+          />
+        ))}
+
+        <button
+          type='submit'
+          disabled={isSubmitting}
+          className='w-full h-14 flex items-center justify-center gap-3 bg-[rgb(169,206,173)] text-white cursor-pointer rounded-lg hover:opacity-[0.7] p-2'
         >
-          <span className='w-auto  slef-end  flex justify-center items-center '>
-            اعمال تغییرات
-          </span>
-          {isSubmitting && <SpinnerLoading w={'w-5'} h={'h-5'} />}
-        </div>
+          <span>اعمال تغییرات</span>
+          {isSubmitting && <SpinnerLoading w='w-5' h='h-5' />}
+        </button>
       </form>
     </>
   );
