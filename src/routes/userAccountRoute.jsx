@@ -43,7 +43,7 @@ const dashboardLoader = async () => {
   return { user, userAds, userChats, savedAds };
 };
 
-export const userAccountRoute = [
+export const UserAccountRoute = [
   {
     element: <ProtectectedAuth />,
     children: [

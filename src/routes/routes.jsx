@@ -1,47 +1,95 @@
 // import { lazy } from 'react';
 
 // import PageLoading from '../components/globals/PageLoading';
-import { authRoute } from './authRoute';
-import { userAccountRoute } from './userAccountRoute';
-import Home from '../pages/Home';
-import NotFound from '../pages/NotFound';
-import NewAd from '../pages/NewAd';
-import Single from '../pages/Single';
+import { lazy } from 'react';
+import { AuthRoute } from './AuthRoute';
+import { UserAccountRoute } from './UserAccountRoute';
+import { SuspenseWrapper } from './SuspenseWrapper';
+
+const Home = lazy(() => import('../pages/Home'));
+const NewAd = lazy(() => import('../pages/NewAd'));
+const Single = lazy(() => import('../pages/Single'));
+const NotFound = lazy(() => import('../pages/NotFound'));
 
 // const Home = lazy(() => import('../pages/Home'));
 // استفاده از حالت لیزی که این امکان رو میده در بارگذاری اولیه سایت همه کامپوننت ها دانلود نشن و هر کامپوننتی مکه کاربر باز کرد اونموقع باز بشه زمانی قابل استفادس که اون کامپوننت در تگ ساسپنس قرار بگیره!!!
 // و از اونجایی که ساسپنس به صورت مستقیم در روت زیر استفاده نمیشه ما این امکان رو حذف کردیم
 
-export const routes = [
+export const Routes = [
   {
     path: '/',
-    element: <Home />,
+    element: (
+      <SuspenseWrapper>
+        <Home />
+      </SuspenseWrapper>
+    ),
   },
   {
     path: 's/iran/',
-    element: <Home />,
+    element: (
+      <SuspenseWrapper>
+        <Home />
+      </SuspenseWrapper>
+    ),
   },
   {
     path: 's/iran/:category',
-    element: <Home />,
+    element: (
+      <SuspenseWrapper>
+        <Home />
+      </SuspenseWrapper>
+    ),
   },
   {
     path: 's/iran/:category',
-    element: <Home />,
+    element: (
+      <SuspenseWrapper>
+        <Home />
+      </SuspenseWrapper>
+    ),
   },
   {
     path: 's/iran/:category/:brand',
-    element: <Home />,
+    element: (
+      <SuspenseWrapper>
+        <Home />
+      </SuspenseWrapper>
+    ),
   },
   {
     path: 's/iran/:category/:brand/:model',
-    element: <Home />,
+    element: (
+      <SuspenseWrapper>
+        <Home />
+      </SuspenseWrapper>
+    ),
   },
 
-  { path: 'newAd', element: <NewAd /> },
-  { path: 'v/:id/:title', element: <Single /> },
-  ...authRoute,
-  ...userAccountRoute,
+  {
+    path: 'newAd',
+    element: (
+      <SuspenseWrapper>
+        <NewAd />
+      </SuspenseWrapper>
+    ),
+  },
+  {
+    path: 'v/:id/:title',
+    element: (
+      <SuspenseWrapper>
+        <Single />
+      </SuspenseWrapper>
+    ),
+  },
+  ...AuthRoute,
+  ...UserAccountRoute,
 
-  { path: '*', element: <NotFound /> },
+  {
+    path: '*',
+    element: (
+      <SuspenseWrapper>
+        <NotFound />
+      </SuspenseWrapper>
+    ),
+  },
 ];

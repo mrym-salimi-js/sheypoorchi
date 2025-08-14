@@ -5,7 +5,7 @@ const Login = lazy(() => import('../pages/Login'));
 const ForgetPassword = lazy(() => import('../pages/ForgetPassword'));
 const ResetPassword = lazy(() => import('../pages/ResetPassword'));
 
-export const authRoute = [
+export const AuthRoute = [
   { path: 'register', element: <Register /> },
   { path: 'login', element: <Login /> },
   { path: 'forgetPassword', element: <ForgetPassword /> },
