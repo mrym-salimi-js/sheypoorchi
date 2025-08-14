@@ -39,8 +39,12 @@ export function Connections() {
     phoneRef.current.innerText = '0' + phone;
   };
 
-  const handleChat = () => {
-    navTo(`/dashboard/messages/${_id}`, null, navigateTo);
+  const handleChat = async () => {
+    const user = await getUser();
+    // console.log(user);
+    user !== 'fail'
+      ? navTo(`/messages/${_id}`, null, navigateTo)
+      : navTo(`/login`, null, navigateTo);
   };
   return (
     <div className='w-full flex flex-col gap-5 items-center border-b-[1px] p-4'>

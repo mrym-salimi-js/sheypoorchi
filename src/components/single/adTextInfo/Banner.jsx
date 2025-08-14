@@ -25,7 +25,7 @@ export default function Banner() {
   return (
     <div className='w-full flex flex-col gap-6 items-center p-5  border-b-[1px]'>
       <div className='w-full flex justify-between items-center'>
-        <h2 className='text-xl font-bold text-gray-800'>{title}</h2>
+        <h2 className='text-lg font-bold text-gray-800'>{title}</h2>
         <div
           onClick={handleSaveAd}
           className='w-auto h-auto transition-all  cursor-pointer flex items-center justify-center'
@@ -47,7 +47,7 @@ export default function Banner() {
         {cost.length > 0 &&
           cost.map((costItem, index) => {
             return (
-              <p className='text-md' key={index}>
+              <p className='text-sm' key={index}>
                 {costItem.label}: {formatPrice(costItem.name, 1)} تومان
               </p>
             );
