@@ -78,7 +78,7 @@ export default function Login() {
       sendForm();
     }
   }, [inputVal]);
-
+  const [passVis, setPassVis] = useState('password');
   // console.log(inputVal);
   return (
     <>
@@ -88,7 +88,7 @@ export default function Login() {
       <AuthForm
         fieldes={[
           { label: 'ایمیل', type: 'email', valueType: 'email' },
-          { label: 'رمز عبور', type: 'password', valueType: 'password' },
+          { label: 'رمز عبور', type: passVis, valueType: 'password' },
         ]}
         handleBtn={handleLogin}
         headerLabel={'ورود کاربر'}
@@ -101,6 +101,8 @@ export default function Login() {
           { label: 'رمز عبورتو فراموش کردی؟', link: '/forgetPassword' },
         ]}
         btnLabel={'ورود'}
+        passVis={passVis}
+        setPassVis={setPassVis}
       />
     </>
   );

@@ -1,49 +1,18 @@
-import { useContext, useMemo } from 'react';
-import { useMainCats } from '../../hooks/useMainCats';
+import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { HomeContext } from '../../pages/Home';
 import { scrollSlider } from '../../utils/globals/scrollSlider';
+import { CategoryPageContext } from '../CategoryPageDetails';
 
 export function SubCategory() {
-  const { category, brands, model, locationUrl, searchParams } =
-    useContext(HomeContext);
-  // const [catList, setCatList] = useState();
-  const mainCategories = useMainCats();
+  const { category, brand, searchParams } = useContext(HomeContext);
+  const { computeCatList } = useContext(CategoryPageContext);
+
   const navigateTo = useNavigate();
 
   const handleScrollItems = () => [
     scrollSlider(document.querySelectorAll('.sub-cat-items-box')),
   ];
-
-  // Get Cat Items
-  const computeCatList = useMemo(() => {
-    if (mainCategories === undefined) return;
-    let res = null;
-    mainCategories.map((item) => {
-      item.slug === category && (res = item.children);
-
-      item.children?.map((chItem) => {
-        chItem.slug === category && (res = chItem.brands);
-
-        chItem.brands?.map((bItem) => {
-          if (bItem.slug === `${category}/${brands}`) {
-            bItem.attributes.length > 0
-              ? bItem.attributes?.map((bAttrItem) => {
-                  res = bAttrItem.options;
-                })
-              : (res = []);
-          }
-          if (
-            locationUrl.pathname ===
-            `/s/iran/${category}/${brands}/${encodeURI(model)}`
-          ) {
-            res = [];
-          }
-        });
-      });
-    });
-    return res;
-  }, [locationUrl]);
 
   const handleShowFilterItem = (filterItem, event) => {
     event.preventDefault();
@@ -54,7 +23,7 @@ export function SubCategory() {
           search: searchParams && searchParams.toString(),
         })
       : navigateTo({
-          pathname: `/s/iran/${category}/${brands}/${filterItem?.name}`,
+          pathname: `/s/iran/${category}/${brand}/${filterItem?.name}`,
           search: searchParams && searchParams.toString(),
         });
   };
@@ -65,7 +34,7 @@ export function SubCategory() {
       className='sub-cat-items-box w-full h-auto bg-gray-50  border-b-[1px] border-t-[1px]'
     >
       <ul className='w-auto  flex overflow-x-scroll  m-0 py-1 '>
-        {computeCatList?.map((item) => {
+        {computeCatList?.subCategory?.map((item) => {
           return (
             <li
               className='min-w-auto flex flex-col items-center gap-2  '
@@ -75,7 +44,7 @@ export function SubCategory() {
                 href={
                   item.slug !== undefined
                     ? `/s/iran/${item.slug}`
-                    : `/s/iran/${category}/${brands}/${item.name}`
+                    : `/s/iran/${category}/${brand}/${item.name}`
                 }
                 onClick={(event) => handleShowFilterItem(item, event)}
                 className='w-full p-2  rounded-3xl cursor-pointer flex flex-col gap-3 justify-center items-center'

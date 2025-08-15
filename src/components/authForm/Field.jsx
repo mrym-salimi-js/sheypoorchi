@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import TextComponent from '../formFileds/text/TextComponent';
 import { InVisible, Visible } from '../globals/Icons';
 
@@ -7,12 +6,13 @@ export default function Field({
   inputRefs,
   validation,
   setValidation,
+  passVis,
+  setPassVis,
 }) {
-  const [passVis, setPassVis] = useState('password');
-
   const handlePassVisiblity = () => {
     passVis === 'password' ? setPassVis('text') : setPassVis('password');
   };
+
   return (
     <div className='w-[98%]  relative  right-[2%] mt-5 p-4 flex flex-col gap-6 justify-between'>
       {fieldes.map((item, index) => {
@@ -33,7 +33,7 @@ export default function Field({
                 onClick={handlePassVisiblity}
                 className='w-auto h-auto cursor-pointer absolute top-3 left-1 '
               >
-                {passVis === 'text' ? (
+                {passVis !== 'text' ? (
                   <InVisible color={'#cccccc'} size={'size-6'} />
                 ) : (
                   <Visible color={'#cccccc'} size={'size-6'} />

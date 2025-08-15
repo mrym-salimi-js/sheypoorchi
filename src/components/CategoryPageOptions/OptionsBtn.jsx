@@ -12,7 +12,7 @@ import { SortOptionsBtn } from './SortOptionsBtn';
 import { setFilteredAdPhotoSetItem } from '../../utils/CategoryPageOptions/setFilteredAdPhotoSetItem';
 
 export function OptionsBtn() {
-  const { category, brands, model, locationUrl } = useContext(HomeContext);
+  const { category, brand, model, locationUrl } = useContext(HomeContext);
 
   const handleScrollItem = () => {
     scrollSlider(document.querySelectorAll('.filtered-item-box'));
@@ -29,10 +29,7 @@ export function OptionsBtn() {
       if (item.name === 'وسایل نقلیه') {
         item.children?.forEach((chItem) => {
           chItem.brands.forEach((bItem) => {
-            if (
-              brands !== undefined &&
-              bItem.slug === `${category}/${brands}`
-            ) {
+            if (brand !== undefined && bItem.slug === `${category}/${brand}`) {
               res =
                 model !== undefined
                   ? {

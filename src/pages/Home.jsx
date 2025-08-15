@@ -26,7 +26,7 @@ export default function Home() {
   const [searchedAds, setSearchedAds] = useState();
   // Url Params
   const category = params.category;
-  const brands = params.brands;
+  const brand = params.brand;
   const model = params.model;
 
   // Url Search
@@ -57,7 +57,7 @@ export default function Home() {
     <HomeContext.Provider
       value={{
         category,
-        brands,
+        brand,
         model,
         locationUrl,
         navigateTo,

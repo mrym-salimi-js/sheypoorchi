@@ -58,7 +58,7 @@ export function CategoryListBtn({ setSortOptions }) {
         label={selectedCat?.name}
         handleAction={handleCategoryListDisplay}
         icon={
-          <ChevronDown color={'#84105C'} size={'size-5'} strokeWidth={'2'} />
+          <ChevronDown color={'#84105C'} size={'size-4'} strokeWidth={2.5} />
         }
       />
       {openList && (

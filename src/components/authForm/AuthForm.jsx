@@ -13,6 +13,8 @@ export default function AuthForm({
   loading,
   otherLink,
   btnLabel,
+  passVis,
+  setPassVis,
 }) {
   return (
     <div className='w-full h-full absolute flex justify-center items-center'>
@@ -35,6 +37,8 @@ export default function AuthForm({
             inputRefs={inputRefs}
             setValidation={setValidation}
             validation={validation}
+            passVis={passVis}
+            setPassVis={setPassVis}
           />
           {/*Footer */}
           <div className='w-full p-2 mt-2 flex justify-between items-start'>

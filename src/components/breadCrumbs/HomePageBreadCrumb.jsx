@@ -21,9 +21,11 @@ export default function HomePageBreadCrumb() {
   return (
     <div className='flex gap-2 items-center'>
       <Link to={'/s/iran/'}>
-        <p className='text-[0.8rem]'>همه آگهی ها</p>
+        <p className='text-[0.8rem] whitespace-nowrap'>همه آگهی ها</p>
       </Link>
-      {selectedLoc && <p className='text-[0.8rem]'>{selectedLoc}</p>}
+      {selectedLoc && (
+        <p className='text-[0.8rem] whitespace-nowrap'>{selectedLoc}</p>
+      )}
     </div>
   );
 }

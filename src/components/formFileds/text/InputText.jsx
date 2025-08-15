@@ -152,7 +152,7 @@ export default function InputText() {
       {label === 'توضیحات' ? (
         <textarea
           data-label={label}
-          type={filedType}
+          type={type}
           ref={(el) => {
             inputRefs && (inputRefs.current[index] = el);
           }}
@@ -183,7 +183,7 @@ export default function InputText() {
       ) : (
         <input
           data-label={label}
-          type={filedType}
+          type={type}
           ref={(el) => {
             inputRefs && (inputRefs.current[index] = el);
           }}
