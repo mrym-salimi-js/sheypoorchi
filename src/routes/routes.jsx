@@ -11,10 +11,6 @@ const NewAd = lazy(() => import('../pages/NewAd'));
 const Single = lazy(() => import('../pages/Single'));
 const NotFound = lazy(() => import('../pages/NotFound'));
 
-// const Home = lazy(() => import('../pages/Home'));
-// استفاده از حالت لیزی که این امکان رو میده در بارگذاری اولیه سایت همه کامپوننت ها دانلود نشن و هر کامپوننتی مکه کاربر باز کرد اونموقع باز بشه زمانی قابل استفادس که اون کامپوننت در تگ ساسپنس قرار بگیره!!!
-// و از اونجایی که ساسپنس به صورت مستقیم در روت زیر استفاده نمیشه ما این امکان رو حذف کردیم
-
 export const Routes = [
   {
     path: '/',
