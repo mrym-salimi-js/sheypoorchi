@@ -1,6 +1,6 @@
 import { lazy } from 'react';
 
-import { SuspenseWrapper } from './SuspenseWrapper';
+import { SuspenseWrapper } from './tempsSuspenseWrapper';
 const Register = lazy(() => import('../pages/Register'));
 const Login = lazy(() => import('../pages/Login'));
 const ForgetPassword = lazy(() => import('../pages/ForgetPassword'));

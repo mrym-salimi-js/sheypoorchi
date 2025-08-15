@@ -6,7 +6,7 @@ import { getChatContacts } from '../services/user/getChatContacts';
 import { getSavedAds } from '../services/user/getSavedAds';
 import { QueryClient } from '@tanstack/react-query';
 import { lazy } from 'react';
-import { SuspenseWrapper } from './SuspenseWrapper';
+import { SuspenseWrapper } from './tempsSuspenseWrapper';
 
 const Dashboard = lazy(() => import('../pages/user/Dashboard'));
 const Account = lazy(() => import('../pages/user/Account'));

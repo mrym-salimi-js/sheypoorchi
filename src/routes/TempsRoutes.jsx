@@ -2,9 +2,9 @@
 
 // import PageLoading from '../components/globals/PageLoading';
 import { lazy } from 'react';
-import { AuthRoute } from './AuthRoute';
+import { AuthRoute } from './tempAuthRoute';
 import { UserAccountRoute } from './UserAccountRoute';
-import { SuspenseWrapper } from './SuspenseWrapper';
+import { SuspenseWrapper } from './tempsSuspenseWrapper';
 
 const Home = lazy(() => import('../pages/Home'));
 const NewAd = lazy(() => import('../pages/NewAd'));
