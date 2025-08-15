@@ -24,7 +24,7 @@ export default function SearchBar() {
         {/*Input */}
         <input
           onChange={handleSearch}
-          className='outline-none w-[70%] lg:w-[93%] md:w-[85%]  h-full p-3 bg-transparent text-gray-400 placeholder-gray-300 text-[0.8rem] z-30 text-right '
+          className='outline-none w-[70%] lg:w-[93%] md:w-[85%]  h-full p-3 pr-5 bg-transparent text-gray-400 placeholder-gray-300 text-[0.7rem] z-30 text-right '
           placeholder='جستجو در همه آگهی ها'
         ></input>
 
