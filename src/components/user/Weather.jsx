@@ -17,6 +17,7 @@ export default function Weather() {
   const [weatherInfo, setWeatherInfo] = useState();
   const [sunRise, setSunRise] = useState();
   const [sunSet, setSunSet] = useState();
+  // console.dir(navigator);
   useEffect(() => {
     navigator.geolocation &&
       navigator.geolocation.getCurrentPosition((position) => {
@@ -69,10 +70,10 @@ export default function Weather() {
           <p dir='ltr' className='text-orange-300 text-2xl'>
             {`${weatherInfo ? Math.floor(weatherInfo?.main.temp) : 0} °C`}
           </p>
-          <img
+          {/* <img
             src={`/public/weather/${weatherInfo?.weather[0]?.main}.gif`}
             className='w-10 h-10'
-          />
+          /> */}
         </div>
       </div>
       {/*Sunset And Sunrise */}

@@ -37,7 +37,7 @@ export function ContactItem({ index, contactName, contact }) {
       <div
         onClick={() => handleOpenChat(contact.chatId)}
         key={index}
-        className='w-full border-b-[1px] border-gray-600 p-1  cursor-pointer'
+        className='w-full border-b p-1  cursor-pointer'
       >
         <div className='w-full  py-3 px-1 flex gap-2 transition-all hover:opacity-[0.8]  items-start'>
           <div className='min-w-12 h-12 rounded-full relative '>
@@ -64,7 +64,7 @@ export function ContactItem({ index, contactName, contact }) {
           </div>
 
           <div className='w-[95%] flex flex-col items-start gap-3'>
-            <p ref={contactName} className='text-[0.7rem] text-gray-50 '>
+            <p ref={contactName} className='text-[0.7rem] text-gray-800 '>
               {contact.adName}
             </p>
             <p className='text-[0.6rem] text-gray-400 self-end'>

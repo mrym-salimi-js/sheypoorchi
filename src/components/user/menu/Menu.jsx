@@ -29,7 +29,7 @@ export default function Menu({ photo, name }) {
             <MenuProfile photo={photo} name={name} />
           </div>
           {/* Menu Items */}
-          <MenuItems />
+          <MenuItems setOpenMenu={setOpenMenu} />
         </div>
       </div>
 

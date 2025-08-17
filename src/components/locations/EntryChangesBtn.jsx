@@ -17,11 +17,13 @@ export function EntryChangesBtn() {
     cookieItems.push(item?.id);
   });
 
+  // console.log(removedAllLocs);
+
   const handleLocationCookie = () => {
     check && setCookie('provinces', check);
     allCheckedBoxes && setCookie('cities', cookieItems);
 
-    if (removedAllLocs != false) {
+    if (removedAllLocs === true) {
       removeCookie('provinces');
       removeCookie('cities');
     }

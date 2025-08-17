@@ -3,16 +3,15 @@ import { AdCart } from './AdCart';
 export function AdsList({ adsList }) {
   return (
     <div className='w-full h-auto p-2 pb-24'>
-      <div className='w-full h-auto p-2'>
+      <div className='w-full h-auto '>
         <ul
           className={`
             w-full h-auto
             grid
-            gap-6
+            gap-3
             grid-cols-1
-            sm:grid-cols-2
-            md:grid-cols-3
-            xl:grid-cols-4
+            md:grid-cols-2
+            xl:grid-cols-3
           `}
         >
           {adsList &&

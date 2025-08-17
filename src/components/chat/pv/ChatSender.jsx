@@ -21,7 +21,7 @@ export default function ChatSender({
     }
   };
   return (
-    <div className='w-full h-16 flex gap-1 items-center justify-around px-2'>
+    <div className='w-full h-16 flex gap-1 items-center bg-transparent justify-around px-2'>
       <div className=' h-5'>
         <LinkFile size={'size-6 z-0'} color={'#3a723f70'} />
         <input
@@ -37,7 +37,7 @@ export default function ChatSender({
         ref={msgInput}
         type='text'
         placeholder='پیام'
-        className=' w-[80%] h-full text-sm text-gray-400 outline-none placeholder:text-gray-200'
+        className=' w-[80%] h-full bg-transparent text-sm text-gray-400 outline-none placeholder:text-gray-200'
       />
       <div className='cursor-pointer self-center' onClick={handleSendingMsg}>
         <Send size={'size-6'} color={'#3a723f70'} />

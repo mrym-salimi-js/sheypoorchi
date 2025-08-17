@@ -7,7 +7,7 @@ export function getCost(attributes, setCostCallback) {
     attrItem.label === 'اجاره (تومان)' &&
       setCostCallback((prev) => [
         ...prev,
-        { label: 'اجاره', name: attrItem.lable },
+        { label: 'اجاره', name: attrItem.name },
       ]);
   });
 }

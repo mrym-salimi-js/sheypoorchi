@@ -8,7 +8,7 @@ export function AdCartPhoto({ photo, href }) {
         <Link
           // onClick={handleLinkTo}
           to={href}
-          className='w-[95%] h-[150px] bg-white relative rounded-[2rem] overflow-hidden cursor-pointer'
+          className='w-28 h-28 bg-white relative rounded-2xl overflow-hidden cursor-pointer'
         >
           <img
             loading='lazy'

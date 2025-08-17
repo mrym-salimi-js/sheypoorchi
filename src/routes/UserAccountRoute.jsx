@@ -4,7 +4,7 @@ import { getUser } from '../services/user/getUser';
 import { getUserAds } from '../services/user/getUserAds';
 import { getChatContacts } from '../services/user/getChatContacts';
 import { getSavedAds } from '../services/user/getSavedAds';
-import { QueryClient } from '@tanstack/react-query';
+// import { QueryClient } from '@tanstack/react-query';
 import { lazy } from 'react';
 import { SuspenseWrapper } from './SuspenseWrapper';
 
@@ -15,7 +15,7 @@ const MySavedAds = lazy(() => import('../pages/user/MySavedAds'));
 const MyAds = lazy(() => import('../pages/user/MyAds'));
 const Profile = lazy(() => import('../pages/user/Profile'));
 
-const queryClient = new QueryClient();
+import { queryClient } from '../queryClient';
 
 // Get Some Data Of User Before Loading Its Page
 const dashboardLoader = async () => {

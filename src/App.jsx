@@ -2,21 +2,14 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { CookiesProvider } from 'react-cookie';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
-import { QueryClientProvider, QueryClient } from '@tanstack/react-query';
+import { QueryClientProvider } from '@tanstack/react-query';
+import { queryClient } from './queryClient';
 
 import { store, persistor } from './store/store';
 import { Routes } from './routes/Routes';
 import { useEffect } from 'react';
 import { adsCategoriesList } from './services/adsCategoriesList';
 import { adsLocationsList } from './services/adsLocationsList';
-
-const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      refetchOnWindowFocus: false,
-    },
-  },
-});
 
 const router = createBrowserRouter(Routes);
 

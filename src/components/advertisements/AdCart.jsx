@@ -19,19 +19,21 @@ export function AdCart({ adItem }) {
   const href = `/v/${_id}/${adTitle}`;
 
   return (
-    <li className=' h-auto border border-gray-200 bg-white rounded-[3rem] p-4 relative list-none'>
-      <div className='flex flex-col gap-2 items-center '>
+    <li className='w-auto max-h-[140px] border overflow-hidden border-gray-200 bg-white rounded-2xl p-3 relative list-none'>
+      <div className='h-full flex  gap-2 items-center '>
         <AdCartPhoto photo={photo} href={href} />
 
-        <AdCartTextContent
-          title={title}
-          cost={cost}
-          createAt={createAt}
-          location={location}
-          href={href}
-        />
+        <div className='flex w-[60%] h-[95%] flex-col gap-2'>
+          <AdCartTextContent
+            title={title}
+            cost={cost}
+            createAt={createAt}
+            location={location}
+            href={href}
+          />
+          <AdCartFooter createAt={createAt} location={location} />
+        </div>
       </div>
-      <AdCartFooter createAt={createAt} location={location} href={href} />
     </li>
   );
 }

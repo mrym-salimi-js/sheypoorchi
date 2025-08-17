@@ -16,7 +16,10 @@ export default function Category() {
       className='w-[98%] h-[130px] py-1 px-4 rounded-xl z-[1000] bg-white  '
     >
       <div className='cat-items-box w-full h-full overflow-x-scroll ul-box'>
-        <ul id='places-category-ul' className='w-auto py-3 px-1 flex gap-6 m-0'>
+        <ul
+          id='places-category-ul'
+          className='w-auto h-full py-3 px-1 flex gap-6 m-0'
+        >
           {mainCategories?.map((item) => {
             return (
               <li
@@ -29,7 +32,7 @@ export default function Category() {
                 >
                   <img className='w-14 h-14 ' src={item.iconURL}></img>
                 </Link>
-                <p className='text-black text-[0.7rem] py-1 px-2 text-center'>
+                <p className='w-auto whitespace-nowrap text-black text-[0.7rem] py-1 px-2 text-center'>
                   {item.name}
                 </p>
               </li>

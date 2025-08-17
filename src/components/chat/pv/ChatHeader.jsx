@@ -32,7 +32,7 @@ export function ChatHeader({ contactList }) {
 
   // Close Chat
   const handleExitChat = () => {
-    navTo('/dashboard/messages/', '', navigateTo);
+    navTo('/messages/', '', navigateTo);
   };
 
   useEffect(() => {

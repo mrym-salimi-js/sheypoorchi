@@ -41,7 +41,7 @@ export default function ProfileInput({ el, data, register, setValue, errors }) {
             onClick={handlePassVisiblity}
             className='w-auto h-auto cursor-pointer'
           >
-            {passVis === 'text' ? (
+            {passVis !== 'text' ? (
               <InVisible color={'#cccccc'} size={'size-6'} />
             ) : (
               <Visible color={'#cccccc'} size={'size-6'} />

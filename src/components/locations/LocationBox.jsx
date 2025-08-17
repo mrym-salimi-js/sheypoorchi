@@ -27,6 +27,8 @@ export default function LocationBox({ setOpenLocation, openLocation }) {
   const cities = citiesList();
 
   useEffect(() => {
+    setLocSituation('استان');
+    setRemovedAllLocs(false);
     const list = [];
     cities?.forEach((city) => {
       if (cookie['cities']) {
@@ -42,7 +44,7 @@ export default function LocationBox({ setOpenLocation, openLocation }) {
     if (cookie['provinces']) {
       setCheck(cookie['provinces']);
     }
-  }, []);
+  }, [openLocation]);
 
   const prvs = findProvinces();
   const [prvList, setPrvList] = useState();

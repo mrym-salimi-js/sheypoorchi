@@ -2,7 +2,7 @@ import { useLoaderData } from 'react-router-dom';
 import { Chat, Clock, Saved, Speaker } from '../globals/Icons';
 
 export default function ReviewAccount() {
-  const { user, userAds, userChats } = useLoaderData();
+  const { user, userAds, userChats, savedAds } = useLoaderData();
   const date = new Date(user?.createAt);
   const options = {
     weekday: 'long',
@@ -10,7 +10,7 @@ export default function ReviewAccount() {
     month: 'long',
   };
   const faDate = date.toLocaleDateString('fa-IR', options);
-
+  console.log(savedAds);
   return (
     <div className='w-full h-auto flex items-center justify-between'>
       <div className='w-full h-auto  grid grid-cols-1 lg:grid-cols-4 gap-4 '>
@@ -40,7 +40,7 @@ export default function ReviewAccount() {
           <span className='w-11 h-11 rounded-xl bg-[#ffffffa1] flex items-center justify-center'>
             <Saved fill={'#86efac'} size={'size-8'} />
           </span>
-          {user?.savedAd?.length > 0
+          {savedAds?.length > 0
             ? `${user.savedAd?.length}   آگهی ذخیره دارید `
             : `هنوز آگهی ذخیره نکردید :(`}
         </p>
