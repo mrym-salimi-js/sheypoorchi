@@ -41,6 +41,7 @@ export default function Home() {
 
   // Global Url Set In Home Page
   const cookieCitiesInUrl = useCitiesInCookie(cookie);
+
   // Nave To After Change  Cities In Cookie
   useNavToByCityChange({
     cookie,

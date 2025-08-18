@@ -27,7 +27,7 @@ export default function Category() {
                 key={item.id}
               >
                 <Link
-                  to={`/s/iran/${item.slug}`}
+                  to={`/s/iran/${item.slug}/`}
                   className='w-full p-2 bg-gray-50 rounded-3xl cursor-pointer flex flex-col gap-3 justify-center items-center'
                 >
                   <img className='w-14 h-14 ' src={item.iconURL}></img>

@@ -22,5 +22,5 @@ export const useNavToByCityChange = ({
         : locationUrl.pathname;
       navTo(pathName, searchParams, navigateTo);
     }
-  }, [cookieCitiesInUrl]);
+  }, [cookie, locationUrl.pathname]);
 };
