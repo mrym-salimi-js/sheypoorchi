@@ -10,7 +10,7 @@ export default function ReviewAccount() {
     month: 'long',
   };
   const faDate = date.toLocaleDateString('fa-IR', options);
-  console.log(savedAds);
+
   return (
     <div className='w-full h-auto flex items-center justify-between'>
       <div className='w-full h-auto  grid grid-cols-1 lg:grid-cols-4 gap-4 '>

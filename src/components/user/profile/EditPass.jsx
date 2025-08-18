@@ -7,6 +7,7 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { SpinnerLoading } from '../../globals/SpinnerLoading';
+import { dashboardInvalidate } from '../../../utils/user/dashboardInvalidate';
 
 export default function EditPass({ userInfo }) {
   // const [formData, setFormData] = useState();
@@ -50,7 +51,7 @@ export default function EditPass({ userInfo }) {
     // console.log(data);
     const setPass = async () => {
       const res = await updateUserPass(data);
-
+      await dashboardInvalidate();
       res &&
         setNotifToast({
           message: res.message,

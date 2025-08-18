@@ -6,10 +6,10 @@ export const getUser = async () => {
     const response = await axios.get(`${baseURL}/api/users/me`, {
       withCredentials: true,
     });
-    if (response.data.status === 'fail')
+    if (response?.data?.status === 'fail')
       throw new Error('درخواست با خطا مواجه شد');
-    return response.data.data;
+    return response?.data?.data;
   } catch (error) {
-    return error.response.data.status;
+    return error.response?.data?.status;
   }
 };

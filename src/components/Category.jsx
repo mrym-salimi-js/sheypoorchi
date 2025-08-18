@@ -13,7 +13,7 @@ export default function Category() {
     <div
       onClick={handleScrollItems}
       id='places-category-box'
-      className='w-[98%] h-[130px] py-1 px-4 rounded-xl z-[1000] bg-white  '
+      className='w-[98%] h-[130px]  px-2 rounded-xl z-[1000] bg-white  '
     >
       <div className='cat-items-box w-full h-full overflow-x-scroll ul-box'>
         <ul

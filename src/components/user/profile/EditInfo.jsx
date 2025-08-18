@@ -7,6 +7,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { SpinnerLoading } from '../../globals/SpinnerLoading';
 import { useForm } from 'react-hook-form';
+import { dashboardInvalidate } from '../../../utils/user/dashboardInvalidate';
 
 export default function ProfileForm({ userInfo }) {
   const [notifToast, setNotifToast] = useState(null);
@@ -36,6 +37,7 @@ export default function ProfileForm({ userInfo }) {
     try {
       const res = await updateUserInfo(data);
       if (res?.status === 200) {
+        await dashboardInvalidate();
         setNotifToast({
           message: 'تغییرات با موفقیت ذخیره شد.',
           status: 'success',

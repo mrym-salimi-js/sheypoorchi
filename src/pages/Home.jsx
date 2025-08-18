@@ -68,7 +68,7 @@ export default function Home() {
       }}
     >
       <LoadingWrapper isLoading={isLoading}>
-        <div className='w-[98%] sm:w-[87%] h-full absolute flex flex-col gap-6 items-center mb-14  p-2'>
+        <div className='w-[98%] sm:w-[87%] h-full absolute flex flex-col gap-4 items-center mb-14  p-2'>
           <Header />
           {category && <CategoryPage />}
           {category === undefined && <HomePageDetails />}

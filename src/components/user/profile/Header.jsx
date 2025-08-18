@@ -1,6 +1,7 @@
 import { useRef } from 'react';
 import defaultProfile from '../../../assets/img/images.png';
 import axios from 'axios';
+import { dashboardInvalidate } from '../../../utils/user/dashboardInvalidate';
 
 export default function Header({ userInfo, setUserInfo }) {
   const photoRef = useRef();
@@ -24,6 +25,7 @@ export default function Header({ userInfo, setUserInfo }) {
         }
       );
 
+      await dashboardInvalidate();
       setUserInfo(res.data.data);
     } catch (error) {
       console.log(error);
@@ -45,6 +47,7 @@ export default function Header({ userInfo, setUserInfo }) {
             ref={photoRef}
           />
           <img
+            loading='lazy'
             onClick={() => {
               photoRef?.current?.click();
             }}

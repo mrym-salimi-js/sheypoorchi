@@ -6,6 +6,7 @@ import { navTo } from '../utils/globals/navTo';
 import Cookies from 'js-cookie';
 import AuthForm from '../components/authForm/AuthForm';
 import NotifToast from '../components/globals/NotifToast';
+import { dashboardInvalidate } from '../utils/user/dashboardInvalidate';
 
 export default function Login() {
   const inputRefs = useRef([]);
@@ -59,6 +60,7 @@ export default function Login() {
         if (sendForm !== undefined) {
           sendForm.data.status === 'success' && Cookies.remove('user-pass'),
             // Cookies.set('user-Token', sendForm.data.token);
+            await dashboardInvalidate(),
             navTo('/dashboard', '', navigateTo);
         }
       } catch (error) {

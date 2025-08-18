@@ -6,8 +6,8 @@ export default function MenuItems({ setOpenMenu }) {
   const locationUrl = useLocation();
   const navigateTo = useNavigate();
 
-  const handleLogout = () => {
-    logout(navigateTo);
+  const handleLogout = async () => {
+    await logout(navigateTo);
   };
 
   const menuItems = [
@@ -31,9 +31,9 @@ export default function MenuItems({ setOpenMenu }) {
             key={index}
             onClick={() => {
               setOpenMenu('translate-x-[85%]'),
-                i.label === 'خروج' && handleLogout;
+                i.label === 'خروج' && handleLogout();
             }}
-            to={i.to}
+            to={i.label !== 'خروج' && i.to}
             className='w-[95%] transition-all cursor-pointer rounded-2xl p-3 hover:bg-[#2277606f] flex gap-4 items-center'
           >
             <i.icon
