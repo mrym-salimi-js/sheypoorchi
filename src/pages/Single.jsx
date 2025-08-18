@@ -142,7 +142,7 @@ export function SingleAdDetails({ singleAd, adCreator }) {
         <div className='w-full mt-1 flex flex-col lg:flex-row justify-between items-start  lg:gap-0'>
           <div className='w-full  lg:w-[45%]  h-auto flex flex-col gap-6 lg:items-start items-center'>
             {photo[0] && <Gallery partScreen={true} />}
-            <div className='w-full lg:hidden'>
+            <div className='w-full lg:hidden px-4'>
               <SinglePageBreadCrumbs />
             </div>
             <div className='hidden lg:block lg:w-full'>
