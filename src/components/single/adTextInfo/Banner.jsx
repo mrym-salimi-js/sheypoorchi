@@ -6,6 +6,8 @@ import { updateSavedAds } from '../../../services/user/updateSavedAds';
 import { navTo } from '../../../utils/globals/navTo';
 import { useNavigate } from 'react-router-dom';
 import { formatPrice } from '../../../utils/globals/formatPrice';
+import { queryClient } from '../../../queryClient';
+
 momentJalaali.loadPersian({ usePersianDigits: true });
 
 export default function Banner() {
@@ -17,7 +19,11 @@ export default function Banner() {
     setSaved(!saved);
     const saveAd = async () => {
       const saved = await updateSavedAds(_id);
-      saved.response?.data.status === 'fail' && navTo('/login', '', navigatTo);
+
+      saved.response?.data?.status === 'fail' && navTo('/login', '', navigatTo);
+
+      saved.status === 'success' &&
+        queryClient.invalidateQueries(['userSavedAds']);
     };
     saveAd();
   };
