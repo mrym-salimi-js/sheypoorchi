@@ -5,7 +5,7 @@ export default function Attributes() {
   const { attribute } = useContext(SingleContext);
   return (
     <div className='w-full flex flex-col gap-5 items-center '>
-      <ul className='w-full flex flex-col  gap-2  py-5 '>
+      <ul className='w-full flex flex-col  gap-2   '>
         {attribute.map((attrItem, index) => {
           if (
             attrItem.label !== 'قیمت (تومان)' &&

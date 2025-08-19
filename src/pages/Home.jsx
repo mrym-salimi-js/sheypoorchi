@@ -15,6 +15,7 @@ import CategoryPage from '../components/CategoryPageDetails';
 import HomePageDetails from '../components/HomePageDetails';
 import { createContext, useState } from 'react';
 import { LoadingWrapper } from '../components/globals/LoadingWrapper';
+import { Footer } from '../components/Footer';
 
 export const HomeContext = createContext();
 export default function Home() {
@@ -69,7 +70,7 @@ export default function Home() {
       }}
     >
       <LoadingWrapper isLoading={isLoading}>
-        <div className='w-[98%] sm:w-[87%] h-full absolute flex flex-col gap-4 items-center mb-14  p-2'>
+        <div className='w-[98%] sm:w-[87%] h-full flex flex-col gap-4 items-center mb-14  p-2 pb-12'>
           <Header />
           {category && <CategoryPage />}
           {category === undefined && <HomePageDetails />}
@@ -77,6 +78,7 @@ export default function Home() {
           <AdsList adsList={searchedAds ? searchedAds : adsList?.data?.data} />
         </div>
         <NavBar />
+        <Footer />
       </LoadingWrapper>
     </HomeContext.Provider>
   );

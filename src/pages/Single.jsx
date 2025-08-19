@@ -12,6 +12,7 @@ import { getCost } from '../utils/advertisements/getCost';
 import { useQuery } from '@tanstack/react-query';
 import PageLoading from '../components/globals/PageLoading';
 import { updateUserStatus } from '../services/user/updateUserStatus';
+import { Footer } from '../components/Footer';
 
 export const SingleContext = createContext();
 
@@ -141,7 +142,8 @@ export function SingleAdDetails({ singleAd, adCreator }) {
           </div>
         </div>
       </div>
-      {photo[0] && <FullScreenGallery />}
+      {photo !== undefined && photo[0] && <FullScreenGallery />}
+      <Footer />
       <NavBar />
     </SingleContext.Provider>
   );

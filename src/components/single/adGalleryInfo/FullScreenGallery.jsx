@@ -7,7 +7,8 @@ import { SingleContext } from '../../../pages/Single';
 
 export default function FullScreenGallery() {
   const { photoFullScreen, setPhotoFullScreen, counter, setCounter } =
-    useContext(SingleContext);
+    useContext(SingleContext) || {};
+
   const thumbnailGrandParentRef = useRef();
   const photoGrandParentRef = useRef();
 
