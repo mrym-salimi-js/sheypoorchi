@@ -43,6 +43,20 @@ export default function InputText() {
   const navigateTo = useNavigate();
   const dispatch = useDispatch();
 
+  //Input Auto Fill settings
+  const handleInputAutoFill = (e) => {
+    setInputVal(e.target.value); // state React رو به‌روز میکنه
+    if (type === 'email' || type === 'password') {
+      authenticateValidation(
+        (stateVal) => setValidation(stateVal),
+        label,
+        e.target.value,
+        validation,
+        type
+      );
+    }
+  };
+
   // Input Blur Setttings
   const handleInputBlur = (inputTag) => {
     const inputVal = inputTag.value;
@@ -157,6 +171,11 @@ export default function InputText() {
     name: storagePram,
     onChange: (event) =>
       filedType === 'text' && handleAfterChange(event.currentTarget),
+    onInput: (event) => {
+      filedType === 'text' && handleInputAutoFill(event);
+    },
+    autoComplete:
+      type === 'email' ? 'email' : type === 'password' ? 'password' : undefined,
     onBlur: (event) =>
       filedType === 'text' && handleInputBlur(event.currentTarget),
     className: `w-full bg-transparent outline-none text-sm text-gray-500 ${
