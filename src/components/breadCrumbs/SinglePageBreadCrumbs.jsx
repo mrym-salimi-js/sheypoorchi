@@ -12,9 +12,9 @@ export default function SinglePageBreadCrumbs() {
   return (
     <div
       onClick={handleScrollItem}
-      className='w-full h-auto  bread-item-box overflow-x-scroll ul-box  pt-2 lg:pt-6 pb-6   right-[22px] lg:right-[45px] lg:static '
+      className='w-full h-auto  bread-item-box overflow-x-scroll ul-box   lg:pt-6 lg:pb-6   right-[22px] lg:right-[45px] lg:static '
     >
-      <ul className='w-auto flex gap-2 items-center justify-start'>
+      <ul className='w-auto  flex gap-2 items-center justify-start'>
         {category !== undefined &&
           category.map((item) => {
             return <BreadCrumbItem breadItem={item} key={item.id} />;

@@ -29,7 +29,7 @@ export default function SingleSelected({
         validation={validation}
         newAdStorageValue={newAdStorageValue}
         storagePram={storagePram}
-        filedType={'singleSelected'}
+        filedType={'singleSelect'}
         setOpenList={setOpenList}
         openList={openList}
         fieldVal={fieldVal}

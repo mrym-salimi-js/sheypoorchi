@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { SingleContext } from '../../../pages/Single';
 import momentJalaali from 'moment-jalaali';
 import { Saved } from '../../globals/Icons';
@@ -7,6 +7,7 @@ import { navTo } from '../../../utils/globals/navTo';
 import { useNavigate } from 'react-router-dom';
 import { formatPrice } from '../../../utils/globals/formatPrice';
 import { queryClient } from '../../../queryClient';
+import axios from 'axios';
 
 momentJalaali.loadPersian({ usePersianDigits: true });
 
@@ -14,6 +15,18 @@ export default function Banner() {
   const { _id, title, location, cost, createAt, setSaved, saved } =
     useContext(SingleContext);
   const navigatTo = useNavigate();
+
+  const baseURL = import.meta.env.VITE_BASE_URL;
+
+  useEffect(() => {
+    const getProf = async () => {
+      const user = await axios.get(`${baseURL}/api/users/me`, {
+        withCredentials: true,
+      });
+      user && user.data.data.savedAd.includes(_id) && setSaved(true);
+    };
+    getProf();
+  }, []);
 
   const handleSaveAd = () => {
     setSaved(!saved);

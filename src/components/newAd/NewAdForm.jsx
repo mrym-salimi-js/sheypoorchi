@@ -181,6 +181,7 @@ export function NewAdForm({ userInfo }) {
                 allList={adsLocationList}
                 storagePram={'location'}
                 data={data}
+                filedType={'singleSelect'}
               />
               {/* Map*/}
               <Map

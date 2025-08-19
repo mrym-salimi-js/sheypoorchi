@@ -22,7 +22,16 @@ export default function MyAds() {
         </div>
       </div>
       <div className='w-full h-auto  overflow-x-scroll p-8 px-4 bg-white rounded-3xl border'>
-        <div className='w-auto h-auto flex gap-3 gap-y-10 mt-4 justify-start'>
+        <div
+          className={`
+            w-full h-auto
+            grid
+            gap-3
+            grid-cols-1
+            md:grid-cols-2
+            xl:grid-cols-3
+          `}
+        >
           {userAds?.length > 0 ? (
             userAds.map((ad) => {
               return <AdCart key={ad._id} adItem={ad} />;

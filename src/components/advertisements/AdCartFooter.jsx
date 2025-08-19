@@ -5,7 +5,7 @@ momentJalaali.loadPersian({ usePersianDigits: true });
 export function AdCartFooter({ createAt, location }) {
   return (
     <div className='w-[95%] flex flex-col items-center justify-center gap-3'>
-      <div className='w-[80%] h-auto  px-1    flex justify-around items-center m-auto left-0 right-0 '>
+      <div className='w-[80%] h-auto  px-1 flex justify-around items-center '>
         <div className='flex gap-2 '>
           <Clock color={'#005eeb'} size={'size-4'} />
           <p className=' text-[0.7rem] text-gray-700'>

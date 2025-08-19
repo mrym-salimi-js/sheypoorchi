@@ -79,7 +79,7 @@ export default function InputText() {
 
     if (setValidation && newAdStorageValue) {
       (!newAdStorageValue[storagePram] ||
-        (storagePram === 'attributr' && newAdStorageValue.attribute)) &&
+        (storagePram === 'attribute' && newAdStorageValue.attribute)) &&
         adFormValidation(
           (stateVal) => {
             setValidation(stateVal);
@@ -147,71 +147,37 @@ export default function InputText() {
     }
   };
 
-  return (
-    <>
-      {label === 'توضیحات' ? (
-        <textarea
-          data-label={label}
-          type={type}
-          ref={(el) => {
-            inputRefs && (inputRefs.current[index] = el);
-          }}
-          name={storagePram}
-          onChange={(event) =>
-            filedType === 'text' && handleAfterChange(event.currentTarget)
-          }
-          className={`w-full h-20 bg-transparent outline-none text-sm text-gray-500 ${
-            filedType !== 'text' && `cursor-pointer`
-          }`}
-          onBlur={(event) =>
-            filedType === 'text' && handleInputBlur(event.currentTarget)
-          }
-          value={
-            newAdStorageValue?.active
-              ? typeof newAdStorageValue[storagePram] === 'object'
-                ? newAdStorageValue[storagePram]?.name ||
-                  formatPrice(
-                    newAdStorageValue[storagePram][index]?.name,
-                    valueType
-                  )
-                : formatPrice(newAdStorageValue[storagePram], valueType)
-              : fieldVal !== undefined
-              ? fieldVal
-              : formatPrice(filterValue, valueType)
-          }
-        />
-      ) : (
-        <input
-          data-label={label}
-          type={type}
-          ref={(el) => {
-            inputRefs && (inputRefs.current[index] = el);
-          }}
-          name={storagePram}
-          onChange={(event) =>
-            filedType === 'text' && handleAfterChange(event.currentTarget)
-          }
-          className={`w-full bg-transparent outline-none text-sm text-gray-500 h-12 ${
-            filedType !== 'text' && `cursor-pointer`
-          }`}
-          onBlur={(event) =>
-            filedType === 'text' && handleInputBlur(event.currentTarget)
-          }
-          value={
-            newAdStorageValue?.active
-              ? typeof newAdStorageValue[storagePram] === 'object'
-                ? newAdStorageValue[storagePram]?.name ||
-                  formatPrice(
-                    newAdStorageValue[storagePram][index]?.name,
-                    valueType
-                  )
-                : formatPrice(newAdStorageValue[storagePram], valueType)
-              : fieldVal !== undefined
-              ? fieldVal
-              : formatPrice(filterValue, valueType)
-          }
-        />
-      )}
-    </>
+  // Common props for textarea and input tag
+  const commonProps = {
+    'data-label': label,
+    type,
+    ref: (el) => {
+      if (inputRefs) inputRefs.current[index] = el;
+    },
+    name: storagePram,
+    onChange: (event) =>
+      filedType === 'text' && handleAfterChange(event.currentTarget),
+    onBlur: (event) =>
+      filedType === 'text' && handleInputBlur(event.currentTarget),
+    className: `w-full bg-transparent outline-none text-sm text-gray-500 ${
+      label === 'توضیحات' ? 'h-20' : 'h-12'
+    } ${filedType !== 'text' ? 'cursor-pointer' : ''}`,
+    value: newAdStorageValue?.active
+      ? typeof newAdStorageValue[storagePram] === 'object'
+        ? newAdStorageValue[storagePram]?.name ||
+          formatPrice(newAdStorageValue[storagePram][index]?.name, valueType)
+        : formatPrice(newAdStorageValue[storagePram], valueType)
+      : fieldVal !== undefined
+      ? fieldVal
+      : formatPrice(filterValue, valueType),
+  };
+
+  return label === 'توضیحات' ? (
+    <textarea {...commonProps} />
+  ) : (
+    <input
+      {...commonProps}
+      readOnly={filedType !== undefined && filedType === 'singleSelect'}
+    />
   );
 }

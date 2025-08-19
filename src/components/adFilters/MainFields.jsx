@@ -149,6 +149,7 @@ export function MainFields() {
           label={'استان و شهر'}
           fieldVal={selectedLoc}
           type={'filter'}
+          filedType={'singleSelect'}
         />
 
         {openLocation && (

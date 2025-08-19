@@ -13,7 +13,7 @@ export function AdCartTextContent({ title, cost, href }) {
             </p>
           </Link>
         </li>
-        <li className='w-full flex gap-2 justify-start items-center '>
+        <li className='w-full flex flex-col justify-start items-center '>
           {cost.length > 0 &&
             cost.map((costItem, index) => {
               return (

@@ -100,6 +100,7 @@ export default function SingleSelectedSupport({
         openList={openList}
         handleListItems={handleListItems}
         index={index}
+        filedType={filedType}
       />
     </>
   );
