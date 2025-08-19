@@ -56,21 +56,22 @@ export default function Banner() {
           />
         </div>
       </div>
-      <div className='w-full flex flex-row-reverse justify-between items-center'>
+      <div className='w-full flex flex-row-reverse justify-between items-start'>
         <p className='text-sm text-gray-500'>
           {momentJalaali(createAt).locale('fa').fromNow() +
             ' در ' +
             location[1]?.name}
         </p>
-
-        {cost.length > 0 &&
-          cost.map((costItem, index) => {
-            return (
-              <p className='text-sm' key={index}>
-                {costItem.label}: {formatPrice(costItem.name, 1)} تومان
-              </p>
-            );
-          })}
+        <div className='flex flex-col gap-2'>
+          {cost.length > 0 &&
+            cost.map((costItem, index) => {
+              return (
+                <p className='text-sm' key={index}>
+                  {costItem.label}: {formatPrice(costItem.name, 1)} تومان
+                </p>
+              );
+            })}
+        </div>
       </div>
     </div>
   );
