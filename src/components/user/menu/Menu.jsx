@@ -1,7 +1,9 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import MenuProfile from './MenuProfile';
 import MenuItems from './MenuItems';
 import { CherveLeftDouble, Speaker } from '../../globals/Icons';
+import { lockBodyScroll } from '../../../utils/globals/lockBodyScroll';
+import { unlockBodyScroll } from '../../../utils/globals/unlockBodyScroll';
 
 export default function Menu() {
   const [openMenu, setOpenMenu] = useState('translate-x-[85%]');
@@ -11,6 +13,9 @@ export default function Menu() {
       : setOpenMenu('translate-x-0');
   };
 
+  useEffect(() => {
+    openMenu.includes('translate-x-0') ? lockBodyScroll() : unlockBodyScroll();
+  }, [openMenu]);
   return (
     <div
       className={`w-full   md:w-[35%]  lg:w-[25%] xl:w-[20%]  fixed right-0 h-full flex  items-center justify-center py-4 pl-4 pr-3 transition-all ease-in-out duration-500 z-[100000]  ${openMenu} md:translate-x-0`}

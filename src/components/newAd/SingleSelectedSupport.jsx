@@ -9,6 +9,8 @@ import {
   updateLocation,
   updateCategoryAttr,
 } from '../../store/newAdSlice';
+import { lockBodyScroll } from '../../utils/globals/lockBodyScroll';
+import { unlockBodyScroll } from '../../utils/globals/unlockBodyScroll';
 
 export default function SingleSelectedSupport({
   label,
@@ -84,6 +86,8 @@ export default function SingleSelectedSupport({
     }
 
     allList != undefined && setFieldVal(allList);
+
+    openList.includes('opacity-100') ? lockBodyScroll() : unlockBodyScroll();
   }, [openList]);
 
   return (

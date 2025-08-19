@@ -3,6 +3,8 @@ import SingleSelected from '../formFileds/singleSelected/SingleSelected';
 import { navigateAfterFilter } from '../../utils/adFilters/navigateAfterFilter';
 import { useLocation, useParams } from 'react-router-dom';
 import { FilterContext } from './MainFields';
+import { lockBodyScroll } from '../../utils/globals/lockBodyScroll';
+import { unlockBodyScroll } from '../../utils/globals/unlockBodyScroll';
 
 export default function SingleSelectedSupport({
   label,
@@ -69,6 +71,7 @@ export default function SingleSelectedSupport({
     setFilterListTitle({ name: 'همه گروه ها', slug: '', id: '' });
 
     allList && setListItems(allList);
+    openList.includes('opacity-100') ? lockBodyScroll() : unlockBodyScroll();
   }, [openList]);
 
   // console.log(filterListTitle);
