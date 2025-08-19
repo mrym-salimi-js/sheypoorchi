@@ -1,7 +1,9 @@
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { BorderRoundedBtn } from '../globals/BorderRoundedBtn';
 import { NewAdContext } from './NewAdForm';
 import { clearPersistedState } from '../../store/store';
+import { lockBodyScroll } from '../../utils/globals/lockBodyScroll';
+import { unlockBodyScroll } from '../../utils/globals/unlockBodyScroll';
 
 export function ClearForm() {
   const { setValidation } = useContext(NewAdContext);
@@ -10,6 +12,10 @@ export function ClearForm() {
   const handleClearingFormAsk = () => {
     setClearingFormAlarm(true);
   };
+
+  useEffect(() => {
+    clearingFormAlarm ? lockBodyScroll() : unlockBodyScroll();
+  }, [clearingFormAlarm]);
 
   return (
     <>
@@ -44,7 +50,8 @@ export function ClearingFormAskBox({ setClearingFormAlarm, setValidation }) {
   };
   return (
     <div className='w-full h-full flex flex-col items-center justify-end lg:justify-center fixed top-0 right-0 bg-[#7e7e7ed1] z-[100000] '>
-      <div className='w-full md:w-[75%] lg:w-[40%] relative top-3 flex flex-col gap-5 p-8 bg-white rounded-3xl'>
+      <div className='w-full md:w-[75%] lg:w-[40%] relative bottom-0 rounded-t-3xl flex flex-col gap-5 p-8 bg-white lg:rounded-3xl'>
+        <div className='w-12 h-1 bg-[#ecececa2] rounded-full self-center lg:hidden absolute top-4'></div>
         <div className='flex justify-between items-center pb-5 border-b'>
           <p className='text-lg '>پاک کردن فرم</p>
           <svg
