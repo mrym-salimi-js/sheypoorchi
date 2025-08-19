@@ -56,7 +56,7 @@ export default function Banner() {
           />
         </div>
       </div>
-      <div className='w-full flex flex-row-reverse justify-between items-start'>
+      <div className='w-full flex flex-row-reverse justify-between items-end'>
         <p className='text-sm text-gray-500'>
           {momentJalaali(createAt).locale('fa').fromNow() +
             ' در ' +
