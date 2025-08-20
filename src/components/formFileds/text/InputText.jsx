@@ -50,13 +50,13 @@ export default function InputText() {
   //Input Auto Fill settings
   const handleInputAutoFill = (e) => {
     setInputVal(e.target.value);
-    if (type === 'email' || type === 'password') {
+    if (valueType === 'email' || valueType === 'password') {
       authenticateValidation(
         (stateVal) => setValidation(stateVal),
         label,
         e.target.value,
         validation,
-        type
+        valueType
       );
     }
   };
@@ -65,17 +65,12 @@ export default function InputText() {
   const handleInputBlur = (inputTag) => {
     const inputVal = inputTag.value;
 
-    if (type === 'password') {
+    if (valueType === 'password') {
       cookies.get('user-pass') && cookies.remove('user-pass');
       cookies.set('user-pass', inputVal);
     }
-
-    if (
-      type === 'email' ||
-      type === 'password' ||
-      type === 'password-confirm' ||
-      type === 'name'
-    ) {
+    // console.log(valueType);
+    if (type === 'Auth') {
       authenticateValidation(
         (stateVal) => {
           setValidation(stateVal);
@@ -83,7 +78,7 @@ export default function InputText() {
         label,
         inputVal,
         validation,
-        type
+        valueType
       );
     }
 

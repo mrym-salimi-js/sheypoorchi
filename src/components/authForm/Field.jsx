@@ -24,7 +24,7 @@ export default function Field({
               label={item.label}
               filedType={'text'}
               valueType={item.label.includes('رمز') ? passVis : item.valueType}
-              type={item.type}
+              type={'Auth'}
               validation={validation}
               setValidation={setValidation}
             />

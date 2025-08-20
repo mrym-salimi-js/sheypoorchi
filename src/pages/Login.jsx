@@ -72,9 +72,10 @@ export default function Login() {
           });
       }
     };
+
     if (
       inputVal &&
-      ((validation && Object?.keys(validation)?.length == 0) ||
+      ((validation && Object?.keys(validation)?.length === 0) ||
         validation === undefined)
     ) {
       sendForm();
