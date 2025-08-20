@@ -194,7 +194,7 @@ export default function InputText() {
     onBlur: (event) =>
       filedType === 'text' && handleInputBlur(event.currentTarget),
     className: `w-full bg-transparent outline-none text-sm text-gray-500 ${
-      label === 'توضیحات' ? 'h-20' : 'h-12'
+      label === 'توضیحات' ? `h-20 overflow-y-auto touch-auto` : 'h-12'
     } ${filedType !== 'text' ? 'cursor-pointer' : ''}`,
     value: newAdStorageValue?.active
       ? typeof newAdStorageValue[storagePram] === 'object'
@@ -207,7 +207,7 @@ export default function InputText() {
   };
 
   return label === 'توضیحات' ? (
-    <textarea {...commonProps} />
+    <textarea className='' {...commonProps} />
   ) : (
     <input
       {...commonProps}
