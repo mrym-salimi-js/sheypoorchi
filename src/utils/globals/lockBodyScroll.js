@@ -1,7 +1,8 @@
-let scrollY = 0;
+import { getScrollY, setScrollY } from './scrollManager';
+
 export function lockBodyScroll() {
-  scrollY = window.scrollY;
+  setScrollY(window.scrollY);
   document.body.style.position = 'fixed';
-  document.body.style.top = `-${scrollY}px`;
+  document.body.style.top = `-${getScrollY()}px`;
   document.body.style.width = '100%';
 }
