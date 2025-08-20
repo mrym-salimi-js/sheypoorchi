@@ -21,7 +21,7 @@ export function AdCartPhoto({ photo, href }) {
       ) : (
         <Link
           to={href}
-          className='w-[95%] h-[150px]  relative rounded-[2rem] overflow-hidden cursor-pointer bg-gray-100 flex items-center justify-center '
+          className='w-28 h-28 bg-gray-10 flex items-center bg-gray-100 justify-center relative rounded-2xl overflow-hidden cursor-pointer'
         >
           <Camera color={'#cccccc'} size={'size-10'} />
           <span className='w-14 h-[2px] bg-[#cccccc] rotate-45 absolute'></span>

@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useRef, useState, useEffect } from 'react';
 import { TextFiledContext } from '../text/TextComponent';
 import { useLocation, useNavigate } from 'react-router-dom';
 
@@ -43,9 +43,13 @@ export default function InputText() {
   const navigateTo = useNavigate();
   const dispatch = useDispatch();
 
+  // Foer keeping cursor position
+  const inputRef = useRef(null);
+  const [cursorPos, setCursorPos] = useState(null);
+
   //Input Auto Fill settings
   const handleInputAutoFill = (e) => {
-    setInputVal(e.target.value); // state React رو به‌روز میکنه
+    setInputVal(e.target.value);
     if (type === 'email' || type === 'password') {
       authenticateValidation(
         (stateVal) => setValidation(stateVal),
@@ -121,6 +125,8 @@ export default function InputText() {
 
   // Input Change Value settings
   const handleAfterChange = (inputTag) => {
+    const pos = inputTag.selectionStart;
+    setCursorPos(pos);
     const formInputVal = inputTag.value;
 
     if (inputTag.value !== undefined) {
@@ -161,11 +167,20 @@ export default function InputText() {
     }
   };
 
+  // Keeping cursor position on input and texterea tag after every redering
+  useEffect(() => {
+    if (cursorPos !== null && inputRef.current) {
+      inputRef.current.selectionStart = cursorPos;
+      inputRef.current.selectionEnd = cursorPos;
+    }
+  }, [fieldVal, filterValue, newAdStorageValue, cursorPos]);
+
   // Common props for textarea and input tag
   const commonProps = {
     'data-label': label,
     type,
     ref: (el) => {
+      inputRef.current = el;
       if (inputRefs) inputRefs.current[index] = el;
     },
     name: storagePram,
