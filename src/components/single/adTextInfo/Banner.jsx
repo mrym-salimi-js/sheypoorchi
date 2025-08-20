@@ -58,9 +58,9 @@ export default function Banner() {
       </div>
       <div className='w-full flex flex-row-reverse justify-between items-end'>
         <p className='text-sm text-gray-500'>
-          {momentJalaali(createAt).locale('fa').fromNow() +
-            ' در ' +
-            location[1]?.name}
+          {momentJalaali(createAt).locale('fa').fromNow() + ' در ' + location[1]
+            ? location[0]?.name + ` ، ` + location[1]?.name
+            : location[0]?.name}
         </p>
         <div className='flex flex-col gap-2'>
           {cost.length > 0 &&

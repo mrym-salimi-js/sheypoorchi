@@ -3,6 +3,7 @@ import momentJalaali from 'moment-jalaali';
 momentJalaali.loadPersian({ usePersianDigits: true });
 
 export function AdCartFooter({ createAt, location }) {
+  console.log(location);
   return (
     <div className='w-[95%] flex flex-col items-center justify-center gap-3'>
       <div className='w-[80%] h-auto  px-1 flex justify-around items-center '>
@@ -16,7 +17,9 @@ export function AdCartFooter({ createAt, location }) {
 
         <div className='flex gap-2'>
           <MapIcon color={'#84105C'} size={'size-4'} />
-          <p className=' text-[0.7rem] text-gray-700'>{location[1].name}</p>
+          <p className=' text-[0.7rem] text-gray-700'>
+            {location[1] ? location[1]?.name : location[0]?.name}
+          </p>
         </div>
       </div>
       {/* <Link to={href} className=' flex items-center hover:opacity-[0.7]  gap-2'>
