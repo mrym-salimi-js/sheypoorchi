@@ -1,8 +1,8 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useState, useCallback } from 'react';
 import { NewAdContext } from './NewAdForm';
 import { SpinnerLoading } from '../globals/SpinnerLoading';
 import formData from '../../utils/newAd/formData';
-import { useQuery } from '@tanstack/react-query';
+import { useMutation } from '@tanstack/react-query';
 import createAd from '../../services/createAd';
 import formValidate from '../../utils/newAd/formValidate';
 import { clearPersistedState } from '../../store/store';
@@ -11,79 +11,88 @@ export function SubmiteFormBtn({ userInfo }) {
   const { newAdStorageValue, setValidation, validation, setNotifToast } =
     useContext(NewAdContext);
 
-  const [validFormData, setValidFormData] = useState(false);
-  const [formDatas, setFormDatas] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // Create NewAd
-  const { data, isLoading } = useQuery({
-    queryKey: ['creatNewAd', formDatas],
-    queryFn: async () => await createAd(formDatas),
-    enabled: validFormData,
+  // Mutation برای ایجاد آگهی
+  const mutation = useMutation({
+    mutationFn: async (payload) => await createAd(payload),
+    onSuccess: (data) => {
+      if (data?.status === 'success') {
+        setNotifToast({
+          message: 'آگهی شما با موفقیت ثبت شد',
+          status: 'success',
+        });
+        clearPersistedState();
+        window.location.reload();
+      } else {
+        setNotifToast({
+          message: 'در ثبت آگهی خطایی رخ داده',
+          status: 'fail',
+        });
+      }
+      setIsSubmitting(false);
+    },
+    onError: () => {
+      setNotifToast({
+        message: 'خطای شبکه یا سرور!',
+        status: 'fail',
+      });
+      setIsSubmitting(false);
+    },
   });
-  // console.log(data);
 
-  // Create Message Toast
-  useEffect(() => {
-    data !== undefined &&
-      (data?.status === 'success'
-        ? (setNotifToast({
-            message: 'آگهی شما با موفقیت ثبت شد',
-            status: 'success',
-          }),
-          clearPersistedState(),
-          window.location.reload())
-        : setNotifToast({
-            message: 'در ثبت آگهی خطایی رخ داده',
-            status: 'fail',
-          }));
-  }, [data]);
+  const handleFormSubmite = useCallback(async () => {
+    if (!newAdStorageValue) return;
 
-  // Get FormData And Validate Them
-  const handleFormSubmite = () => {
-    const getFormData = async () => {
-      const res = await formData(newAdStorageValue, userInfo);
+    formValidate(
+      (setVal) => {
+        setValidation(setVal);
+      },
+      newAdStorageValue,
+      validation
+    );
 
-      res !== undefined && setFormDatas(res);
-    };
-
-    newAdStorageValue &&
-      (validation === undefined ||
-        (typeof validation === 'object' &&
-          Object.entries(validation)?.length == 0)) &&
-      setValidFormData(true),
-      getFormData();
-
-    if (newAdStorageValue) {
-      //Form Final Error Handling
-      formValidate(
-        (setVal) => {
-          setValidation(setVal);
-        },
-        newAdStorageValue,
-        validation
-      );
+    if (
+      validation !== undefined &&
+      typeof validation === 'object' &&
+      Object.keys(validation).length > 0
+    ) {
+      return;
     }
-  };
+
+    setIsSubmitting(true);
+
+    try {
+      const payload = await formData(newAdStorageValue, userInfo);
+      if (payload) {
+        mutation.mutate(payload);
+      } else {
+        setIsSubmitting(false);
+      }
+    } catch (err) {
+      setIsSubmitting(false);
+      setNotifToast({
+        message: 'خطا در آماده‌سازی داده‌ها',
+        status: 'fail',
+      });
+    }
+  }, [newAdStorageValue, userInfo, validation, setValidation, mutation]);
 
   return (
-    <>
-      {isLoading ? (
-        <div className='w-full h-auto flex fixed right-0 bottom-0  lg:relative z-[10000] items-center justify-center  p-2'>
-          <span className='w-full h-14   flex gap-3 justify-center  items-center bg-[#84105ba7]  cursor-grabbing rounded-lg '>
-            <p className='text-white'>در حال ثبت آگهی</p>
-            <SpinnerLoading />
-          </span>
-        </div>
+    <div className='w-full h-auto flex fixed right-0 bottom-0 lg:relative z-[10000] items-center justify-center p-2'>
+      {isSubmitting || mutation.isLoading ? (
+        <span className='w-full h-14 flex gap-3 justify-center items-center bg-[#84105ba7] cursor-grabbing rounded-lg'>
+          <p className='text-white text-sm'>در حال ثبت آگهی</p>
+          <SpinnerLoading />
+        </span>
       ) : (
-        <div className='w-full h-auto flex fixed right-0 bottom-0  lg:relative z-[10000] items-center justify-center  p-2'>
-          <span
-            onClick={handleFormSubmite}
-            className='w-full h-14    flex justify-center items-center bg-[#84105C] text-white cursor-pointer rounded-lg hover:opacity-[0.7] '
-          >
-            ثبت آگهی
-          </span>
-        </div>
+        <span
+          onClick={handleFormSubmite}
+          className='w-full h-14 flex justify-center items-center bg-[#84105C] text-white cursor-pointer rounded-lg hover:opacity-[0.7]'
+        >
+          ثبت آگهی
+        </span>
       )}
-    </>
+    </div>
   );
 }

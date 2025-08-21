@@ -6,27 +6,27 @@ const formData = async (newAdStorageValue, userInfo) => {
     '../../hooks/useBase64ToBlob'
   );
 
-  // dynamic import lodash/omit فقط وقتی لازم شد
+  // dynamic import lodash/omit
   const { default: omit } = await import('lodash/omit');
 
-  // تبدیل عکس‌ها به Blob
-  const allPhoto = newAdStorageValue?.photo
-    ?.map((p) => {
+  // تبدیل عکس‌ها به Blob به صورت async-safe
+  const allPhoto = await Promise.all(
+    newAdStorageValue?.photo?.map(async (p) => {
       const blob = useBase64ToBlob(p.src, p.type);
       return blob ? new File([blob], p.name, { type: p.type }) : null;
-    })
-    .filter(Boolean);
+    }) || []
+  );
 
-  // اضافه کردن عکس‌ها به FormData به صورت batch
-  allPhoto?.forEach((photo, index) => {
-    setTimeout(() => formData.append('photoFile', photo), index * 0);
+  // اضافه کردن عکس‌ها به FormData
+  allPhoto.filter(Boolean).forEach((photo) => {
+    formData.append('photoFile', photo);
   });
 
   // حذف فیلدهای اضافی عکس‌ها و اضافه کردن به FormData
-  const photo = newAdStorageValue?.photo?.map((obj) =>
+  const photoData = newAdStorageValue?.photo?.map((obj) =>
     omit(obj, ['src', 'type', 'size'])
   );
-  formData.append('photo', JSON.stringify(photo));
+  formData.append('photo', JSON.stringify(photoData));
 
   // دسته‌بندی‌ها
   formData.append(
