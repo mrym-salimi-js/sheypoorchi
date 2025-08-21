@@ -1,10 +1,10 @@
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { LocationContext } from './LocationBox';
 import { provincesList } from '../../utils/localStorage/locations';
 import SearchAtList from '../globals/SearchAtList';
 
 export function SearchLocation() {
-  const { prvId, locSituation, prvName, setSearchRes } =
+  const { prvId, locSituation, prvName, setSearchRes, openLocation } =
     useContext(LocationContext);
 
   let placeholderText = `جستجو در ${locSituation} ها  `;
@@ -47,5 +47,16 @@ export function SearchLocation() {
     setSearchRes(bothRes);
   };
 
-  return <SearchAtList handleInputValue={handleInputValue} plcVal={plcVal} />;
+  useEffect(() => {
+    setInputValue('');
+    setSearchRes([]);
+  }, [openLocation]);
+
+  return (
+    <SearchAtList
+      handleInputValue={handleInputValue}
+      plcVal={plcVal}
+      inputValue={inputValue}
+    />
+  );
 }

@@ -173,7 +173,7 @@ export default function InputText() {
   // Common props for textarea and input tag
   const commonProps = {
     'data-label': label,
-    type,
+    type: type === 'Auth' ? valueType : type,
     ref: (el) => {
       inputRef.current = el;
       if (inputRefs) inputRefs.current[index] = el;
@@ -185,7 +185,11 @@ export default function InputText() {
       filedType === 'text' && handleInputAutoFill(event);
     },
     autoComplete:
-      type === 'email' ? 'email' : type === 'password' ? 'password' : undefined,
+      valueType === 'email'
+        ? 'email'
+        : valueType === 'password'
+        ? 'password'
+        : undefined,
     onBlur: (event) =>
       filedType === 'text' && handleInputBlur(event.currentTarget),
     className: `w-full bg-transparent outline-none text-sm text-gray-500 ${

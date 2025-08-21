@@ -22,7 +22,7 @@ export function Map({ width, lat, lon, page, zoom }) {
   });
 
   return (
-    <div className={`w-full lg:w-[${width}] `}>
+    <div className={`w-full lg:w-[${width}] z-20 `}>
       <MapContainer
         className='w-full h-[300px]'
         center={[lat, lon]}

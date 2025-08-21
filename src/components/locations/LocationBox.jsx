@@ -75,6 +75,7 @@ export default function LocationBox({ setOpenLocation, openLocation }) {
         removeCookie,
         removedAllLocs,
         setOpenLocation,
+        openLocation,
       }}
     >
       <div

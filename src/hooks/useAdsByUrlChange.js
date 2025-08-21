@@ -6,9 +6,9 @@ export const useAdsByUrlChange = (category, searchPureObj, searchParams) => {
   const { data: adsList, isLoading } = useQuery({
     queryKey: ['ads', category, searchPureObj],
     queryFn:
-      category || Object.keys(searchPureObj).length > 0
+      category !== undefined
         ? async () => await getAdsByCategory(category, searchParams)
-        : async () => await getAds(),
+        : async () => await getAds(searchParams),
 
     keepPreviousData: true,
   });

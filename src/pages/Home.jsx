@@ -34,6 +34,7 @@ export default function Home() {
   const { searchParams, searchPureObj } = useUrlSearchParam(locationUrl);
 
   // Get All Ads By every Change category and searchPureObj
+
   const { adsList, isLoading } = useAdsByUrlChange(
     category,
     searchPureObj,
