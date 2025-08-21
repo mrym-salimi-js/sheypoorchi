@@ -84,22 +84,28 @@ export function SubmiteFormBtn({ userInfo }) {
   };
 
   return (
-    <button
-      onClick={handleFormSubmite}
-      type='button'
-      className='w-full h-auto bg-[#84105C] p-3 rounded-full flex items-center justify-around  hover:opacity-[0.9] shadow-md focus:outline-none'
-    >
-      <p className='w-[90%] text-sm text-white'>
-        {isSubmitting || mutation.isLoading ? 'درحال ثبت آگهی' : 'ثبت آگهی'}
-      </p>
+    <div className='w-full h-auto flex fixed right-0 bottom-0 lg:relative z-[10000] items-center justify-center p-2'>
+      <button
+        onClick={handleFormSubmite}
+        type='button'
+        className='w-full h-auto bg-[#84105C] p-3 rounded-full flex items-center justify-around  hover:opacity-[0.9] shadow-md focus:outline-none'
+      >
+        <p className='w-[90%] text-sm text-white'>
+          {isSubmitting || mutation.isLoading ? 'درحال ثبت آگهی' : 'ثبت آگهی'}
+        </p>
 
-      <div className='rounded-full bg-[#89677f87] p-1 relative right-3 ml-2'>
-        {isSubmitting || mutation.isLoading ? (
-          <SpinnerLoading w={'w-5'} h={'h-5'} />
-        ) : (
-          <ChevronLeft color={'#ffffff'} strokeWidth={'1.5'} size={'size-5'} />
-        )}
-      </div>
-    </button>
+        <div className='rounded-full bg-[#89677f87] p-1 relative right-3 ml-2'>
+          {isSubmitting || mutation.isLoading ? (
+            <SpinnerLoading w={'w-5'} h={'h-5'} />
+          ) : (
+            <ChevronLeft
+              color={'#ffffff'}
+              strokeWidth={'1.5'}
+              size={'size-5'}
+            />
+          )}
+        </div>
+      </button>
+    </div>
   );
 }
