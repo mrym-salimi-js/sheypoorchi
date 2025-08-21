@@ -23,7 +23,7 @@ export function EntryChangesBtn() {
     check && setCookie('provinces', check);
     allCheckedBoxes && setCookie('cities', cookieItems);
 
-    if (removedAllLocs === true) {
+    if (removedAllLocs && allCheckedBoxes.length === 0) {
       removeCookie('provinces');
       removeCookie('cities');
     }
@@ -37,8 +37,8 @@ export function EntryChangesBtn() {
         onClick={handleLocationCookie}
         className={
           allCheckedBoxes?.length > 0 || deleteAllBtnClicked
-            ? 'hover:opacity-[0.8] w-20 p-3 outline-none text-white bg-[#84105C] rounded-lg text-sm '
-            : 'text-gray-300 w-20 p-3 bg-gray-100 rounded-lg text-sm hover:opacity-[0.8] outline-none cursor-not-allowed'
+            ? 'hover:opacity-[0.8] w-24 p-4 outline-none  text-white bg-[#84105C] rounded-full text-sm '
+            : 'text-gray-300 w-24 p-4 bg-gray-100 rounded-full text-sm hover:opacity-[0.8] outline-none cursor-not-allowed'
         }
       >
         تایید
@@ -46,7 +46,7 @@ export function EntryChangesBtn() {
 
       <button
         onClick={() => setOpenLocation('opaciti-0 invisible')}
-        className='w-20 border p-3  bg-gray-200 rounded-lg text-sm'
+        className='w-24 border p-4  bg-gray-200 rounded-full text-sm'
       >
         انصراف
       </button>

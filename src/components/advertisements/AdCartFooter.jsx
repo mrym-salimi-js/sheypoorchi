@@ -3,7 +3,7 @@ import momentJalaali from 'moment-jalaali';
 momentJalaali.loadPersian({ usePersianDigits: true });
 
 export function AdCartFooter({ createAt, location }) {
-  console.log(location);
+  // console.log(location);
   return (
     <div className='w-[95%] flex flex-col items-center justify-center gap-3'>
       <div className='w-[80%] h-auto  px-1 flex justify-around items-center '>

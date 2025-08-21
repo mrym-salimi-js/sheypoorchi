@@ -6,6 +6,7 @@ import { useMutation } from '@tanstack/react-query';
 import createAd from '../../services/createAd';
 import formValidate from '../../utils/newAd/formValidate';
 import { clearPersistedState } from '../../store/store';
+import { ChevronLeft } from '../globals/Icons';
 
 export function SubmiteFormBtn({ userInfo }) {
   const { newAdStorageValue, setValidation, validation, setNotifToast } =
@@ -32,38 +33,31 @@ export function SubmiteFormBtn({ userInfo }) {
       }
       setIsSubmitting(false);
     },
-    onError: (error) => {
-      if (error.response) {
-        // پاسخ سرور با خطا
-        console.log('Status:', error.response.status);
-        console.log('Data:', error.response.data);
-        setNotifToast({
-          message: error.response.data?.message || 'خطای سرور',
-          status: 'fail',
-        });
-      } else if (error.request) {
-        // درخواست ارسال شد اما پاسخی نیامد
-        console.log('Request:', error.request);
-        setNotifToast({ message: 'عدم پاسخ از سرور', status: 'fail' });
-      } else {
-        // سایر خطاها
-        console.log('Error:', error.message);
-        setNotifToast({ message: error.message, status: 'fail' });
-      }
+    onError: () => {
+      setNotifToast({
+        message: 'خطای سرور',
+        status: 'fail',
+      });
       setIsSubmitting(false);
     },
   });
-
-  const handleFormSubmite = useCallback(async () => {
-    if (!newAdStorageValue) return;
-
-    formValidate(
-      (setVal) => {
-        setValidation(setVal);
-      },
-      newAdStorageValue,
-      validation
-    );
+  useCallback(() => {
+    const sending = async () => {
+      try {
+        const payload = await formData(newAdStorageValue, userInfo);
+        if (payload) {
+          mutation.mutate(payload);
+        } else {
+          setIsSubmitting(false);
+        }
+      } catch (err) {
+        setIsSubmitting(false);
+        setNotifToast({
+          message: 'خطا در آماده‌سازی داده‌ها',
+          status: 'fail',
+        });
+      }
+    };
 
     if (
       validation !== undefined &&
@@ -71,41 +65,41 @@ export function SubmiteFormBtn({ userInfo }) {
       Object.keys(validation).length > 0
     ) {
       return;
+    } else {
+      setIsSubmitting(true);
+      sending();
     }
+  }, [validation]);
 
-    setIsSubmitting(true);
+  const handleFormSubmite = async () => {
+    if (!newAdStorageValue) return;
 
-    try {
-      const payload = await formData(newAdStorageValue, userInfo);
-      if (payload) {
-        mutation.mutate(payload);
-      } else {
-        setIsSubmitting(false);
-      }
-    } catch (err) {
-      setIsSubmitting(false);
-      setNotifToast({
-        message: 'خطا در آماده‌سازی داده‌ها',
-        status: 'fail',
-      });
-    }
-  }, [newAdStorageValue, userInfo, validation, setValidation, mutation]);
+    await formValidate(
+      (setVal) => {
+        setValidation(setVal);
+      },
+      newAdStorageValue,
+      validation
+    );
+  };
 
   return (
-    <div className='w-full h-auto flex fixed right-0 bottom-0 lg:relative z-[10000] items-center justify-center p-2'>
-      {isSubmitting || mutation.isLoading ? (
-        <span className='w-full h-14 flex gap-3 justify-center items-center bg-[#84105ba7] cursor-grabbing rounded-lg'>
-          <p className='text-white text-sm'>در حال ثبت آگهی</p>
-          <SpinnerLoading />
-        </span>
-      ) : (
-        <span
-          onClick={handleFormSubmite}
-          className='w-full h-14 flex justify-center items-center bg-[#84105C] text-white cursor-pointer rounded-lg hover:opacity-[0.7]'
-        >
-          ثبت آگهی
-        </span>
-      )}
-    </div>
+    <button
+      onClick={handleFormSubmite}
+      type='button'
+      className='w-full h-auto bg-[#84105C] p-3 rounded-full flex items-center justify-around  hover:opacity-[0.9] shadow-md focus:outline-none'
+    >
+      <p className='w-[90%] text-sm text-white'>
+        {isSubmitting || mutation.isLoading ? 'درحال ثبت آگهی' : 'ثبت آگهی'}
+      </p>
+
+      <div className='rounded-full bg-[#89677f87] p-1 relative right-3 ml-2'>
+        {isSubmitting || mutation.isLoading ? (
+          <SpinnerLoading w={'w-5'} h={'h-5'} />
+        ) : (
+          <ChevronLeft color={'#ffffff'} strokeWidth={'1.5'} size={'size-5'} />
+        )}
+      </div>
+    </button>
   );
 }

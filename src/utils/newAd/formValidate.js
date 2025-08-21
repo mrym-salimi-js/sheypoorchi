@@ -1,6 +1,10 @@
 import { adFormValidation } from '../validation/adFormValidation';
 
-const formValidate = (setValidationCallback, newAdStorageValue, validation) => {
+const formValidate = async (
+  setValidationCallback,
+  newAdStorageValue,
+  validation
+) => {
   //Get Storage Parameters For Validation
   const formParams = [
     {
