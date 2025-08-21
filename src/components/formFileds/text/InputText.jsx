@@ -15,6 +15,7 @@ import {
   updateTitle,
 } from '../../../store/newAdSlice';
 import { formatPrice } from '../../../utils/globals/formatPrice';
+import { convertFaToEn } from '../../../utils/globals/convertFaToEn ';
 
 export default function InputText() {
   const {
@@ -122,7 +123,12 @@ export default function InputText() {
   const handleAfterChange = (inputTag) => {
     const pos = inputTag.selectionStart;
     setCursorPos(pos);
-    const formInputVal = inputTag.value;
+
+    // تبدیل اعداد فارسی به انگلیسی
+    const formInputVal =
+      valueType === 1 || valueType === 6 || valueType === 0
+        ? convertFaToEn(inputTag.value)
+        : inputTag.value;
 
     if (inputTag.value !== undefined) {
       setInputVal(inputTag.value);
