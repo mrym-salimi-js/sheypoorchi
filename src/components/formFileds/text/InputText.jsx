@@ -131,7 +131,7 @@ export default function InputText() {
         : inputTag.value;
 
     if (inputTag.value !== undefined) {
-      setInputVal(inputTag.value);
+      setInputVal(formInputVal);
     }
 
     if (type === 'filter') {
@@ -207,7 +207,7 @@ export default function InputText() {
           formatPrice(newAdStorageValue[storagePram][index]?.name, valueType)
         : formatPrice(newAdStorageValue[storagePram], valueType)
       : fieldVal !== undefined
-      ? formatPrice(fieldVal)
+      ? fieldVal
       : formatPrice(filterValue, valueType),
   };
 
