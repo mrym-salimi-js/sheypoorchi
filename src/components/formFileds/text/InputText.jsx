@@ -201,7 +201,7 @@ export default function InputText() {
           formatPrice(newAdStorageValue[storagePram][index]?.name, valueType)
         : formatPrice(newAdStorageValue[storagePram], valueType)
       : fieldVal !== undefined
-      ? fieldVal
+      ? formatPrice(fieldVal)
       : formatPrice(filterValue, valueType),
   };
 
