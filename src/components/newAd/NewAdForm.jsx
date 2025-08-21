@@ -202,6 +202,7 @@ export function NewAdForm({ userInfo }) {
                 }
                 filedType={'text'}
                 type={'newAd'}
+                valueType={0}
                 newAdStorageValue={newAdStorageValue}
               />
               <ToggleSwich
