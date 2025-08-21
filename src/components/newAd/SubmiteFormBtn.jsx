@@ -32,11 +32,24 @@ export function SubmiteFormBtn({ userInfo }) {
       }
       setIsSubmitting(false);
     },
-    onError: () => {
-      setNotifToast({
-        message: 'خطای شبکه یا سرور!',
-        status: 'fail',
-      });
+    onError: (error) => {
+      if (error.response) {
+        // پاسخ سرور با خطا
+        console.log('Status:', error.response.status);
+        console.log('Data:', error.response.data);
+        setNotifToast({
+          message: error.response.data?.message || 'خطای سرور',
+          status: 'fail',
+        });
+      } else if (error.request) {
+        // درخواست ارسال شد اما پاسخی نیامد
+        console.log('Request:', error.request);
+        setNotifToast({ message: 'عدم پاسخ از سرور', status: 'fail' });
+      } else {
+        // سایر خطاها
+        console.log('Error:', error.message);
+        setNotifToast({ message: error.message, status: 'fail' });
+      }
       setIsSubmitting(false);
     },
   });
