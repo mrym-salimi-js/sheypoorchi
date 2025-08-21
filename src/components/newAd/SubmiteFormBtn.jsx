@@ -1,4 +1,4 @@
-import { useContext, useState, useCallback } from 'react';
+import { useContext, useState, useEffect } from 'react';
 import { NewAdContext } from './NewAdForm';
 import { SpinnerLoading } from '../globals/SpinnerLoading';
 import formData from '../../utils/newAd/formData';
@@ -41,7 +41,7 @@ export function SubmiteFormBtn({ userInfo }) {
       setIsSubmitting(false);
     },
   });
-  useCallback(() => {
+  useEffect(() => {
     const sending = async () => {
       try {
         const payload = await formData(newAdStorageValue, userInfo);
@@ -60,20 +60,20 @@ export function SubmiteFormBtn({ userInfo }) {
     };
 
     if (
-      validation !== undefined &&
-      typeof validation === 'object' &&
-      Object.keys(validation).length > 0
+      validation === undefined ||
+      (typeof validation === 'object' &&
+        Object.entries(validation)?.length === 0)
     ) {
-      return;
+      isSubmitting && sending();
     } else {
-      setIsSubmitting(true);
-      sending();
+      setIsSubmitting(false);
+      return;
     }
-  }, [validation]);
+  }, [isSubmitting, validation]);
 
   const handleFormSubmite = async () => {
     if (!newAdStorageValue) return;
-
+    setIsSubmitting(true);
     await formValidate(
       (setVal) => {
         setValidation(setVal);
