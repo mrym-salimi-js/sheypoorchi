@@ -23,7 +23,7 @@ export function AdCart({ adItem }) {
       <div className='h-full flex  gap-2 items-center '>
         <AdCartPhoto photo={photo} href={href} />
 
-        <div className='flex w-[60%] h-[95%] flex-col gap-3 justify-between'>
+        <div className='flex w-[67%] h-[95%] flex-col gap-3 justify-between'>
           <AdCartTextContent
             title={title}
             cost={cost}

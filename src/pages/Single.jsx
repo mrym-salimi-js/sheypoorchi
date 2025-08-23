@@ -27,6 +27,12 @@ export default function Single() {
 
   error && console.dir(error);
 
+  // Save Home scroll and scroll to top of single page
+  useEffect(() => {
+    sessionStorage.setItem('scroll', window.scrollY);
+    window.scroll(0, 0);
+  }, []);
+
   return (
     <>
       {isLoading && <PageLoading />}
