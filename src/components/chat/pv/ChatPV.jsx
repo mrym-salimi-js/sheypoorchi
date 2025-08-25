@@ -21,7 +21,8 @@ export default function ChatPV({ user, pvShow, contactList }) {
   const msgInput = useRef();
   const fileInput = useRef();
   const params = useParams();
-  const adIdInParams = params.adId;
+  const adIdInParams =
+    messages.length > 0 ? messages[messages.length - 1]?.ad?._id : params.adId;
   const baseURL = import.meta.env.VITE_BASE_URL;
   const socketRef = useRef();
 
