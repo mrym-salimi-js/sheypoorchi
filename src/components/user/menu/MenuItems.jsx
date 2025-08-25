@@ -30,7 +30,7 @@ export default function MenuItems({ setOpenMenu }) {
           <Link
             key={index}
             onClick={() => {
-              setOpenMenu('translate-x-[85%]'),
+              setOpenMenu('translate-x-[89%]'),
                 i.label === 'خروج' && handleLogout();
             }}
             to={i.label !== 'خروج' && i.to}

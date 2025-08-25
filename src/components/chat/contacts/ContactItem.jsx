@@ -11,7 +11,6 @@ import { useEffect, useState } from 'react';
 
 export function ContactItem({ index, contactName, contact }) {
   const navigateTo = useNavigate();
-  const baseURL = import.meta.env.VITE_BASE_URL;
   // Open Chat PV
   const handleOpenChat = (id) => {
     navTo(`/messages/${id}`, '', navigateTo);
@@ -24,7 +23,7 @@ export function ContactItem({ index, contactName, contact }) {
   const { data: user } = useQuery({
     queryKey: ['user', userId],
     queryFn: () => getUserById(userId),
-    refetchInterval: 5000,
+    refetchInterval: true,
   });
 
   // Set User Status
@@ -32,6 +31,7 @@ export function ContactItem({ index, contactName, contact }) {
   useEffect(() => {
     user !== undefined && setStatus(user?.data?.status);
   }, [user]);
+
   return (
     <>
       <div
@@ -46,19 +46,15 @@ export function ContactItem({ index, contactName, contact }) {
                 status === `online` ? `bg-green-500 ` : `bg-gray-300`
               }`}
             ></span>
-            {contact.photo?.length > 0 ? (
+            {contact.photo !== undefined && contact?.photo?.length > 0 ? (
               <img
-                src={
-                  contact.photoPath === 'img'
-                    ? `${baseURL}/${contact.photoPath}/${contact.chatId}/${contact.photo[0].name}`
-                    : `${baseURL}/${contact.photoPath}/img/${contact.photo}`
-                }
-                className='w-full h-full  object-fill rounded-full'
+                src={`${contact?.photo[0]?.url}`}
+                className='w-12 h-12  object-cover rounded-full'
               />
             ) : (
               <img
                 src={defaultPrifile}
-                className='w-full h-full object-fill rounded-full'
+                className='w-12 h-12 object-cover rounded-full'
               />
             )}
           </div>

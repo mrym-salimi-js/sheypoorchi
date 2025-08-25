@@ -19,7 +19,7 @@ import { queryClient } from '../queryClient';
 
 // Get Some Data Of User Before Loading Its Page
 const dashboardLoader = async () => {
-  const [user, userAds, userChats, savedAds] = await Promise.all([
+  const [user, userAds, userChatContacts, savedAds] = await Promise.all([
     queryClient.fetchQuery({
       queryKey: ['user'],
       queryFn: getUser,
@@ -31,9 +31,8 @@ const dashboardLoader = async () => {
       staleTime: 5 * 60 * 1000,
     }),
     queryClient.fetchQuery({
-      queryKey: ['userChats'],
+      queryKey: ['userChatContacts'],
       queryFn: getChatContacts,
-      staleTime: 5 * 60 * 1000,
     }),
     queryClient.fetchQuery({
       queryKey: ['userSavedAds'],
@@ -41,7 +40,7 @@ const dashboardLoader = async () => {
       staleTime: 5 * 60 * 1000,
     }),
   ]);
-  return { user, userAds, userChats, savedAds };
+  return { user, userAds, userChatContacts, savedAds };
 };
 
 export const UserAccountRoute = [
@@ -64,11 +63,14 @@ export const UserAccountRoute = [
           {
             path: 'messages',
             element: <Messages />,
+            loader: dashboardLoader,
           },
           {
             path: 'messages/:adId',
             element: <Messages />,
+            loader: dashboardLoader,
           },
+
           {
             path: 'myProfile',
             element: <Profile />,

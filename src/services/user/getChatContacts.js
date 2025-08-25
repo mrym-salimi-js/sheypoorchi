@@ -2,6 +2,7 @@ import axios from 'axios';
 
 export const getChatContacts = async () => {
   const baseURL = import.meta.env.VITE_BASE_URL;
+
   try {
     const response = await axios.get(`${baseURL}/api/chat/chatContacts`, {
       withCredentials: true,

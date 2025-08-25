@@ -6,171 +6,190 @@ import { ChatHeader } from './ChatHeader';
 import { ChatContent } from './ChatContent';
 import ChatSender from './ChatSender';
 import { useParams } from 'react-router-dom';
-import { getUser } from '../../../services/user/getUser';
 import getChatMessages from '../../../services/user/getChatMessages';
+import { getAd } from '../../../services/getAd';
+import { useQuery } from '@tanstack/react-query';
+import { queryClient } from '../../../queryClient';
 
-export default function ChatPV({ pvShow, contactList }) {
+export default function ChatPV({ user, pvShow, contactList }) {
   const [messages, setMessages] = useState([]);
+  const [selectedFiles, setSelectedFiles] = useState();
+  const [senderId, setSenderId] = useState();
+  const [reciverId, setReciverId] = useState();
+  const [fileDlStatus, setFileDlStatus] = useState();
+
   const msgInput = useRef();
   const fileInput = useRef();
   const params = useParams();
   const adIdInParams = params.adId;
-  const [selectedAd, setSelectedAd] = useState();
-  const [selectedFiles, setSelectedFiles] = useState();
-  const [groupMsgs, setGroupMsgs] = useState();
-  const [senderId, setSenderId] = useState();
-  let reciverId;
-  let adId;
-
-  // Just for rerender page and change download Icon
-  const [fileDlStatus, setFileDlStatus] = useState();
-  console.log(fileDlStatus, 'downloaded file status');
-
   const baseURL = import.meta.env.VITE_BASE_URL;
-  // Backend url
-  const socket = io(`${baseURL}`);
+  const socketRef = useRef();
 
-  //Get AdId
-  const sa = selectedAd !== undefined && Object.entries(selectedAd);
-  console.log(selectedAd);
-  adId =
-    selectedAd !== undefined && selectedAd?.length > 0
-      ? sa[sa?.length - 1][1]._id
-      : adIdInParams;
-
-  // Get Each Message Text By every Sending
+  // Initialize socket once
   useEffect(() => {
-    socket.on('message', ({ adId, senderId, reciverId, message }) => {
-      setMessages((prevMsg) => [
-        ...prevMsg,
-        {
-          id: uuidv4(),
+    socketRef.current = io(baseURL);
+
+    return () => {
+      socketRef.current.disconnect();
+    };
+  }, [baseURL]);
+
+  // Fetch all messages & selected ad
+
+  const { data: chatMsg } = useQuery({
+    queryKey: ['chat', adIdInParams],
+    queryFn: () => getChatMessages(adIdInParams),
+    staleTime: 1000 * 60 * 5,
+    refetchOnMount: true,
+    enabled: !!adIdInParams,
+  });
+
+  const { data: adData } = useQuery({
+    queryKey: ['ad', adIdInParams],
+    queryFn: () => getAd(adIdInParams),
+    enabled: !!adIdInParams && chatMsg?.length === 0, // فقط وقتی پیام نیست
+  });
+
+  useEffect(() => {
+    if (chatMsg?.length > 0) {
+      setMessages(chatMsg);
+    }
+  }, [chatMsg]);
+
+  useEffect(() => {
+    if (chatMsg?.length === 0 && adData) {
+      // setSelectedAd([adData.data]);
+      const newItem = { ad: adData.data, messages: [] };
+      setMessages((prevMessages) => [...prevMessages, newItem]);
+    }
+  }, [chatMsg, adData]);
+
+  //  Check Messages Array For Sending Every Message
+  const checkMessgaesArray = (prevMsg, adId, newMessage) => {
+    const adIndex = prevMsg.findIndex((item) => item.ad._id === adId);
+    if (adIndex > -1) {
+      const updated = [...prevMsg];
+      updated[adIndex].messages = [...updated[adIndex].messages, newMessage];
+      return updated;
+    } else {
+      return [...prevMsg, { ad: { _id: adId }, messages: [newMessage] }];
+    }
+  };
+  useEffect(() => {
+    if (!socketRef.current) return;
+
+    const handleMessage = ({ adId, senderId, reciverId, message }) => {
+      setMessages((prevMsg) => {
+        const newMessage = {
+          _id: uuidv4(),
           senderId,
           reciverId,
           adId,
           message,
           type: 'text',
-        },
-      ]);
-    });
+          createAt: Date.now(),
+        };
+        return checkMessgaesArray(prevMsg, adId, newMessage);
+      });
 
-    return () => socket.off('message');
-  }, []);
+      queryClient.invalidateQueries(['chat', adIdInParams]);
+    };
 
-  // Get Each Message File By every Sending
-  useEffect(() => {
-    socket.on('file', ({ adId, senderId, reciverId, fileInfo }) => {
-      setMessages((prevMsg) => [
-        ...prevMsg,
-        {
+    const handleFile = ({ adId, senderId, reciverId, fileInfo }) => {
+      setMessages((prevMsg) => {
+        const newMessage = {
           id: uuidv4(),
           senderId,
           reciverId,
           adId,
           message: fileInfo.fileName,
           type: 'file',
-        },
-      ]);
-    });
+        };
 
-    return () => socket.off('file');
+        return checkMessgaesArray(prevMsg, adId, newMessage);
+      });
+      queryClient.invalidateQueries(['chat', adIdInParams]);
+    };
+
+    socketRef.current.on('message', handleMessage);
+    socketRef.current.on('file', handleFile);
+
+    return () => {
+      socketRef.current.off('message', handleMessage);
+      socketRef.current.off('file', handleFile);
+    };
   }, []);
 
-  // Get All Message Of Chat
+  // Set senderId
   useEffect(() => {
-    setMessages([]);
-    const getAllMsg = async () => {
-      const msgList = await getChatMessages(adIdInParams);
+    if (user) setSenderId(user._id);
+  }, [user]);
 
-      if (msgList) {
-        // setMessages([]);
-        msgList?.message?.map((item) => {
-          setMessages((prevMessages) => [...prevMessages, item]);
-        });
-        msgList.ad && setSelectedAd(msgList.ad);
-      }
-    };
-    getAllMsg();
-  }, [params]);
-
-  // Groped Messages For Use In Ad Host Chat
+  // Set reciverId
   useEffect(() => {
-    const separatedByAdId = messages?.reduce((acc, message) => {
-      if (!acc[message.adId]) {
-        acc[message.adId] = [];
-      }
-      acc[message.adId].push(message);
-      return acc;
-    }, {});
+    if (contactList) {
+      const found = contactList.find((con) => con.chatId === adIdInParams);
+      if (found) setReciverId(found.creatorId || found.chatId);
+    }
+  }, [contactList, adIdInParams]);
 
-    setGroupMsgs(separatedByAdId);
-  }, [messages]);
-
-  // Get  SenderId
-  useEffect(() => {
-    // UserId
-    const user = getUser();
-    user && setSenderId(user?._id);
-
-    getUser();
-  }, [params]);
-
-  // Get ReciverId
-  contactList !== undefined &&
-    contactList?.map((con) => {
-      if (con.chatId === adIdInParams) {
-        con.creatorId !== undefined
-          ? (reciverId = con.creatorId)
-          : (reciverId = con.chatId);
-      }
-    });
-
-  // Send Message
+  // Send message or file
   const handleSendingMsg = () => {
     const files = fileInput.current?.files;
-
     const message = msgInput.current?.value;
 
-    if (files.length > 0) {
-      Object.keys(files).forEach((item) => {
-        const file = files[item];
+    if (files?.length > 0) {
+      Array.from(files).forEach((file) => {
         const fileInfo = {
-          file: file,
+          file,
           fileName: file.name.replace(/ /g, '-'),
           size: file.size,
         };
-
-        senderId &&
-          reciverId &&
-          adId &&
-          socket.emit('uploadFile', { adId, senderId, reciverId, fileInfo });
-        const downloadeds = localStorage.getItem('downloadedFiles');
-        localStorage.setItem(
-          'downloadedFiles',
-          downloadeds ? [...[downloadeds], [file.name]] : [file.name]
-        );
+        if (senderId && reciverId && adIdInParams) {
+          socketRef.current.emit('uploadFile', {
+            adId: adIdInParams,
+            senderId,
+            reciverId,
+            fileInfo,
+          });
+        }
         setFileDlStatus(file.name);
-        setSelectedFiles('');
       });
+      setSelectedFiles('');
+      fileInput.current.value = '';
     }
 
-    message &&
-      socket.emit('sendMessage', { adId, senderId, reciverId, message });
-    msgInput.current.value = '';
-    fileInput.current.value = '';
-  };
+    if (message) {
+      setMessages((prevMsg) => {
+        const newMessage = {
+          id: uuidv4(),
+          senderId,
+          reciverId,
+          adId: adIdInParams,
+          message,
+          type: 'text',
+        };
+        return checkMessgaesArray(prevMsg, adIdInParams, newMessage);
+      });
 
-  // console.log(messages);
+      socketRef.current.emit('sendMessage', {
+        adId: adIdInParams,
+        senderId,
+        reciverId,
+        message,
+      });
+      msgInput.current.value = '';
+    }
+  };
 
   return (
     <div
-      className={` h-full  overflow-hidden justify-between  ${
+      className={`h-full overflow-hidden justify-between ${
         pvShow
-          ? `w-full lg:w-[70%] flex flex-col `
-          : `hidden lg:w-[70%] lg:flex flex-col `
+          ? 'w-full lg:w-[70%] flex flex-col'
+          : 'hidden lg:w-[70%] lg:flex flex-col'
       }`}
     >
-      {/* Sending File Protal */}
       {selectedFiles && (
         <SendFileProtalChildren
           selectedFiles={selectedFiles}
@@ -180,23 +199,13 @@ export default function ChatPV({ pvShow, contactList }) {
       )}
       {pvShow && (
         <>
-          {/*Chat Header */}
-          {contactList !== undefined && (
-            <ChatHeader contactList={contactList} />
-          )}
-          {/*Chat Content */}
+          {contactList && <ChatHeader contactList={contactList} />}
           <ChatContent
-            selectedAd={selectedAd}
             setFileDlStatus={setFileDlStatus}
-            messages={
-              selectedAd !== undefined && selectedAd.length > 0
-                ? groupMsgs
-                : messages
-            }
+            messages={messages}
             senderId={senderId}
+            user={user}
           />
-
-          {/*Message Sender Box */}
           <ChatSender
             setSelectedFiles={setSelectedFiles}
             fileInput={fileInput}

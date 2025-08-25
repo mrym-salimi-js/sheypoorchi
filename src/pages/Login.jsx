@@ -16,6 +16,7 @@ export default function Login() {
   const [loading, setLoading] = useState(false);
   const [notifToast, setNotifToast] = useState({ message: '', status: '' });
   const [inputVal, setInputVal] = useState();
+  const [sending, setSending] = useState(false);
 
   useEffect(() => {
     document.title = 'ورود کاربر';
@@ -37,6 +38,7 @@ export default function Login() {
         );
       } else {
         setInputVal(item.value);
+        setSending(!sending);
       }
     });
   };
@@ -80,7 +82,7 @@ export default function Login() {
     ) {
       sendForm();
     }
-  }, [inputVal]);
+  }, [sending]);
   const [passVis, setPassVis] = useState('password');
   // console.log(inputVal);
   return (
