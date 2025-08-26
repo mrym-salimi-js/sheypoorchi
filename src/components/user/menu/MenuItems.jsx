@@ -11,15 +11,15 @@ export default function MenuItems({ setOpenMenu }) {
   };
 
   const menuItems = [
-    { to: '/dashboard', icon: Home, label: 'پیشخوان' },
-    { to: '/myProfile', icon: User, label: 'پروفایل من' },
-    { to: '/myAds', icon: Speaker, label: 'آگهی های من' },
+    { to: '/account/dashboard', icon: Home, label: 'پیشخوان' },
+    { to: '/account/myProfile', icon: User, label: 'پروفایل من' },
+    { to: '/account/myAds', icon: Speaker, label: 'آگهی های من' },
     {
-      to: '/mySavedAds',
+      to: '/account/mySavedAds',
       icon: Saved,
       label: 'ذخیره ها',
     },
-    { to: '/messages', icon: Chat, label: 'پیام های من' },
+    { to: '/account/messages', icon: Chat, label: 'پیام های من' },
     { to: '/', icon: Logout, label: 'خروج' },
   ];
 

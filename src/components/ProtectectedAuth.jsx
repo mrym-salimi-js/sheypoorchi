@@ -12,7 +12,7 @@ export default function ProtectectedAuth({ path }) {
         await axios.get(`${baseURL}/api/users/me`, {
           withCredentials: true,
         });
-        path === 'dashboard' && navTo(`/${path}`, '', navigateTo);
+        path === '/account/dashboard' && navTo(`/${path}`, '', navigateTo);
       } catch (error) {
         error && navTo('/login', '', navigateTo);
       }

@@ -63,7 +63,7 @@ export default function Login() {
           sendForm.data.status === 'success' && Cookies.remove('user-pass'),
             // Cookies.set('user-Token', sendForm.data.token);
             await dashboardInvalidate(),
-            navTo('/dashboard', '', navigateTo);
+            navTo('/account/dashboard', '', navigateTo);
         }
       } catch (error) {
         setLoading(false);

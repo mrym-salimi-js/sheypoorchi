@@ -26,6 +26,10 @@ export default function ChatPV({ user, pvShow, contactList }) {
   const baseURL = import.meta.env.VITE_BASE_URL;
   const socketRef = useRef();
 
+  useEffect(() => {
+    setMessages([]);
+  }, [params.adId]);
+
   // Initialize socket once
   useEffect(() => {
     socketRef.current = io(baseURL);

@@ -2,8 +2,9 @@ import { useLoaderData } from 'react-router-dom';
 import { Chat, Clock, Saved, Speaker } from '../globals/Icons';
 
 export default function ReviewAccount() {
-  const { user, userAds, userChats, savedAds } = useLoaderData();
-  const date = new Date(user?.createAt);
+  const { user, userAds, userChatContacts, savedAds } = useLoaderData();
+
+  const date = new Date(user.user?.createAt);
   const options = {
     weekday: 'long',
     day: 'numeric',
@@ -24,24 +25,24 @@ export default function ReviewAccount() {
           <span className='w-11 h-11 rounded-xl bg-[#ffffffa1] flex items-center justify-center'>
             <Speaker color={'#93c5fd'} size={'size-8'} />
           </span>
-          {userAds?.result
-            ? `${userAds.result} آگهی منتشر کردید`
+          {userAds?.userAds
+            ? `${userAds.userAds?.length} آگهی منتشر کردید`
             : `هنوز آگهی منتشر نکردید :(`}
         </p>
         <p className='w-full  h-32 p-4 text-center flex flex-col gap-4 items-start text-[0.8rem] text-pink-600 bg-pink-300 rounded-3xl shadow-md'>
           <span className='w-11 h-11 rounded-xl bg-[#ffffffa1] flex items-center justify-center'>
             <Chat color={'#f9a8d4'} size={'size-8'} />
           </span>
-          {userChats?.result
-            ? `${userChats.result} چت در صندوق پیام دارید`
+          {userChatContacts?.userChatContacts
+            ? `${userChatContacts?.userChatContacts?.result} چت در صندوق پیام دارید`
             : ` هنوز پیامی ندارید :(`}
         </p>
         <p className='w-full  h-32 p-4 text-center flex flex-col gap-4 items-start  text-[0.8rem]  text-green-600 bg-green-300 rounded-3xl shadow-md'>
           <span className='w-11 h-11 rounded-xl bg-[#ffffffa1] flex items-center justify-center'>
             <Saved fill={'#86efac'} size={'size-8'} />
           </span>
-          {savedAds?.length > 0
-            ? `${user.savedAd?.length}   آگهی ذخیره دارید `
+          {savedAds?.savedAds
+            ? `${savedAds.savedAds.length}   آگهی ذخیره دارید `
             : `هنوز آگهی ذخیره نکردید :(`}
         </p>
       </div>

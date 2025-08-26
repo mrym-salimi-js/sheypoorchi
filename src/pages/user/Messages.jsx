@@ -8,10 +8,12 @@ export default function Messages() {
   const [contacts, setContacts] = useState([]);
   const params = useParams();
 
-  const { userChatContacts, user } = useLoaderData();
+  const { user, userChatContacts } = useLoaderData();
   useEffect(() => {
     params && params.adId ? setPvShow(true) : setPvShow(false);
   }, [params]);
+
+  // console.log(userChatContacts, user);
   return (
     <div className='w-full  h-full md:w-[66%]  lg:w-[76%] xl:w-[81%]  p-4'>
       {/*Chat Box */}
@@ -19,14 +21,14 @@ export default function Messages() {
         {/*Chat PV*/}
         <ChatPV
           pvShow={pvShow}
-          user={user}
+          user={user?.user}
           contactList={contacts.length > 0 ? contacts : userChatContacts?.data}
         />
         {/*Contacts List */}
         <ContactsList
           setContacts={setContacts}
           contacts={contacts}
-          contactList={userChatContacts?.data}
+          contactList={userChatContacts?.userChatContacts?.data}
           pvShow={pvShow}
           setPvShow={setPvShow}
         />

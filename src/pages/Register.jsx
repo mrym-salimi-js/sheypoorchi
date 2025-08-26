@@ -17,6 +17,7 @@ export default function Register() {
 
   const [notifToast, setNotifToast] = useState({ message: '', status: '' });
   const [inputVal, setInputVal] = useState();
+  const [sending, setSending] = useState(false);
 
   useEffect(() => {
     document.title = 'ثبت نام کاربر';
@@ -38,11 +39,11 @@ export default function Register() {
         );
       } else {
         setInputVal(item.value);
+        setSending(!sending);
       }
     });
   };
-
-  // send form data
+  //send form data
   useEffect(() => {
     const sendForm = async () => {
       try {
@@ -57,7 +58,7 @@ export default function Register() {
         if (sendForm !== undefined) {
           sendForm.data.status === 'success' && Cookies.remove('user-pass'),
             Cookies.set('user-Token', sendForm.data.token);
-          navTo('/dashboard', '', navigateTo);
+          navTo('/account/dashboard', '', navigateTo);
         }
       } catch (error) {
         setLoading(false);
@@ -68,15 +69,17 @@ export default function Register() {
           });
       }
     };
+
     if (
       inputVal &&
-      ((validation && Object?.keys(validation)?.length == 0) ||
+      ((validation && Object?.keys(validation)?.length === 0) ||
         validation === undefined)
     ) {
       sendForm();
     }
-  }, [inputVal]);
+  }, [sending]);
 
+  const [passVis, setPassVis] = useState('password');
   return (
     <>
       {notifToast.message && (
@@ -101,6 +104,8 @@ export default function Register() {
         loading={loading}
         otherLink={[{ label: 'قبلا ثبت نام کردی؟', link: '/login' }]}
         btnLabel={'ثبت نام'}
+        passVis={passVis}
+        setPassVis={setPassVis}
       />
     </>
   );

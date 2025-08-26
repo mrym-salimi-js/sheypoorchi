@@ -31,7 +31,7 @@ export default function CurrentTime() {
   }, []);
 
   return (
-    <div className='w-full h-auto p-6 border border-blue-100 rounded-3xl bg-white flex justify-between items-center'>
+    <div className='w-full xl:w-[40%] h-auto p-6 border border-blue-100 rounded-3xl bg-white flex justify-between items-center'>
       <div className='w-auto h-auto p-2 flex flex-col gap-3 items-end'>
         <p
           dir='ltr'

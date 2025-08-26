@@ -18,7 +18,9 @@ export default function ContactsList({
   useEffect(() => {
     const getAdById = async () => {
       const res = await getAd(params.adId);
-
+      // find existed contact
+      const exists = contactList.some((chat) => chat.chatId === res.data._id);
+      if (exists) return;
       setNewContact([
         {
           chatId: res.data._id,
@@ -74,19 +76,6 @@ export default function ContactsList({
           پیامی یافت نشد :(
         </p>
       )}
-
-      {/* {newContact.length > 0 &&
-        newContact?.map((contact, index) => {
-          return (
-            <ContactItem
-              key={index}
-              index={index}
-              contactName={contactName}
-              contact={contact}
-              setPvShow={setPvShow}
-            />
-          );
-        })} */}
     </div>
   );
 }

@@ -26,7 +26,7 @@ export function Connections() {
     const user = await getUser();
     // console.log(user);
     user !== 'fail'
-      ? navTo(`/messages/${_id}`, null, navigateTo)
+      ? navTo(`/account/messages/${_id}`, null, navigateTo)
       : navTo(`/login`, null, navigateTo);
   };
   return (

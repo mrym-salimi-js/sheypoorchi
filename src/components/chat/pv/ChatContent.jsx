@@ -6,7 +6,6 @@ import momentJalaali from 'moment-jalaali';
 momentJalaali.loadPersian({ usePersianDigits: true });
 
 export function ChatContent({ setFileDlStatus, messages, senderId, user }) {
-  console.log(messages);
   const scrollRef = useRef();
 
   // Auto Scroll Down In Caht
@@ -147,7 +146,7 @@ export function ContentFileItem({ item, handleDownloadFile, user }) {
           </p>
         </div>
         <p className='text-[0.6rem] text-gray-300 self-start '>
-          {momentJalaali(item.createAt).locale('fa').fromNow()}
+          {momentJalaali(item.createAt).format('HH:mm')}
         </p>
       </div>
 
@@ -173,12 +172,14 @@ export function ContentTextItem({ item, user }) {
           : `self-end bg-[rgb(43,58,62)] text-white `
       } max-w-[80%]  p-3 rounded-2xl justify-between flex gap-2  shadow-sm `}
     >
-      <p className='max-w-[80%] overflow-hidden text-[0.7rem] text-wrap'>
-        {item.message}
-      </p>
-      <p className='text-[0.6rem] text-gray-300 self-end'>
-        {momentJalaali(item.createAt).locale('fa').fromNow()}
-      </p>
+      <div className='w-full h-auto flex flex-col gap-2'>
+        <p className='max-w-[80%] overflow-hidden text-[0.7rem] text-wrap'>
+          {item.message}
+        </p>
+        <p className='text-[0.6rem] text-gray-300 self-end'>
+          {momentJalaali(item.createAt).format('HH:mm')}
+        </p>
+      </div>
       <span
         className={`
           ${

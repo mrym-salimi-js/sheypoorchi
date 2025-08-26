@@ -17,74 +17,101 @@ const Profile = lazy(() => import('../pages/user/Profile'));
 
 import { queryClient } from '../queryClient';
 
-// Get Some Data Of User Before Loading Its Page
-const dashboardLoader = async () => {
+export const userLoader = async () => {
+  const user = await queryClient.fetchQuery({
+    queryKey: ['user'],
+    queryFn: getUser,
+  });
+  return { user };
+};
+
+export const userAdsLoader = async () => {
+  const userAds = await queryClient.fetchQuery({
+    queryKey: ['userAds'],
+    queryFn: getUserAds,
+    staleTime: 5 * 60 * 1000,
+  });
+  return { userAds };
+};
+export const userChatContactsLoader = async () => {
+  const userChatContacts = await queryClient.fetchQuery({
+    queryKey: ['userChatContacts'],
+    queryFn: getChatContacts,
+  });
+  return { userChatContacts };
+};
+export const savedAdsLoader = async () => {
+  const savedAds = await queryClient.fetchQuery({
+    queryKey: ['userSavedAds'],
+    queryFn: getSavedAds,
+    staleTime: 5 * 60 * 1000,
+  });
+  return { savedAds };
+};
+export const chatPageLoader = async () => {
+  const [user, userChatContacts] = await Promise.all([
+    userLoader(),
+
+    userChatContactsLoader(),
+  ]);
+  return { user, userChatContacts };
+};
+export const dashboardLoader = async () => {
   const [user, userAds, userChatContacts, savedAds] = await Promise.all([
-    queryClient.fetchQuery({
-      queryKey: ['user'],
-      queryFn: getUser,
-      staleTime: 5 * 60 * 1000,
-    }),
-    queryClient.fetchQuery({
-      queryKey: ['userAds'],
-      queryFn: getUserAds,
-      staleTime: 5 * 60 * 1000,
-    }),
-    queryClient.fetchQuery({
-      queryKey: ['userChatContacts'],
-      queryFn: getChatContacts,
-    }),
-    queryClient.fetchQuery({
-      queryKey: ['userSavedAds'],
-      queryFn: getSavedAds,
-      staleTime: 5 * 60 * 1000,
-    }),
+    userLoader(),
+    userAdsLoader(),
+    userChatContactsLoader(),
+    savedAdsLoader(),
   ]);
   return { user, userAds, userChatContacts, savedAds };
 };
 
 export const UserAccountRoute = [
   {
-    element: (
-      <SuspenseWrapper>
-        <ProtectectedAuth />
-      </SuspenseWrapper>
-    ),
+    element: <ProtectectedAuth />,
     children: [
       {
         element: <Account />,
-        loader: dashboardLoader,
+        path: 'account',
         children: [
           {
             path: 'dashboard',
-            element: <Dashboard />,
+            element: (
+              <SuspenseWrapper>
+                <Dashboard />
+              </SuspenseWrapper>
+            ),
             loader: dashboardLoader,
           },
           {
             path: 'messages',
             element: <Messages />,
-            loader: dashboardLoader,
+            loader: chatPageLoader,
           },
           {
             path: 'messages/:adId',
             element: <Messages />,
-            loader: dashboardLoader,
+            loader: chatPageLoader,
           },
 
           {
             path: 'myProfile',
-            element: <Profile />,
-            loader: dashboardLoader,
+            element: (
+              <SuspenseWrapper>
+                <Profile />
+              </SuspenseWrapper>
+            ),
+            loader: userLoader,
           },
           {
             path: 'myAds',
             element: <MyAds />,
-            loader: dashboardLoader,
+            loader: userAdsLoader,
           },
           {
             path: 'mySavedAds',
             element: <MySavedAds />,
-            loader: dashboardLoader,
+            loader: savedAdsLoader,
           },
         ],
       },

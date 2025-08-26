@@ -39,7 +39,7 @@ export default function NavBar() {
         </li>
         <li className='nav-li h-full flex items-center  cursor-pointer '>
           <Link
-            to={'/dashboard'}
+            to={'/account/dashboard'}
             onClick={(event) => {
               navIconSelected(event.currentTarget);
             }}

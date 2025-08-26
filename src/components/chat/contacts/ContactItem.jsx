@@ -13,9 +13,10 @@ export function ContactItem({ index, contactName, contact }) {
   const navigateTo = useNavigate();
   // Open Chat PV
   const handleOpenChat = (id) => {
-    navTo(`/messages/${id}`, '', navigateTo);
+    navTo(`/account/messages/${id}`, '', navigateTo);
   };
 
+  console.log(contact);
   // Get User
   const userId =
     contact?.creatorId !== undefined ? contact?.creatorId : contact?.chatId;
@@ -64,7 +65,7 @@ export function ContactItem({ index, contactName, contact }) {
               {contact.adName}
             </p>
             <p className='text-[0.6rem] text-gray-400 self-end'>
-              {momentJalaali(contact.createAt).locale('fa').fromNow()}
+              {momentJalaali(contact.createAt).format('HH:mm')}
             </p>
           </div>
         </div>
