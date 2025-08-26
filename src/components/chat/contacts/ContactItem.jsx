@@ -16,7 +16,6 @@ export function ContactItem({ index, contactName, contact }) {
     navTo(`/account/messages/${id}`, '', navigateTo);
   };
 
-  console.log(contact);
   // Get User
   const userId =
     contact?.creatorId !== undefined ? contact?.creatorId : contact?.chatId;
