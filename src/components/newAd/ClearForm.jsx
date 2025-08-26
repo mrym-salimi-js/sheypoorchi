@@ -7,14 +7,18 @@ import { unlockBodyScroll } from '../../utils/globals/unlockBodyScroll';
 
 export function ClearForm() {
   const { setValidation } = useContext(NewAdContext);
-  const [clearingFormAlarm, setClearingFormAlarm] = useState(false);
+  const [clearingFormAlarm, setClearingFormAlarm] = useState(
+    'opacity-0 invisible'
+  );
 
   const handleClearingFormAsk = () => {
-    setClearingFormAlarm(true);
+    setClearingFormAlarm('opacity-1 visible');
   };
 
   useEffect(() => {
-    clearingFormAlarm ? lockBodyScroll() : unlockBodyScroll();
+    clearingFormAlarm?.includes('visible')
+      ? lockBodyScroll()
+      : unlockBodyScroll();
   }, [clearingFormAlarm]);
 
   return (
@@ -30,27 +34,41 @@ export function ClearForm() {
         <ClearingFormAskBox
           setClearingFormAlarm={setClearingFormAlarm}
           setValidation={setValidation}
+          clearingFormAlarm={clearingFormAlarm}
         />
       )}
     </>
   );
 }
-export function ClearingFormAskBox({ setClearingFormAlarm, setValidation }) {
+export function ClearingFormAskBox({
+  setClearingFormAlarm,
+  setValidation,
+  clearingFormAlarm,
+}) {
   const handleClrearingForm = () => {
     clearPersistedState();
 
     setValidation(undefined);
-    setClearingFormAlarm(false);
+    setClearingFormAlarm('opacity-0 invisible');
     localStorage.setItem('coordinate', JSON.stringify([]));
 
     window.location.reload();
   };
   const handleCloseClearingForm = () => {
-    setClearingFormAlarm(false);
+    setClearingFormAlarm('opacity-0 invisible');
   };
+
   return (
-    <div className='w-full h-full flex flex-col items-center justify-end lg:justify-center fixed top-0 right-0 bg-[#7e7e7ed1] z-[100000] '>
-      <div className='w-full md:w-[75%] lg:w-[40%] relative bottom-0 rounded-t-3xl flex flex-col gap-5 p-8 bg-white lg:rounded-3xl'>
+    <div
+      className={`w-full h-full flex flex-col items-center justify-end lg:justify-center fixed top-0 right-0 bg-[#7e7e7ed1] z-[100000] transition-opacity duration-1000 ease-in-out  ${clearingFormAlarm}`}
+    >
+      <div
+        className={`w-full md:w-[75%] lg:w-[40%] relative bottom-0 rounded-t-3xl flex flex-col gap-5 p-8 bg-white lg:rounded-3xl duration-1000 ease-in-out z-[1000000]  ${
+          !clearingFormAlarm.includes('invisible')
+            ? `translate-y-0`
+            : `translate-y-full`
+        }    `}
+      >
         <div className='w-12 h-1 bg-[#ecececa2] rounded-full self-center lg:hidden absolute top-4'></div>
         <div className='flex justify-between items-center pb-5 border-b'>
           <p className='text-lg '>پاک کردن فرم</p>
@@ -72,7 +90,7 @@ export function ClearingFormAskBox({ setClearingFormAlarm, setValidation }) {
         </div>
 
         <p className='text-md'>آیا از پاک کردن فرم اطمینان دارید؟</p>
-        <div className='w-full flex justify-center lg:justify-end gap-3'>
+        <div className='w-full flex justify-center lg:justify-end gap-3 '>
           <p
             onClick={handleClrearingForm}
             className='w-1/2 lg:w-auto p-5 hover:opacity-[0.7] text-center leading-3 rounded-full bg-[#84105C] text-sm text-white cursor-pointer'
