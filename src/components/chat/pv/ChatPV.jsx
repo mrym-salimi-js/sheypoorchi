@@ -189,10 +189,10 @@ export default function ChatPV({ user, pvShow, contactList }) {
 
   return (
     <div
-      className={`h-full overflow-hidden justify-between ${
+      className={`h-[95vh] overflow-hidden justify-between ${
         pvShow
-          ? 'w-full lg:w-[70%] flex flex-col'
-          : 'hidden lg:w-[70%] lg:flex flex-col'
+          ? 'w-full h-full lg:w-[70%] flex flex-col'
+          : 'hidden  lg:w-[70%] lg:flex flex-col'
       }`}
     >
       {selectedFiles && (

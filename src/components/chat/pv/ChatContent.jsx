@@ -173,7 +173,7 @@ export function ContentTextItem({ item, user }) {
       } max-w-[80%]  p-3 rounded-2xl justify-between flex gap-2  shadow-sm `}
     >
       <div className='w-full h-auto flex flex-col gap-2'>
-        <p className='max-w-[80%] overflow-hidden text-[0.7rem] text-wrap'>
+        <p className='w-full overflow-hidden text-[0.7rem] text-wrap'>
           {item.message}
         </p>
         <p className='text-[0.6rem] text-gray-300 self-end'>
