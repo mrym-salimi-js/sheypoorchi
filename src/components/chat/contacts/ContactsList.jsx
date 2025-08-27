@@ -53,7 +53,7 @@ export default function ContactsList({
 
   return (
     <div
-      className={`p-2 h-full gap-2 overflow-scroll rounded-3xl border-r bg-white ${
+      className={`p-2 min-h-full gap-2 overflow-scroll rounded-3xl border-r bg-white ${
         pvShow
           ? `hidden lg:w-[30%] lg:flex lg:flex-col `
           : `w-full lg:w-[30%] flex flex-col `

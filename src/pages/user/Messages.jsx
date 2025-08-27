@@ -15,9 +15,9 @@ export default function Messages() {
 
   // console.log(userChatContacts, user);
   return (
-    <div className='w-full h-full md:w-[66%]  lg:w-[76%] xl:w-[81%]  p-4'>
+    <div className='w-full min-h-[95vh] md:w-[66%]  lg:w-[76%] xl:w-[81%]  p-4'>
       {/*Chat Box */}
-      <div className='w-full h-full flex bg-transparent rounded-3xl border relative  overflow-hidden '>
+      <div className='w-full min-h-[95vh] flex bg-transparent rounded-3xl border relative  overflow-hidden '>
         {/*Chat PV*/}
         <ChatPV
           pvShow={pvShow}
