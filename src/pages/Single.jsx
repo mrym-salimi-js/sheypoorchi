@@ -11,13 +11,11 @@ import NavBar from '../components/NavBar';
 import { getCost } from '../utils/advertisements/getCost';
 import { useQuery } from '@tanstack/react-query';
 import PageLoading from '../components/globals/PageLoading';
-import { updateUserStatus } from '../services/user/updateUserStatus';
 import { Footer } from '../components/Footer';
 
 export const SingleContext = createContext();
 
 export default function Single() {
-  updateUserStatus();
   const params = useParams();
   const id = params.id;
   const { data, error, isLoading } = useQuery({

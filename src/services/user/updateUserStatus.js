@@ -1,13 +1,13 @@
 import axios from 'axios';
 
-export const updateUserStatus = async () => {
+export const updateUserStatus = async (status) => {
   const baseURL = import.meta.env.VITE_BASE_URL;
 
   try {
-    const response = await axios.get(`${baseURL}/api/users/status`, {
+    const response = await axios.get(`${baseURL}/api/users/status/${status}`, {
       withCredentials: true,
     });
-    // console.log(response);
+
     return response?.data.status;
   } catch (error) {
     return error?.response?.data.status;

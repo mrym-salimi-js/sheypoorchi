@@ -5,7 +5,6 @@ import { useParams } from 'react-router-dom';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Header } from '../components/header/Header';
 import { navTo } from '../utils/globals/navTo';
-import { updateUserStatus } from '../services/user/updateUserStatus';
 import { useAdsByUrlChange } from '../hooks/useAdsByUrlChange';
 import { useUrlSearchParam } from '../hooks/useUrlSearchParam';
 import { useNavToByCityChange } from '../hooks/useNavToByCityChange';
@@ -19,7 +18,6 @@ import { Footer } from '../components/Footer';
 
 export const HomeContext = createContext();
 export default function Home() {
-  updateUserStatus();
   const navigateTo = useNavigate();
   const params = useParams();
   const locationUrl = useLocation();
