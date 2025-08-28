@@ -42,6 +42,19 @@ A Sheypoor-like online classifieds site built with **React (Frontend)** and **Ex
 
 ---
 
+## 📄 License | مجوز
+
+This project is licensed under the MIT License.  
+
+این پروژه تحت مجوز MIT منتشر شده است.
+
+See the [LICENSE](./LICENSE) file for more details.  
+
+برای جزئیات بیشتر، فایل [LICENSE](./LICENSE) را ببینید.
+
+---
+
+
 ## 🚀 Getting Started | شروع به کار
 
 Clone the repository and install dependencies:  
