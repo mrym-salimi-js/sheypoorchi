@@ -1,7 +1,7 @@
 # Sheypoorchi | شیپورچی
 
 A Sheypoor-like classifieds platform built with **React (Frontend)** and **Express (Backend)**.  
-یک پلتفرم آگهی شبیه شیپور که با **React در فرانت‌اند** و **Express در بک‌اند** ساخته شده است.
+یک سایت آگهی آنلاین شبیه شیپور که با **React در فرانت‌اند** و **Express در بک‌اند** ساخته شده است.
 
 ---
 
@@ -16,8 +16,8 @@ A Sheypoor-like classifieds platform built with **React (Frontend)** and **Expre
 - User authentication (login/register)  
   احراز هویت کاربران (ورود / ثبت‌نام)
 
-- Post and manage ads  
-  ارسال و مدیریت آگهی‌ها
+- Register new ads  
+  ثبت آگهی‌های جدید
 
 - Filter and search by city, province, and category  
   فیلتر و جستجو بر اساس شهر، استان و دسته‌بندی
@@ -35,7 +35,7 @@ A Sheypoor-like classifieds platform built with **React (Frontend)** and **Expre
 
 ## 🛠 Tech Stack | تکنولوژی‌ها
 
-- **Frontend | فرانت‌اند:** React, Redux, React Query, React Router, TailwindCSS, Vite  
+- **Frontend | فرانت‌اند:** React, Redux, React Query, React Router, TailwindCSS, Vite etc.
 - **Backend | بک‌اند:** Node.js, Express, MongoDB, JWT  
 - **Deployment | دیپلوی:** Vercel (frontend), Liara (backend)  
 
