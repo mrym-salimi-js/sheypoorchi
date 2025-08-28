@@ -1,6 +1,7 @@
 # Sheypoorchi | شیپورچی
 
-A Sheypoor-like classifieds platform built with **React (Frontend)** and **Express (Backend)**.  
+A Sheypoor-like online classifieds site built with **React (Frontend)** and **Express (Backend)**.  
+
 یک سایت آگهی آنلاین شبیه شیپور که با **React در فرانت‌اند** و **Express در بک‌اند** ساخته شده است.
 
 ---
