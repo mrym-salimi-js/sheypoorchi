@@ -104,29 +104,25 @@ export function ChatContent({ setFileDlStatus, messages, senderId, user }) {
 }
 
 export function ContentFileItem({ item, handleDownloadFile, user }) {
-  const baseURL = import.meta.env.VITE_BASE_URL;
+  // const baseURL = import.meta.env.VITE_BASE_URL;
   return (
     <li
       className={`${
         user?._id === item.senderId
           ? `self-start bg-gray-100 `
           : `self-end bg-[rgb(43,58,62)] text-white `
-      }  max-w-[80%] h-22 p-2 rounded-2xl flex flex-row-reverse gap-3  shadow-sm `}
+      }  max-w-[80%] h-22 p-2 px-3 rounded-2xl flex flex-row gap-3  shadow-sm `}
     >
       {/* File Icin */}
       <a
         onClick={(event) => handleDownloadFile(event)}
-        className=' h-14 w-14 rounded-2xl border-r-[#ebebeb70] border-r-[4px] bg-[#b1bab270]  flex items-center justify-center'
-        href={`${baseURL}/chat/${item.senderId}-${item.reciverId}-${
-          item.adId
-        }/${decodeURI(item.message).replace(/ /g, '-')}`}
+        className=' h-14 w-14 rounded-2xl border-r-[#ebebeb70] border-r-[4px] bg-[#b1bab270]  flex items-center justify-center overflow-hidden'
+        href={item.message}
         download={item.message}
       >
         {!localStorage.getItem('downloadedFiles')?.includes(item.message) && (
           <ArrowDown size={'size-6'} color={'#ffffff'} stroke={2} />
         )}
-
-        {/* {fileDlStatus === 'loading' && <SpinnerLoading />} */}
 
         {localStorage.getItem('downloadedFiles')?.includes(item.message) && (
           <Document size={'size-6'} color={'#ffffff'} stroke={2} />
@@ -134,7 +130,7 @@ export function ContentFileItem({ item, handleDownloadFile, user }) {
       </a>
       {/* File Info */}
       <div className='flex flex-col gap-1 '>
-        <p className='text-[0.7rem]'>{item.message}</p>
+        <p className='text-[0.7rem]'>{item.message.split('_').pop()}</p>
         <div className='flex gap-2 flex-row-reverse'>
           <p className='text-gray-500 text-[0.6rem]'>
             {item.size?.toString()?.split('')?.map(Number).length > 6

@@ -107,7 +107,7 @@ export default function ChatPV({ user, pvShow, contactList }) {
           senderId,
           reciverId,
           adId,
-          message: fileInfo.fileName,
+          message: fileInfo.url,
           type: 'file',
         };
 

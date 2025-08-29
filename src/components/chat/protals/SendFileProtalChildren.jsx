@@ -12,7 +12,7 @@ export function SendFileProtalChildren({
   };
   return (
     <ProtalMatch>
-      <div className='w-[90%] md:w-[40%]  rounded-2xl shadow-sm bg-white flex flex-col  p-4 z-10'>
+      <div className='w-[90%] md:w-[40%]  rounded-2xl shadow-sm bg-white flex flex-col  p-4 '>
         {/*Protal Header */}
         <div className='w-full flex items-center justify-between mb-3'>
           <div className='flex gap-3 items-center'>
