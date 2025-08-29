@@ -4,7 +4,7 @@ export const updateUserStatus = async (status) => {
   const baseURL = import.meta.env.VITE_BASE_URL;
 
   try {
-    const response = await axios.get(`${baseURL}/api/users/status/${status}`, {
+    const response = await axios.post(`${baseURL}/api/users/status/${status}`, {
       withCredentials: true,
     });
 
