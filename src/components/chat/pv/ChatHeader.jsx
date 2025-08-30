@@ -77,7 +77,7 @@ export function ChatHeader({ contactList }) {
           <p className='text-[0.8rem] '>{contact && contact?.adName}</p>
 
           <p className={`text-gray-300 text-[0.7rem]`}>
-            {status === 'onlone'
+            {status === 'online'
               ? 'انلاین'
               : `اخرین بازدید  ${momentJalaali(user?.data?.lastSeen).format(
                   'HH:mm'
