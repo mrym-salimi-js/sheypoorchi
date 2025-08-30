@@ -52,6 +52,7 @@ export function ChatHeader({ contactList }) {
     queryFn: () => getUserById(userId),
     enabled: userId !== undefined, // This enables the query only if userId is not undefined
     refetchInterval: true,
+    staleTime: 2 * 60 * 1000,
   });
 
   // Set User Status

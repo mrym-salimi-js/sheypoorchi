@@ -1,4 +1,4 @@
-import { Outlet, useLocation } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 import Menu from '../../components/user/menu/Menu';
 import { updateUserStatus } from '../../services/user/updateUserStatus';
 import { useEffect } from 'react';
