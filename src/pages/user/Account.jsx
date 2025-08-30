@@ -4,18 +4,17 @@ import { updateUserStatus } from '../../services/user/updateUserStatus';
 import { useEffect } from 'react';
 
 export default function Account() {
-  const location = useLocation();
-
   useEffect(() => {
     updateUserStatus('online');
     const handleBeforeUnload = () => {
-      updateUserStatus('offline');
+      updateUserStatus('offline', true);
     };
     window.addEventListener('beforeunload', handleBeforeUnload);
     return () => {
       window.removeEventListener('beforeunload', handleBeforeUnload);
+      updateUserStatus('offline');
     };
-  }, [location.pathname]);
+  }, []);
 
   return (
     <>
